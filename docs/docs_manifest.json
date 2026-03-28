@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T01:13:44Z",
+  "generated_at": "2026-03-28T01:16:28Z",
   "tool": "scripts/fetch_openai_docs.py",
   "strict_fetch": false,
   "sources": [
@@ -29,1379 +29,1379 @@
       "url": "https://developers.openai.com/api/docs/actions/actions-library.md",
       "sha256": "ed1911b33eef64ae1727b976181141035cf4a35ed1d59a51f6e5713d5441b3e0",
       "bytes": 3700,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/actions/authentication.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/actions/authentication.md",
       "sha256": "67dea18a6bb579e0e3e78c92c9fade273cb708357d792eff01070558d6195dba",
       "bytes": 4186,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/actions/data-retrieval.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/actions/data-retrieval.md",
       "sha256": "6b5fa238d165fd4a52648fb255dec00d5f81a9da3349469e222631cb946732dd",
       "bytes": 7150,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/actions/getting-started.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/actions/getting-started.md",
       "sha256": "2acde72bd27f7d706ca6d4a33a07eb3f747fd0a4ad1f35ca8ac01567386607a5",
       "bytes": 13809,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/actions/introduction.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/actions/introduction.md",
       "sha256": "acfd694083fc03df9b29b048e18cc70de3cfd06f4aedf7126dd03fb5c4797730",
       "bytes": 3909,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/actions/production.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/actions/production.md",
       "sha256": "e85a51d374fe21b6c947e9fac17250fe7a10738ac6f1b95ba0cef4c90754b3b3",
       "bytes": 4738,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/actions/sending-files.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/actions/sending-files.md",
       "sha256": "d87485bff132109d5c68289924d7afc101dc57ddf65a106962dd813a6ae40eb1",
       "bytes": 6890,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/assistants/deep-dive.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/assistants/deep-dive.md",
       "sha256": "f4b2fbb67afe1ad465c7a7733201dedee1c18bef4d4b415e7ee26691357e7a82",
       "bytes": 26564,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/assistants/migration.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/assistants/migration.md",
       "sha256": "47ca461ec4325cf581e36e154f12513486b6d5beaf0c458226fc9872e11faac8",
       "bytes": 9330,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/assistants/tools.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/assistants/tools.md",
       "sha256": "a661da4b2b139143ff1adb36e9a7a6d4d99a3d07c2b2ce220f02d20ac290a41e",
       "bytes": 1238,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/assistants/tools/code-interpreter.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/assistants/tools/code-interpreter.md",
       "sha256": "f4e51c464489e391e277fe00927f4790819b3e4362e17735706aed81de021b5c",
       "bytes": 13177,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/assistants/tools/file-search.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/assistants/tools/file-search.md",
       "sha256": "5f1679ca4add322d0959f56d20b5406380d6d041f27a297e544a54a8725e8c4b",
       "bytes": 30379,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/assistants/tools/function-calling.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/assistants/tools/function-calling.md",
       "sha256": "3fe5850293c3924ab169915ac8d0191be57fb9a55a6a8269a15f794ba75ef9ba",
       "bytes": 9148,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/bots.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/bots.md",
       "sha256": "0aaca6295c3114680fc44b313199c33a05dc09c338f7932d61f6ce3edd05ca53",
       "bytes": 3401,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/concepts.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/concepts.md",
       "sha256": "43f4eb556bf1c59d0cb9156de65af511f6b82cbde2e4aeb1a5142a2f71fb8c23",
       "bytes": 2840,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/deprecations.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/deprecations.md",
       "sha256": "dc7cfe1592fa20e32519dc0ea44308a04cca70c5998081ac1ed3a570c53da707",
       "bytes": 22465,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/gpts/release-notes.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/gpts/release-notes.md",
       "sha256": "df0c6c8df82b206f7ccbf87a90d2ca21401ca5d2577076d53eef64b61933e149",
       "bytes": 1719,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/advanced-usage.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/advanced-usage.md",
       "sha256": "ade8b35c931bf9d723eaa934c1551d205b8254b9e255f8e495af0847621b467c",
       "bytes": 9928,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/agent-builder-safety.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety.md",
       "sha256": "f73b610c1d8e6004d2d9a8ef15321abdf1d9a1f525c2c1faf9111695698eafcf",
       "bytes": 5313,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/agent-builder.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/agent-builder.md",
       "sha256": "aee98c622be49398b219c962b210c7bbf9b20db3e3f8a658fd3dd17c71f7ae01",
       "bytes": 4222,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/agent-evals.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/agent-evals.md",
       "sha256": "796920c6e54156f509fec92c80263200839db77a57a86af7ddc82eadbb98a65d",
       "bytes": 1767,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/agents-sdk.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/agents-sdk.md",
       "sha256": "100e77d25a588c73013f2923948281c99c8663ee72d770cad1af23a1535a65ef",
       "bytes": 720,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/agents.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/agents.md",
       "sha256": "a2e98dc7a3a7de6a1657905575c625bbdd2389133bdb90069de6250bc1cdc29a",
       "bytes": 8520,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/audio.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/audio.md",
       "sha256": "456a35400b4ae79d999cd4118cbefb4dc541a4e35977780a04cfcb99ba3acee6",
       "bytes": 10943,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/background.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/background.md",
       "sha256": "32dc561e89d3ad8d70f4829c58bcae9c0ba4effe40909f9f41924217802ffedb",
       "bytes": 6408,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/batch.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/batch.md",
       "sha256": "2ca081b6202e050823975a12bf2f9d121a7c6878d72db472a3e9004f95274bce",
       "bytes": 16099,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/chatkit-actions.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/chatkit-actions.md",
       "sha256": "f469817503cb2c7577f8669ccd7ddb3eb0d5b38b2a5ff58cc0abb5e2269978fa",
       "bytes": 8808,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/chatkit-themes.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/chatkit-themes.md",
       "sha256": "865db602b576daa8b31bb5228309361ea7774c6aa9c99c8908054a3d3c9ef3e7",
       "bytes": 7104,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/chatkit-widgets.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/chatkit-widgets.md",
       "sha256": "f6d5db7c40f0b2cd945f02e95f1308fa5ffcb4ac853b1adbe751d1de3c8b42c6",
       "bytes": 15414,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/chatkit.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/chatkit.md",
       "sha256": "7da59511673f74819bd5e496522ec7c210de3137eb6b0b55e0b825b502da8ad9",
       "bytes": 7858,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/citation-formatting.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/citation-formatting.md",
       "sha256": "b5696e558e2b4518c330cb5db1945edda0532999be12def7e6a5e91af8dbebfa",
       "bytes": 25197,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/code-generation.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/code-generation.md",
       "sha256": "bae0e31444cc65e569dd001344ffa449609cd921abb71d93961de62f44c58728",
       "bytes": 3627,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/compaction.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/compaction.md",
       "sha256": "7f89a873691312c4d3b228c4c64a990b98e81c3f5c33203e02a453cba57f7887",
       "bytes": 4938,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/completions.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/completions.md",
       "sha256": "0b0863110f6ecfae2aa5dbe43275959e5b7ade43d4be651fb6b4f83614cd4b16",
       "bytes": 8673,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/conversation-state.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/conversation-state.md",
       "sha256": "7b73607f224db44ec550122342a49f4f04e9a393a70c2426ca5da5f161a828c5",
       "bytes": 12734,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/cost-optimization.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/cost-optimization.md",
       "sha256": "62a931292c862d4e156025d6a08ef4c114f9b239b9ec5cb3cefb9e0784b60643",
       "bytes": 1648,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/custom-chatkit.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/custom-chatkit.md",
       "sha256": "053969f2d6fbeac803cf5932109afdf7c7d9f83781ae25dcea45f2694f04f583",
       "bytes": 9458,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/deep-research.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/deep-research.md",
       "sha256": "9a959047bd5c19397f11f569569963c26371bcc2c67b1abff387d0a9cd2ec92f",
       "bytes": 17724,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/developer-mode.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/developer-mode.md",
       "sha256": "7b6feb166d8dfce10e111ccea31159a568a711e22676a2635dc5a9210310f925",
       "bytes": 5961,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/direct-preference-optimization.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/direct-preference-optimization.md",
       "sha256": "88dbca40817f0c34120c2fea868ad62cfc7fb161c34605afe854bd71e36efdbe",
       "bytes": 10893,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/embeddings.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/embeddings.md",
       "sha256": "53c40dc692a3712b4bab57cb419afb3ec05a940f3edf3e9a6b9c4467e3d8fe7f",
       "bytes": 22026,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/error-codes.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/error-codes.md",
       "sha256": "3a1c352ccb186a01bcb482a8365232a37770758f90b95b4b1ec2132ae9780711",
       "bytes": 26046,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/evals.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/evals.md",
       "sha256": "a7a5575aabf3bb5c275eed12d702d6a7b714919e94bd7386b901f3b15e56658e",
       "bytes": 21841,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/evaluation-best-practices.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices.md",
       "sha256": "ff5fa779bf96ffc6be6228d52d0dc95da218596ffba95ccd8f1907f2aed5e012",
       "bytes": 23073,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/evaluation-getting-started.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/evaluation-getting-started.md",
       "sha256": "7152a872d384ac8a617097c6fbe628ebc810379cb76c510e490eb194e87202b1",
       "bytes": 11719,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/external-models.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/external-models.md",
       "sha256": "dd4e5f7eb9aaf63dd820dc3f6aff7836b754acc468947d2246b80a42c16b6dba",
       "bytes": 4616,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/file-inputs.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/file-inputs.md",
       "sha256": "4944ad7903752970cd5c53ff1b5d8d1a9ae7714da0f1e672fc73ba27e3fbaad1",
       "bytes": 30401,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/fine-tuning-best-practices.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/fine-tuning-best-practices.md",
       "sha256": "2a2457cc85c5f3a2b89018d8b7f69334181ad415b34fa9021a6b801acc213d76",
       "bytes": 9357,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/flex-processing.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/flex-processing.md",
       "sha256": "ab5d1cce128a1f5c4e37f80cebdfc38fa97850e74aed49d6d1b2b589cef2fd4d",
       "bytes": 4008,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/function-calling.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/function-calling.md",
       "sha256": "58d4c4627e109ed9b8d326a48317f5c21bf61320ac0ff59bc85b3faf5942398d",
       "bytes": 36242,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/graders.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/graders.md",
       "sha256": "857f190186155cdb885fbf5dab7f5db7ecde99d1a20481a7beedf3611e1d9667",
       "bytes": 20092,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/image-generation.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/image-generation.md",
       "sha256": "dfb2b4c2c6c87161852acafcc2da4a134f0a4b5e34fb1ff9c99484c4f12520c6",
       "bytes": 54444,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/images-vision.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/images-vision.md",
       "sha256": "c10e54743c34ce118f3be4aef2eff9db454806861180b0f9144813cab2490218",
       "bytes": 24118,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/latency-optimization.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/latency-optimization.md",
       "sha256": "668484bf7ee00b81d07d7b2f5b7d248b7cccca1e50ee6f54833c09c80b02595a",
       "bytes": 22386,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/latest-model.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/latest-model.md",
       "sha256": "a529278bef97563f11414719f7330027fa61f4c6a9f797f946a26e9187b02861",
       "bytes": 29551,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/migrate-to-responses.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/migrate-to-responses.md",
       "sha256": "0d7f7bbc60d1aa796cb500134449966aa6f41b8dee416f73d8d1dda97e81ee5a",
       "bytes": 26931,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/model-optimization.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/model-optimization.md",
       "sha256": "d8b4b1c5ff0f1e3c979dccd61a24cced2e7e164da8328221521c761ae3e539ac",
       "bytes": 7692,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/model-selection.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/model-selection.md",
       "sha256": "e30c47f7d377ce10ade148544500087702fd746ef240c0577ebf870db99ada53",
       "bytes": 6235,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/moderation.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/moderation.md",
       "sha256": "17736bfd7133f928af487d7136f6d4dbf952691940979a14ddca174565988332",
       "bytes": 8601,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/node-reference.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/node-reference.md",
       "sha256": "3290559f21ce03baef3839497df2efeb8cd3aac357a6cab2f028af2fbe045af4",
       "bytes": 5286,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/optimizing-llm-accuracy.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/optimizing-llm-accuracy.md",
       "sha256": "4001863a181847283ccefd95e9b42093c554f6f874071255f096f0b669175277",
       "bytes": 30989,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/predicted-outputs.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/predicted-outputs.md",
       "sha256": "c9b9646d8ce326d2ace863c108db0aae7a062968ae502305756fe668a6fc5c90",
       "bytes": 10159,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/priority-processing.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/priority-processing.md",
       "sha256": "d1d715cee661bf960fb1f01ca66d9e0736569d35bc80992ec1e254a9a68065d8",
       "bytes": 3730,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/production-best-practices.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/production-best-practices.md",
       "sha256": "74664a14720abfb821cf94b5306a2ca1885e4ac2fa0a1a5f998a7d4f091c7bea",
       "bytes": 15937,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/prompt-caching.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/prompt-caching.md",
       "sha256": "bec181b8c9fbd0174dea208c28c28e2d75eb2c81162d829e07c86fbf4450d6b8",
       "bytes": 8926,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/prompt-engineering.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/prompt-engineering.md",
       "sha256": "0919b5460cfda8afc62b5e9635c95e95803c40745ac015b7ef4dce17f706c102",
       "bytes": 28651,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/prompt-generation.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/prompt-generation.md",
       "sha256": "12060b4f75fe9538180bd8ab2f44190f600155b64854b0d6429fa6ad58a46cb8",
       "bytes": 10389,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/prompt-guidance.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/prompt-guidance.md",
       "sha256": "24d893d79f7582c4b980d29e19e1566715119811ccf5f13beda0df1fe298124f",
       "bytes": 33863,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/prompt-optimizer.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/prompt-optimizer.md",
       "sha256": "1247a17f68fb96dcaff56e3554850fd055bae69bf668a71403dff8f9bb085d63",
       "bytes": 3323,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/prompting.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/prompting.md",
       "sha256": "3f27f952fbae413f0d3800dd734ba753ba5711febd536efff90d5ad7227a5590",
       "bytes": 4049,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/rate-limits.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/rate-limits.md",
       "sha256": "85e7f7a98789b9e756e0d517d9fc67ae4bd52f9c7ae2b33b0bbee27a8e54932e",
       "bytes": 13472,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/rbac.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/rbac.md",
       "sha256": "6ab13876c0bda638cc5bdce2db611dabbfda1442a0ea1b02f5dad21e43a38330",
       "bytes": 12402,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-conversations.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-conversations.md",
       "sha256": "f99c80173038284c65f1106ad1d6b1820fca4ca5f2e8f86e2fd7fe0bc7c2970f",
       "bytes": 53247,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-costs.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-costs.md",
       "sha256": "4b27767a5ae27680d6c0938a3c76bc6729244dfa7b2b5745dafc4d21a0732bad",
       "bytes": 9507,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-mcp.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-mcp.md",
       "sha256": "de2346810524ea3cbc028903f7104968c1e242843c4fd2cd0971535a8c1729cb",
       "bytes": 17268,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-models-prompting.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-models-prompting.md",
       "sha256": "86a9d468697a457ae58b6f7cc1596f9c53187a54160f52ab4b0175e2477656ca",
       "bytes": 19044,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-server-controls.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-server-controls.md",
       "sha256": "c74cb5ed6d48e8aa0f8abf919787252a0213b284ac5fe809a4965b4d88b5700f",
       "bytes": 4501,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-sip.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-sip.md",
       "sha256": "f4d81bb479694afed654eb5a153c96765e4332b7ddd359e9e94b19374862f45e",
       "bytes": 10751,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-transcription.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-transcription.md",
       "sha256": "e352be00a29705457051b093e5a0700df8e6aed93e7a934e58c575946fa53f14",
       "bytes": 6776,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-vad.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-vad.md",
       "sha256": "a5c0fded53dd80647c7c621829cfc6eb0097e2407cf7934fc979a1a8c0c81a1f",
       "bytes": 4328,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-webrtc.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-webrtc.md",
       "sha256": "d95e8e79d796acd89f30d8b7ac69e13b26c54e18aefed58f463bb190a90b33a4",
       "bytes": 10374,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime-websocket.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime-websocket.md",
       "sha256": "9b52c5d13ac2a99318a59396bafc1b4609a0c2b769c7ad80026285787ea0abba",
       "bytes": 5196,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/realtime.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/realtime.md",
       "sha256": "26dab4fc19810e4ef74c0ed0a1a76ea184c11652891155f1e269b885eec8c714",
       "bytes": 9860,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/reasoning-best-practices.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices.md",
       "sha256": "29c61d45798b1bf9775f31b8d4481ba4ccc4941dfed637c4b8a0a6799c45497b",
       "bytes": 17059,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/reasoning.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/reasoning.md",
       "sha256": "35d494ba800bdd91bb922376db82f78b2c3497d4362a161b1db77ad78a66c0c4",
       "bytes": 16549,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/reinforcement-fine-tuning.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning.md",
       "sha256": "9575f4727db53453f30961631e0a6ee78a5e6aad4306f3aa6f846db427960441",
       "bytes": 50343,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/retrieval.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/retrieval.md",
       "sha256": "563023682bc8aa31f052c1d2e926ce570da2699a18e3dfb065dfd401dd844955",
       "bytes": 15062,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/rft-use-cases.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/rft-use-cases.md",
       "sha256": "fab87d25d7410afd6f4b1631b15d16d281102a689b307ecc1b0d8d407781555c",
       "bytes": 9454,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/safety-best-practices.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/safety-best-practices.md",
       "sha256": "d5abaa2b64a2e72422eb4939a761e4f37298202708cafef871822da712821809",
       "bytes": 5112,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/safety-checks.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/safety-checks.md",
       "sha256": "01d92d64b246bc2517648c3618da20014e0a03bcea6bac7d4a4dcc0da5b16029",
       "bytes": 6022,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/safety-checks/cybersecurity.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/safety-checks/cybersecurity.md",
       "sha256": "f8f6a707cc3fdbd97eaa0d1134723fbbf47db4fdb3285f3174a0f6f903ffe7e2",
       "bytes": 2861,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/safety-checks/under-18-api-guidance.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/safety-checks/under-18-api-guidance.md",
       "sha256": "60e78859a2e67b4848dd40ee87ed9bcca2d06426b765ee4463be61d9ed3572d0",
       "bytes": 2453,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/speech-to-text.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/speech-to-text.md",
       "sha256": "d09b2003f8af36d0ad5f1a6e146854264ed92d9f51e8f1586340831b458bad79",
       "bytes": 25596,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/streaming-responses.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/streaming-responses.md",
       "sha256": "ec4dfd6c925f795cca3b508ad274defcca75b476f219f29177c9e7497c2632a3",
       "bytes": 3044,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/structured-outputs.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/structured-outputs.md",
       "sha256": "0d8252d413014f4f4b5230713af8b49b1497f3cbc2eee225f785b268ba8e7fb9",
       "bytes": 14806,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/supervised-fine-tuning.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/supervised-fine-tuning.md",
       "sha256": "6d085a6fbd1f8ed9323211ec80e60b9847452a8ea5d8ce5c85c015b7bca43fde",
       "bytes": 14322,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/text-to-speech.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/text-to-speech.md",
       "sha256": "8b8ffe6e1a9c96b508bf0121f53afbc4adccd1170954e01c86102de47411b40c",
       "bytes": 15590,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/text.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/text.md",
       "sha256": "dc51643fd792de83c2a8fbb83ebfa51b2c1af124336040bb09524768c711f442",
       "bytes": 13118,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/token-counting.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/token-counting.md",
       "sha256": "f8b03f50a2f4709f39e788fc7ebf81f2c2662fed40265bdea8abf5617027f4b2",
       "bytes": 2660,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-apply-patch.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-apply-patch.md",
       "sha256": "36cf572f79281283b2d126ddbee2b42772893e359b796e2292b9a8ae0991db38",
       "bytes": 8252,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-code-interpreter.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-code-interpreter.md",
       "sha256": "4c6a77ab43f2e1d0e638eae2d66951f5fa61566ed099dd477535c49bda3eb5d0",
       "bytes": 14299,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-computer-use.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-computer-use.md",
       "sha256": "6b482ec47b387b6793fb7e3bf5fc742f22d23dcf654c37ea97fdc4b2e4fca3e5",
       "bytes": 19292,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-connectors-mcp.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-connectors-mcp.md",
       "sha256": "49a6f9626a737c6ea3a68ef1d300ce709f8b6c3a9cf5bf4f69ca4523d8540a70",
       "bytes": 42691,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-file-search.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-file-search.md",
       "sha256": "c8375a450d90584aa0530dd5d8081789dd751e117ab34e56022a4ede5b4d6df4",
       "bytes": 6636,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-image-generation.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-image-generation.md",
       "sha256": "50eacd950bc09649edd52895ea823c3fc4ca1812511d4445afbdbb796cf18682",
       "bytes": 11764,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-local-shell.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-local-shell.md",
       "sha256": "33b3eb9139a928fcdd4a918032e148d80e4a1e21d2a35927469f1552f71d7205",
       "bytes": 6077,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-shell.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-shell.md",
       "sha256": "cce48251b0acde35c9a9b9ffacbe5fafcaa06be44446de6ab1cc0fda59aba38b",
       "bytes": 16756,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-skills.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-skills.md",
       "sha256": "6f146ae570e3e355dbd946c63e9c8197e62fe5483459316f6562ce0095538062",
       "bytes": 8326,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-tool-search.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-tool-search.md",
       "sha256": "503d835377c6d07a3fdb6092922752e922d284b5d1cd0ff06a65151a3151958d",
       "bytes": 7386,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools-web-search.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools-web-search.md",
       "sha256": "6b788b6379e4612330bea7b0a29c0ee1a014987e0d54ff5716e5e4da3f316482",
       "bytes": 7807,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/tools.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/tools.md",
       "sha256": "a02672b45483c0c0f16393fb3f32c04c76555342dea986cf68036711ad9e1cb4",
       "bytes": 7275,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/trace-grading.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/trace-grading.md",
       "sha256": "788ff65511e250d74bcefcc22d197abbd7fa85e93e0b806f2719fe1682f8038c",
       "bytes": 1880,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/video-generation.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/video-generation.md",
       "sha256": "a7a7681ac95e9bf6a60c73f29dca9ae4478d03cc1bd68f41ed5ad90aa666f10f",
       "bytes": 23162,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/vision-fine-tuning.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/vision-fine-tuning.md",
       "sha256": "08dfd538f5bea4ef91f03af4492652792765f3dcd7003c3c6c72fe5f69aa65bf",
       "bytes": 10595,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/voice-agents.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/voice-agents.md",
       "sha256": "240f2ba8d0c33dc71e4353cf4908456c573f6f78cf631c584edf9cbd994c2fec",
       "bytes": 15797,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/webhooks.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/webhooks.md",
       "sha256": "eed243066f5a357008a6dc44ac56951d7989cc8fb3bbb2655b52b006145b172e",
       "bytes": 9865,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/websocket-mode.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/websocket-mode.md",
       "sha256": "6ba07c6f51e9977f60435e47bfab3fc8a66ea9a6b4a5cbd1408793b26510a7c3",
       "bytes": 8234,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/guides/your-data.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/guides/your-data.md",
       "sha256": "294c7f532dd9364e371733fedbd1fe1e9dc7a80c8be52d88b99443134680e4ae",
       "bytes": 43518,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/libraries.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/libraries.md",
       "sha256": "78953dde8666f8e554b2895a8b7252c00603490bbfa3a52d5790095d7370c9fe",
       "bytes": 7515,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/mcp.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/mcp.md",
       "sha256": "695df15d4ae8f17fdbe02e4bdd7def4c983e3492e791f70a92b48f135a7fa516",
       "bytes": 30704,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/pricing.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/pricing.md",
       "sha256": "4de70123b9c66083043006aff28e305161e4ae0b5788e093e44658283f4a2d17",
       "bytes": 16790,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/quickstart.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/quickstart.md",
       "sha256": "243f51fcf0f5213b8afafca39b2d8d80195d4359b4006607d8733790709e395e",
       "bytes": 15869,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/supported-countries.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/supported-countries.md",
       "sha256": "83c7f7a2e1ebbf27f900e54d7a5195b56a0481cfb85aa4f8898d6bfe63777789",
       "bytes": 2452,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/tutorials/meeting-minutes.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/tutorials/meeting-minutes.md",
       "sha256": "105b37ddf1354163885a5aad9179ae37d56d7254c5af581ddbd8a39ae635dfcc",
       "bytes": 13025,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/tutorials/web-qa-embeddings.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/tutorials/web-qa-embeddings.md",
       "sha256": "708bfdc9c4bf60189d576f24ce7c73c37cf1bc215b2cd022b677f68458fc56a3",
       "bytes": 21822,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "api-docs/ui-kit-demo.md": {
       "source": "api-docs",
       "url": "https://developers.openai.com/api/docs/ui-kit-demo.md",
       "sha256": "92463131e78f784b6a495147f07d540d22a56671b366a24d4f45c3ce0bc100cd",
       "bytes": 445,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/agent-approvals-security.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/agent-approvals-security.md",
       "sha256": "b9749157013b46056932957ae4b30e3e65d75322251b19c79e2e33b9787b117f",
       "bytes": 17388,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app-server.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app-server.md",
       "sha256": "7899dae3ca084736d034643da2c50b7dc35abca5b89776ae0c145e73eca68f81",
       "bytes": 57942,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app.md",
       "sha256": "86860b03fa5431f2ea6fbed86d6d415f2f0bb57a895a8dba9b065b6b057efcd1",
       "bytes": 7299,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/automations.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/automations.md",
       "sha256": "0a9df03d4816a8bd5ec6283d7dc810b18fc4cdacdb5cad1b9055ed007dce79e7",
       "bytes": 9693,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/commands.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/commands.md",
       "sha256": "6ec08bef0560d180c0dbf9566b9039eea436f1d35f8854ac9f2d1afef02657e5",
       "bytes": 5324,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/features.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/features.md",
       "sha256": "64fac1f1e9b77f753bf1003023303afe2044ee79ec17e825b75cc0251eefa42c",
       "bytes": 11470,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/local-environments.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/local-environments.md",
       "sha256": "5c5314a58a861215ca78b8f1d26edc9fa48180724568df5dc3cbe42a897ae321",
       "bytes": 2364,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/review.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/review.md",
       "sha256": "d908e520664672bef2328629c13e29c01254187c0083fe8942e16cb2bd910472",
       "bytes": 3160,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/settings.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/settings.md",
       "sha256": "fd5c0b58e12ddf75343686c3869a2043fd4490def4d8f6a12cc4780c59714972",
       "bytes": 2528,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/troubleshooting.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/troubleshooting.md",
       "sha256": "8179674c62009197319077263a78931f6f0590199e4f42793088516a718ed340",
       "bytes": 5539,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/windows.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/windows.md",
       "sha256": "21313d4ca1052c63e80b7530fedc50c33fc17500a7415d21a1f4b5c8f0c855a4",
       "bytes": 9633,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/app/worktrees.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/app/worktrees.md",
       "sha256": "57c61a0096dbe302f5fe656f70b84a5fd4dc9374b27390474feb44b3bd99c03c",
       "bytes": 11005,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/auth.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/auth.md",
       "sha256": "282cbe1a742930313f155a7a4d37ba77e20e91fa0f573fbbbee26eba36248c6b",
       "bytes": 9618,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/cli.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/cli.md",
       "sha256": "bb04bf5fcbf046a7f63dad3d2700264232d658067c58ef0c4cde13b7fdba64fe",
       "bytes": 2818,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/cli/features.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/cli/features.md",
       "sha256": "d441d1b60c0ac9fa7c5549f8c9678b0d15947521e91719c5985f9fc32bc40b44",
       "bytes": 13200,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/cli/reference.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/cli/reference.md",
       "sha256": "ad34b4e4a803228e5f7e0b0f2e21aa21b299202e7dad6e7341b90dc427f55593",
       "bytes": 26888,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/cli/slash-commands.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/cli/slash-commands.md",
       "sha256": "2b18270bfd19c74dbaa4701fa393d70e74be89ff6dcb23cc69879f059e3d0ea8",
       "bytes": 17370,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/cloud.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/cloud.md",
       "sha256": "16d8da0c904ecec2362a2f3b1c60a704bb2f2e4ce8f166b339e254c8d788d000",
       "bytes": 2001,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/cloud/environments.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/cloud/environments.md",
       "sha256": "8ffeeb3960894ca90ab59cf7e325aba1e1058afaba5e4ac56af9a0b328b719ef",
       "bytes": 4363,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/cloud/internet-access.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/cloud/internet-access.md",
       "sha256": "3a243ec166215a594b03a59d17b0e95b8d4a61c0c5e3753ae6f3cd0af0b1e4bc",
       "bytes": 3773,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/community/codex-for-oss.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/community/codex-for-oss.md",
       "sha256": "399cc9640f6ca7fd87d9c7eb009810200cb1c81b54eca27576404437dd96fd63",
       "bytes": 1859,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/concepts/customization.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/concepts/customization.md",
       "sha256": "2d3ef83a472770843b7e1c55e6f8a836a1eb833b1d4a37d3ab90e492dd5c19cf",
       "bytes": 9126,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/concepts/cyber-safety.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/concepts/cyber-safety.md",
       "sha256": "5618d51a95c3c75390f4dc02bf937d4a0c400a253e4232bcc6fc5b1d285961a0",
       "bytes": 4260,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/concepts/sandboxing.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/concepts/sandboxing.md",
       "sha256": "3d1a985c133c789692aefe68daf703f3fce2fe15b793440af261ff83c17c0568",
       "bytes": 5461,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/concepts/subagents.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/concepts/subagents.md",
       "sha256": "17b93c030807fd6d122bb7fab24c28f13e9b26174c42db76f5b0fb8788cf698c",
       "bytes": 5118,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/config-advanced.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/config-advanced.md",
       "sha256": "ca860d6132bff18823172b3e74767eabddb0d310e354fbd0dc627aa4842e46ca",
       "bytes": 26898,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/config-basic.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/config-basic.md",
       "sha256": "1e6661250a555797c44745261498c021c6b40f40953c08cc62402b6674fdea67",
       "bytes": 8876,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/config-reference.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/config-reference.md",
       "sha256": "809b9f07de9ebe9c3fca35eab567c5bef23c6ee37684bab1e4c87de710a85896",
       "bytes": 42928,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/config-sample.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/config-sample.md",
       "sha256": "f40097e8915440bbf2647fe92f21aad7694f68d4d941332055792148c2ac825d",
       "bytes": 22847,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/custom-prompts.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/custom-prompts.md",
       "sha256": "0e2146133e2ca03381434b141d56b03b9517ea5d30339dc508f97b9b3c802065",
       "bytes": 3189,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/enterprise/admin-setup.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/enterprise/admin-setup.md",
       "sha256": "3c42d05138a5f34db9fe52aa1be54818ce21f1b9d03ca96417f0299d11614897",
       "bytes": 22793,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/enterprise/governance.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/enterprise/governance.md",
       "sha256": "92f7055cbe6f48fab1cd3aa6e450ff677900a0de17a958bb37e551db9a990ba7",
       "bytes": 5144,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/enterprise/managed-configuration.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/enterprise/managed-configuration.md",
       "sha256": "b1dde039d1f688ab2041478af91e998de90d92aa7b3cd1d40d64e938aa14b369",
       "bytes": 10264,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/explore.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/explore.md",
       "sha256": "9230a9ed75fb81908b32fda90fc9edc4f97dfac193658b4936a8680c3a503658",
       "bytes": 18522,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/feature-maturity.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/feature-maturity.md",
       "sha256": "be70000019e4410c6df2f57a689e2db679d904cd73cfb14545c1ead595caf658",
       "bytes": 1457,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/github-action.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/github-action.md",
       "sha256": "5889311ec88d3722d94c5fd491645cbfc59663e8cc0b35f0d0ad32d1a5cfa28b",
       "bytes": 7241,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/guides/agents-md.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/guides/agents-md.md",
       "sha256": "783657b995e1245d38e71854cd563d52021db2ddd3502b619a6a2a10785953fe",
       "bytes": 8107,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/guides/agents-sdk.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/guides/agents-sdk.md",
       "sha256": "b37360ae8a8c8b174fc8684cd155876574b6cc53c8eb1bd82dffa62b72ec8a7c",
       "bytes": 19294,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/guides/build-ai-native-engineering-team.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/guides/build-ai-native-engineering-team.md",
       "sha256": "38ed82755199bfbbaabf00ce4b248273ea10f715e9f7883ba3c0b956a0731e4f",
       "bytes": 36599,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/hooks.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/hooks.md",
       "sha256": "a1a3a444dd0f9f0b523c3bfb22d0b8821372e36c14567bb1068c143ea15a6ca6",
       "bytes": 13776,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/ide.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/ide.md",
       "sha256": "f2161a9194ae93afedc47d5cb9c46fdad70407b9620d9634d2e01e3bb7452934",
       "bytes": 6325,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/ide/commands.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/ide/commands.md",
       "sha256": "61dff7ba7f99ded76418f2456329d58b4393cd67e2e824873b3674e24b7fbb4d",
       "bytes": 1610,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/ide/features.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/ide/features.md",
       "sha256": "1ae748841e161dfd4581d4afd8760c0ddccdd5985794d9bc76050eae7a046cc3",
       "bytes": 4780,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/ide/settings.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/ide/settings.md",
       "sha256": "ae13d1c9379fb27590abcff0254148991150e0a362789f244491d3bb0cc82a71",
       "bytes": 3450,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/ide/slash-commands.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/ide/slash-commands.md",
       "sha256": "120f701ff625ca3b38e48a00f54e8dd2b7dd349ac996bc69d68093c295c0ac25",
       "bytes": 1412,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/integrations/github.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/integrations/github.md",
       "sha256": "acc040013d9c171572b1f2e878f48dac8e26b1ec74c3ea776004b2c1934a3318",
       "bytes": 2805,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/integrations/linear.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/integrations/linear.md",
       "sha256": "3d5b7c99c64e389d941ea1e8962575e5fc430a20d5b4f8c42fe0ee5f2ced3f97",
       "bytes": 6817,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/integrations/slack.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/integrations/slack.md",
       "sha256": "dfb1e82f001785f87c38c28d85aa1f66169a9710faf9b7227d624635ecbcd98d",
       "bytes": 3734,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/learn/best-practices.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/learn/best-practices.md",
       "sha256": "97b3bc206eda55f8790a3bf00ad79f06845d31b709b11cd4fc0880f0ef32618b",
       "bytes": 15011,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/mcp.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/mcp.md",
       "sha256": "b05f1597a8c4948d59d71517aa53ccf08cc4a183f86baec9a21f1721e4b8701c",
       "bytes": 5880,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/models.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/models.md",
       "sha256": "aebbce3feaeb55aacebbebe4c96248e6c028d1c4e646c0d83f9d984b8d9f1965",
       "bytes": 12997,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/noninteractive.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/noninteractive.md",
       "sha256": "8d4c25eba30e23e56d736c6ee54e2383a51366405f39e99c5ddc95b5aab2ee16",
       "bytes": 8540,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/open-source.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/open-source.md",
       "sha256": "7c4ca67c64309cbcaa673e49506db3ab071b88a1a19c8edd3593957963ce270d",
       "bytes": 2619,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/overview.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/overview.md",
       "sha256": "92af2177a6f8ef3325b27a7c2bda507b55766e3718f67d948937a55cad21ddfa",
       "bytes": 2528,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/plugins.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/plugins.md",
       "sha256": "7adbc3ae0b098455d7924137f3bf4361a765463486f75893ba106055143e116c",
       "bytes": 4860,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/plugins/build.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/plugins/build.md",
       "sha256": "dc534d55b8ea4d07d4165efd389a5d93218da5fa5639ee4e1beb88fe890eebb4",
       "bytes": 13535,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/pricing.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/pricing.md",
       "sha256": "a01bd58fb41334995d5fb90f744df83e4046f3d6065ba571feaef838ee08be09",
       "bytes": 17698,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/prompting.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/prompting.md",
       "sha256": "c3f6df905f4c7b1ca216c6e449a09dd9d09d634498a7f8b931a2ac4d0b9fa2ca",
       "bytes": 3287,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/quickstart.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/quickstart.md",
       "sha256": "9c2c9a452b54e7fef3fdb3bb9aba4d77dd7ee5caa2bc895c55d40e366079aec5",
       "bytes": 18280,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/rules.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/rules.md",
       "sha256": "31d5ee04c58d6fc31389c9188cbeebc44a5c1fc74ce4ddce7c9a692b8d86de36",
       "bytes": 5839,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/sdk.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/sdk.md",
       "sha256": "0f33de301ece9511d734bb0730b7d388da05b990dfc42f58cc8b341a1b68962e",
       "bytes": 1520,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/security.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/security.md",
       "sha256": "ade6ad0e932c9ef80b2722a7e033493ca7950692aebd793aa11f6ab2a53d6917",
       "bytes": 1838,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/security/faq.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/security/faq.md",
       "sha256": "06f20d095a1cb0ee45c160650ce83fbb392b478c696e8394cb0c17fd507a6fdf",
       "bytes": 6524,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/security/setup.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/security/setup.md",
       "sha256": "d42c676715502442cda90e75ceda3d1a212f83053d3174c47d017ed6807db02b",
       "bytes": 5129,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/security/threat-model.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/security/threat-model.md",
       "sha256": "ec58c9916338b4c83202af986026e177b39deb9946117b504a5db9e6acebf90d",
       "bytes": 1994,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/skills.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/skills.md",
       "sha256": "257fae866f96ab7fa3e24add72b796ce99957becbf32f279de0242ec166a6adb",
       "bytes": 8690,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/speed.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/speed.md",
       "sha256": "204751ff2f251f6e16577962426cc80d680680a8c50d24df905c00065be53b16",
       "bytes": 1166,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/subagents.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/subagents.md",
       "sha256": "232f20f6e4d11accea3ab65eb1b0d7bace1bb30b3e6d622bb727875fa34abcd7",
       "bytes": 14168,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/videos.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/videos.md",
       "sha256": "3addc5a5b1c7f6967ab8017a885c66d9903f421f39fb99ec007805260cbba04b",
       "bytes": 1279,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/windows.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/windows.md",
       "sha256": "0fb93c24c7b742802750f075a0c967b1b7537677b9826b5148462fa0fe3bfa36",
       "bytes": 13431,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     },
     "codex/workflows.md": {
       "source": "codex",
       "url": "https://developers.openai.com/codex/workflows.md",
       "sha256": "9ddeeaf1caecd91f225a94eb0dcea6c830da997b20c44da063abfd39cdf7dbc1",
       "bytes": 10964,
-      "fetched_at": "2026-03-28T01:13:22Z"
+      "fetched_at": "2026-03-28T01:16:12Z"
     }
   }
 }
