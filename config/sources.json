@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "id": "codex",
+      "llms_txt": "https://developers.openai.com/codex/llms.txt",
+      "allowed_prefix": "https://developers.openai.com/codex/",
+      "output_subdir": "codex"
+    },
+    {
+      "id": "api-docs",
+      "llms_txt": "https://developers.openai.com/api/docs/llms.txt",
+      "allowed_prefix": "https://developers.openai.com/api/docs/",
+      "output_subdir": "api-docs"
+    }
+  ]
+}
