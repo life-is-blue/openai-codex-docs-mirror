@@ -3958,6 +3958,7 @@ Use these commands and keyboard shortcuts to navigate the Codex app.
 |             | Clear the terminal | Ctrl + L                   |
 | **Thread**  |                    |                            |
 |             | New thread         | Cmd + N or Cmd + Shift + O |
+|             | Search threads     | Cmd + G                    |
 |             | Find in thread     | Cmd + F                    |
 |             | Previous thread    | Cmd + Shift + [            |
 |             | Next thread        | Cmd + Shift + ]            |
@@ -3966,6 +3967,17 @@ Use these commands and keyboard shortcuts to navigate the Codex app.
 To find, customize, or reset shortcuts, open **Settings > Keyboard Shortcuts**.
 You can search by command name or switch the search field into keystroke mode
 and press the shortcut you want to find.
+
+#### Search past threads and find in a thread
+
+Use thread search (Cmd/Ctrl + G) to reopen a
+past conversation. When expanded matching is available in your Codex desktop
+app, it can also match conversation content and Git branch names, so you can
+search for a phrase from the thread or a branch such as `fix/login-redirect`.
+
+Use **Find in thread** (Cmd + F) after opening a thread
+to find text within that current conversation. It does not search across other
+threads.
 
 #### Slash commands
 
@@ -4146,6 +4158,12 @@ The sections below note platform-specific exceptions.
 
 Use one Codex app window to run tasks across projects. Add a project for each
 codebase and switch between them as needed.
+
+When available in your Codex desktop app, you can ask Codex to manage threads
+in your local projects or worktrees. For example, ask it to find a related
+thread, continue an existing thread, or pin or archive a thread. To create a
+separate background thread, make that request explicit: `Create a separate
+background thread in a worktree for this project to update the tests.`
 
 If you've used the [Codex CLI](/codex/cli), a project is like starting a
 session in a specific directory.
