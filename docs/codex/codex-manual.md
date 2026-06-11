@@ -5982,15 +5982,11 @@ It runs natively on Windows using PowerShell and the
 [Windows sandbox](/codex/windows#windows-sandbox), or you can configure it to
 run in [Windows Subsystem for Linux 2 (WSL2)](#windows-subsystem-for-linux-wsl).
 
-#### Download and update the Codex app
+#### Download the Codex app
 
-Download the Codex app from the
-[Microsoft Store](https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi).
+Download the [Codex app](https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi) for Windows.
 
 Then follow the [quickstart](/codex/quickstart?setup=app) to get started.
-
-To update the app, open the Microsoft Store, go to **Downloads**, and click
-**Check for updates**. The Store installs the latest version afterward.
 
 For enterprises, administrators can deploy the app with Microsoft Store app
 distribution through enterprise management tools.
@@ -10354,7 +10350,7 @@ Codex discovers hooks next to active config layers in either of these forms:
 
 Installed plugins can also bundle lifecycle config through their plugin
 manifest or a default `hooks/hooks.json` file. See [Build
-plugins](/codex/plugins/build#bundled-mcp-servers-and-lifecycle-config) for the
+plugins](/codex/plugins/build#bundled-mcp-servers-and-lifecycle-hooks) for the
 plugin packaging rules.
 
 In practice, the four most useful locations are:
