@@ -1568,7 +1568,7 @@ deployments, use `allowed_permission_profiles` with managed
         "When `true`, Codex skips user, project, session, and plugin hooks while still allowing managed hooks from `requirements.toml` and other managed config layers.",
     },
     {
-      key: "plugin_sharing",
+      key: "features.plugin_sharing",
       type: "boolean",
       description:
         "Set to `false` in cloud-managed `requirements.toml` to disable workspace sharing for locally built plugins.",
@@ -1602,6 +1602,18 @@ deployments, use `allowed_permission_profiles` with managed
       type: "boolean",
       description:
         "Set to `false` in `requirements.toml` to disable Computer Use availability and related install or enablement flows.",
+    },
+    {
+      key: "computer_use",
+      type: "table",
+      description:
+        "Computer Use requirements enforced from `requirements.toml`.",
+    },
+    {
+      key: "computer_use.allow_locked_computer_use",
+      type: "boolean",
+      description:
+        "Set to `false` to prevent Computer Use from operating after a managed macOS device locks. If omitted, locked use remains unconstrained by requirements.",
     },
     {
       key: "experimental_network",
