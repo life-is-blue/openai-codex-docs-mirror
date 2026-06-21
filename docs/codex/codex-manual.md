@@ -3269,6 +3269,9 @@ mcp_oauth_credentials_store = "auto"
 
 # Optional redirect URI override for MCP OAuth login (for example, remote devbox ingress).
 
+# Codex appends a server-specific callback ID before OAuth login, so register the
+# full derived URI with your provider, not just the base host or unsuffixed path.
+
 # Custom callback paths are supported. `mcp_oauth_callback_port` still controls the listener port.
 
 # mcp_oauth_callback_url = "https://devbox.example.internal/callback"
@@ -8078,7 +8081,7 @@ remote MCP stdio.
 
 If your OAuth provider requires a fixed callback port, set the top-level `mcp_oauth_callback_port` in `config.toml`. If unset, Codex binds to an ephemeral port.
 
-If your MCP OAuth flow must use a specific callback URL (for example, a remote Devbox ingress URL or a custom callback path), set `mcp_oauth_callback_url`. Codex uses this value as the OAuth `redirect_uri` while still using `mcp_oauth_callback_port` for the callback listener port. Local callback URLs (for example `localhost`) bind on the local interface; non-local callback URLs bind on `0.0.0.0` so the callback can reach the host.
+If your MCP OAuth flow must use a specific callback URL (for example, a remote Devbox ingress URL or a custom callback path), set `mcp_oauth_callback_url`. Codex uses this value as the base callback URL, then appends a server-specific callback ID to produce the OAuth `redirect_uri` it sends during login. Register the full derived `redirect_uri` with your OAuth provider, including the appended callback ID and any configured path, query, or port, rather than registering only the base host or unsuffixed path. Local callback URLs (for example `localhost`) bind on the local interface; non-local callback URLs bind on `0.0.0.0` so the callback can reach the host.
 
 If the MCP server advertises `scopes_supported`, Codex prefers those
 server-advertised scopes during OAuth login. Otherwise, Codex falls back to the
