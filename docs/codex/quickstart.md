@@ -1,468 +1,182 @@
 # Quickstart
 
-Every ChatGPT plan includes Codex.
+## Where to use ChatGPT
 
-You can also use Codex with API credits by signing in with an OpenAI API key.
+Use ChatGPT across different surfaces, including the
+[ChatGPT desktop app](https://learn.chatgpt.com/docs/app) and [ChatGPT on the web](https://learn.chatgpt.com/docs/web). Choose
+the option that fits your work.
+
+<Illustration description="Cards compare the ChatGPT desktop app and ChatGPT on the web">
+  <QuickstartSetupSelector />
+</Illustration>
+
+If you're a developer and want to use Codex in your terminal or code editor,
+  try [Codex CLI](https://learn.chatgpt.com/docs/codex/cli) or the [Codex IDE extension](https://learn.chatgpt.com/docs/codex/ide).
 
 ## Setup
 
-<script
-  is:inline
-  data-astro-rerun
-  set:html={String.raw`
-(() => {
-  const platform =
-    (navigator.userAgentData?.platform || navigator.platform || "").toLowerCase();
-  const isDesktopAppPlatform =
-    platform.includes("mac") ||
-    platform.includes("win") ||
-    /macintosh|mac os x|windows|win64|win32/i.test(navigator.userAgent || "");
-  if (!isDesktopAppPlatform) return;
-
-  const shouldPreferApp = () => {
-    try {
-      const url = new URL(window.location.href);
-      return !url.searchParams.get("setup");
-    } catch {
-      return true;
-    }
-  };
-
-  if (!shouldPreferApp()) return;
-
-  window.__tabsPreferred = window.__tabsPreferred || {};
-  window.__tabsPreferred.setup = "app";
-})();
-`}
-/>
-
+{/* prettier-ignore */}
 <Tabs
   id="codex-quickstart-setup"
   param="setup"
-  defaultTab="ide"
-  size="3xl"
-  block={true}
-  blockThreshold={170}
+  defaultTab="web"
+  size="md"
   tabs={[
-    {
-      id: "app",
-      label: "App",
-      subtitle: "Recommended",
-    },
-    { id: "ide", label: "IDE extension", subtitle: "Codex in your IDE" },
-    { id: "cli", label: "CLI", subtitle: "Codex in your terminal" },
-    { id: "cloud", label: "Cloud", subtitle: "Codex in your browser" },
+    { id: "app", label: "Desktop" },
+    { id: "web", label: "Web" },
   ]}
 >
   <div slot="app">
-The Codex app is available on macOS and Windows.
-
-Most Codex app features are available on both platforms. Platform-specific
-exceptions are noted in the relevant docs.
+The ChatGPT desktop app is available for Windows and macOS. Use it for projects,
+local files, longer tasks, and quick conversations.
 
 <WorkflowSteps variant="headings">
-1. Download and install the Codex app
+1. <h3 id="setup-app-install">Install the ChatGPT desktop app</h3>
 
-    Download the Codex app for macOS or Windows. Choose the Intel build if you're using an Intel-based Mac.
+    Choose the version for your operating system:
 
     <CodexAppDownloadCta client:load className="mb-4" />
 
-    <div class="text-sm">
-      [Get notified for Linux](https://openai.com/form/codex-app/)
+2.  <h3 id="setup-app-sign-in">Open the ChatGPT desktop app and sign in</h3>
+
+    Open the app, then sign in with your ChatGPT account.
+
+    You may also use Codex with an API key. [Some features might not be available](https://learn.chatgpt.com/docs/pricing#feature-availability).
+
+3.  <h3 id="setup-app-select-workspace">Select where ChatGPT should work</h3>
+
+    Start a task, create a project, or open a folder. ChatGPT can read and modify
+    files in the folder you choose. [Learn more about tasks and projects](https://learn.chatgpt.com/docs/projects).
+
+4.  <h3 id="setup-app-start-task">Start your task</h3>
+
+            <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] md:items-start">
+
+          <div>
+
+                - For research, analysis, or deliverables such as documents, presentations,
+                  spreadsheets, and Sites, select <strong class="text-[#0875d1] dark:text-[#65b5ff]">Work</strong> from the ChatGPT dropdown.
+                - For software development with codebase context and developer tools, select
+                  <strong class="text-[#7b3edb] dark:text-[#b997ff]">Codex</strong> from the ChatGPT dropdown.
+                - For a quick question or conversation, open **Quick Chat** separately.
+
+                Learn more about [using ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt).
+
+              </div>
+
+          <ChatGPTModeDropdown client:load />
+
     </div>
 
-2. Open Codex and sign in
+5.  <h3 id="setup-app-send-message">Send your first message</h3>
 
-   Once you downloaded and installed the Codex app, open it and sign in with your ChatGPT account or an OpenAI API key.
+    Describe your goal and add any files or context ChatGPT needs. Try an example:
 
-   If you sign in with an OpenAI API key, [some functionality might not be available](https://developers.openai.com/codex/pricing#feature-availability).
+    <CodexPromptComposer
+      client:load
+      id="first-message-example"
+      promptOptions={[
+        {
+          label: "Prepare a decision",
+          prompt:
+            "Review the reports and notes in this project, compare the options, and create a one-page decision memo with a recommendation, risks, open questions, and source links.",
+        },
+        {
+          label: "Analyze spreadsheets",
+          prompt:
+            "Combine the spreadsheets in this folder, clean inconsistent records, identify the most important trends, and create a concise report with charts and plain-English takeaways.",
+        },
+        {
+          label: "Improve this app",
+          prompt:
+            "Inspect this app, identify one high-impact usability improvement, implement it, update the relevant tests, and verify the result on mobile and desktop.",
+        },
+      ]}
+      className="!mt-3 !mb-10 w-full max-w-3xl min-w-0"
+    />
 
-3. Select a project
-
-   Choose a project folder that you want Codex to work in.
-
-    If you used the Codex app, CLI, or IDE Extension before you'll see past projects that you worked on.
-
-4. Send your first message
-
-   After choosing the project, make sure **Local** is selected to have Codex work on your machine and send your first message to Codex.
-
-   You can ask Codex anything about the project or your computer in general. Here are some examples:
-
-   <ExampleGallery>
-     <ExampleTask
-       client:load
-       id="intro"
-       prompt="Tell me about this project"
-       iconName="brain"
-     />
-     <ExampleTask
-       client:load
-       id="snake-game"
-       shortDescription="Build a classic Snake game in this repo."
-       prompt={[
-         "Build a classic Snake game in this repo.",
-         "",
-         "Scope & constraints:",
-         "- Implement ONLY the classic Snake loop: grid movement, growing snake, food spawn, score, game-over, restart.",
-         "- Reuse existing project tooling/frameworks; do NOT add new dependencies unless truly required.",
-         "- Keep UI minimal and consistent with the repo’s existing styles (no new design systems, no extra animations).",
-         "",
-         "Implementation plan:",
-         "1) Inspect the repo to find the right place to add a small interactive game (existing pages/routes/components).",
-         "2) Implement game state (snake positions, direction, food, score, tick timer) with deterministic, testable logic.",
-         "3) Render: simple grid + snake + food; support keyboard controls (arrow keys/WASD) and on-screen controls if mobile is present in the repo.",
-         "4) Add basic tests for the core game logic (movement, collisions, growth, food placement) if the repo has a test runner.",
-         "",
-         "Deliverables:",
-         "- A small set of files/changes with clear names.",
-         "- Short run instructions (how to start dev server + where to navigate).",
-         "- A brief checklist of what to manually verify (controls, pause/restart, boundaries).",
-       ].join("\n")}
-       iconName="gamepad"
-     />
-     <ExampleTask
-       client:load
-       id="fix-bugs"
-       shortDescription="Find and fix bugs in my codebase with minimal, high-confidence changes."
-       prompt={[
-         "Find and fix bugs in my codebase with minimal, high-confidence changes.",
-         "",
-         "Method (grounded + disciplined):",
-         "1) Reproduce: run tests/lint/build (or follow the existing repo scripts). If I provided an error, reproduce that exact failure.",
-         "2) Localize: identify the smallest set of files/lines involved (stack traces, failing tests, logs).",
-         "3) Fix: implement the minimal change that resolves the issue without refactors or unrelated cleanup.",
-         "4) Prove: add/update a focused test (or a tight repro) that fails before and passes after.",
-         "",
-         "Constraints:",
-         "- Do NOT invent errors or pretend to run commands you cannot run.",
-         "- No scope drift: no new features, no UI embellishments, no style overhauls.",
-         "- If information is missing, state what you can confirm from the repo and what remains unknown.",
-         "",
-         "Output:",
-         "- Summary (3–6 sentences max): what was broken, why, and the fix.",
-         "- Then ≤5 bullets: What changed, Where (paths), Evidence (tests/logs), Risks, Next steps.",
-       ].join("\n")}
-       iconName="search"
-     />
-   </ExampleGallery>
-
-   If you need more inspiration, explore [Codex use cases](https://developers.openai.com/codex/use-cases).
-   If you're new to Codex, read the [best practices guide](https://developers.openai.com/codex/learn/best-practices).
+    Explore more [use cases](https://learn.chatgpt.com/use-cases).
 
 </WorkflowSteps>
 
-
   </div>
 
-  <div slot="ide">
-Install the Codex extension for your IDE.
+  <div slot="web">
+ChatGPT is available on the web and includes Chat and ChatGPT Work.
 
 <WorkflowSteps variant="headings">
-1. Install the Codex extension
+1. <h3 id="setup-web-sign-in">Open ChatGPT and sign in</h3>
 
-    Download it for your editor:
+Go to [chatgpt.com](https://chatgpt.com) and sign in with your ChatGPT account.
 
-    - [Download for Visual Studio Code](vscode:extension/openai.chatgpt)
-    - [Download for Cursor](cursor:extension/openai.chatgpt)
-    - [Download for Windsurf](windsurf:extension/openai.chatgpt)
-    - [Download for Visual Studio Code Insiders](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt)
+2.  <h3 id="setup-web-start-task">Start your task</h3>
 
-2. Open the Codex panel
+            <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] md:items-stretch">
 
-    Once installed, the Codex extension appears in the sidebar alongside your other extensions. It may be hidden in the collapsed section. You can move the Codex panel to the right side of the editor if you prefer.
+          <div>
 
-3. Sign in and start your first task
+                - Select **Chat** to ask questions, explore ideas, and work through a topic
+                  conversationally.
+                - Select **Work** to research, analyze information, and create documents,
+                  presentations, spreadsheets, Sites, or other finished work.
 
-    Sign in with your ChatGPT account or an API key to get started.
+                Learn more about [using ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt).
 
-    Codex starts in Agent mode by default, which lets it read files, run commands, and write changes in your project directory.
-    
-    <ExampleGallery>
-     <ExampleTask
-       client:load
-       id="intro"
-       prompt="Tell me about this project"
-       iconName="brain"
-     />
-     <ExampleTask
-       client:load
-       id="snake-game"
-       shortDescription="Build a classic Snake game in this repo."
-       prompt={[
-         "Build a classic Snake game in this repo.",
-         "",
-         "Scope & constraints:",
-         "- Implement ONLY the classic Snake loop: grid movement, growing snake, food spawn, score, game-over, restart.",
-         "- Reuse existing project tooling/frameworks; do NOT add new dependencies unless truly required.",
-         "- Keep UI minimal and consistent with the repo’s existing styles (no new design systems, no extra animations).",
-         "",
-         "Implementation plan:",
-         "1) Inspect the repo to find the right place to add a small interactive game (existing pages/routes/components).",
-         "2) Implement game state (snake positions, direction, food, score, tick timer) with deterministic, testable logic.",
-         "3) Render: simple grid + snake + food; support keyboard controls (arrow keys/WASD) and on-screen controls if mobile is present in the repo.",
-         "4) Add basic tests for the core game logic (movement, collisions, growth, food placement) if the repo has a test runner.",
-         "",
-         "Deliverables:",
-         "- A small set of files/changes with clear names.",
-         "- Short run instructions (how to start dev server + where to navigate).",
-         "- A brief checklist of what to manually verify (controls, pause/restart, boundaries).",
-       ].join("\n")}
-       iconName="gamepad"
-     />
-     <ExampleTask
-       client:load
-       id="fix-bugs"
-       shortDescription="Find and fix bugs in my codebase with minimal, high-confidence changes."
-       prompt={[
-         "Find and fix bugs in my codebase with minimal, high-confidence changes.",
-         "",
-         "Method (grounded + disciplined):",
-         "1) Reproduce: run tests/lint/build (or follow the existing repo scripts). If I provided an error, reproduce that exact failure.",
-         "2) Localize: identify the smallest set of files/lines involved (stack traces, failing tests, logs).",
-         "3) Fix: implement the minimal change that resolves the issue without refactors or unrelated cleanup.",
-         "4) Prove: add/update a focused test (or a tight repro) that fails before and passes after.",
-         "",
-         "Constraints:",
-         "- Do NOT invent errors or pretend to run commands you cannot run.",
-         "- No scope drift: no new features, no UI embellishments, no style overhauls.",
-         "- If information is missing, state what you can confirm from the repo and what remains unknown.",
-         "",
-         "Output:",
-         "- Summary (3–6 sentences max): what was broken, why, and the fix.",
-         "- Then ≤5 bullets: What changed, Where (paths), Evidence (tests/logs), Risks, Next steps.",
-       ].join("\n")}
-       iconName="search"
-     />
-   </ExampleGallery>
+              </div>
 
-4. Use Git checkpoints
+          <ChatWorkSegmentPicker client:load />
 
-    Codex can modify your codebase, so consider creating Git checkpoints before and after each task so you can easily revert changes if needed.
-    If you're new to Codex, read the [best practices guide](https://developers.openai.com/codex/learn/best-practices).
-    
-    <CtaPillLink href="/codex/ide" label="Learn more about the Codex IDE extension" class="mt-8" />
-</WorkflowSteps>
+    </div>
 
+3.  <h3 id="setup-web-select-workspace">Select where ChatGPT should work</h3>
 
-  </div>
+    Start a chat or select a project. Projects can include chats, files, and instructions.
 
-  <div slot="cli">
-The Codex CLI is supported on macOS, Windows, and Linux.
+4.  <h3 id="setup-web-send-message">Send your first message</h3>
 
-<WorkflowSteps variant="headings">
-1. Install the Codex CLI
+    Describe your goal and add any files or context ChatGPT needs. Try an example:
 
-    On macOS or Linux, use the standalone installer:
+    <CodexPromptComposer
+      client:load
+      id="web-first-message-example"
+      destination="web"
+      placeholder="Message ChatGPT"
+      promptOptions={[
+        {
+          label: "Make a decision",
+          prompt:
+            "Research whether I should [decision], compare the best options, explain the tradeoffs for my situation, and recommend one with citations.",
+        },
+        {
+          label: "Daily briefing",
+          prompt:
+            "Every weekday at 8:00 a.m., review my connected calendar and recent messages, then send me a briefing with today’s priorities, meeting prep, replies I owe, and blockers.",
+        },
+        {
+          label: "Plan an event",
+          prompt:
+            "Help me plan my event. Ask me about the occasion, guests, date, location, budget, and anything else you need. Then create a timeline, budget, invitation copy, and checklist, and publish a Site I can use to invite guests and collect RSVPs.",
+        },
+      ]}
+      className="!mt-3 !mb-10 w-full max-w-3xl min-w-0"
+    />
 
-    ```bash
-    curl -fsSL https://chatgpt.com/codex/install.sh | sh
-    ```
-
-    On Windows, run:
-
-    ```powershell
-    powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
-    ```
-
-    For unattended installs, set `CODEX_NON_INTERACTIVE=1` on the shell that
-    runs the downloaded installer. See
-    [Environment variables](https://developers.openai.com/codex/environment-variables#installer-variables)
-    for details.
-
-    ```bash
-    curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh
-    ```
-
-    ```powershell
-    $env:CODEX_NON_INTERACTIVE=1; irm https://chatgpt.com/codex/install.ps1 | iex
-    ```
-
-    You can also install Codex CLI with npm or Homebrew:
-
-    ```bash
-    npm install -g @openai/codex
-    ```
-
-    ```bash
-    brew install --cask codex
-    ```
-
-2. Run `codex` and sign in
-
-    Run `codex` in your terminal to get started. You'll be prompted to sign in with your ChatGPT account or an API key.
-
-3. Ask Codex to work in your current directory
-
-    Once authenticated, you can ask Codex to perform tasks in the current directory.
-
-    <ExampleGallery>
-     <ExampleTask
-       client:load
-       id="intro"
-       prompt="Tell me about this project"
-       iconName="brain"
-     />
-     <ExampleTask
-       client:load
-       id="snake-game"
-       shortDescription="Build a classic Snake game in this repo."
-       prompt={[
-         "Build a classic Snake game in this repo.",
-         "",
-         "Scope & constraints:",
-         "- Implement ONLY the classic Snake loop: grid movement, growing snake, food spawn, score, game-over, restart.",
-         "- Reuse existing project tooling/frameworks; do NOT add new dependencies unless truly required.",
-         "- Keep UI minimal and consistent with the repo’s existing styles (no new design systems, no extra animations).",
-         "",
-         "Implementation plan:",
-         "1) Inspect the repo to find the right place to add a small interactive game (existing pages/routes/components).",
-         "2) Implement game state (snake positions, direction, food, score, tick timer) with deterministic, testable logic.",
-         "3) Render: simple grid + snake + food; support keyboard controls (arrow keys/WASD) and on-screen controls if mobile is present in the repo.",
-         "4) Add basic tests for the core game logic (movement, collisions, growth, food placement) if the repo has a test runner.",
-         "",
-         "Deliverables:",
-         "- A small set of files/changes with clear names.",
-         "- Short run instructions (how to start dev server + where to navigate).",
-         "- A brief checklist of what to manually verify (controls, pause/restart, boundaries).",
-       ].join("\n")}
-       iconName="gamepad"
-     />
-     <ExampleTask
-       client:load
-       id="fix-bugs"
-       shortDescription="Find and fix bugs in my codebase with minimal, high-confidence changes."
-       prompt={[
-         "Find and fix bugs in my codebase with minimal, high-confidence changes.",
-         "",
-         "Method (grounded + disciplined):",
-         "1) Reproduce: run tests/lint/build (or follow the existing repo scripts). If I provided an error, reproduce that exact failure.",
-         "2) Localize: identify the smallest set of files/lines involved (stack traces, failing tests, logs).",
-         "3) Fix: implement the minimal change that resolves the issue without refactors or unrelated cleanup.",
-         "4) Prove: add/update a focused test (or a tight repro) that fails before and passes after.",
-         "",
-         "Constraints:",
-         "- Do NOT invent errors or pretend to run commands you cannot run.",
-         "- No scope drift: no new features, no UI embellishments, no style overhauls.",
-         "- If information is missing, state what you can confirm from the repo and what remains unknown.",
-         "",
-         "Output:",
-         "- Summary (3–6 sentences max): what was broken, why, and the fix.",
-         "- Then ≤5 bullets: What changed, Where (paths), Evidence (tests/logs), Risks, Next steps.",
-       ].join("\n")}
-       iconName="search"
-     />
-   </ExampleGallery>
-
-4. Use Git checkpoints
-
-    Codex can modify your codebase, so consider creating Git checkpoints before and after each task so you can easily revert changes if needed.
-    If you're new to Codex, read the [best practices guide](https://developers.openai.com/codex/learn/best-practices).
-</WorkflowSteps>
-
-    <CtaPillLink href="/codex/cli" label="Learn more about the Codex CLI" class="mt-8" />
-
-  </div>
-
-  <div slot="cloud">
-Use Codex in the cloud at [chatgpt.com/codex](https://chatgpt.com/codex).
-
-<WorkflowSteps variant="headings">
-1. Open Codex in your browser
-
-    Go to [chatgpt.com/codex](https://chatgpt.com/codex). You can also delegate a task to Codex by tagging `@codex` in a GitHub pull request comment (requires signing in to ChatGPT).
-
-2. Set up an environment
-
-    Before starting your first task, set up an environment for Codex. Open the environment settings at [chatgpt.com/codex](https://chatgpt.com/codex/settings/environments) and follow the steps to connect a GitHub repository.
-
-3. Launch a task and monitor progress
-
-    Once your environment is ready, launch coding tasks from the [Codex interface](https://chatgpt.com/codex). You can monitor progress in real time by viewing logs, or let tasks run in the background.
-
-    <ExampleGallery>
-     <ExampleTask
-       client:load
-       id="intro"
-       prompt="Tell me about this project"
-       iconName="brain"
-     />
-     <ExampleTask
-       client:load
-       id="architecture-failure-modes"
-       shortDescription="Explain the top failure modes of my application's architecture."
-       prompt={[
-         "Explain the top failure modes of my application's architecture.",
-         "",
-         "Approach:",
-         "- Derive the architecture from repo evidence (services, DBs, queues, network calls, critical paths).",
-         "- Identify realistic failure modes (availability, data loss, latency, scaling, consistency, security, dependency outages).",
-         "",
-         "Output:",
-         "- 1 short overview paragraph.",
-         "- Then ≤5 bullets: Failure mode, Trigger, Symptoms, Detection, Mitigation.",
-         "- If key architecture details are missing, state what you inferred vs. what you confirmed.",
-       ].join("\n")}
-       iconName="brain"
-     />
-     <ExampleTask
-       client:load
-       id="fix-bugs"
-       shortDescription="Find and fix bugs in my codebase with minimal, high-confidence changes."
-       prompt={[
-         "Find and fix bugs in my codebase with minimal, high-confidence changes.",
-         "",
-         "Method (grounded + disciplined):",
-         "1) Reproduce: run tests/lint/build (or follow the existing repo scripts). If I provided an error, reproduce that exact failure.",
-         "2) Localize: identify the smallest set of files/lines involved (stack traces, failing tests, logs).",
-         "3) Fix: implement the minimal change that resolves the issue without refactors or unrelated cleanup.",
-         "4) Prove: add/update a focused test (or a tight repro) that fails before and passes after.",
-         "",
-         "Constraints:",
-         "- Do NOT invent errors or pretend to run commands you cannot run.",
-         "- No scope drift: no new features, no UI embellishments, no style overhauls.",
-         "- If information is missing, state what you can confirm from the repo and what remains unknown.",
-         "",
-         "Output:",
-         "- Summary (3–6 sentences max): what was broken, why, and the fix.",
-         "- Then ≤5 bullets: What changed, Where (paths), Evidence (tests/logs), Risks, Next steps.",
-       ].join("\n")}
-       iconName="search"
-     />
-   </ExampleGallery>
-
-4. Review changes and create a pull request
-
-    When a task completes, review the proposed changes in the diff view. You can iterate on the results or create a pull request directly in your GitHub repository.
-
-    Codex also provides a preview of the changes. You can accept the PR as is, or check out the branch locally to test the changes:
-
-    ```bash
-    git fetch
-    git checkout <branch-name>
-    ```
-
-    <CtaPillLink href="/codex/cloud" label="Learn more about Codex cloud" class="mt-8" />
 </WorkflowSteps>
 
   </div>
+
 </Tabs>
-
 <div class="h-6" aria-hidden="true"></div>
-
 ## Next steps
-
-[<IconItem title="Learn more about the Codex app" className="mt-2">
+[<IconItem title="Learn more about the ChatGPT desktop app" className="mt-2">
     <span slot="icon">
       <OpenBook />
     </span>
-    Use the Codex app to work with your local projects.
-  </IconItem>](https://developers.openai.com/codex/app)
-
-[<IconItem title="Migrate to Codex" className="mt-2">
+    Use the ChatGPT desktop app to work with your local projects.
+  </IconItem>](https://learn.chatgpt.com/docs/app)
+[<IconItem title="Import your setup" className="mt-2">
     <span slot="icon">
       <CompareArrows />
     </span>
-    Move supported instruction files, MCP server configuration, skills, and
-    subagents into Codex.
-  </IconItem>](https://developers.openai.com/codex/migrate)
+    Bring supported setup, projects, and recent work into ChatGPT.
+  </IconItem>](https://learn.chatgpt.com/docs/import)

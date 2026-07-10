@@ -12,152 +12,147 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Agent",
       href: "/codex",
-      appliesTo: "App, CLI, IDE extension, Cloud",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud",
       description:
-        "The Codex worker that reasons over context, uses tools, and completes a task.",
+        "The Codex agent that reasons over context, uses tools, and completes a task.",
     },
     {
       key: "AGENTS.md",
-      href: "/codex/guides/agents-md",
-      appliesTo: "App, CLI, IDE extension, Cloud",
+      href: "/codex/agent-configuration/agents-md",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud",
       description:
         "Repository or user guidance file that gives Codex persistent instructions.",
     },
     {
       key: "Analytics dashboard",
-      href: "/codex/enterprise/governance#analytics-dashboard",
+      href: "/codex/enterprise/workspace-analytics",
       appliesTo: "Enterprise",
       description:
-        "Admin view for Codex usage, adoption, and code review metrics.",
+        "Admin hub for ChatGPT workspace adoption and Codex-focused reporting.",
     },
     {
       key: "API key sign-in",
       href: "/codex/auth#sign-in-with-an-api-key",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Authentication using an OpenAI API key.",
     },
     {
       key: "Approval policy",
       href: "/codex/agent-approvals-security#sandbox-and-approvals",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Rules for when Codex must ask before taking an action.",
     },
     {
       key: "Approval request",
       href: "/codex/agent-approvals-security#automatic-approval-reviews",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Codex asking to allow a restricted action.",
     },
     {
-      key: "Apps (connectors)",
+      key: "Apps (configuration)",
       href: "/codex/plugins",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
-        "Integration that lets Codex access external services. Available through plugins; also called connectors.",
+        "Compatibility name used by Codex configuration and app-server fields for connectors.",
     },
     {
       key: "Appshot",
       href: "/codex/appshots",
-      appliesTo: "App",
+      appliesTo: "Desktop app",
       description:
-        "Snapshot of the frontmost app window sent to a Codex thread.",
+        "Snapshot of the frontmost app window sent to a Work or Codex task.",
     },
     {
       key: "Auth cache",
       href: "/codex/auth#login-caching",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Locally stored login credentials reused by Codex.",
     },
     {
       key: "Automatic approval review",
       href: "/codex/agent-approvals-security#automatic-approval-reviews",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Model-based review of eligible approval requests before they proceed.",
     },
     {
-      key: "Automation",
-      href: "/codex/app/automations",
-      appliesTo: "App",
-      description: "A scheduled or recurring Codex task.",
+      key: "Scheduled task",
+      href: "/codex/automations",
+      appliesTo: "Desktop app, Web",
+      description: "A scheduled or recurring task in ChatGPT.",
     },
     {
-      key: "Automation run",
-      href: "/codex/app/automations#managing-tasks",
-      appliesTo: "App",
+      key: "Scheduled run",
+      href: "/codex/automations#managing-tasks",
+      appliesTo: "Desktop app, Web",
       description:
-        "One execution of a scheduled automation that may report findings or archive itself.",
+        "One execution of a scheduled task that may report findings or archive itself.",
     },
     {
-      key: "Browser use",
-      href: "/codex/app/browser#browser-use",
-      appliesTo: "App",
+      key: "Computer Use in the browser",
+      href: "/codex/browser?surface=app#app-computer-use-in-the-browser",
+      appliesTo: "Desktop app",
       description:
-        "App capability that lets Codex operate the in-app browser directly.",
+        "Capability that lets ChatGPT operate the built-in browser directly.",
     },
     {
       key: "Chat",
-      href: "/codex/app/features#chats",
-      appliesTo: "App",
-      description: "A Codex conversation not tied to a project.",
+      href: "/codex/projects#start-a-chat",
+      appliesTo: "Desktop app, Web, Mobile",
+      description:
+        "An ordinary ChatGPT conversation containing prompts and responses. Quick Chat opens this same conversation type.",
     },
     {
       key: "ChatGPT sign-in",
       href: "/codex/auth#sign-in-with-chatgpt",
-      appliesTo: "App, CLI, IDE extension, Cloud",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud",
       description:
         "Authentication using a ChatGPT account and workspace permissions.",
     },
     {
       key: "Chronicle",
-      href: "/codex/memories/chronicle",
-      appliesTo: "App",
+      href: "/codex/customization/chronicle",
+      appliesTo: "Desktop app",
       description:
         "Opt-in feature that builds memories from recent screen context.",
     },
     {
       key: "Cloud",
       href: "/codex/cloud",
-      appliesTo: "App, IDE extension, Web",
+      appliesTo: "Desktop app, IDE extension, Web",
       description:
         "Mode where Codex works remotely in an OpenAI-managed environment.",
     },
     {
       key: "Cloud environment",
-      href: "/codex/cloud/environments",
+      href: "/codex/environments/cloud-environment",
       appliesTo: "Cloud",
       description: "Configured container setup used for Codex cloud tasks.",
     },
     {
       key: "Cloud task",
-      href: "/codex/cloud/environments#how-codex-cloud-tasks-run",
+      href: "/codex/environments/cloud-environment#how-codex-cloud-tasks-run",
       appliesTo: "Cloud",
       description:
         "A remotely executed Codex task that runs in a cloud environment.",
     },
     {
-      key: "Cloud thread",
-      href: "/codex/prompting#threads",
-      appliesTo: "Cloud",
-      description: "A thread that runs in a Codex cloud environment.",
-    },
-    {
       key: "Codex",
       href: "/codex",
-      appliesTo: "App, CLI, IDE extension, Web, Cloud, SDK",
+      appliesTo: "Desktop app, CLI, IDE extension, Web, Cloud, SDK",
       description: "OpenAI's coding agent for software development tasks.",
     },
     {
-      key: "Codex app",
+      key: "ChatGPT desktop app",
       href: "/codex/app",
       appliesTo: "Desktop",
       description:
-        "Desktop app for running Codex threads in parallel, with built-in worktree support, automations, and Git functionality.",
+        "Desktop app with ChatGPT Work, Codex, and a separate Quick Chat window, including projects, file previews, scheduled tasks, and developer tools.",
     },
     {
       key: "Codex app-server",
       href: "/codex/app-server",
-      appliesTo: "App, IDE extension, SDK",
+      appliesTo: "Desktop app, IDE extension, SDK",
       description:
         "Local JSON-RPC server for embedding Codex threads, turns, approvals, history, and streamed events in custom clients.",
     },
@@ -171,13 +166,13 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Codex cloud",
       href: "/codex/cloud",
-      appliesTo: "Web, App, IDE extension",
+      appliesTo: "Web, Desktop app, IDE extension",
       description:
         "OpenAI-managed execution environment where Codex can work on repository tasks remotely.",
     },
     {
       key: "codex exec",
-      href: "/codex/noninteractive",
+      href: "/codex/non-interactive-mode",
       appliesTo: "CLI",
       description:
         "CLI command for running Codex non-interactively from scripts or CI.",
@@ -191,67 +186,61 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     },
     {
       key: "Codex SDK",
-      href: "/codex/sdk",
+      href: "/codex/codex-sdk",
       appliesTo: "SDK",
       description:
         "Programmatic interface for building Codex-powered workflows or integrations.",
     },
     {
-      key: "Codex web",
-      href: "/codex/cloud",
-      appliesTo: "Browser",
-      description: "Browser-based Codex surface for delegating cloud tasks.",
-    },
-    {
       key: "Codex-managed worktree",
-      href: "/codex/app/worktrees#codex-managed-and-permanent-worktrees",
-      appliesTo: "App",
-      description:
-        "A temporary worktree Codex creates and manages for a thread.",
+      href: "/codex/environments/git-worktrees#codex-managed-and-permanent-worktrees",
+      appliesTo: "Desktop app",
+      description: "A temporary worktree Codex creates and manages for a task.",
     },
     {
       key: "Compaction",
       href: "/codex/prompting#context",
-      appliesTo: "App, CLI, IDE extension, Cloud",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud",
       description:
         "Summarizing older context so long-running work can continue.",
     },
     {
       key: "Compliance API",
-      href: "/codex/enterprise/governance#compliance-api",
+      href: "/codex/enterprise/compliance-api",
       appliesTo: "Enterprise",
-      description: "API for exporting Codex activity and audit metadata.",
+      description:
+        "API for exporting supported ChatGPT workspace records and audit metadata.",
     },
     {
-      key: "Computer use",
-      href: "/codex/app/computer-use",
-      appliesTo: "App",
+      key: "Computer Use",
+      href: "/codex/computer-use",
+      appliesTo: "Desktop app",
       description:
-        "App capability that lets Codex interact with desktop applications through the UI.",
+        "Desktop capability that lets ChatGPT interact with other applications through the UI.",
     },
     {
       key: "config.toml",
-      href: "/codex/config-reference#configtoml",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/config-file/config-reference#configtoml",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Local Codex configuration files.",
     },
     {
       key: "Connected host",
       href: "/codex/remote-connections#what-comes-from-the-connected-host",
-      appliesTo: "App, Mobile",
+      appliesTo: "Desktop app, Mobile",
       description:
-        "Computer or development environment that provides files, tools, and shell access for remote Codex work.",
+        "Computer or development environment that provides files, tools, and shell access for Work or Codex tasks opened through Remote.",
     },
     {
       key: "Connector",
       href: "/codex/plugins",
-      appliesTo: "App, Cloud",
+      appliesTo: "Desktop app (Work, Codex), Web (Work)",
       description:
-        "App integration that lets Codex access external services. Available through plugins; also called apps.",
+        "Connector that lets Work or Codex access external services through a plugin.",
     },
     {
       key: "Container cache",
-      href: "/codex/cloud/environments#container-caching",
+      href: "/codex/environments/cloud-environment#container-caching",
       appliesTo: "Cloud",
       description:
         "Saved cloud container state reused to speed up future tasks.",
@@ -259,35 +248,35 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Context",
       href: "/codex/prompting#context",
-      appliesTo: "App, CLI, IDE extension, Cloud, SDK",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud, SDK",
       description:
         "Information Codex can use while working, such as files, prior messages, tool output, and instructions.",
     },
     {
       key: "Context window",
       href: "/api/docs/guides/conversation-state#managing-the-context-window",
-      appliesTo: "App, CLI, IDE extension, Cloud, SDK",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud, SDK",
       description:
         "The maximum amount of information the model can consider at once.",
     },
     {
       key: "Custom agent",
-      href: "/codex/subagents#custom-agents",
-      appliesTo: "App, CLI",
+      href: "/codex/agent-configuration/subagents#custom-agents",
+      appliesTo: "Desktop app, CLI",
       description:
         "User-defined agent role with its own instructions and settings.",
     },
     {
       key: "Deny-read rule",
       href: "/codex/permissions#deny-reads-with-exact-paths-or-globs",
-      appliesTo: "App, CLI, IDE extension, Enterprise",
+      appliesTo: "Desktop app, CLI, IDE extension, Enterprise",
       description:
         "Filesystem permission rule that prevents Codex from reading sensitive paths or glob matches.",
     },
     {
       key: "Diff",
-      href: "/codex/app/review#what-changes-it-shows",
-      appliesTo: "App, Git, Review",
+      href: "/codex/code-review?surface=app#app-what-changes-it-shows",
+      appliesTo: "Desktop app, Git, Review",
       description:
         "Set of Git file changes shown for inspection, comments, staging, or reverting.",
     },
@@ -300,28 +289,28 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     },
     {
       key: "Environment (local)",
-      href: "/codex/app/local-environments",
-      appliesTo: "App, Worktree",
+      href: "/codex/environments/local-environment",
+      appliesTo: "Desktop app, Worktree",
       description:
-        "App configuration to tell Codex how to set up worktrees for a project.",
+        "Desktop app configuration that tells Codex how to set up worktrees for a project.",
     },
     {
       key: "Environment variable",
-      href: "/codex/cloud/environments#environment-variables-and-secrets",
+      href: "/codex/environments/cloud-environment#environment-variables-and-secrets",
       appliesTo: "Cloud, CLI, IDE extension",
       description:
         "Runtime configuration value available during task execution.",
     },
     {
       key: "Ephemeral session",
-      href: "/codex/noninteractive#basic-usage",
+      href: "/codex/non-interactive-mode#basic-usage",
       appliesTo: "CLI",
       description:
         "Non-interactive run that skips saving session state after it completes.",
     },
     {
       key: "Fast mode",
-      href: "/codex/speed#fast-mode",
+      href: "/codex/agent-configuration/speed#fast-mode",
       appliesTo: "CLI, IDE extension",
       description:
         "Speed setting that makes supported models respond faster at a higher credit cost.",
@@ -329,89 +318,89 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Filesystem permission",
       href: "/codex/permissions#filesystem-permissions",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Permission profile rule that grants or denies read and write access to paths.",
     },
     {
       key: "Finding",
-      href: "/codex/app/automations#managing-tasks",
-      appliesTo: "App",
-      description: "A notable result or issue surfaced by an automation.",
+      href: "/codex/automations#managing-tasks",
+      appliesTo: "Desktop app",
+      description: "A notable result or issue surfaced by a scheduled task.",
     },
     {
       key: "Full access",
-      href: "/codex/concepts/sandboxing#configure-defaults",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/sandboxing#configure-defaults",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Mode where Codex runs without normal sandbox restrictions.",
     },
     {
       key: "Git worktree",
-      href: "/codex/app/worktrees#whats-a-worktree",
-      appliesTo: "App, Git",
+      href: "/codex/environments/git-worktrees#whats-a-worktree",
+      appliesTo: "Desktop app, Git",
       description:
         "A second checkout of the same repository for parallel branch work.",
     },
     {
       key: "Handoff",
-      href: "/codex/app/worktrees#working-between-local-and-worktree",
-      appliesTo: "App",
-      description: "Moving a thread and its work between Local and Worktree.",
+      href: "/codex/environments/git-worktrees#working-between-local-and-worktree",
+      appliesTo: "Desktop app",
+      description: "Moving a task and its work between Local and Worktree.",
     },
     {
       key: "Heartbeat",
-      href: "/codex/app/automations#thread-automations",
-      appliesTo: "App",
+      href: "/codex/automations#schedule-work-from-a-task",
+      appliesTo: "Desktop app",
       description:
-        "A recurring thread wake-up that returns Codex to the same conversation on a schedule. Also called a thread automation.",
+        "Shorthand for recurring scheduled work that returns ChatGPT to the same task.",
     },
     {
       key: "Hook",
       href: "/codex/hooks",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "A lifecycle handler that runs when a Codex event matches, such as tool use, permission requests, or when a turn stops.",
     },
     {
       key: "Hook event",
       href: "/codex/hooks#config-shape",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Lifecycle point where configured hook handlers can run.",
     },
     {
       key: "Hunk",
-      href: "/codex/app/review#staging-and-reverting-files",
-      appliesTo: "App, Git, Review",
+      href: "/codex/code-review?surface=app#app-staging-and-reverting-files",
+      appliesTo: "Desktop app, Git, Review",
       description:
         "Contiguous section of a diff that can be staged, unstaged, or reverted independently.",
     },
     {
       key: "Inline comment",
-      href: "/codex/app/review#inline-comments-for-feedback",
-      appliesTo: "App",
+      href: "/codex/code-review?surface=app#app-inline-comments-for-feedback",
+      appliesTo: "Desktop app",
       description: "Line-specific feedback attached to a diff.",
     },
     {
       key: "Live web search",
-      href: "/codex/config-basic#web-search-mode",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/config-file/config-basic#web-search-mode",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Real-time web lookup for current information.",
     },
     {
       key: "Local",
-      href: "/codex/app/worktrees#working-between-local-and-worktree",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/environments/git-worktrees#working-between-local-and-worktree",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Mode where Codex works on the user's computer.",
     },
     {
-      key: "Local thread",
-      href: "/codex/prompting#threads",
-      appliesTo: "App, CLI, IDE extension",
-      description: "A thread that runs on the user's machine.",
+      key: "Local task",
+      href: "/codex/environments/modes",
+      appliesTo: "Desktop app, CLI, IDE extension",
+      description: "A Work or Codex task that runs on the user's machine.",
     },
     {
       key: "Maintenance script",
-      href: "/codex/cloud/environments#container-caching",
+      href: "/codex/environments/cloud-environment#container-caching",
       appliesTo: "Cloud",
       description: "Optional script run when a cached cloud container resumes.",
     },
@@ -423,28 +412,28 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     },
     {
       key: "MCP",
-      href: "/codex/mcp",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/extend/mcp",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Model Context Protocol, a standard for connecting Codex to external tools and context.",
     },
     {
       key: "MCP resource",
-      href: "/codex/mcp#supported-mcp-features",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/extend/mcp#supported-mcp-features",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Readable context exposed by an MCP server for Codex to inspect.",
     },
     {
       key: "MCP server",
-      href: "/codex/mcp#supported-mcp-features",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/extend/mcp#supported-mcp-features",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "External tool or context provider exposed through MCP.",
     },
     {
       key: "MCP tool",
-      href: "/codex/mcp#supported-mcp-features",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/extend/mcp#supported-mcp-features",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Action exposed by an MCP server that Codex can call during a task.",
     },
@@ -457,273 +446,277 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     },
     {
       key: "Memories",
-      href: "/codex/memories",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/customization/memories",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Locally stored context Codex can reuse across sessions.",
     },
     {
       key: "Model",
       href: "/codex/models",
-      appliesTo: "App, CLI, IDE extension, Cloud, SDK",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud, SDK",
       description: "The AI model Codex uses for reasoning and tool work.",
     },
     {
       key: "Network access",
-      href: "/codex/agent-approvals-security#network-access-",
-      appliesTo: "App, CLI, IDE extension, Cloud",
+      href: "/codex/agent-approvals-security#network-access",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud",
       description:
         "Permission for commands or environments to reach the internet.",
     },
     {
       key: "Network policy",
       href: "/codex/agent-approvals-security#network-policy",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Domain-based allow and deny rules that constrain sandboxed outbound network traffic.",
     },
     {
       key: "Non-interactive mode",
-      href: "/codex/noninteractive",
+      href: "/codex/non-interactive-mode",
       appliesTo: "CLI",
       description: "CLI mode for running Codex from scripts or CI.",
     },
     {
       key: "Output schema",
-      href: "/codex/noninteractive#create-structured-outputs-with-a-schema",
+      href: "/codex/non-interactive-mode#create-structured-outputs-with-a-schema",
       appliesTo: "CLI",
       description:
         "JSON Schema passed to `codex exec` to constrain the final response.",
     },
     {
       key: "Permanent worktree",
-      href: "/codex/app/worktrees#codex-managed-and-permanent-worktrees",
-      appliesTo: "App",
+      href: "/codex/environments/git-worktrees#codex-managed-and-permanent-worktrees",
+      appliesTo: "Desktop app",
       description: "A long-lived worktree kept as its own project.",
     },
     {
       key: "Permission profile",
       href: "/codex/permissions#define-and-select-a-profile",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Named least-privilege policy that combines filesystem and network rules for local command execution.",
     },
     {
       key: "Plan",
       href: "/codex/learn/best-practices#plan-first-for-difficult-tasks",
-      appliesTo: "App, CLI, IDE extension, Cloud",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud",
       description: "Codex's proposed or tracked steps for completing a task.",
     },
     {
       key: "Plugin",
       href: "/codex/plugins",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app (Work, Codex), Web (Work), CLI",
       description:
         "Installable bundle that can distribute skills, tools, and integrations.",
     },
     {
       key: "Plugin manifest",
-      href: "/codex/plugins/build#plugin-structure",
-      appliesTo: "App, CLI, IDE extension, Plugins",
+      href: "/codex/build-plugins#plugin-structure",
+      appliesTo: "Desktop app, CLI, IDE extension, Plugins",
       description:
         "Plugin metadata file that identifies a plugin and points to bundled skills, apps, MCP servers, hooks, and metadata.",
     },
     {
       key: "Prefix rule",
-      href: "/codex/rules#understand-the-rules-language",
-      appliesTo: "App, CLI, IDE extension, Enterprise",
+      href: "/codex/agent-configuration/rules#understand-the-rules-language",
+      appliesTo: "Desktop app, CLI, IDE extension, Enterprise",
       description:
         "Command-rule pattern that allows, prompts for, or forbids matching command prefixes.",
     },
     {
       key: "Profile",
-      href: "/codex/config-advanced#profiles",
+      href: "/codex/config-file/config-advanced#profiles",
       appliesTo: "CLI, IDE extension",
       description: "Named configuration preset for Codex.",
     },
     {
       key: "Progressive disclosure",
-      href: "/codex/skills",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/build-skills",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Loading skill details only when needed to preserve context.",
     },
     {
       key: "Project",
-      href: "/codex/app/features#multitask-across-projects",
-      appliesTo: "App",
-      description: "A selected codebase or folder Codex works in.",
+      href: "/codex/projects",
+      appliesTo: "Desktop app",
+      description:
+        "A group of related chats or tasks and shared sources, or a local folder used for file-based work.",
     },
     {
       key: "Prompt",
       href: "/codex/prompting",
-      appliesTo: "App, CLI, IDE extension, Cloud, SDK",
-      description: "The user instruction or request sent to Codex.",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud, SDK",
+      description: "A question, instruction, or goal sent to ChatGPT or Codex.",
     },
     {
       key: "Pull request review",
-      href: "/codex/app/review#pull-request-reviews",
-      appliesTo: "App, CLI, GitHub",
+      href: "/codex/code-review?surface=app#app-pull-request-reviews",
+      appliesTo: "Desktop app, CLI, GitHub",
       description: "Codex review of changes or feedback on a pull request.",
     },
     {
       key: "RBAC",
-      href: "/codex/enterprise/admin-setup#step-2-set-up-custom-roles-rbac",
+      href: "/codex/enterprise/roles-and-workspace-permissions",
       appliesTo: "Enterprise",
       description: "Role-based access control for workspace permissions.",
     },
     {
       key: "Read-only mode",
-      href: "/codex/concepts/sandboxing",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/sandboxing",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Mode where Codex can inspect but not modify without approval.",
     },
     {
       key: "Reasoning effort",
-      href: "/codex/config-basic#reasoning-effort",
-      appliesTo: "App, CLI, IDE extension, SDK",
+      href: "/codex/config-file/config-basic#reasoning-effort",
+      appliesTo: "Desktop app, CLI, IDE extension, SDK",
       description:
         "Setting that controls how much reasoning budget a model uses.",
     },
     {
       key: "Remote connection",
       href: "/codex/remote-connections",
-      appliesTo: "App, Mobile",
+      appliesTo: "Desktop app, Mobile",
       description:
-        "Connection that lets Codex work from another device using a connected host.",
+        "Connection that lets you access Work or Codex tasks on another device through a connected host.",
     },
     {
       key: "requirements.toml",
-      href: "/codex/config-reference#requirementstoml",
+      href: "/codex/config-file/config-reference#requirementstoml",
       appliesTo: "Enterprise",
       description: "Admin-enforced requirements file for managed Codex setups.",
     },
     {
       key: "Review pane",
-      href: "/codex/app/review",
-      appliesTo: "App",
-      description: "App view for inspecting diffs, comments, and Git changes.",
+      href: "/codex/code-review?surface=app",
+      appliesTo: "Desktop app",
+      description:
+        "Desktop app view for inspecting diffs, comments, and Git changes.",
     },
     {
       key: "Rules",
-      href: "/codex/rules",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/agent-configuration/rules",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Policies that allow, prompt for, or deny command prefixes or permission exceptions.",
     },
     {
       key: "Sandbox",
-      href: "/codex/concepts/sandboxing",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/sandboxing",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Enforced boundary limiting what Codex commands can access or modify.",
     },
     {
       key: "Sandbox mode",
-      href: "/codex/config-basic#sandbox-level",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/config-file/config-basic#sandbox-level",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Configuration that defines Codex's filesystem and network limits.",
     },
     {
       key: "Sandbox preset",
-      href: "/codex/sdk#sandbox-presets",
+      href: "/codex/codex-sdk#sandbox-presets",
       appliesTo: "SDK",
       description:
         "SDK shorthand for common sandbox policies such as read-only, workspace-write, or full access.",
     },
     {
       key: "Schedule",
-      href: "/codex/app/automations",
-      appliesTo: "App",
-      description: "The timing rule for an automation.",
+      href: "/codex/automations",
+      appliesTo: "Desktop app",
+      description: "The timing rule for a scheduled task.",
     },
     {
       key: "Secret",
-      href: "/codex/cloud/environments#environment-variables-and-secrets",
+      href: "/codex/environments/cloud-environment#environment-variables-and-secrets",
       appliesTo: "Cloud",
       description:
         "Encrypted value available to setup scripts but removed before the agent phase.",
     },
     {
       key: "Setup script",
-      href: "/codex/app/local-environments#setup-scripts",
-      appliesTo: "App worktrees",
+      href: "/codex/environments/local-environment#setup-scripts",
+      appliesTo: "Desktop app worktrees",
       description:
         "Script run before the agent starts to install dependencies or prepare tools.",
     },
     {
       key: "Skill",
-      href: "/codex/skills",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/build-skills",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Reusable workflow package with instructions and optional scripts or references.",
     },
     {
       key: "Skill invocation",
-      href: "/codex/skills#how-codex-uses-skills",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/build-skills#how-codex-uses-skills",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Explicit or implicit activation of a skill.",
     },
     {
       key: "Slash command",
-      href: "/codex/cli/slash-commands",
+      href: "/codex/developer-commands?surface=cli",
       appliesTo: "CLI",
       description:
         "Command entered with a leading slash to control or inspect a Codex CLI session.",
     },
     {
-      key: "Standalone automation",
-      href: "/codex/app/automations",
-      appliesTo: "App",
-      description: "Independent scheduled run that reports separate findings.",
+      key: "Standalone scheduled task",
+      href: "/codex/automations",
+      appliesTo: "Desktop app, Web",
+      description:
+        "Scheduled task whose runs each start a new task and report findings in Triage.",
     },
     {
       key: "STDIO MCP server",
-      href: "/codex/mcp#stdio-servers",
+      href: "/codex/extend/mcp#stdio-servers",
       appliesTo: "CLI, IDE extension",
       description:
         "MCP server launched as a local process by a configured command and arguments.",
     },
     {
       key: "Streamable HTTP MCP server",
-      href: "/codex/mcp#streamable-http-servers",
+      href: "/codex/extend/mcp#streamable-http-servers",
       appliesTo: "CLI, IDE extension",
       description:
         "MCP server reached over HTTP, optionally with bearer token or OAuth authentication.",
     },
     {
       key: "Subagent",
-      href: "/codex/concepts/subagents",
-      appliesTo: "App, CLI",
+      href: "/codex/agent-configuration/subagents",
+      appliesTo: "Desktop app, CLI",
       description: "Specialized child agent spawned to work on part of a task.",
     },
     {
       key: "Subagent workflow",
-      href: "/codex/concepts/subagents#core-terms",
-      appliesTo: "App, CLI",
+      href: "/codex/agent-configuration/subagents#core-terms",
+      appliesTo: "Desktop app, CLI",
       description:
         "Workflow where Codex runs delegated agents in parallel and combines their results.",
     },
     {
       key: "Task",
-      href: "/codex/app/automations#managing-tasks",
-      appliesTo: "App, CLI, IDE extension, Cloud, SDK",
-      description: "The unit of work Codex is asked to complete.",
+      href: "/codex/projects",
+      appliesTo: "Desktop app, Web, Mobile, CLI, IDE extension, Cloud",
+      description:
+        "Durable unit of Work or Codex activity containing its context, messages, results, and actions.",
     },
     {
       key: "Thread",
-      href: "/codex/prompting#threads",
-      appliesTo: "App, CLI, IDE extension, Cloud, SDK",
+      href: "/codex/app-server#threads",
+      appliesTo: "App-server, SDK",
       description:
-        "A single Codex session containing prompts, model output, and tool activity.",
+        "Technical conversation object exposed by Codex app-server APIs and protocol fields.",
     },
     {
-      key: "Thread automation",
-      href: "/codex/app/automations#thread-automations",
-      appliesTo: "App",
+      key: "Scheduled work",
+      href: "/codex/automations#schedule-work-from-a-task",
+      appliesTo: "Desktop app, Web",
       description:
-        "Recurring wake-up attached to an existing thread. Also called a heartbeat.",
+        "Work scheduled from an existing task that returns to the same task context on each scheduled run.",
     },
     {
       key: "Thread fork",
@@ -735,35 +728,42 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Turn",
       href: "/codex/app-server#core-primitives",
-      appliesTo: "App, CLI, IDE extension, Cloud, SDK",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud, SDK",
       description:
-        "One exchange in a thread, usually a user prompt plus Codex's response and actions.",
+        "One exchange in a chat or task, usually a user prompt plus the agent's response and actions.",
     },
     {
       key: "Universal image",
-      href: "/codex/cloud/environments#default-universal-image",
+      href: "/codex/environments/cloud-environment#default-universal-image",
       appliesTo: "Cloud",
       description:
         "Default Codex cloud container image with common tools preinstalled.",
     },
     {
       key: "Web search cache",
-      href: "/codex/config-basic#web-search-mode",
-      appliesTo: "App, CLI, IDE extension",
+      href: "/codex/config-file/config-basic#web-search-mode",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description:
         "Pre-indexed search results Codex can use without live browsing.",
     },
     {
+      key: "Work",
+      href: "/codex/get-started-with-work",
+      appliesTo: "Desktop app, Web",
+      description:
+        "ChatGPT Work is an agent for research, analysis, and creating documents, presentations, spreadsheets, and other finished work.",
+    },
+    {
       key: "Worktree",
-      href: "/codex/app/worktrees",
-      appliesTo: "App",
+      href: "/codex/environments/git-worktrees",
+      appliesTo: "Desktop app",
       description:
         "Mode where Codex isolates changes in a separate Git worktree.",
     },
     {
       key: "Writable roots",
       href: "/codex/agent-approvals-security#protected-paths-in-writable-roots",
-      appliesTo: "App, CLI, IDE extension",
+      appliesTo: "Desktop app, CLI, IDE extension",
       description: "Directories Codex is allowed to modify.",
     },
   ]}

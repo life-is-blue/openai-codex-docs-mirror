@@ -3,7 +3,7 @@
 Use a Codex Security scan for your first review and for most routine repository
 or component assessments. It runs the complete scan workflow once.
 
-Once you're satisfied with the results, run a [deep scan](https://developers.openai.com/codex/security/plugin/deep-scans)
+Once you're satisfied with the results, run a [deep scan](https://learn.chatgpt.com/docs/security/plugin/deep-scans)
 for a more comprehensive assessment. Deep scans take longer, but they're more
 thorough.
 
@@ -122,10 +122,10 @@ and `coverage.json` for automation and integrations. You normally don't need to
 open these files yourself.
 
 The findings workspace can also create portable JSON, CSV, and SARIF files. See
-[Export or track findings](https://developers.openai.com/codex/security/plugin/export-findings).
+[Export or track findings](https://learn.chatgpt.com/docs/security/plugin/export-findings).
 
 ## Next step
 
-After a person accepts a finding, use [Fix and verify a finding](https://developers.openai.com/codex/security/plugin/fix-findings)
+After a person accepts a finding, use [Fix and verify a finding](https://learn.chatgpt.com/docs/security/plugin/fix-findings)
 to generate and review one bounded patch. Don't ask Codex to fix every finding
 from a scan in one task.

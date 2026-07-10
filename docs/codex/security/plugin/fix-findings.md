@@ -119,4 +119,4 @@ codex exec 'Use $codex-security:security-diff-scan to review changes from <base-
 
 After verification, merge the patch through your normal code-review and release
 process. To hand findings to another team before remediation, see [Export or
-track findings](https://developers.openai.com/codex/security/plugin/export-findings).
+track findings](https://learn.chatgpt.com/docs/security/plugin/export-findings).

@@ -3,7 +3,7 @@
 A deep scan is slower but more thorough than a standard scan. Use it when you
 want to reduce variability and search more comprehensively.
 
-Start with a [standard scan](https://developers.openai.com/codex/security/plugin/scans). Once you're
+Start with a [standard scan](https://learn.chatgpt.com/docs/security/plugin/scans). Once you're
 satisfied with the results, run a deep scan for a more thorough assessment.
 
 ## Choose between standard and deep scans
@@ -30,7 +30,7 @@ For one component in a monorepo, identify the folder explicitly:
 Use $codex-security:deep-security-scan to run a deep security scan of /absolute/path/to/repository/services/payments.
 ```
 
-In the Codex app, a scoped deep scan resolves the selected folder as the
+In the ChatGPT desktop app, a scoped deep scan resolves the selected folder as the
 **Codebase** and shows its scan area as the entire selected target.
 
 ## Confirm setup and preflight
@@ -45,7 +45,7 @@ In the Codex app, a scoped deep scan resolves the selected folder as the
 4. Select **Start scan**.
 5. Review the capability preflight. If it proposes a configuration change,
    review the exact change and let Codex apply it only if it matches your
-   environment. Start a new thread if Codex tells you a restart is required.
+   environment. Start a new task if Codex tells you a restart is required.
 
 </WorkflowSteps>
 
@@ -60,8 +60,8 @@ Deep scans use the same findings workspace and generated `report.md` as standard
 scans. Review the coverage summary before the findings. A deep scan searches
 the code more extensively, but any deferred surface or proof gap still limits
 the conclusion. For a finding you accept, continue with [Fix and verify a
-finding](https://developers.openai.com/codex/security/plugin/fix-findings).
+finding](https://learn.chatgpt.com/docs/security/plugin/fix-findings).
 
 To review a pull request, commit, branch range, or local patch, use [Review code
-changes](https://developers.openai.com/codex/security/plugin/code-changes). A deep scan never substitutes
+changes](https://learn.chatgpt.com/docs/security/plugin/code-changes). A deep scan never substitutes
 for the diff-focused workflow.

@@ -30,7 +30,7 @@ Local permission profiles are supported on macOS, Linux, WSL, and native
 Windows. See [Scope and enforcement](#scope-and-enforcement) for platform-specific
 details and caveats.
 
-For Codex cloud network settings, see [Internet Access](https://developers.openai.com/codex/cloud/internet-access).
+For Codex cloud network settings, see [Internet Access](https://learn.chatgpt.com/docs/cloud/internet-access).
 
 ## Define and select a profile
 
@@ -50,7 +50,7 @@ Enterprise administrators can define profiles and restrict which profiles
 users may select through managed `requirements.toml`. Once
 `allowed_permission_profiles` is present, omitted profiles are denied,
 including omitted built-ins and profiles added in future Codex versions. See
-[Control available permission profiles](https://developers.openai.com/codex/enterprise/managed-configuration#control-available-permission-profiles)
+[Control available permission profiles](https://learn.chatgpt.com/docs/enterprise/managed-configuration#control-available-permission-profiles)
 for the recommended managed configuration.
 
 Custom profiles use two related concepts:
@@ -408,19 +408,19 @@ Suggested starting points:
 
 Profiles describe the local default posture for a session. Organization-managed
 requirements can still add restrictions that user configuration should not
-broaden. See [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration)
+broaden. See [Managed configuration](https://learn.chatgpt.com/docs/enterprise/managed-configuration)
 for admin-enforced filesystem and network constraints.
 
 ## Scope and enforcement
 
 Permission profiles define the boundaries for local sandboxed command
 execution. Use them together with approval policies and the separate controls
-for other Codex surfaces.
+for connectors, MCP servers, the built-in browser, Computer Use, and Codex cloud.
 
 ### What profiles control
 
 - **Local command execution:** Permission profiles govern sandboxed commands
-  that run on your machine. App connectors, MCP servers, browser or
+  that run on your machine. Connectors, MCP servers, browser or
   computer-use surfaces, Codex cloud environment settings, and approved
   escalations use their own controls.
 - **Filesystem writes:** A write-capable profile can create persistent changes.
@@ -446,7 +446,7 @@ for other Codex surfaces.
   enforcement path depends on user namespaces and kernel support; restricted
   container hosts can force compatibility paths, and unsupported split policies
   are refused.
-- On native Windows, [`elevated` sandboxing](https://developers.openai.com/codex/windows#windows-sandbox)
+- On native Windows, [`elevated` sandboxing](https://learn.chatgpt.com/docs/windows/windows-sandbox#windows-sandbox)
   is strongest because it can use dedicated lower-privilege sandbox users,
   filesystem permission boundaries, and firewall rules. `unelevated`
   sandboxing is a fallback with weaker network isolation and cannot enforce

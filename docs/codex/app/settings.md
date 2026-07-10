@@ -1,14 +1,16 @@
-# Codex app settings
+# Settings
 
-Use the settings panel to tune how the Codex app behaves, how it opens files,
-and how it connects to tools. Open [**Settings**](codex://settings) from the app menu or
-press <kbd>Cmd</kbd>+<kbd>,</kbd>.
+Use the settings panel to personalize the app and manage everyday preferences.
+Open [**Settings**](codex://settings) from the app menu or press
+
+<kbd>Cmd</kbd>+<kbd>,</kbd> on macOS or <kbd>Ctrl</kbd>+<kbd>,</kbd> on Windows.
 
 ## General
 
-Choose where files open, how much command output appears in threads, and where
-terminal tabs open by default. You can also require <kbd>Cmd</kbd>+<kbd>Enter</kbd>
-for multiline prompts or prevent sleep while a thread runs.
+Require <kbd>Cmd</kbd>+<kbd>Enter</kbd> for multiline prompts, or turn on
+**Prevent sleep while running** so local tasks can continue while you step away.
+Under **Follow-up behavior**, choose whether a message sent while ChatGPT works
+should steer the current run or wait for the next run.
 
 ## Profile
 
@@ -21,7 +23,7 @@ ChatGPT plans.
 Eligible users can also send Codex invitations from the profile menu. Choose
 **Invite a friend** on an eligible personal plan or **Invite a coworker** in an
 eligible Business workspace. See
-[Invite friends and coworkers](https://developers.openai.com/codex/pricing#invite-friends-and-coworkers) for
+[Invite friends and coworkers](https://learn.chatgpt.com/docs/pricing#invite-friends-and-coworkers) for
 current rewards, limits, and eligibility.
 
 ## Keyboard shortcuts
@@ -36,91 +38,47 @@ command that uses it.
 Choose when turn completion notifications appear, and whether the app should prompt for
 notification permissions.
 
-## Agent configuration
-
-Codex agents in the app inherit the same configuration as the IDE and CLI extension.
-Use the in-app controls for common settings, or edit `config.toml` for advanced
-options. See [Codex security](https://developers.openai.com/codex/agent-approvals-security) and
-[config basics](https://developers.openai.com/codex/config-basic) for more detail.
-
 ## Appearance
 
-In **Settings**, you can change the Codex app appearance by choosing a base theme,
-adjusting accent, background, and foreground colors, and changing the UI and code
-fonts. You can also share your custom theme with friends.
+In **Settings**, you can change the app appearance by choosing a base theme,
+adjusting accent, background, and foreground colors, and changing the UI and
+code fonts. You can also share your custom theme with friends.
 
 <CodexScreenshot
-  alt="Codex app Appearance settings showing theme selection, color controls, and font options"
+  alt="ChatGPT desktop app Appearance settings showing theme selection, color controls, and font options"
   lightSrc="/images/codex/app/theme-selection-light.webp"
   darkSrc="/images/codex/app/theme-selection-dark.webp"
   maxHeight="720px"
   class="mb-8"
 />
 
-### Codex pets
+## Pets
 
 <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(15rem,50%)] md:items-start xl:grid-cols-[minmax(0,1fr)_minmax(16rem,30%)]">
   <div>
-    Codex pets are optional animated companions for the app. In **Settings**,
-    go to **Appearance** and choose **Pets** to select a built-in pet or
-    refresh custom pets from your local Codex home. Type `/pet` in the
-    composer, use **Wake Pet** or **Tuck Away Pet** in **Settings > Appearance**, or
-    press <kbd>Cmd+K</kbd> or <kbd>Ctrl+K</kbd> and run the same commands to
-    toggle the floating overlay.
+    Pets are optional animated companions for the app. In **Settings > Pets**,
+    choose a built-in or custom pet, then use `/pet`, **Wake Pet**, or
+    **Tuck Away Pet** to control the floating overlay.
 
-    The overlay keeps active Codex work visible while you use other apps. It
-    shows the active thread, reflects whether Codex is running, waiting for
-    input, or ready for review, and pairs that state with a short progress
-    prompt so you can glance at what changed without reopening the thread.
+    See [Pets](https://learn.chatgpt.com/docs/pets?surface=app) to understand pet status, follow
+    activity across tasks, or create your own pet.
 
   </div>
 
   <CodexPetsDemo client:load />
 </div>
 
-To create your own pet, install the `hatch-pet` skill:
-
-```text
-$skill-installer hatch-pet
-```
-
-Reload skills from the command menu. Press <kbd>Cmd+K</kbd> or <kbd>Ctrl+K</kbd>,
-choose **Force Reload Skills**, then ask the skill to create a pet:
-
-```text
-$hatch-pet create a new pet inspired by my recent projects
-```
-
-## Git
-
-Use Git settings to standardize branch naming and choose whether Codex uses force
-pushes.
-You can also set prompts that Codex uses to generate commit messages and pull request descriptions.
-
-## Integrations & MCP
-
-Connect external tools via MCP (Model Context Protocol). Enable recommended servers or
-add your own. If a server requires OAuth, the app starts the auth flow. These settings
-also apply to the Codex CLI and IDE extension because the MCP configuration lives in
-`config.toml`. See the [Model Context Protocol docs](https://developers.openai.com/codex/mcp) for details.
-
 <a id="browser-use"></a>
 
 ## Browser
 
 Use these settings to install or enable the bundled Browser plugin, set up the
-[Codex Chrome extension](https://developers.openai.com/codex/app/chrome-extension), and manage allowed and
-blocked websites. Codex asks before using a website unless you've allowed it.
-Removing a blocked site lets Codex ask again before using it in the browser.
+[Chrome extension](https://learn.chatgpt.com/docs/chrome-extension), and manage allowed and blocked
+websites. ChatGPT asks before using a website unless you've allowed it. Removing
+a blocked site lets ChatGPT ask again before using it in the browser.
 
-Under **Developer mode**, turn on **Enable full CDP access** to let Codex use
-the Chrome DevTools Protocol for performance profiling and deeper browser
-debugging. If your organization has disabled full CDP access, you can't enable
-it locally. See [Developer mode](https://developers.openai.com/codex/app/browser#developer-mode) for setup,
-risk, approval details, and the administrator requirement.
-
-See [In-app browser](https://developers.openai.com/codex/app/browser) for browser preview, comment, and
-browser use workflows.
+See [Built-in browser](https://learn.chatgpt.com/docs/browser?surface=app) for browser preview, comment, and
+Computer Use workflows.
 
 ## Computer Use
 
@@ -134,20 +92,36 @@ Choose **Friendly**, **Pragmatic**, or **None** as your default personality. Use
 **None** to disable personality instructions. You can update this at any time.
 
 You can also add your own custom instructions. Editing custom instructions updates your
-[personal instructions in `AGENTS.md`](https://developers.openai.com/codex/guides/agents-md).
+[personal instructions in `AGENTS.md`](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
 
-## Context-aware suggestions
+## Suggested prompts
 
 Use context-aware suggestions to surface follow-ups and tasks you may want to resume when you
-start or return to Codex.
+start or return to ChatGPT.
 
 ## Memories
 
-Enable Memories, where available, to let Codex carry useful context from past
-threads into future work. See [Memories](https://developers.openai.com/codex/memories) for setup, storage,
-and per-thread controls.
+Enable Memories, where available, to let ChatGPT carry useful context from past
+chats and tasks into future work. See [Memories](https://learn.chatgpt.com/docs/customization/memories)
+for setup, storage, and controls for individual chats and tasks.
 
-## Archived threads
+## Archived tasks
 
-The **Archived threads** section lists archived chats with dates and project
-context. Use **Unarchive** to restore a thread.
+The **Archived tasks** section lists archived tasks with dates and project
+context. Use **Unarchive** to restore a task.
+
+<a id="keep-an-app-chat-near-your-work"></a>
+
+## Keep a task near your work
+
+In the ChatGPT desktop app, pop out an active task into a separate window and place it
+next to your browser, editor, or design preview. Turn on **Always on top** when
+you want the task to remain visible while you work in another app.
+
+<CodexScreenshot
+  alt="ChatGPT desktop app task displayed in a floating pop-out window"
+  lightSrc="/images/codex/app/popover-light.webp"
+  darkSrc="/images/codex/app/popover-dark.webp"
+  maxHeight="400px"
+  class="my-8"
+/>

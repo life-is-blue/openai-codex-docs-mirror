@@ -1,142 +1,107 @@
 # Governance
 
-# Governance and Observability
+Governance for Codex activity spans interactive analytics, programmatic
+reporting, related ChatGPT usage controls, and audit records. Choose the
+surface that matches the question; analytics and compliance data serve
+different purposes.
 
-Codex gives enterprise teams visibility into adoption and impact, plus the auditability needed for security and compliance programs. Use the self-serve dashboard for day-to-day tracking, the Analytics API for programmatic reporting, and the Compliance API to export detailed logs into your governance stack.
+<a id="governance-and-observability"></a>
+<a id="ways-to-track-codex-usage"></a>
 
-## Ways to track Codex usage
+| If you need to                                          | Start with                                                                |
+| ------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Understand adoption across ChatGPT                      | [Workspace analytics](https://learn.chatgpt.com/docs/enterprise/workspace-analytics)              |
+| Review Codex adoption and activity interactively        | [Codex analytics](#analytics-dashboard)                                   |
+| Load aggregated Codex reporting into another system     | [Analytics API](https://learn.chatgpt.com/docs/enterprise/analytics-api)                          |
+| Export records for audit or investigation               | [Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api)                        |
+| Review plan-dependent ChatGPT workspace credit controls | [ChatGPT usage limits and spend controls](https://learn.chatgpt.com/docs/enterprise/usage-limits) |
 
-There are three ways to monitor Codex usage, depending on what you need:
+## Open the administration surfaces
 
-- **Analytics Dashboard**: quick visibility into adoption, usage, and code review impact.
-- **Analytics API**: pull structured daily metrics into your data warehouse or BI tools.
-- **Compliance API**: exports detailed activity logs for audit, monitoring, and investigations.
+- Open [Workspace analytics](https://chatgpt.com/admin/usage) for interactive
+  workspace reporting. The [Workspace analytics guide](https://help.openai.com/en/articles/10875114-workspace-analytics-for-chatgpt-enterprise-and-edu)
+  describes the current roles and views.
+- Open the authenticated [Codex Analytics API reference](https://chatgpt.com/codex/cloud/settings/apireference)
+  when you need scheduled, programmatic reporting.
+- Open the authenticated [Admin API reference](https://chatgpt.com/admin/api-reference)
+  and the [Compliance Platform guide](https://help.openai.com/en/articles/9261474-compliance-api-for-chatgpt-enterprise-edu-and-chatgpt-for-teachers)
+  for audit and investigation integrations.
 
-## Analytics Dashboard
+For example, use workspace analytics for a quick adoption check, the Analytics
+API to load aggregated Codex reporting into a business intelligence system,
+and the Compliance API to send auditable records to a SIEM or electronic
+discovery workflow.
 
-<div class="max-w-1xl mx-auto">
-  <img src="https://developers.openai.com/images/codex/enterprise/analytics-dashboard.png"
-    alt="Codex analytics dashboard showing credit and token usage by model"
-    class="block w-full mx-auto rounded-lg !border-0"
-  />
-</div>
+## Analytics dashboard
 
-### Dashboard views
+<a id="dashboard-views"></a>
+<a id="data-export"></a>
 
-The <a href="https://admin.openai.com/analytics/codex" target="_blank" rel="noopener noreferrer">analytics dashboard</a> allows ChatGPT workspace administrators and analytics viewers to track Codex adoption, usage, and Code Review feedback. Usage data can lag by up to 12 hours.
+ChatGPT provides workspace-wide analytics for broad adoption and engagement.
+Codex analytics focuses on Codex activity. Both are interactive reporting
+surfaces, not raw audit logs.
 
-Codex provides date-range controls for daily and weekly views. Key charts include:
+Use [Workspace analytics](https://learn.chatgpt.com/docs/enterprise/workspace-analytics) to compare the
+two experiences and find their current owner-maintained sources. You can also
+open [Workspace analytics](https://chatgpt.com/admin/usage) directly. Don't
+build a durable reporting contract from dashboard labels or downloaded report
+fields; those can change as the product evolves.
 
-- Active users by product surface, including CLI, IDE extension, cloud, desktop, and Code Review
-- Workspace and personal usage breakdowns, including credit and token usage by product surface or model
-- Product activity for threads and turns by client
-- User ranking table, with filters for client and sort options such as credits, threads, turns, text tokens, and current streak
-- Code Review activity, including PRs reviewed, issues by priority, comments, replies, reactions, and feedback sentiment
-- Skill invocations, agent identity usage, and access token usage when your workspace has those features
+## Related ChatGPT usage controls
 
-### Data export
+ChatGPT workspace usage controls are separate from analytics and don't
+configure feature entitlements. Depending on the plan, eligible Codex activity
+can consume ChatGPT workspace credits, and exhausted limits can pause access to
+eligible features. These controls don't set a universal Codex limit or govern
+Platform API billing.
 
-Administrators can also export Codex analytics data in CSV or JSON format. Codex provides the following export options:
-
-- Workspace usage, including daily active users, threads, turns, and credits by surface
-- Usage per user, including daily threads, turns, and credits across surfaces, with optional email addresses when allowed
-- Code Review details, including daily comments, reactions, replies, and priority-level findings
+See [ChatGPT usage limits and spend controls](https://learn.chatgpt.com/docs/enterprise/usage-limits)
+for the durable boundary and current Help Center sources.
 
 ## Analytics API
 
-Use the [Analytics API](https://chatgpt.com/codex/cloud/settings/apireference) when you want to automate reporting, build internal dashboards, or join Codex metrics with your existing engineering data.
+<a id="what-it-measures"></a>
+<a id="endpoints"></a>
+<a id="usage"></a>
+<a id="code-review-activity"></a>
+<a id="user-engagement-with-code-review"></a>
+<a id="how-it-works"></a>
+<a id="common-use-cases"></a>
 
-### What it measures
+Use the Analytics API for programmatic, aggregated Codex reporting. It's
+appropriate for data warehouses, business intelligence systems, and internal
+reporting that shouldn't depend on an interactive dashboard.
 
-The enterprise Analytics API returns daily or weekly UTC buckets for a workspace. It supports workspace-level and per-user usage, per-client breakdowns, Code Review throughput, Code Review comment priority, and user engagement with Code Review comments.
-
-### Endpoints
-
-The base URL is `https://api.chatgpt.com/v1/analytics/codex`. All endpoints return paginated `page` objects with `has_more` and `next_page`.
-
-Use `start_time` for the inclusive Unix timestamp at the beginning of the reporting window, `end_time` for the exclusive Unix timestamp at the end of the reporting window, `group_by` for `day` or `week` buckets, `limit` for page size, and `page` to continue from a previous response. Requests can look back up to 90 days.
-
-#### Usage
-
-`GET /workspaces/{workspace_id}/usage`
-
-- Returns totals for threads, turns, credits, and per-client usage in daily or weekly buckets.
-- Omit `group` to return per-user rows.
-- Set `group=workspace` to return workspace-wide rows.
-- Includes text input, cached input, and output token fields.
-
-#### Code review activity
-
-`GET /workspaces/{workspace_id}/code_reviews`
-
-- Returns pull request reviews completed by Codex.
-- Returns total comments generated by Codex.
-- Breaks comments down by P0, P1, and P2 priority.
-
-#### User engagement with code review
-
-`GET /workspaces/{workspace_id}/code_review_responses`
-
-- Returns replies and reactions to Codex comments.
-- Breaks reactions down into positive, negative, and other reactions.
-- Counts comments that received reactions, replies, or either form of engagement.
-
-### How it works
-
-Analytics uses time windows and supports day or week grouping. Results are time-ordered and returned in pages with cursor-based pagination. Use an API key scoped to `codex.enterprise.analytics.read`.
-
-### Common use cases
-
-- Engineering observability dashboards
-- Adoption reporting for leadership updates
-- Usage governance and cost monitoring
+The authenticated API reference owns access requirements, routes, schemas,
+fields, reporting windows, and pagination. See
+[Analytics API](https://learn.chatgpt.com/docs/enterprise/analytics-api) for the conceptual integration
+boundary and the canonical reference link.
 
 ## Compliance API
 
-Use the [Compliance API](https://chatgpt.com/admin/api-reference) when you need auditable records for security, legal, and governance workflows.
+<a id="what-it-measures-1"></a>
+<a id="what-you-can-export"></a>
+<a id="activity-logs"></a>
+<a id="metadata-for-audit-and-investigation"></a>
+<a id="common-use-cases-1"></a>
+<a id="what-it-does-not-provide"></a>
 
-### What it measures
+Use the Compliance API for security, legal, and governance workflows that need
+auditable records. It's not an adoption or productivity dashboard.
 
-The Compliance API gives enterprises a way to export logs and metadata for Codex activity so you can connect that data to your existing audit, monitoring, and security workflows. It is designed for use with tools like eDiscovery, DLP, SIEM, or other compliance systems.
+The authenticated API reference owns event coverage, schemas, permissions,
+filters, retention, and request behavior. See
+[Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api) for the conceptual
+integration boundary and the canonical reference link.
 
-For Codex usage authenticated through ChatGPT, Compliance API exports provide audit records for Codex activity and can be used in investigations and compliance workflows. These audit logs are retained for up to 30 days. API-key-authenticated Codex usage follows your API organization settings and is not included in Compliance API exports.
+<a id="recommended-pattern"></a>
 
-### What you can export
+For rollout sequencing and verification across these surfaces, use the
+[Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup).
 
-#### Activity logs
+## Related docs
 
-- Prompt text sent to Codex
-- Responses Codex generated
-- Identifiers such as workspace, user, timestamp, and model
-- Token usage and related request metadata
-
-#### Metadata for audit and investigation
-
-Use record metadata to answer questions like:
-
-- Who ran a task
-- Who created or revoked an access token
-- When it ran
-- Which model was used
-- How much content was processed
-
-#### Common use cases
-
-- Security investigations
-- Compliance reporting
-- Policy enforcement audits
-- Routing events into SIEM and eDiscovery pipelines
-
-### What it does not provide
-
-- Lines of code generated (a bit of a noisy proxy for productivity and can incentivize the wrong behavior)
-- Acceptance rate of suggestions (almost 100% since users usually accept the change first)
-- Code quality or performance KPIs
-
-## Recommended pattern
-
-Most enterprises use a combination of:
-
-1. **Analytics Dashboard** for self-serve monitoring and quick answers
-2. **Analytics API** for automated reporting and BI integration
-3. **Compliance API** for audit exports and investigations
+- [Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup)
+- [Workspace analytics](https://learn.chatgpt.com/docs/enterprise/workspace-analytics)
+- [Analytics API](https://learn.chatgpt.com/docs/enterprise/analytics-api)
+- [Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api)

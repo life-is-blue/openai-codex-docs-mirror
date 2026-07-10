@@ -1,11 +1,11 @@
 # Appshots
 
-Appshots let you send the frontmost app window to a Codex thread. Use them when
+Appshots let you send the frontmost app window to a task in ChatGPT. Use them when
 you're actively working in another app on your computer and want to provide
-Codex with your current context so it can help you with the task.
+ChatGPT with your current context so it can help you with the task.
 
-Appshots are available in the Codex app on macOS. Press both Command keys, or
-  your custom Appshots hotkey, to take one.
+Appshots are available in the ChatGPT desktop app on macOS. Press both Command
+  keys, or your custom Appshots hotkey, to take one.
 
 ## What appshots capture
 
@@ -15,63 +15,66 @@ An appshot captures the frontmost window only. It can include:
 - Available text from that window, including visible text and text the app makes
   available outside the visible scroll area.
 
-After you add an appshot to a thread, it behaves like a Codex attachment. Codex
+After you add an appshot to a task, it behaves like an attachment. ChatGPT
 stores appshots locally in the session file, like files or images you attach
 manually.
 
 ## When to use appshots
 
-Use appshots when Codex needs context from a Mac app before it can act.
+Use appshots when ChatGPT needs context from a Mac app before it can act.
 
 Examples:
 
-- Share an API reference page and ask Codex to write a script that uses it.
-- Share an email or calendar view and ask Codex to draft the next step.
-- Share an image editor, design, or preview window and ask Codex to revise the
+- Share an API reference page and ask ChatGPT to write a script that uses it.
+- Share an email or calendar view and ask ChatGPT to draft the next step.
+- Share an image editor, design, or preview window and ask ChatGPT to revise the
   related assets or code.
 - Share an error, settings panel, or app state that's easier to show than
   describe.
 
 ## Take an appshot
 
-1. Open the Codex app on your Mac.
-2. Open the app and window you want to share.
-3. Press both Command keys, or the custom hotkey you configured in Codex
+1. Bring the app window you want to share to the front.
+2. Press both Command keys, or the custom hotkey you configured in ChatGPT
    settings.
-4. Allow macOS permissions if Codex asks.
-5. Ask Codex to perform a task with the appshot.
+3. Allow macOS permissions if ChatGPT asks.
+4. Ask ChatGPT to perform a task with the appshot.
 
-By default, Codex starts a new thread for the appshot. If you interacted with a
-Codex thread in the last 60 seconds, Codex adds the appshot to that recent
-thread instead. Taking consecutive appshots adds them to the same thread.
+<Illustration description="ChatGPT task composer with an Appshot attachment and follow-up prompt">
+  <AppshotsComposerIllustration ariaLabel="ChatGPT task composer with an Appshot attachment and follow-up prompt" />
+</Illustration>
 
-You can change the Appshots hotkey in Codex settings.
+By default, ChatGPT starts a new task for the appshot. If you interacted with a
+task in the last 60 seconds, ChatGPT adds the appshot to that recent
+task instead. Taking consecutive appshots adds them to the same task.
+
+You can change the Appshots hotkey in the app settings.
 
 ## Permissions and safety
 
-Codex may ask for permissions before it can take appshots:
+ChatGPT may ask for permissions before it can take appshots:
 
-- **Screen & System Audio Recording** lets Codex capture an image of the
+- **Screen & System Audio Recording** lets ChatGPT capture an image of the
   frontmost window.
-- **Accessibility** lets Codex read available text from the frontmost window.
+- **Accessibility** lets ChatGPT read available text from the frontmost window.
 
-Taking an appshot shares the captured image and available text with Codex.
+Taking an appshot shares the captured image and available text with ChatGPT.
 Avoid taking appshots of sensitive content unless the task requires that
 content.
 
 Review appshots the same way you would review sharing screenshots and documents
-with Codex.
+with ChatGPT.
 
 ## Limits and troubleshooting
 
-Appshots are a Codex app feature. Create them from the Codex app on macOS. If
-you resume a thread in the CLI that already contains an appshot, the attachment
-is part of the thread history, but the CLI can't create a new appshot.
+Appshots are available in the ChatGPT desktop app on macOS. If you resume a task
+in the CLI that already contains an appshot, the attachment is part of the task
+history, but the CLI can't create a new appshot.
 
 For some apps and websites, including Google Docs, Gmail, Google Sheets, and
-Google Slides, Codex may receive only the visible screenshot and may not receive
-the full document or off-screen text. If you have the matching plugin installed,
-Codex can use that plugin to access the relevant app content and help with your
+Google Slides, ChatGPT may receive only the visible screenshot and may not receive
+the full document or off-screen text. In ChatGPT Work or Codex, ChatGPT can use a
+matching installed plugin to access the relevant app content and help with your
 request.
 
 If appshots don't work:
@@ -79,4 +82,4 @@ If appshots don't work:
 1. Open **System Settings > Privacy & Security**.
 2. Check **Screen & System Audio Recording** and **Accessibility** for Codex
    Computer Use.
-3. Restart Codex and try again.
+3. Restart the app and try again.

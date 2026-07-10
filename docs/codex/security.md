@@ -2,28 +2,28 @@
 
 <CtaPillLink
   href="https://chatgpt.com/plugins/share/676aca3811d54fa7bcdef5255236b3c4"
-  label="Install plugin in Codex App"
+  label="Install plugin in ChatGPT"
   icon="external"
   class="my-8"
 />
 
 For a prescriptive first local scan, start with the [Codex Security plugin
-quickstart](https://developers.openai.com/codex/security/plugin).
+quickstart](https://learn.chatgpt.com/docs/security/plugin).
 
 ### Explore plugin use cases
 
-- [Run a security scan](https://developers.openai.com/codex/security/plugin/scans) for a repository or one scoped folder.
-- [Run a deep security scan](https://developers.openai.com/codex/security/plugin/deep-scans) when you need a more comprehensive scan and can wait longer for it to finish.
-- [Review code changes](https://developers.openai.com/codex/security/plugin/code-changes) before you merge a pull request or branch.
-- [Triage a backlog](https://developers.openai.com/codex/security/plugin/triage-backlog) when you have existing security findings to review.
-- [Fix and verify findings](https://developers.openai.com/codex/security/plugin/fix-findings) with bounded patches for approved findings.
-- [Export or track findings](https://developers.openai.com/codex/security/plugin/export-findings) as portable artifacts or approval-gated tracking destinations.
-- [See what's new](https://developers.openai.com/codex/security/plugin/changelog) in the Codex Security plugin.
+- [Run a security scan](https://learn.chatgpt.com/docs/security/plugin/scans) for a repository or one scoped folder.
+- [Run a deep security scan](https://learn.chatgpt.com/docs/security/plugin/deep-scans) when you need a more comprehensive scan and can wait longer for it to finish.
+- [Review code changes](https://learn.chatgpt.com/docs/security/plugin/code-changes) before you merge a pull request or branch.
+- [Triage a backlog](https://learn.chatgpt.com/docs/security/plugin/triage-backlog) when you have existing security findings to review.
+- [Fix and verify findings](https://learn.chatgpt.com/docs/security/plugin/fix-findings) with bounded patches for approved findings.
+- [Export or track findings](https://learn.chatgpt.com/docs/security/plugin/export-findings) as portable artifacts or approval-gated tracking destinations.
+- [See what's new](https://learn.chatgpt.com/docs/security/plugin/changelog) in the Codex Security plugin.
 
-The plugin runs in your Codex thread. Codex Security cloud scans connected
-  GitHub repositories through Codex Web. For Codex sandboxing, approvals,
+The plugin runs in your Codex task. Codex Security cloud scans connected
+  GitHub repositories through Codex cloud. For Codex sandboxing, approvals,
   network controls, and admin settings, see [Agent approvals &
-  security](https://developers.openai.com/codex/agent-approvals-security).
+  security](https://learn.chatgpt.com/docs/agent-approvals-security).
 
 ## Codex Security cloud
 
@@ -49,11 +49,13 @@ You get a workflow focused on:
 
 ## Codex Security cloud access and prerequisites
 
-Codex Security is available for ChatGPT Enterprise, Edu, Business, and Pro users. It works with connected GitHub repositories through Codex Web. If you need access or a repository isn't visible, confirm the repository is available through your Codex Web workspace or contact your OpenAI account team.
+Codex Security cloud works with connected GitHub repositories through Codex
+cloud. If a repository isn't visible, confirm the repository is available in your
+Codex cloud workspace or contact your OpenAI account team.
 
 ## Related docs
 
-- [Codex Security plugin quickstart](https://developers.openai.com/codex/security/plugin) walks through installation and a first local scan.
-- [Codex Security cloud setup](https://developers.openai.com/codex/security/setup) details setup, scanning, and findings review.
-- [Improving the threat model](https://developers.openai.com/codex/security/threat-model) explains how to tune scope, attack surface, and criticality assumptions.
-- [FAQ](https://developers.openai.com/codex/security/faq) covers common product questions.
+- [Codex Security plugin quickstart](https://learn.chatgpt.com/docs/security/plugin) walks through installation and a first local scan.
+- [Codex Security cloud setup](https://learn.chatgpt.com/docs/security/setup) details setup, scanning, and findings review.
+- [Improving the threat model](https://learn.chatgpt.com/docs/security/threat-model) explains how to tune scope, attack surface, and criticality assumptions.
+- [FAQ](https://learn.chatgpt.com/docs/security/faq) covers common product questions.

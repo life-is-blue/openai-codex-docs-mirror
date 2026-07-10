@@ -1,5 +1,8 @@
 # Codex Pricing
 
+<strong>ChatGPT Work and Codex share usage.</strong> Work usage inside ChatGPT
+  uses the same pricing, credits, and usage limits as Codex.
+
 <h2 class="sr-only">Pricing options</h2>
 
 <ContentSwitcher
@@ -45,8 +48,9 @@
         - Codex on the web, in the CLI, in the IDE extension, and on iOS
         - Cloud-based integrations like automatic code review and Slack
           integration
-        - The latest models, including GPT-5.5, GPT-5.4, and GPT-5.4 mini
-        - GPT-5.4 mini for higher usage limits on routine local messages
+        - The GPT-5.6 model family, including Sol, Terra, and Luna
+        - GPT-5.6 Luna for higher usage limits on lighter-weight or high-volume
+          workloads
         - Flexibly extend usage with [ChatGPT credits](#credits-overview)
         - Other [ChatGPT features](https://chatgpt.com/pricing) as part of the
           Plus plan
@@ -175,8 +179,8 @@ invitation.
 
 ### How much does Sites cost?
 
-[Sites](https://developers.openai.com/codex/sites) is free while in preview. Pricing information will be
-available soon.
+[Sites](https://learn.chatgpt.com/docs/sites) is included with eligible ChatGPT plans during public
+beta. Availability depends on your plan, region, and workspace settings.
 
 ### What are the usage limits for my plan?
 
@@ -186,10 +190,18 @@ cloud. Small scripts or routine functions may consume only a fraction of your
 allowance, while larger codebases, long-running tasks, or extended sessions that
 require Codex to hold more context will use significantly more per message.
 
-GPT-5.5 uses significantly fewer tokens to achieve results comparable to
-GPT-5.4. Its Codex setup runs faster and delivers higher-quality results for
-most users. These efficiency gains support generous usage limits despite
-GPT-5.5 being a significantly more capable model.
+Tasks that look similar can consume different amounts of your allowance. Model
+choice, context, reasoning, tool use, retrieval, and caching all affect usage,
+so prompt length alone isn't a reliable estimate.
+
+Choose the GPT-5.6 model that best fits your work:
+
+- **Sol** is the best choice when quality and reasoning depth matter most. Use
+  it for complex analysis, coding, research, and advanced workflows.
+- **Terra** is the everyday default: strong capability with a better balance of
+  performance and price.
+- **Luna** is optimized for speed and affordability, making it a good fit for
+  lighter-weight or high-volume workloads.
 
 <div id="usage-limits">
   <ContentSwitcher
@@ -238,6 +250,24 @@ GPT-5.5 being a significantly more capable model.
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>GPT-5.6 Sol</td>
+            <td style="text-align:center">15-90</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Terra</td>
+            <td style="text-align:center">20-110</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Luna</td>
+            <td style="text-align:center">50-280</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
           <tr>
             <td>GPT-5.5</td>
             <td style="text-align:center">15-80</td>
@@ -302,6 +332,24 @@ GPT-5.5 being a significantly more capable model.
         </thead>
         <tbody>
           <tr>
+            <td>GPT-5.6 Sol</td>
+            <td style="text-align:center">75-450</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Terra</td>
+            <td style="text-align:center">100-550</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Luna</td>
+            <td style="text-align:center">250-1400</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
             <td>GPT-5.5</td>
             <td style="text-align:center">75-400</td>
             <td style="text-align:center">Not available</td>
@@ -364,6 +412,24 @@ GPT-5.5 being a significantly more capable model.
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>GPT-5.6 Sol</td>
+            <td style="text-align:center">300-1800</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Terra</td>
+            <td style="text-align:center">400-2200</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Luna</td>
+            <td style="text-align:center">1000-5600</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
           <tr>
             <td>GPT-5.5</td>
             <td style="text-align:center">300-1600</td>
@@ -428,6 +494,24 @@ GPT-5.5 being a significantly more capable model.
         </thead>
         <tbody>
           <tr>
+            <td>GPT-5.6 Sol</td>
+            <td style="text-align:center">15-90</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Terra</td>
+            <td style="text-align:center">20-110</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Luna</td>
+            <td style="text-align:center">50-280</td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
             <td>GPT-5.5</td>
             <td style="text-align:center">15-80</td>
             <td style="text-align:center">Not available</td>
@@ -491,6 +575,30 @@ GPT-5.5 being a significantly more capable model.
         </thead>
         <tbody>
           <tr>
+            <td>GPT-5.6 Sol</td>
+            <td style="text-align:center">
+              [Usage-based](https://platform.openai.com/docs/pricing)
+            </td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Terra</td>
+            <td style="text-align:center">
+              [Usage-based](https://platform.openai.com/docs/pricing)
+            </td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
+            <td>GPT-5.6 Luna</td>
+            <td style="text-align:center">
+              [Usage-based](https://platform.openai.com/docs/pricing)
+            </td>
+            <td style="text-align:center">Not available</td>
+            <td style="text-align:center">Not available</td>
+          </tr>
+          <tr>
             <td>GPT-5.5</td>
             <td style="text-align:center">
               [Usage-based](https://platform.openai.com/docs/pricing)
@@ -550,7 +658,7 @@ Excel](https://help.openai.com/articles/20001063) on Plus and Pro.
 
 Speed configurations increase credit consumption for all applicable models, so
 they also use included limits faster. Fast mode consumes credits at a higher
-rate for supported models. See [Speed](https://developers.openai.com/codex/speed) for supported models and
+rate for supported models. See [Speed](https://learn.chatgpt.com/docs/agent-configuration/speed) for supported models and
 rates. Image generations also use included limits ~3-5x faster on average,
 depending on image quality and size. GPT-5.3-Codex-Spark is in research preview
 for ChatGPT Pro users only, and isn't available in the API at launch. Because it
@@ -596,17 +704,24 @@ You can find your current limits in the [Codex usage
 dashboard](https://chatgpt.com/codex/settings/usage). If you want to see your
 remaining limits during an active Codex CLI session, you can use `/status`.
 
-### How do credits work?
+Check the dashboard every week or two to understand your pace and remaining
+capacity. If usage is higher than expected, consider whether a smaller model or
+tighter task scope would still produce a useful result.
 
-Credits let you continue using Codex after you reach your included usage
-limits. Usage draws down from your available credits based on the models and
-features you use, allowing you to extend work without interruption.
+### What are tokens and credits?
 
-Codex credit usage is based on API token-based rates. Credits remain the core
-pricing unit that customers purchase and consume, but usage is calculated as
-credits per million input tokens, cached input tokens, and output tokens your
-workspace consumes. Read about tokens
-[here](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them).
+Tokens are small units of information that ChatGPT reads and writes. Your
+prompt, files, conversation history, tool results, and ChatGPT's response all
+use tokens.
+
+Credits translate token usage into a simpler unit for tracking and managing
+consumption. The credit cost varies by model, context, reasoning, and tools.
+After you reach your included limits, available credits let you continue
+working.
+
+Codex usage is calculated in credits per million input tokens, cached input
+tokens, and output tokens. [Learn more about
+tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them).
 
 The rate card below shows the credit cost per million tokens for Codex models
 and features.
@@ -633,6 +748,24 @@ sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_c
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>GPT-5.6 Sol</td>
+        <td style="text-align:center">250 credits</td>
+        <td style="text-align:center">25 credits</td>
+        <td style="text-align:center">1,500 credits</td>
+      </tr>
+      <tr>
+        <td>GPT-5.6 Terra</td>
+        <td style="text-align:center">125 credits</td>
+        <td style="text-align:center">12.50 credits</td>
+        <td style="text-align:center">125 credits</td>
+      </tr>
+      <tr>
+        <td>GPT-5.6 Luna</td>
+        <td style="text-align:center">50 credits</td>
+        <td style="text-align:center">5 credits</td>
+        <td style="text-align:center">300 credits</td>
+      </tr>
       <tr>
         <td>GPT-5.5</td>
         <td style="text-align:center">125 credits</td>
@@ -673,13 +806,13 @@ sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_c
     <tfoot>
       <tr>
         <td colspan="4" style="text-align:center">
-          GPT-5.5 usage averages 5-45 credits per message.
+          GPT-5.6 usage averages 5-40 credits per message.
         </td>
       </tr>
       <tr>
         <td colspan="4" style="text-align:center">
           Fast mode consumes credits at a higher rate for supported models. See
-          <a href="/codex/speed">Speed</a> for rates.
+          <a href="/codex/agent-configuration/speed">Speed</a> for rates.
         </td>
       </tr>
     </tfoot>
@@ -688,7 +821,7 @@ sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_c
 
 Speed configurations will increase credit consumption for all models that apply.
 Fast mode consumes credits at a higher rate for supported models. See
-[Speed](https://developers.openai.com/codex/speed) for supported models and rates.
+[Speed](https://learn.chatgpt.com/docs/agent-configuration/speed) for supported models and rates.
 
 [Learn more about credits in ChatGPT Plus and
 Pro.](https://help.openai.com/en/articles/12642688)
@@ -710,15 +843,22 @@ tips to maximize your limits:
 
 - **Control the size of your prompts.** Be precise with the instructions you
   give Codex, but remove unnecessary context.
+- **Limit source material.** Provide only relevant files and, when possible,
+  narrow the sources or date range.
+- **Match the output to the need.** Define the audience, format, and length, and
+  separate required work from optional improvements.
 - **Reduce the size of your AGENTS.md.** If you work on a larger project, you
   can control how much context you inject through AGENTS.md files by [nesting
-  them within your repository](https://developers.openai.com/codex/guides/agents-md#layer-project-instructions).
-- **Limit the number of MCP servers you use.** Every [MCP](https://developers.openai.com/codex/mcp) you add
+  them within your repository](https://learn.chatgpt.com/docs/agent-configuration/agents-md#layer-project-instructions).
+- **Limit the number of MCP servers you use.** Every [MCP](https://learn.chatgpt.com/docs/extend/mcp) you add
   to Codex adds more context to your messages and uses more of your limit.
   Disable MCP servers when you don’t need them.
 - **Switch to a smaller model for routine tasks.** Using GPT-5.4 or
   GPT-5.4 mini can extend your local-message usage limits, depending on the
   model you switch from.
+
+For guidance on choosing and scoping tasks, see [Use Work
+efficiently](https://learn.chatgpt.com/docs/prompting#use-work-efficiently).
 
 ## Feature availability
 
@@ -745,7 +885,7 @@ tips to maximize your limits:
         title: "Access and surfaces",
         features: [
           {
-            name: "Codex web",
+            name: "Codex cloud",
             href: "/codex/cloud",
             availability: {
               plus: "available",
@@ -756,7 +896,18 @@ tips to maximize your limits:
             },
           },
           {
-            name: "Codex app for local tasks",
+            name: "ChatGPT Work on Web",
+            href: "/codex/get-started-with-work",
+            availability: {
+              plus: "available",
+              pro: "available",
+              business: "available",
+              enterprise: "available",
+              api: "unavailable",
+            },
+          },
+          {
+            name: "ChatGPT desktop app for local tasks",
             href: "/codex/app",
             availability: {
               plus: "available",
@@ -791,7 +942,7 @@ tips to maximize your limits:
           {
             name: "Codex SDK, `codex exec`, and scriptable workflows",
             shortName: "Codex SDK and scripting",
-            href: "/codex/sdk",
+            href: "/codex/codex-sdk",
             availability: {
               plus: "available",
               pro: "available",
@@ -812,14 +963,36 @@ tips to maximize your limits:
               api: "unavailable",
             },
           },
+          {
+            name: "ChatGPT for Excel",
+            href: "https://help.openai.com/articles/20001063",
+            availability: {
+              plus: "available",
+              pro: "available",
+              business: "available",
+              enterprise: "available",
+              api: "unavailable",
+            },
+          },
         ],
       },
       {
         title: "Models and multimodal",
         features: [
           {
+            name: "GPT-5.6",
+            href: "/codex/models",
+            availability: {
+              plus: "available",
+              pro: "available",
+              business: "available",
+              enterprise: "available",
+              api: "available",
+            },
+          },
+          {
             name: "Fast mode",
-            href: "/codex/speed",
+            href: "/codex/agent-configuration/speed",
             availability: {
               plus: "available",
               pro: "available",
@@ -841,7 +1014,7 @@ tips to maximize your limits:
           },
           {
             name: "Image generation and editing",
-            href: "/codex/app/features#image-generation",
+            href: "/codex/image-generation?surface=app",
             availability: {
               plus: "available",
               pro: "available",
@@ -852,7 +1025,7 @@ tips to maximize your limits:
           },
           {
             name: "Voice dictation",
-            href: "/codex/app/features#voice-dictation",
+            href: "/codex/prompting#use-voice-dictation",
             availability: {
               plus: "available",
               pro: "available",
@@ -863,7 +1036,7 @@ tips to maximize your limits:
           },
           {
             name: "Web search",
-            href: "/codex/app/features#web-search",
+            href: "/codex/web-search?surface=app",
             availability: {
               plus: "available",
               pro: "available",
@@ -880,7 +1053,7 @@ tips to maximize your limits:
           {
             name: "Local code review with `/review`",
             shortName: "Local code review",
-            href: "/codex/workflows#do-a-local-code-review",
+            href: "/codex/prompting#do-a-local-code-review",
             availability: {
               plus: "available",
               pro: "available",
@@ -891,7 +1064,7 @@ tips to maximize your limits:
           },
           {
             name: "Auto-review for approval requests",
-            href: "/codex/concepts/sandboxing/auto-review",
+            href: "/codex/sandboxing/auto-review",
             availability: {
               plus: "available",
               pro: "available",
@@ -912,9 +1085,9 @@ tips to maximize your limits:
             },
           },
           {
-            name: "Project and standalone app automations",
-            shortName: "App automations",
-            href: "/codex/app/automations",
+            name: "Project and standalone scheduled tasks",
+            shortName: "Scheduled tasks",
+            href: "/codex/automations",
             availability: {
               plus: "available",
               pro: "available",
@@ -924,8 +1097,8 @@ tips to maximize your limits:
             },
           },
           {
-            name: "Automations",
-            href: "/codex/app/automations",
+            name: "Scheduled tasks",
+            href: "/codex/automations",
             availability: {
               plus: "available",
               pro: "available",
@@ -937,7 +1110,7 @@ tips to maximize your limits:
           {
             name: "Worktrees and built-in Git tools",
             shortName: "Built-in Git tools",
-            href: "/codex/app/worktrees",
+            href: "/codex/environments/git-worktrees",
             availability: {
               plus: "available",
               pro: "available",
@@ -949,7 +1122,7 @@ tips to maximize your limits:
           {
             name: "Local environments and repeatable actions",
             shortName: "Repeatable actions",
-            href: "/codex/app/local-environments",
+            href: "/codex/environments/local-environment",
             availability: {
               plus: "available",
               pro: "available",
@@ -975,9 +1148,9 @@ tips to maximize your limits:
         title: "Browser and remote control",
         features: [
           {
-            name: "In-app browser previews and comments",
-            shortName: "In-app browser",
-            href: "/codex/app/browser",
+            name: "Built-in browser previews and comments",
+            shortName: "Built-in browser",
+            href: "/codex/browser?surface=app",
             availability: {
               plus: "available",
               pro: "available",
@@ -987,8 +1160,8 @@ tips to maximize your limits:
             },
           },
           {
-            name: "Browser Use automation",
-            href: "/codex/app/browser#browser-use",
+            name: "Computer Use in the browser",
+            href: "/codex/browser?surface=app#app-computer-use-in-the-browser",
             availability: {
               plus: "limited",
               pro: "limited",
@@ -998,9 +1171,9 @@ tips to maximize your limits:
             },
           },
           {
-            name: "Chrome extension browser control",
+            name: "Use ChatGPT with Chrome",
             shortName: "Chrome browser control",
-            href: "/codex/app/chrome-extension",
+            href: "/codex/chrome-extension",
             availability: {
               plus: "limited",
               pro: "limited",
@@ -1011,7 +1184,7 @@ tips to maximize your limits:
           },
           {
             name: "Computer Use",
-            href: "/codex/app/computer-use",
+            href: "/codex/computer-use",
             limitedFootnote: "region",
             availability: {
               plus: "limited",
@@ -1024,7 +1197,7 @@ tips to maximize your limits:
           {
             name: "Record & Replay (macOS)",
             shortName: "Record & Replay",
-            href: "/codex/record-and-replay",
+            href: "/codex/extend/record-and-replay",
             limitedFootnote: "region",
             availability: {
               plus: "limited",
@@ -1057,6 +1230,17 @@ tips to maximize your limits:
               api: "unavailable",
             },
           },
+          {
+            name: "Browser in ChatGPT Web",
+            href: "/codex/browser?surface=web",
+            availability: {
+              plus: "available",
+              pro: "available",
+              business: "available",
+              enterprise: "available",
+              api: "unavailable",
+            },
+          },
         ],
       },
       {
@@ -1065,7 +1249,7 @@ tips to maximize your limits:
           {
             name: "Custom instructions with `AGENTS.md`",
             shortName: "Custom instructions",
-            href: "/codex/guides/agents-md",
+            href: "/codex/agent-configuration/agents-md",
             availability: {
               plus: "available",
               pro: "available",
@@ -1076,7 +1260,7 @@ tips to maximize your limits:
           },
           {
             name: "Skills",
-            href: "/codex/skills",
+            href: "/codex/build-skills",
             availability: {
               plus: "available",
               pro: "available",
@@ -1099,7 +1283,7 @@ tips to maximize your limits:
           },
           {
             name: "Plugin sharing",
-            href: "/codex/plugins/build#share-a-local-plugin-with-your-workspace",
+            href: "/codex/build-plugins#share-a-local-plugin-with-your-workspace",
             availability: {
               plus: "available",
               pro: "available",
@@ -1109,7 +1293,7 @@ tips to maximize your limits:
             },
           },
           {
-            name: "App connectors",
+            name: "Connectors",
             href: "/codex/plugins",
             availability: {
               plus: "available",
@@ -1121,7 +1305,7 @@ tips to maximize your limits:
           },
           {
             name: "MCP",
-            href: "/codex/mcp",
+            href: "/codex/extend/mcp",
             availability: {
               plus: "available",
               pro: "available",
@@ -1133,7 +1317,7 @@ tips to maximize your limits:
           {
             name: "Subagents and custom agents",
             shortName: "Subagents",
-            href: "/codex/subagents",
+            href: "/codex/agent-configuration/subagents",
             availability: {
               plus: "available",
               pro: "available",
@@ -1144,7 +1328,7 @@ tips to maximize your limits:
           },
           {
             name: "Memories",
-            href: "/codex/memories",
+            href: "/codex/customization/memories",
             availability: {
               plus: "limited",
               pro: "limited",
@@ -1155,7 +1339,7 @@ tips to maximize your limits:
           },
           {
             name: "Chronicle",
-            href: "/codex/memories/chronicle",
+            href: "/codex/customization/chronicle",
             availability: {
               plus: "unavailable",
               pro: "limited",
@@ -1184,7 +1368,7 @@ tips to maximize your limits:
           {
             name: "Cloud environments and setup scripts",
             shortName: "Cloud environments",
-            href: "/codex/cloud/environments",
+            href: "/codex/environments/cloud-environment",
             availability: {
               plus: "available",
               pro: "available",
@@ -1219,7 +1403,7 @@ tips to maximize your limits:
           {
             name: "GitHub issue and PR delegation with `@codex`",
             shortName: "GitHub delegation",
-            href: "/codex/integrations/github#give-codex-other-tasks",
+            href: "/codex/third-party/github#give-codex-other-tasks",
             availability: {
               plus: "available",
               pro: "available",
@@ -1231,7 +1415,7 @@ tips to maximize your limits:
           {
             name: "GitHub code review and automatic PR reviews",
             shortName: "GitHub PR reviews",
-            href: "/codex/integrations/github",
+            href: "/codex/third-party/github",
             availability: {
               plus: "available",
               pro: "available",
@@ -1243,7 +1427,7 @@ tips to maximize your limits:
           {
             name: "Slack cloud integration",
             shortName: "Slack integration",
-            href: "/codex/integrations/slack",
+            href: "/codex/third-party/slack",
             availability: {
               plus: "available",
               pro: "available",
@@ -1255,7 +1439,7 @@ tips to maximize your limits:
           {
             name: "Linear cloud integration",
             shortName: "Linear integration",
-            href: "/codex/integrations/linear",
+            href: "/codex/third-party/linear",
             availability: {
               plus: "available",
               pro: "available",
@@ -1306,9 +1490,9 @@ tips to maximize your limits:
             },
           },
           {
-            name: "Codex RBAC and custom roles",
+            name: "ChatGPT workspace RBAC and custom roles",
             shortName: "RBAC and roles",
-            href: "/codex/enterprise/admin-setup#step-2-set-up-custom-roles-rbac",
+            href: "/codex/enterprise/roles-and-workspace-permissions",
             availability: {
               plus: "unavailable",
               pro: "unavailable",
@@ -1355,7 +1539,7 @@ tips to maximize your limits:
           },
           {
             name: "Analytics dashboard",
-            href: "/codex/enterprise/governance#analytics-dashboard",
+            href: "/codex/enterprise/workspace-analytics",
             availability: {
               plus: "unavailable",
               pro: "unavailable",
@@ -1366,7 +1550,7 @@ tips to maximize your limits:
           },
           {
             name: "Analytics API",
-            href: "/codex/enterprise/governance#analytics-api",
+            href: "/codex/enterprise/analytics-api",
             availability: {
               plus: "unavailable",
               pro: "unavailable",
@@ -1378,7 +1562,7 @@ tips to maximize your limits:
           {
             name: "Compliance API and audit logs",
             shortName: "Compliance and audit logs",
-            href: "/codex/enterprise/governance#compliance-api",
+            href: "/codex/enterprise/compliance-api",
             availability: {
               plus: "unavailable",
               pro: "unavailable",

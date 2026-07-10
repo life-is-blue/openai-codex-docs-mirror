@@ -9,7 +9,7 @@ Reach for the action when you want to:
 - Gate changes on Codex-driven quality checks as part of your CI pipeline.
 - Run repeatable Codex tasks (code review, release prep, migrations) from a workflow file.
 
-For a CI example, see [Non-interactive mode](https://developers.openai.com/codex/noninteractive) and explore the source in the [openai/codex-action repository](https://github.com/openai/codex-action).
+For a CI example, see [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode) and explore the source in the [openai/codex-action repository](https://github.com/openai/codex-action).
 
 ## Prerequisites
 

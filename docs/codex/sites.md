@@ -1,93 +1,86 @@
 # Sites
 
-Sites lets Codex create, save, deploy, and inspect websites, web apps, and
-games hosted by OpenAI. Use the **Sites** plugin when you want to turn a prompt
-or a compatible existing project into a hosted site without setting up a
-separate deployment workflow.
+Sites is in public beta. Availability can depend on your plan, region, and
+  workspace settings.
+
+Sites lets ChatGPT create, host, refine, and share websites, web apps, and games.
+Use Sites when you want to turn a prompt or compatible existing project into a
+hosted experience without setting up a separate deployment workflow.
+
+
+
+Open **Sites** in the ChatGPT desktop app. You can start a site from a prompt or
+from a compatible local project, then return to the Sites view to manage it.
+
+
+
+
+
+
+
+
 
 Every Sites deployment URL is a production deployment. If you want to review a
-  build before it becomes live, ask Codex to save a version without deploying
+  build before it becomes live, ask ChatGPT to save a version without deploying
   it.
 
 ## Get started with Sites
 
-Sites is in preview and currently available for ChatGPT Business and Enterprise
-workspaces, with more plans rolling out later. For ChatGPT Enterprise
-workspaces, an admin must turn it on through role-based access control (RBAC)
-before members can use it. Compare support by plan in
-[Feature availability](https://developers.openai.com/codex/pricing#feature-availability).
-
 <WorkflowSteps variant="headings">
-1. Enable Sites for an Enterprise workspace
 
-    If you use ChatGPT Enterprise, ask your workspace admin to open the RBAC
-    controls in [ChatGPT admin settings](https://chatgpt.com/admin/settings) and
-    turn on Sites for the appropriate role. ChatGPT Business workspaces can skip
-    this step because Sites is enabled by default.
+1. Describe the Site
 
-2. Add the Sites plugin
+   Describe the audience, purpose, required behavior, and information the Site
+   should use.
 
-   If **Sites** isn't already available, open **Plugins** in the Codex app, find
-   **Sites**, and add it to Codex. Start a new thread after installing a plugin.
+2. Review the Site
 
-3. Start a Sites task
+   Review the generated content and behavior. Check that the Site uses the
+   intended information and handles data as expected.
 
-   In a thread, describe the site you want to create or publish. You can name
-   the plugin explicitly with `@Sites`, especially when your task should end in
-   a hosted deployment.
+3. Refine the Site
 
-   <CodexScreenshot
-     alt="Codex app composer with the Sites plugin and connected apps mentioned in a prompt"
-     lightSrc="/images/codex/sites/prompt-input-light.jpg"
-     darkSrc="/images/codex/sites/prompt-input-dark.jpg"
-     variant="no-wallpaper"
-   />
+   Describe the changes you want. Add relevant files or visual context when
+   they will help ChatGPT make the change.
 
-4. Review whether to save or deploy
+4. Manage and share the Site
 
-   Ask Codex to validate the site's build. Then tell it either to save a
-   deployable version for review or to deploy the approved saved version.
-
-5. Return to deployed sites
-
-   Open **Sites** in the app sidebar to return to your Sites projects. You can
-   also ask Codex to inspect saved versions, check deployment status, or change
-   who can access a deployed site.
-
-   <CodexScreenshot
-     alt="Sites project list in the Codex app"
-     lightSrc="/images/codex/sites/sites-list-light.jpg"
-     darkSrc="/images/codex/sites/sites-list-dark.jpg"
-     variant="no-wallpaper"
-   />
+   Return to **Sites** to reopen or refine the Site. When it's ready, choose who
+   can visit it and share the resulting link.
 
 </WorkflowSteps>
+
+
 
 ## Prompt Sites for common tasks
 
 For a new website, dashboard, or internal tool, include the audience, core
-experience, and required data:
+experience, and required information:
 
 ```text
-@Sites Build a project request dashboard for my operations team. Let team
-members submit requests, see who owns each one, update the status, and filter
-the list. Require people to sign in with their workspace account, and keep the
-request data saved between visits.
+Build a project request dashboard for my operations team. Let team members
+submit requests, see who owns each one, update the status, and filter the list.
+Require people to sign in with their workspace account, and keep the request
+data saved between visits.
 ```
+
+
 
 For an existing project, ask Sites to prepare and publish the current app:
 
 ```text
-@Sites Deploy this project. Check whether it is compatible with Sites, make any
+Deploy this project with Sites. Check whether it is compatible, make any
 required changes, and give me the deployment URL.
 ```
+
+
 
 When a site needs durable application data or uploaded files, say so in the
 request:
 
 ```text
-@Sites Add persistent player scores and avatar uploads to this game. Use
-the appropriate Sites storage and deploy the updated game.
+Add player scores and avatar uploads to this game. Keep the scores and uploaded
+avatars between visits.
 ```
 
 Browse the [Sites showcase](https://developers.openai.com/showcase/sites) for deployed internal apps and
@@ -95,8 +88,13 @@ Browse the [Sites showcase](https://developers.openai.com/showcase/sites) for de
 
 ## Understand projects, versions, and deployments
 
+A Site is a persistent hosted output that you can reopen, refine, configure,
+and share from **Sites** in ChatGPT.
+
+
+
 A Sites project links a local source project to hosting managed through Sites.
-Codex stores that linkage and optional storage binding names in
+Sites stores that linkage and optional storage binding names in
 `.openai/hosting.json`. A newly created local starter can begin without a
 `project_id`; Sites adds one after it provisions the hosted project.
 
@@ -111,37 +109,43 @@ file storage can contain:
 }
 ```
 
+
+
+
+
+
+
 Sites publishing has two separate stages:
 
-1. **Save a version.** Codex builds the deployable site and associates that
-   version with the source Git commit used for the build. Use this stage when
-   you want a reviewable deployment candidate.
-2. **Deploy a version.** Codex publishes a saved version and reports the
+1. **Save a version.** ChatGPT builds a deployable version. For a local source
+   project, ChatGPT associates the version with the Git commit used for the
+   build. Use this stage when you want a reviewable deployment candidate.
+2. **Deploy a version.** ChatGPT publishes a saved version and reports the
    production URL when deployment succeeds. Use this only when you intend for
    the selected audience to access the site.
 
-Ask Codex to list or inspect saved versions when you need to identify a
+Ask ChatGPT to list or inspect saved versions when you need to identify a
 previous deployment candidate.
+
+
 
 ## Choose a supported site shape
 
-Sites hosts projects that build Cloudflare Worker-compatible output as ES
-modules. For new projects, the Sites workflow can start with its recommended
-site starter. For an existing site, ask Codex to confirm that the project's
-build can produce compatible deployment artifacts before you request a
-deployment.
+For new projects, the Sites workflow can start with its recommended Site
+starter. For an existing project, ask ChatGPT to confirm that the project can
+produce compatible deployment artifacts before you request a deployment.
 
-Tell Codex about the product behavior you need so it can select the appropriate
+Tell ChatGPT about the product behavior you need so it can select the appropriate
 site shape:
 
 | Site need                                                      | What to ask Sites for                                                         |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Content-led website or landing page                            | A site with no persistent application state unless the experience requires it |
+| Content-led website or landing page                            | A Site with no persistent application state unless the experience requires it |
 | Saved records, user progress, or game scores                   | D1, a relational database for durable structured data                         |
 | Images, documents, audio, video, or other uploads              | R2, object storage for files                                                  |
 | Uploaded files with searchable metadata                        | D1 for metadata and R2 for file contents                                      |
 | Internal site that needs the current workspace user's identity | Workspace-authenticated user identity                                         |
-| Public sign-in or an external identity provider                | An authentication-enabled Sites project                                       |
+| Public sign-in or an external identity provider                | An authentication-enabled Site                                                |
 
 Don't request durable storage for temporary presentation state, such as a
 theme choice or a dismissed banner. Do request it for product data that people
@@ -149,54 +153,67 @@ expect the hosted site to remember.
 
 ## Control access and secrets
 
-Set the audience before you share a deployed URL. For a new site, keep access
-limited to the owner and workspace admins until you have reviewed the content,
-data handling, and expected audience.
+Hosting a Site doesn't automatically make it public. Keep access limited while
+you review the content, data handling, and expected audience.
 
-You can ask Sites to apply one of these access modes:
+Depending on your account and workspace settings, sharing options can include:
 
-| Access mode                      | Who can access the site                                                                       |
-| -------------------------------- | --------------------------------------------------------------------------------------------- |
-| Owner and admins (`admins_only`) | The site owner and workspace admins                                                           |
-| Workspace (`workspace_all`)      | All active users in the workspace                                                             |
-| Custom (`custom`)                | Specific active users or workspace groups that you choose; Sites continues to allow the owner |
+- Only you or people you invite.
+- Everyone in your workspace.
+- Anyone with the link.
+
+Sharing lets people visit the Site; it doesn't let them edit it. Workspace
+admins can restrict whether members can share Sites publicly.
 
 For example:
 
 ```text
-@Sites Change this deployed site's access to everyone in my workspace after
-showing me the current site and confirming the deployment URL.
+Change this Site's access to everyone in my workspace after showing me the
+current Site and confirming its URL.
 ```
 
 ### Configure runtime environment values
 
-Open **Sites** in the app sidebar and select a project to add, update, or remove
-hosted environment variables and secrets in the Sites panel. Don't store these
-values in `.openai/hosting.json`. Keep local `.env` and `.env.example` files
-aligned with the keys needed for local development, and don't commit secret
-values.
+Open **Sites**, then open the Site's settings to add, update, or remove hosted
+environment variables and secrets. Keep secret values out of prompts, attached
+files, and Site content.
 
-When you add, update, or remove hosted environment values, ask Codex to
+
+
+
+
+Don't store these values in `.openai/hosting.json`. Keep local `.env` and
+`.env.example` files aligned with the keys needed for local development, and
+don't commit secret values.
+
+When you add, update, or remove hosted environment values, ask ChatGPT to
 redeploy the approved saved version so the next deployment uses the updated
 configuration.
 
+
+
 ## Review before you share
 
-Before you deploy or widen access:
+Before you share a Site:
 
-- Review the source changes and any database migrations in the Codex
-  [review pane](https://developers.openai.com/codex/app/review).
-- Confirm that the build succeeded and that the selected saved version is the
-  version you intend to publish.
-- Check that only the intended audience can access the site.
-- Confirm that you configured runtime secret values through Sites and didn't
-  commit them in source files.
-- After deployment, ask Codex to confirm deployment status and the production
-  URL before you share it.
+- Review the Site's content and behavior in the preview.
+- Check that the Site handles information and uploaded files as expected.
+- Confirm that the Site doesn't expose confidential information or secret
+  values.
+- Choose the narrowest sharing option that fits the intended audience.
+- Open the shared Site and confirm that the intended audience can visit it.
+
+
+
+For a Site built from a local project, also review the source changes and any
+database migrations in the Codex [review pane](https://learn.chatgpt.com/docs/code-review?surface=app).
+
+
 
 ## Related documentation
 
-- [Plugins](https://developers.openai.com/codex/plugins) explains how to install and invoke Codex plugins.
-- [Codex app](https://developers.openai.com/codex/app) introduces app navigation and project threads.
-- [Review and ship changes](https://developers.openai.com/codex/app/review) explains how to inspect source
+
+
+- [ChatGPT desktop app](https://learn.chatgpt.com/docs/app) introduces app navigation, projects, and tasks.
+- [Review and ship changes](https://learn.chatgpt.com/docs/code-review?surface=app) explains how to inspect source
   changes before publishing them.

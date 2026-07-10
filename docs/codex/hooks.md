@@ -9,25 +9,11 @@ you to inject your own scripts into the agentic loop, enabling features such as:
 - Run a custom validation check when a conversation turn stops, enforcing standards
 - Customize prompting when in a certain directory
 
-Hooks are enabled by default. If you need to turn them off in `config.toml`,
-set:
-
-```toml
-[features]
-hooks = false
-```
-
-Use `hooks` as the canonical feature key. `codex_hooks` still works as a
-deprecated alias.
-
-Admins can force hooks off the same way in `requirements.toml` with
-`[features].hooks = false`.
-
 Runtime behavior to keep in mind:
 
 - Matching hooks from multiple files all run.
 - Multiple matching command hooks for the same event are launched concurrently,
-  so one hook cannot prevent another matching hook from starting.
+  so one hook can't prevent another matching hook from starting.
 - Non-managed command hooks must be reviewed and trusted before they run.
 - `PreToolUse`, `PermissionRequest`, `PostToolUse`, `PreCompact`,
   `PostCompact`, `UserPromptSubmit`, `SubagentStop`, and `Stop` run at turn
@@ -43,7 +29,7 @@ Codex discovers hooks next to active config layers in either of these forms:
 
 Installed plugins can also bundle lifecycle config through their plugin
 manifest or a default `hooks/hooks.json` file. See [Build
-plugins](https://developers.openai.com/codex/plugins/build#bundled-mcp-servers-and-lifecycle-hooks) for the
+plugins](https://learn.chatgpt.com/docs/build-plugins#bundled-mcp-servers-and-lifecycle-hooks) for the
 plugin packaging rules.
 
 In practice, the four most useful locations are:
@@ -176,8 +162,8 @@ Notes:
 - `statusMessage` is optional.
 - `commandWindows` is an optional Windows-only command override. In TOML, use
   `command_windows` or `commandWindows`.
-- `async` is parsed, but async command hooks aren't supported yet. Codex skips
-  handlers with `async: true`.
+- The `async` option is parsed, but asynchronous command hooks aren't supported
+  yet. Codex skips those handlers.
 - Only `type: "command"` handlers run today. `prompt` and `agent` handlers are
   parsed but skipped.
 - Commands run with the session `cwd` as their working directory.
@@ -206,6 +192,19 @@ command = '/usr/bin/python3 "$(git rev-parse --show-toplevel)/.codex/hooks/post_
 timeout = 30
 statusMessage = "Reviewing Bash output"
 ```
+
+## Turn hooks off
+
+Hooks are enabled by default. To turn them off in `config.toml`, set:
+
+```toml
+[features]
+hooks = false
+```
+
+Use `hooks` as the canonical feature key. `codex_hooks` still works as a
+deprecated alias. Admins can force hooks off the same way in
+`requirements.toml` with `[features].hooks = false`.
 
 ## Managed hooks from `requirements.toml`
 
@@ -341,7 +340,7 @@ event-specific tables.
 `acceptEdits`, `plan`, `dontAsk`, or `bypassPermissions`.
 
 `transcript_path` points to a conversation transcript for convenience, but the
-transcript format is not a stable interface for hooks and may change over time.
+transcript format isn't a stable interface for hooks and may change over time.
 
 If you need the full wire format, see [Schemas](#schemas).
 
@@ -536,12 +535,12 @@ values include `Bash`, `apply_patch`, and MCP tool names such as
 
 Fields in addition to [Common input fields](#common-input-fields):
 
-| Field                    | Type             | Meaning                                                                                                   |
-| ------------------------ | ---------------- | --------------------------------------------------------------------------------------------------------- |
-| `turn_id`                | `string`         | Codex-specific extension. Active Codex turn id                                                            |
-| `tool_name`              | `string`         | Canonical hook tool name, such as `Bash`, `apply_patch`, or an MCP name like `mcp__fs__read`              |
-| `tool_input`             | `JSON value`     | Tool-specific input. `Bash` and `apply_patch` use `tool_input.command` while MCP tools send all the args. |
-| `tool_input.description` | `string \| null` | Human-readable approval reason, when Codex has one                                                        |
+| Field                    | Type             | Meaning                                                                                                        |
+| ------------------------ | ---------------- | -------------------------------------------------------------------------------------------------------------- |
+| `turn_id`                | `string`         | Codex-specific extension. Active Codex turn id                                                                 |
+| `tool_name`              | `string`         | Canonical hook tool name, such as `Bash`, `apply_patch`, or an MCP name like `mcp__fs__read`                   |
+| `tool_input`             | `JSON value`     | Tool-specific input. `Bash` and `apply_patch` use `tool_input.command` while MCP tools send all the arguments. |
+| `tool_input.description` | `string \| null` | Human-readable approval reason, when Codex has one                                                             |
 
 Plain text on `stdout` is ignored.
 

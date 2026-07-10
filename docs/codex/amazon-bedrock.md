@@ -151,14 +151,14 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
           title: "Access and surfaces",
           features: [
             {
-              name: "Codex web",
+              name: "Codex cloud",
               href: "/codex/cloud",
               availability: {
                 bedrock: "unavailable",
               },
             },
             {
-              name: "Codex app for local tasks",
+              name: "ChatGPT desktop app for local tasks",
               href: "/codex/app",
               availability: {
                 bedrock: "available",
@@ -181,7 +181,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Codex SDK, `codex exec`, and scriptable workflows",
               shortName: "Codex SDK and scripting",
-              href: "/codex/sdk",
+              href: "/codex/codex-sdk",
               availability: {
                 bedrock: "available",
               },
@@ -201,28 +201,28 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             },
             {
               name: "Fast mode",
-              href: "/codex/speed",
+              href: "/codex/agent-configuration/speed",
               availability: {
                 bedrock: "unavailable",
               },
             },
             {
               name: "Image generation and editing",
-              href: "/codex/app/features#image-generation",
+              href: "/codex/image-generation?surface=app",
               availability: {
                 bedrock: "unavailable",
               },
             },
             {
               name: "Voice dictation",
-              href: "/codex/app/features#voice-dictation",
+              href: "/codex/prompting#use-voice-dictation",
               availability: {
                 bedrock: "unavailable",
               },
             },
             {
               name: "Web search",
-              href: "/codex/app/features#web-search",
+              href: "/codex/web-search?surface=app",
               availability: {
                 bedrock: "unavailable",
               },
@@ -235,14 +235,14 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Local code review with `/review`",
               shortName: "Local code review",
-              href: "/codex/workflows#do-a-local-code-review",
+              href: "/codex/prompting#do-a-local-code-review",
               availability: {
                 bedrock: "available",
               },
             },
             {
               name: "Auto-review for approval requests",
-              href: "/codex/concepts/sandboxing/auto-review",
+              href: "/codex/sandboxing/auto-review",
               availability: {
                 bedrock: "available",
               },
@@ -255,16 +255,16 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
               },
             },
             {
-              name: "Project and standalone app automations",
-              shortName: "App automations",
-              href: "/codex/app/automations",
+              name: "Project and standalone scheduled tasks",
+              shortName: "Scheduled tasks",
+              href: "/codex/automations",
               availability: {
                 bedrock: "available",
               },
             },
             {
-              name: "Automations",
-              href: "/codex/app/automations",
+              name: "Scheduled tasks",
+              href: "/codex/automations",
               availability: {
                 bedrock: "available",
               },
@@ -272,7 +272,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Worktrees and built-in Git tools",
               shortName: "Built-in Git tools",
-              href: "/codex/app/worktrees",
+              href: "/codex/environments/git-worktrees",
               availability: {
                 bedrock: "available",
               },
@@ -280,7 +280,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Local environments and repeatable actions",
               shortName: "Repeatable actions",
-              href: "/codex/app/local-environments",
+              href: "/codex/environments/local-environment",
               availability: {
                 bedrock: "available",
               },
@@ -298,31 +298,31 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
           title: "Browser and remote control",
           features: [
             {
-              name: "In-app browser previews and comments",
-              shortName: "In-app browser",
-              href: "/codex/app/browser",
+              name: "Built-in browser previews and comments",
+              shortName: "Built-in browser",
+              href: "/codex/browser?surface=app",
               availability: {
                 bedrock: "available",
               },
             },
             {
-              name: "Browser Use automation",
-              href: "/codex/app/browser#browser-use",
+              name: "Computer Use in the browser",
+              href: "/codex/browser?surface=app#app-computer-use-in-the-browser",
               availability: {
                 bedrock: "limited",
               },
             },
             {
-              name: "Chrome extension browser control",
+              name: "Use ChatGPT with Chrome",
               shortName: "Chrome browser control",
-              href: "/codex/app/chrome-extension",
+              href: "/codex/chrome-extension",
               availability: {
                 bedrock: "limited",
               },
             },
             {
               name: "Computer Use",
-              href: "/codex/app/computer-use",
+              href: "/codex/computer-use",
               availability: {
                 bedrock: "limited",
               },
@@ -350,14 +350,14 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Custom instructions with `AGENTS.md`",
               shortName: "Custom instructions",
-              href: "/codex/guides/agents-md",
+              href: "/codex/agent-configuration/agents-md",
               availability: {
                 bedrock: "available",
               },
             },
             {
               name: "Skills",
-              href: "/codex/skills",
+              href: "/codex/build-skills",
               availability: {
                 bedrock: "available",
               },
@@ -372,13 +372,13 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             },
             {
               name: "Plugin sharing",
-              href: "/codex/plugins/build#share-a-local-plugin-with-your-workspace",
+              href: "/codex/build-plugins#share-a-local-plugin-with-your-workspace",
               availability: {
                 bedrock: "unavailable",
               },
             },
             {
-              name: "App connectors",
+              name: "Connectors",
               href: "/codex/plugins",
               availability: {
                 bedrock: "unavailable",
@@ -386,7 +386,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             },
             {
               name: "MCP",
-              href: "/codex/mcp",
+              href: "/codex/extend/mcp",
               availability: {
                 bedrock: "available",
               },
@@ -394,21 +394,21 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Subagents and custom agents",
               shortName: "Subagents",
-              href: "/codex/subagents",
+              href: "/codex/agent-configuration/subagents",
               availability: {
                 bedrock: "available",
               },
             },
             {
               name: "Memories",
-              href: "/codex/memories",
+              href: "/codex/customization/memories",
               availability: {
                 bedrock: "limited",
               },
             },
             {
               name: "Chronicle",
-              href: "/codex/memories/chronicle",
+              href: "/codex/customization/chronicle",
               availability: {
                 bedrock: "unavailable",
               },
@@ -436,7 +436,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "GitHub issue and PR delegation with `@codex`",
               shortName: "GitHub delegation",
-              href: "/codex/integrations/github#give-codex-other-tasks",
+              href: "/codex/third-party/github#give-codex-other-tasks",
               availability: {
                 bedrock: "unavailable",
               },
@@ -444,7 +444,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "GitHub code review and automatic PR reviews",
               shortName: "GitHub PR reviews",
-              href: "/codex/integrations/github",
+              href: "/codex/third-party/github",
               availability: {
                 bedrock: "unavailable",
               },
@@ -452,7 +452,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Slack cloud integration",
               shortName: "Slack integration",
-              href: "/codex/integrations/slack",
+              href: "/codex/third-party/slack",
               availability: {
                 bedrock: "unavailable",
               },
@@ -460,7 +460,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Linear cloud integration",
               shortName: "Linear integration",
-              href: "/codex/integrations/linear",
+              href: "/codex/third-party/linear",
               availability: {
                 bedrock: "unavailable",
               },
@@ -495,9 +495,9 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
               },
             },
             {
-              name: "Codex RBAC and custom roles",
+              name: "ChatGPT workspace RBAC and custom roles",
               shortName: "RBAC and roles",
-              href: "/codex/enterprise/admin-setup#step-2-set-up-custom-roles-rbac",
+              href: "/codex/enterprise/roles-and-workspace-permissions",
               availability: {
                 bedrock: "unavailable",
               },
@@ -528,14 +528,14 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             },
             {
               name: "Analytics dashboard",
-              href: "/codex/enterprise/governance#analytics-dashboard",
+              href: "/codex/enterprise/workspace-analytics",
               availability: {
                 bedrock: "unavailable",
               },
             },
             {
               name: "Analytics API",
-              href: "/codex/enterprise/governance#analytics-api",
+              href: "/codex/enterprise/analytics-api",
               availability: {
                 bedrock: "unavailable",
               },
@@ -543,7 +543,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
             {
               name: "Compliance API and audit logs",
               shortName: "Compliance and audit logs",
-              href: "/codex/enterprise/governance#compliance-api",
+              href: "/codex/enterprise/compliance-api",
               availability: {
                 bedrock: "unavailable",
               },
@@ -575,7 +575,7 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
   >
     <sup>†</sup> Local plugin bundles are supported when their capabilities do
     not require ChatGPT authentication. OpenAI-curated plugin discovery and
-    features that depend on app connectors or cloud-hosted sharing aren't
+    features that depend on connectors or cloud-hosted sharing aren't
     available.
   </div>
 </ToggleSection>

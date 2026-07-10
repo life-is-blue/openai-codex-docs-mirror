@@ -6,7 +6,7 @@ file and directly supporting code without turning the task into a general
 repository audit.
 
 If you want to scan a full repository instead of a specific change, see [Run a
-security scan](https://developers.openai.com/codex/security/plugin/scans).
+security scan](https://learn.chatgpt.com/docs/security/plugin/scans).
 
 ## Run a manual review
 
@@ -47,8 +47,8 @@ review or provide a locally available base and head.
 ## Act on findings
 
 After reviewing the results, [fix and verify an accepted
-finding](https://developers.openai.com/codex/security/plugin/fix-findings) or [export and track
-findings](https://developers.openai.com/codex/security/plugin/export-findings).
+finding](https://learn.chatgpt.com/docs/security/plugin/fix-findings) or [export and track
+findings](https://learn.chatgpt.com/docs/security/plugin/export-findings).
 
 ## Automate reviews in CI/CD
 
@@ -88,4 +88,4 @@ above. The action can install and run the Codex CLI, but plugin provisioning is
 a separate prerequisite.
 
 For API-key handling, sandbox controls, fork protections, and a GitHub Actions
-workflow, see the [Codex GitHub Action guide](https://developers.openai.com/codex/github-action).
+workflow, see the [Codex GitHub Action guide](https://learn.chatgpt.com/docs/github-action).

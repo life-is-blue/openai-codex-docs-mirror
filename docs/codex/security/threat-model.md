@@ -35,6 +35,6 @@ To review or update the threat model, go to [Codex Security scans](https://chatg
 
 ## Related docs
 
-- [Codex Security setup](https://developers.openai.com/codex/security/setup) covers repository setup and findings review.
-- [Codex Security](https://developers.openai.com/codex/security) gives the product overview.
-- [FAQ](https://developers.openai.com/codex/security/faq) covers common questions.
+- [Codex Security cloud setup](https://learn.chatgpt.com/docs/security/setup) covers repository setup and findings review.
+- [Codex Security](https://learn.chatgpt.com/docs/security) gives the product overview.
+- [FAQ](https://learn.chatgpt.com/docs/security/faq) covers common questions.

@@ -1,1099 +1,4 @@
-# Command line options
-
-export const globalFlagOptions = [
-  {
-    key: "PROMPT",
-    type: "string",
-    description:
-      "Optional text instruction to start the session. Omit to launch the TUI without a pre-filled message.",
-  },
-  {
-    key: "--image, -i",
-    type: "path[,path...]",
-    description:
-      "Attach one or more image files to the initial prompt. Separate multiple paths with commas or repeat the flag.",
-  },
-  {
-    key: "--model, -m",
-    type: "string",
-    description:
-      "Override the model set in configuration (for example `gpt-5.4`).",
-  },
-  {
-    key: "--oss",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      'Use the local open source model provider (equivalent to `-c model_provider="oss"`). Validates that Ollama is running.',
-  },
-  {
-    key: "--profile, -p",
-    type: "string",
-    description:
-      "Layer `$CODEX_HOME/profile-name.config.toml` on top of the base user config.",
-  },
-  {
-    key: "--sandbox, -s",
-    type: "read-only | workspace-write | danger-full-access",
-    description:
-      "Select the sandbox policy for model-generated shell commands.",
-  },
-  {
-    key: "--ask-for-approval, -a",
-    type: "untrusted | on-request | never",
-    description:
-      "Control when Codex pauses for human approval before running a command. `on-failure` is deprecated; prefer `on-request` for interactive runs or `never` for non-interactive runs.",
-  },
-  {
-    key: "--dangerously-bypass-approvals-and-sandbox, --yolo",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Run every command without approvals or sandboxing. Only use inside an externally hardened environment.",
-  },
-  {
-    key: "--dangerously-bypass-hook-trust",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Run enabled hooks without requiring persisted hook trust for this invocation. Intended only for automation that already vets hook sources.",
-  },
-  {
-    key: "--cd, -C",
-    type: "path",
-    description:
-      "Set the working directory for the agent before it starts processing your request.",
-  },
-  {
-    key: "--search",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      'Enable live web search (sets `web_search = "live"` instead of the default `"cached"`).',
-  },
-  {
-    key: "--add-dir",
-    type: "path",
-    description:
-      "Grant additional directories write access alongside the main workspace. Repeat for multiple paths.",
-  },
-  {
-    key: "--no-alt-screen",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Disable alternate screen mode for the TUI (overrides `tui.alternate_screen` for this run).",
-  },
-  {
-    key: "--remote",
-    type: "ws://host:port | wss://host:port | unix:// | unix://PATH",
-    description:
-      "Connect to a remote app-server endpoint over WebSocket or a Unix socket. Supported for `codex`, `codex resume`, `codex fork`, `codex archive`, `codex delete`, and `codex unarchive`; other subcommands reject remote mode.",
-  },
-  {
-    key: "--remote-auth-token-env",
-    type: "ENV_VAR",
-    description:
-      "Read a bearer token from this environment variable and send it when connecting with `--remote`. Requires `--remote`; tokens are only sent over `wss://` URLs or local-only `ws://` URLs.",
-  },
-  {
-    key: "--strict-config",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Error when `config.toml` contains fields this Codex version does not recognize. Supported by runtime commands such as `codex`, `exec`, `review`, `resume`, `fork`, `app-server`, `mcp-server`, and `exec-server`.",
-  },
-  {
-    key: "--enable",
-    type: "feature",
-    description:
-      "Force-enable a feature flag (translates to `-c features.<name>=true`). Repeatable.",
-  },
-  {
-    key: "--disable",
-    type: "feature",
-    description:
-      "Force-disable a feature flag (translates to `-c features.<name>=false`). Repeatable.",
-  },
-  {
-    key: "--config, -c",
-    type: "key=value",
-    description:
-      "Override configuration values. Values parse as TOML if possible; otherwise the literal string is used.",
-  },
-];
-
-export const commandOverview = [
-  {
-    key: "codex",
-    href: "/codex/cli/reference#codex-interactive",
-    type: "stable",
-    description:
-      "Launch the terminal UI. Accepts the global flags above plus an optional prompt or image attachments.",
-  },
-  {
-    key: "codex app-server",
-    href: "/codex/cli/reference#codex-app-server",
-    type: "experimental",
-    description:
-      "Launch the Codex app server for local development or debugging over stdio, WebSocket, or a Unix socket.",
-  },
-  {
-    key: "codex remote-control",
-    href: "/codex/cli/reference#codex-remote-control",
-    type: "experimental",
-    description:
-      "Ensure the local app-server daemon is running with remote-control support enabled.",
-  },
-  {
-    key: "codex app",
-    href: "/codex/cli/reference#codex-app",
-    type: "stable",
-    description:
-      "Launch the Codex desktop app on macOS or Windows. On macOS, Codex can open a workspace path; on Windows, Codex prints the path to open.",
-  },
-  {
-    key: "codex debug app-server send-message-v2",
-    href: "/codex/cli/reference#codex-debug-app-server-send-message-v2",
-    type: "experimental",
-    description:
-      "Debug app-server by sending a single V2 message through the built-in test client.",
-  },
-  {
-    key: "codex debug models",
-    href: "/codex/cli/reference#codex-debug-models",
-    type: "experimental",
-    description:
-      "Print the raw model catalog Codex sees, including an option to inspect only the bundled catalog.",
-  },
-  {
-    key: "codex apply",
-    href: "/codex/cli/reference#codex-apply",
-    type: "stable",
-    description:
-      "Apply the latest diff generated by a Codex Cloud task to your local working tree. Alias: `codex a`.",
-  },
-  {
-    key: "codex archive",
-    href: "/codex/cli/reference#codex-archive-and-codex-unarchive",
-    type: "stable",
-    description:
-      "Archive a saved interactive session by session ID or session name.",
-  },
-  {
-    key: "codex delete",
-    href: "/codex/cli/reference#codex-delete",
-    type: "stable",
-    description:
-      "Permanently delete a saved interactive session by session ID or session name.",
-  },
-  {
-    key: "codex cloud",
-    href: "/codex/cli/reference#codex-cloud",
-    type: "experimental",
-    description:
-      "Browse or execute Codex Cloud tasks from the terminal without opening the TUI. Alias: `codex cloud-tasks`.",
-  },
-  {
-    key: "codex completion",
-    href: "/codex/cli/reference#codex-completion",
-    type: "stable",
-    description:
-      "Generate shell completion scripts for Bash, Zsh, Fish, or PowerShell.",
-  },
-  {
-    key: "codex doctor",
-    href: "/codex/cli/reference#codex-doctor",
-    type: "stable",
-    description:
-      "Generate a diagnostic report for local installation, config, auth, runtime, Git, terminal, app-server, and thread inventory issues.",
-  },
-  {
-    key: "codex features",
-    href: "/codex/cli/reference#codex-features",
-    type: "stable",
-    description:
-      "List feature flags and persistently enable or disable them in `config.toml`.",
-  },
-  {
-    key: "codex exec",
-    href: "/codex/cli/reference#codex-exec",
-    type: "stable",
-    description:
-      "Run Codex non-interactively. Alias: `codex e`. Stream results to stdout or JSONL and optionally resume previous sessions.",
-  },
-  {
-    key: "codex execpolicy",
-    href: "/codex/cli/reference#codex-execpolicy",
-    type: "experimental",
-    description:
-      "Evaluate execpolicy rule files and see whether a command would be allowed, prompted, or blocked.",
-  },
-  {
-    key: "codex login",
-    href: "/codex/cli/reference#codex-login",
-    type: "stable",
-    description:
-      "Authenticate Codex using ChatGPT OAuth, device auth, an API key, or an access token piped over stdin.",
-  },
-  {
-    key: "codex logout",
-    href: "/codex/cli/reference#codex-logout",
-    type: "stable",
-    description: "Remove stored authentication credentials.",
-  },
-  {
-    key: "codex mcp",
-    href: "/codex/cli/reference#codex-mcp",
-    type: "experimental",
-    description:
-      "Manage Model Context Protocol servers (list, add, remove, authenticate).",
-  },
-  {
-    key: "codex plugin marketplace",
-    href: "/codex/cli/reference#codex-plugin-marketplace",
-    type: "experimental",
-    description:
-      "Add, list, upgrade, or remove plugin marketplaces from Git or local sources.",
-  },
-  {
-    key: "codex plugin",
-    href: "/codex/cli/reference#codex-plugin",
-    type: "experimental",
-    description:
-      "Install, list, and remove plugins from configured marketplace sources.",
-  },
-  {
-    key: "codex mcp-server",
-    href: "/codex/cli/reference#codex-mcp-server",
-    type: "experimental",
-    description:
-      "Run Codex itself as an MCP server over stdio. Useful when another agent consumes Codex.",
-  },
-  {
-    key: "codex resume",
-    href: "/codex/cli/reference#codex-resume",
-    type: "stable",
-    description:
-      "Continue a previous interactive session by ID or resume the most recent conversation.",
-  },
-  {
-    key: "codex fork",
-    href: "/codex/cli/reference#codex-fork",
-    type: "stable",
-    description:
-      "Fork a previous interactive session into a new thread, preserving the original transcript.",
-  },
-  {
-    key: "codex sandbox",
-    href: "/codex/cli/reference#codex-sandbox",
-    type: "experimental",
-    description:
-      "Run arbitrary commands inside Codex-provided macOS, Linux, or Windows sandboxes.",
-  },
-  {
-    key: "codex update",
-    href: "/codex/cli/reference#codex-update",
-    type: "stable",
-    description:
-      "Check for and apply a Codex CLI update when the installed release supports self-update.",
-  },
-  {
-    key: "codex unarchive",
-    href: "/codex/cli/reference#codex-archive-and-codex-unarchive",
-    type: "stable",
-    description:
-      "Restore an archived interactive session by session ID or session name.",
-  },
-];
-
-export const execOptions = [
-  {
-    key: "PROMPT",
-    type: "string | - (read stdin)",
-    description:
-      "Initial instruction for the task. Use `-` to pipe the prompt from stdin.",
-  },
-  {
-    key: "--image, -i",
-    type: "path[,path...]",
-    description:
-      "Attach images to the first message. Repeatable; supports comma-separated lists.",
-  },
-  {
-    key: "--model, -m",
-    type: "string",
-    description: "Override the configured model for this run.",
-  },
-  {
-    key: "--oss",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Use the local open source provider (requires a running Ollama instance).",
-  },
-  {
-    key: "--sandbox, -s",
-    type: "read-only | workspace-write | danger-full-access",
-    description:
-      "Sandbox policy for model-generated commands. Defaults to configuration.",
-  },
-  {
-    key: "--profile, -p",
-    type: "string",
-    description:
-      "Layer `$CODEX_HOME/profile-name.config.toml` on top of the base user config.",
-  },
-  {
-    key: "--full-auto",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Deprecated compatibility flag. Prefer `--sandbox workspace-write`; Codex prints a warning when this flag is used.",
-  },
-  {
-    key: "--dangerously-bypass-approvals-and-sandbox, --yolo",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Bypass approval prompts and sandboxing. Dangerous—only use inside an isolated runner.",
-  },
-  {
-    key: "--dangerously-bypass-hook-trust",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Run enabled hooks without requiring persisted hook trust for this invocation. Intended only for automation that already vets hook sources.",
-  },
-  {
-    key: "--cd, -C",
-    type: "path",
-    description: "Set the workspace root before executing the task.",
-  },
-  {
-    key: "--skip-git-repo-check",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Allow running outside a Git repository (useful for one-off directories).",
-  },
-  {
-    key: "--ephemeral",
-    type: "boolean",
-    defaultValue: "false",
-    description: "Run without persisting session rollout files to disk.",
-  },
-  {
-    key: "--ignore-user-config",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Do not load `$CODEX_HOME/config.toml`. Authentication still uses `CODEX_HOME`.",
-  },
-  {
-    key: "--ignore-rules",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Do not load user or project execpolicy `.rules` files for this run.",
-  },
-  {
-    key: "--output-schema",
-    type: "path",
-    description:
-      "JSON Schema file describing the expected final response shape. Codex validates tool output against it.",
-  },
-  {
-    key: "--color",
-    type: "always | never | auto",
-    defaultValue: "auto",
-    description: "Control ANSI color in stdout.",
-  },
-  {
-    key: "--json, --experimental-json",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Print newline-delimited JSON events instead of formatted text.",
-  },
-  {
-    key: "--output-last-message, -o",
-    type: "path",
-    description:
-      "Write the assistant’s final message to a file. Useful for downstream scripting.",
-  },
-  {
-    key: "Resume subcommand",
-    type: "codex exec resume [SESSION_ID]",
-    description:
-      "Resume an exec session by ID or add `--last` to continue the most recent session from the current working directory. Add `--all` to consider sessions from any directory. Accepts an optional follow-up prompt.",
-  },
-  {
-    key: "-c, --config",
-    type: "key=value",
-    description:
-      "Inline configuration override for the non-interactive run (repeatable).",
-  },
-];
-
-export const appServerOptions = [
-  {
-    key: "--stdio",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Use stdio transport. Equivalent to `--listen stdio://` and mutually exclusive with `--listen`.",
-  },
-  {
-    key: "--listen",
-    type: "stdio:// | ws://IP:PORT | unix:// | unix://PATH | off",
-    defaultValue: "stdio://",
-    description:
-      "Transport listener URL. Use `stdio://` for JSONL, `ws://IP:PORT` for a TCP WebSocket endpoint, `unix://` for the default Unix socket, `unix://PATH` for a custom Unix socket, or `off` to disable the local transport.",
-  },
-  {
-    key: "--ws-auth",
-    type: "capability-token | signed-bearer-token",
-    description:
-      "Authentication mode for app-server WebSocket clients. If omitted, WebSocket auth is disabled; non-local listeners warn during startup.",
-  },
-  {
-    key: "--ws-token-file",
-    type: "absolute path",
-    description:
-      "File containing the shared capability token. Use with `--ws-auth capability-token` unless you provide `--ws-token-sha256` instead.",
-  },
-  {
-    key: "--ws-token-sha256",
-    type: "hexadecimal SHA-256 digest",
-    description:
-      "Expected SHA-256 digest for capability-token authentication. Use instead of `--ws-token-file` when the client token comes from another source.",
-  },
-  {
-    key: "--ws-shared-secret-file",
-    type: "absolute path",
-    description:
-      "File containing the HMAC shared secret used to validate signed JWT bearer tokens. Required with `--ws-auth signed-bearer-token`.",
-  },
-  {
-    key: "--ws-issuer",
-    type: "string",
-    description:
-      "Expected `iss` claim for signed bearer tokens. Requires `--ws-auth signed-bearer-token`.",
-  },
-  {
-    key: "--ws-audience",
-    type: "string",
-    description:
-      "Expected `aud` claim for signed bearer tokens. Requires `--ws-auth signed-bearer-token`.",
-  },
-  {
-    key: "--ws-max-clock-skew-seconds",
-    type: "number",
-    defaultValue: "30",
-    description:
-      "Clock skew allowance when validating signed bearer token `exp` and `nbf` claims. Requires `--ws-auth signed-bearer-token`.",
-  },
-  {
-    key: "--analytics-default-enabled",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Defaults analytics to enabled for first-party app-server clients unless the user opts out in config.",
-  },
-];
-
-export const appOptions = [
-  {
-    key: "PATH",
-    type: "path",
-    defaultValue: ".",
-    description:
-      "Workspace path for Codex Desktop. On macOS, Codex opens this path; on Windows, Codex prints the path.",
-  },
-  {
-    key: "--download-url",
-    type: "url",
-    description:
-      "Advanced override for the Codex desktop installer URL used during install.",
-  },
-];
-
-export const debugAppServerSendMessageV2Options = [
-  {
-    key: "USER_MESSAGE",
-    type: "string",
-    description:
-      "Message text sent to app-server through the built-in V2 test-client flow.",
-  },
-];
-
-export const debugModelsOptions = [
-  {
-    key: "--bundled",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Skip refresh and print only the model catalog bundled with the current Codex binary.",
-  },
-];
-
-export const doctorOptions = [
-  {
-    key: "--json",
-    type: "boolean",
-    defaultValue: "false",
-    description: "Emit a redacted machine-readable support report.",
-  },
-  {
-    key: "--summary",
-    type: "boolean",
-    defaultValue: "false",
-    description: "Show grouped check rows and the final count summary only.",
-  },
-  {
-    key: "--all",
-    type: "boolean",
-    defaultValue: "false",
-    description: "Expand long lists in the detailed human-readable report.",
-  },
-  {
-    key: "--no-color",
-    type: "boolean",
-    defaultValue: "false",
-    description: "Disable ANSI color in human-readable output.",
-  },
-  {
-    key: "--ascii",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Use ASCII status labels and separators in human-readable output.",
-  },
-];
-
-export const resumeOptions = [
-  {
-    key: "SESSION_ID",
-    type: "uuid",
-    description:
-      "Resume the specified session. Omit and use `--last` to continue the most recent session.",
-  },
-  {
-    key: "--last",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Skip the picker and resume the most recent conversation from the current working directory.",
-  },
-  {
-    key: "--all",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Include sessions outside the current working directory when selecting the most recent session.",
-  },
-];
-
-export const featuresOptions = [
-  {
-    key: "List subcommand",
-    type: "codex features list",
-    description:
-      "Show known feature flags, their maturity stage, and their effective state.",
-  },
-  {
-    key: "Enable subcommand",
-    type: "codex features enable <feature>",
-    description:
-      "Persistently enable a feature flag in `$CODEX_HOME/config.toml`.",
-  },
-  {
-    key: "Disable subcommand",
-    type: "codex features disable <feature>",
-    description:
-      "Persistently disable a feature flag in `$CODEX_HOME/config.toml`.",
-  },
-];
-
-export const execResumeOptions = [
-  {
-    key: "SESSION_ID",
-    type: "uuid",
-    description:
-      "Resume the specified session. Omit and use `--last` to continue the most recent session.",
-  },
-  {
-    key: "--last",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Resume the most recent conversation from the current working directory.",
-  },
-  {
-    key: "--all",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Include sessions outside the current working directory when selecting the most recent session.",
-  },
-  {
-    key: "--image, -i",
-    type: "path[,path...]",
-    description:
-      "Attach one or more images to the follow-up prompt. Separate multiple paths with commas or repeat the flag.",
-  },
-  {
-    key: "PROMPT",
-    type: "string | - (read stdin)",
-    description:
-      "Optional follow-up instruction sent immediately after resuming.",
-  },
-];
-
-export const forkOptions = [
-  {
-    key: "SESSION_ID",
-    type: "uuid",
-    description:
-      "Fork the specified session. Omit and use `--last` to fork the most recent session.",
-  },
-  {
-    key: "--last",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Skip the picker and fork the most recent conversation automatically.",
-  },
-  {
-    key: "--all",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Show sessions beyond the current working directory in the picker.",
-  },
-];
-
-export const execpolicyOptions = [
-  {
-    key: "--rules, -r",
-    type: "path (repeatable)",
-    description:
-      "Path to an execpolicy rule file to evaluate. Provide multiple flags to combine rules across files.",
-  },
-  {
-    key: "--pretty",
-    type: "boolean",
-    defaultValue: "false",
-    description: "Pretty-print the JSON result.",
-  },
-  {
-    key: "COMMAND...",
-    type: "var-args",
-    description: "Command to be checked against the specified policies.",
-  },
-];
-
-export const loginOptions = [
-  {
-    key: "--with-api-key",
-    type: "boolean",
-    description:
-      "Read an API key from stdin (for example `printenv OPENAI_API_KEY | codex login --with-api-key`).",
-  },
-  {
-    key: "--with-access-token",
-    type: "boolean",
-    description:
-      "Read an access token from stdin (for example `printenv CODEX_ACCESS_TOKEN | codex login --with-access-token`).",
-  },
-  {
-    key: "--device-auth",
-    type: "boolean",
-    description:
-      "Use OAuth device code flow instead of launching a browser window.",
-  },
-  {
-    key: "status subcommand",
-    type: "codex login status",
-    description:
-      "Print the active authentication mode and exit with 0 when logged in.",
-  },
-];
-
-export const applyOptions = [
-  {
-    key: "TASK_ID",
-    type: "string",
-    description:
-      "Identifier of the Codex Cloud task whose diff should be applied.",
-  },
-];
-
-export const sandboxMacOptions = [
-  {
-    key: "--profile, -p",
-    type: "NAME",
-    description:
-      "Layer `$CODEX_HOME/NAME.config.toml` on top of the base user config.",
-  },
-  {
-    key: "--permissions-profile, -P",
-    type: "NAME",
-    description:
-      "Apply a named permissions profile from the active configuration stack.",
-  },
-  {
-    key: "--cd, -C",
-    type: "DIR",
-    description:
-      "Working directory used for profile resolution and command execution. Requires `--permissions-profile`.",
-  },
-  {
-    key: "--include-managed-config",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Include managed requirements while resolving an explicit permissions profile. Requires `--permissions-profile`.",
-  },
-  {
-    key: "--allow-unix-socket",
-    type: "path",
-    description:
-      "Allow the sandboxed command to bind or connect Unix sockets rooted at this path. Repeat to allow multiple paths.",
-  },
-  {
-    key: "--log-denials",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Capture macOS sandbox denials with `log stream` while the command runs and print them after exit.",
-  },
-  {
-    key: "--config, -c",
-    type: "key=value",
-    description:
-      "Pass configuration overrides into the sandboxed run (repeatable).",
-  },
-  {
-    key: "COMMAND...",
-    type: "var-args",
-    description:
-      "Shell command to execute under macOS Seatbelt. Everything after `--` is forwarded.",
-  },
-];
-
-export const sandboxLinuxOptions = [
-  {
-    key: "--profile, -p",
-    type: "NAME",
-    description:
-      "Layer `$CODEX_HOME/NAME.config.toml` on top of the base user config.",
-  },
-  {
-    key: "--permissions-profile, -P",
-    type: "NAME",
-    description:
-      "Apply a named permissions profile from the active configuration stack.",
-  },
-  {
-    key: "--cd, -C",
-    type: "DIR",
-    description:
-      "Working directory used for profile resolution and command execution. Requires `--permissions-profile`.",
-  },
-  {
-    key: "--include-managed-config",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Include managed requirements while resolving an explicit permissions profile. Requires `--permissions-profile`.",
-  },
-  {
-    key: "--config, -c",
-    type: "key=value",
-    description:
-      "Configuration overrides applied before launching the sandbox (repeatable).",
-  },
-  {
-    key: "COMMAND...",
-    type: "var-args",
-    description:
-      "Command to execute under Landlock + seccomp. Provide the executable after `--`.",
-  },
-];
-
-export const sandboxWindowsOptions = [
-  {
-    key: "--profile, -p",
-    type: "NAME",
-    description:
-      "Layer `$CODEX_HOME/NAME.config.toml` on top of the base user config.",
-  },
-  {
-    key: "--permissions-profile, -P",
-    type: "NAME",
-    description:
-      "Apply a named permissions profile from the active configuration stack.",
-  },
-  {
-    key: "--cd, -C",
-    type: "DIR",
-    description:
-      "Working directory used for profile resolution and command execution. Requires `--permissions-profile`.",
-  },
-  {
-    key: "--include-managed-config",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Include managed requirements while resolving an explicit permissions profile. Requires `--permissions-profile`.",
-  },
-  {
-    key: "--config, -c",
-    type: "key=value",
-    description:
-      "Configuration overrides applied before launching the sandbox (repeatable).",
-  },
-  {
-    key: "COMMAND...",
-    type: "var-args",
-    description:
-      "Command to execute under the native Windows sandbox. Provide the executable after `--`.",
-  },
-];
-
-export const completionOptions = [
-  {
-    key: "SHELL",
-    type: "bash | zsh | fish | power-shell | elvish",
-    defaultValue: "bash",
-    description: "Shell to generate completions for. Output prints to stdout.",
-  },
-];
-
-export const cloudExecOptions = [
-  {
-    key: "QUERY",
-    type: "string",
-    description:
-      "Task prompt. If omitted, Codex prompts interactively for details.",
-  },
-  {
-    key: "--env",
-    type: "ENV_ID",
-    description:
-      "Target Codex Cloud environment identifier (required). Use `codex cloud` to list options.",
-  },
-  {
-    key: "--attempts",
-    type: "1-4",
-    defaultValue: "1",
-    description:
-      "Number of assistant attempts (best-of-N) Codex Cloud should run.",
-  },
-];
-
-export const cloudListOptions = [
-  {
-    key: "--env",
-    type: "ENV_ID",
-    description: "Filter tasks by environment identifier.",
-  },
-  {
-    key: "--limit",
-    type: "1-20",
-    defaultValue: "20",
-    description: "Maximum number of tasks to return.",
-  },
-  {
-    key: "--cursor",
-    type: "string",
-    description: "Pagination cursor returned by a previous request.",
-  },
-  {
-    key: "--json",
-    type: "boolean",
-    defaultValue: "false",
-    description: "Emit machine-readable JSON instead of plain text.",
-  },
-];
-
-export const mcpCommands = [
-  {
-    key: "list",
-    type: "--json",
-    description:
-      "List configured MCP servers. Add `--json` for machine-readable output.",
-  },
-  {
-    key: "get <name>",
-    type: "--json",
-    description:
-      "Show a specific server configuration. `--json` prints the raw config entry.",
-  },
-  {
-    key: "add <name>",
-    type: "-- <command...> | --url <value>",
-    description:
-      "Register a server using a stdio launcher command or a streamable HTTP URL. Supports `--env KEY=VALUE` for stdio transports.",
-  },
-  {
-    key: "remove <name>",
-    description: "Delete a stored MCP server definition.",
-  },
-  {
-    key: "login <name>",
-    type: "--scopes scope1,scope2",
-    description:
-      "Start an OAuth login for a streamable HTTP server (servers that support OAuth only).",
-  },
-  {
-    key: "logout <name>",
-    description:
-      "Remove stored OAuth credentials for a streamable HTTP server.",
-  },
-];
-
-export const mcpAddOptions = [
-  {
-    key: "COMMAND...",
-    type: "stdio transport",
-    description:
-      "Executable plus arguments to launch the MCP server. Provide after `--`.",
-  },
-  {
-    key: "--env KEY=VALUE",
-    type: "repeatable",
-    description:
-      "Environment variable assignments applied when launching a stdio server.",
-  },
-  {
-    key: "--url",
-    type: "https://…",
-    description:
-      "Register a streamable HTTP server instead of stdio. Mutually exclusive with `COMMAND...`.",
-  },
-  {
-    key: "--bearer-token-env-var",
-    type: "ENV_VAR",
-    description:
-      "Environment variable whose value is sent as a bearer token when connecting to a streamable HTTP server.",
-  },
-  {
-    key: "--oauth-client-id",
-    type: "CLIENT_ID",
-    description:
-      "OAuth client identifier for a streamable HTTP MCP server. Requires `--url`.",
-  },
-  {
-    key: "--oauth-resource",
-    type: "RESOURCE",
-    description:
-      "OAuth resource parameter to include during login for a streamable HTTP MCP server. Requires `--url`.",
-  },
-];
-
-export const marketplaceCommands = [
-  {
-    key: "add <source>",
-    type: "[--ref REF] [--sparse PATH] [--json]",
-    description:
-      "Install a plugin marketplace from GitHub shorthand, a Git URL, an SSH URL, or a local marketplace root directory. `--sparse` is supported only for Git sources and can be repeated.",
-  },
-  {
-    key: "list",
-    type: "[--json]",
-    description:
-      "Show plugin marketplaces Codex is currently considering and the root path for each marketplace.",
-  },
-  {
-    key: "upgrade [marketplace-name]",
-    type: "[--json]",
-    description:
-      "Refresh one configured Git marketplace, or all configured Git marketplaces when no name is provided.",
-  },
-  {
-    key: "remove <marketplace-name>",
-    type: "[--json]",
-    description: "Remove a configured plugin marketplace.",
-  },
-];
-
-export const pluginCommands = [
-  {
-    key: "add <plugin[@marketplace]>",
-    type: "[--marketplace, -m NAME] [--json]",
-    description:
-      "Install a plugin from a configured marketplace. Use `--marketplace` or `-m` when the plugin argument omits `@marketplace`.",
-  },
-  {
-    key: "list",
-    type: "[--marketplace, -m NAME] [--available --json] [--json]",
-    description:
-      "List installed plugins. With `--json`, output has `installed` and `available` arrays; `--available` includes uninstalled marketplace plugins and requires `--json`.",
-  },
-  {
-    key: "remove <plugin[@marketplace]>",
-    type: "[--marketplace, -m NAME] [--json]",
-    description:
-      "Remove an installed plugin from local config and cache. Use `--json` for automation-friendly output.",
-  },
-  {
-    key: "marketplace",
-    description:
-      "Manage configured marketplace sources. See `codex plugin marketplace` below.",
-  },
-];
-
-export const archiveOptions = [
-  {
-    key: "SESSION",
-    type: "session ID | session name",
-    description:
-      "Saved session to archive or restore. Session IDs take precedence over session names.",
-  },
-  {
-    key: "--remote",
-    type: "ws://host:port | wss://host:port | unix:// | unix://PATH",
-    description:
-      "Connect to a remote app-server endpoint before changing archive state.",
-  },
-  {
-    key: "--remote-auth-token-env",
-    type: "ENV_VAR",
-    description:
-      "Read a bearer token from this environment variable when `--remote` requires authentication.",
-  },
-];
-
-export const deleteOptions = [
-  {
-    key: "SESSION",
-    type: "session ID | session name",
-    description:
-      "Saved session to delete. Session IDs take precedence over session names.",
-  },
-  {
-    key: "--force",
-    type: "boolean",
-    defaultValue: "false",
-    description:
-      "Delete without prompting. The session argument must be a UUID; names still require interactive confirmation.",
-  },
-  {
-    key: "--remote",
-    type: "ws://host:port | wss://host:port | unix:// | unix://PATH",
-    description:
-      "Connect to a remote app-server endpoint before deleting the session.",
-  },
-  {
-    key: "--remote-auth-token-env",
-    type: "ENV_VAR",
-    description:
-      "Read a bearer token from this environment variable when `--remote` requires authentication.",
-  },
-];
+# Developer commands
 
 ## How to read this reference
 
@@ -1102,7 +7,8 @@ This page catalogs every documented Codex CLI command and flag. Use the interact
 The CLI inherits most defaults from <code>~/.codex/config.toml</code>. Any
   <code>-c key=value</code> overrides you pass at the command line take
   precedence for that invocation. See [Config
-  basics](https://developers.openai.com/codex/config-basic#configuration-precedence) for more information.
+  basics](https://learn.chatgpt.com/docs/config-file/config-basic#configuration-precedence) for more
+  information.
 
 ## Global flags
 
@@ -1116,7 +22,7 @@ applies `--oss` to `exec`.
 ## Command overview
 
 The Maturity column uses feature maturity labels such as Experimental, Beta,
-  and Stable. See [Feature Maturity](https://developers.openai.com/codex/feature-maturity) for how to
+  and Stable. See [Feature Maturity](https://learn.chatgpt.com/docs/feature-maturity) for how to
   interpret these labels.
 
 <ConfigTable
@@ -1144,18 +50,27 @@ Launch the Codex app server locally. This is primarily for development and debug
 
 ### `codex remote-control`
 
-Ensure the app-server daemon is running with remote-control support enabled.
-Managed remote-control clients and SSH remote workflows use this command; it's
-not a replacement for `codex app-server --listen` when you are building a local
+Run `codex remote-control` to start remote control in the foreground. Use
+`codex remote-control start` to start the local app-server daemon with remote
+control enabled, and `codex remote-control stop` to stop it. Managed
+remote-control clients and SSH remote workflows use these commands; they aren't
+a replacement for `codex app-server --listen` when you're building a local
 protocol client.
+
+After the daemon is running, use `codex remote-control pair` to create and
+print a short-lived manual pairing code. Add `--json` to any remote-control
+command for machine-readable output. For `pair`, the JSON response includes
+`pairingCode`, `manualPairingCode`, `environmentId`, and `expiresAt`.
 
 ### `codex app`
 
-Launch Codex Desktop from the terminal on macOS or Windows. On macOS, Codex can open a specific workspace path; on Windows, Codex prints the path to open.
+Launch the ChatGPT desktop app from the terminal on macOS or Windows. On macOS,
+Codex can open a specific workspace path; on Windows, Codex prints the path to
+open.
 
 <ConfigTable client:load options={appOptions} />
 
-`codex app` opens an installed Codex Desktop app, or starts the installer when
+`codex app` opens an installed ChatGPT desktop app, or starts the installer when
 the app is missing. On macOS, Codex opens the provided workspace path; on
 Windows, it prints the path to open after installation.
 
@@ -1175,6 +90,13 @@ Print the raw model catalog Codex sees as JSON.
 
 Use `--bundled` when you want to inspect only the catalog bundled with the current binary, without refreshing from the remote models endpoint.
 
+### `codex debug prompt-input`
+
+Render the exact model-visible prompt input list as JSON. Use this when
+debugging instruction discovery, session context, or prompt construction.
+
+<ConfigTable client:load options={debugPromptInputOptions} />
+
 ### `codex apply`
 
 Apply the most recent diff from a Codex cloud task to your local repository. You must authenticate and have access to the task.
@@ -1182,6 +104,16 @@ Apply the most recent diff from a Codex cloud task to your local repository. You
 <ConfigTable client:load options={applyOptions} />
 
 Codex prints the patched files and exits non-zero if `git apply` fails (for example, due to conflicts).
+
+### `codex review`
+
+Run a code review non-interactively. Choose exactly one review target, or pass
+custom review instructions as a prompt.
+
+<ConfigTable client:load options={reviewOptions} />
+
+`--uncommitted`, `--base`, `--commit`, and a custom `PROMPT` conflict with one
+another. Use `--title` only with `--commit`.
 
 ### `codex archive` and `codex unarchive`
 
@@ -1339,7 +271,7 @@ Continue an interactive session by ID or resume the most recent conversation. `c
 
 ### `codex fork`
 
-Fork a previous interactive session into a new thread. By default, `codex fork` opens the session picker; add `--last` to fork your most recent session instead.
+Fork a previous interactive session into a new task. By default, `codex fork` opens the session picker; add `--last` to fork your most recent session instead.
 
 <ConfigTable client:load options={forkOptions} />
 
@@ -1369,9 +301,578 @@ Check for and apply a Codex CLI update when the installed release supports self-
 - When you need to grant Codex write access to more directories, prefer `--add-dir` rather than forcing `--sandbox danger-full-access`.
 - Pair `--json` with `--output-last-message` in CI to capture machine-readable progress and a final natural-language summary.
 
+## Interactive shortcuts
+
+- Type `@` to search for a file in the workspace and add its path to the prompt.
+- Press <kbd>Up</kbd> or <kbd>Down</kbd> to restore draft history.
+- Press <kbd>Ctrl</kbd>+<kbd>R</kbd> to search prompt history, then press <kbd>Enter</kbd> to use a match or <kbd>Esc</kbd> to cancel.
+- Press <kbd>Ctrl</kbd>+<kbd>O</kbd> or run `/copy` to copy the latest completed Codex output.
+- Prefix a line with `!` to run a local shell command under the current approval and sandbox settings.
+- Press <kbd>Tab</kbd> while Codex is working to queue a follow-up prompt, slash command, or shell command for the next turn.
+- Press <kbd>Enter</kbd> while Codex is working to inject new instructions into the current turn.
+- Press <kbd>Esc</kbd> twice with an empty composer to edit the previous user message and fork the conversation from that point.
+- Press <kbd>Ctrl</kbd>+<kbd>C</kbd> or run `/exit` to close the session.
+
 ## Related resources
 
-- [Codex CLI overview](https://developers.openai.com/codex/cli): installation, upgrades, and quick tips.
-- [Config basics](https://developers.openai.com/codex/config-basic): persist defaults like the model and provider.
-- [Advanced Config](https://developers.openai.com/codex/config-advanced): profiles, providers, sandbox tuning, and integrations.
-- [AGENTS.md](https://developers.openai.com/codex/guides/agents-md): conceptual overview of Codex agent capabilities and best practices.
+- [Codex CLI overview](https://learn.chatgpt.com/docs/codex/cli): installation, upgrades, and quick tips.
+- [Config basics](https://learn.chatgpt.com/docs/config-file/config-basic): persist defaults like the model and provider.
+- [Advanced Config](https://learn.chatgpt.com/docs/config-file/config-advanced): profiles, providers, sandbox tuning, and integrations.
+- [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md): conceptual overview of Codex agent capabilities and best practices.
+
+Slash commands give you fast, keyboard-first control over Codex. Type `/` in
+the composer to open the slash popup, choose a command, and Codex will perform
+actions such as switching models, adjusting permissions, or summarizing long
+conversations without leaving the terminal.
+
+This guide shows you how to:
+
+- Find the right built-in slash command for a task
+- Steer an active session with commands like `/model`, `/fast`,
+  `/personality`, `/permissions`, `/approve`, `/raw`, `/agent`, and `/status`
+
+## Built-in slash commands
+
+Codex ships with the following commands. Open the slash popup and start typing
+the command name to filter the list.
+
+When a task is already running, you can type a slash command and press `Tab` to
+queue it for the next turn. Codex parses queued slash commands when they run, so
+command menus and errors appear after the current turn finishes. Slash
+completion still works before you queue the command.
+
+| Command                                                                                     | Purpose                                                         | When to use it                                                                                             |
+| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [`/permissions`](#update-permissions-with-permissions)                                      | Set what Codex can do without asking first.                     | Relax or tighten approval requirements mid-session, such as switching between Auto and Read Only.          |
+| [`/ide`](#include-ide-context-with-ide)                                                     | Include open files, current selection, and other IDE context.   | Pull editor context into the next prompt without re-explaining what's open in your IDE.                    |
+| [`/keymap`](#remap-tui-shortcuts-with-keymap)                                               | Remap TUI keyboard shortcuts.                                   | Inspect and persist custom shortcut bindings in `config.toml`.                                             |
+| [`/vim`](#toggle-vim-mode-with-vim)                                                         | Toggle Vim mode for the composer.                               | Switch between Vim normal/insert behavior and the default composer editing mode.                           |
+| [`/setup-default-sandbox`](#set-up-the-elevated-windows-sandbox-with-setup-default-sandbox) | Set up the elevated agent sandbox (Windows only).               | Replace the degraded Windows sandbox after Codex offers the elevated setup.                                |
+| [`/sandbox-add-read-dir`](#grant-sandbox-read-access-with-sandbox-add-read-dir)             | Grant sandbox read access to an extra directory (Windows only). | Unblock commands that need to read an absolute directory path outside the current readable roots.          |
+| [`/agent`, `/subagents`](#switch-agent-threads-with-agent)                                  | Switch the active agent thread.                                 | Inspect or continue work in a spawned subagent thread.                                                     |
+| [`/apps`](#browse-apps-with-apps)                                                           | Browse apps (connectors) and insert them into your prompt.      | Attach an app as `$app-slug` before asking Codex to use it.                                                |
+| [`/plugins`](#browse-plugins-with-plugins)                                                  | Browse installed and discoverable plugins.                      | Inspect plugin tools, install suggested plugins, or manage plugin availability.                            |
+| [`/hooks`](#view-and-manage-lifecycle-hooks-with-hooks)                                     | View and manage lifecycle hooks.                                | Inspect configured hooks, trust new or changed hooks, or disable non-managed hooks before they run.        |
+| [`/clear`](#clear-the-terminal-and-start-a-new-task-with-clear)                             | Clear the terminal and start a fresh task.                      | Reset the visible UI and task context together when you want a fresh start.                                |
+| [`/rename`](#rename-the-current-task-with-rename)                                           | Rename the current task.                                        | Give a saved session a recognizable name without leaving the TUI.                                          |
+| [`/archive`](#archive-the-current-session-with-archive)                                     | Archive the current session and exit Codex.                     | Remove the current session from active session lists without deleting its transcript.                      |
+| [`/delete`](#delete-the-current-session-with-delete)                                        | Permanently delete the current session and exit Codex.          | Remove the transcript and descendant sessions when archiving isn't enough.                                 |
+| [`/compact`](#keep-transcripts-lean-with-compact)                                           | Summarize the visible conversation to free tokens.              | Use after long runs so Codex retains key points without blowing the context window.                        |
+| [`/copy`](#copy-the-latest-response-with-copy)                                              | Copy the latest completed Codex output.                         | Grab the latest finished response or plan text without manually selecting it. You can also press `Ctrl+O`. |
+| [`/diff`](#review-changes-with-diff)                                                        | Show the Git diff, including files Git isn't tracking yet.      | Review Codex's edits before you commit or run tests.                                                       |
+| [`/exit`](#exit-the-cli-with-quit-or-exit)                                                  | Exit the CLI (same as `/quit`).                                 | Alternative spelling; both commands exit the session.                                                      |
+| [`/experimental`](#toggle-experimental-features-with-experimental)                          | Toggle experimental features.                                   | Enable options such as Network proxy or Prevent sleep while running.                                       |
+| [`/approve`](#approve-an-auto-review-denial-with-approve)                                   | Approve one retry of a recent auto review denial.               | Retry a command or action that the auto reviewer denied.                                                   |
+| [`/memories`](#configure-memories-with-memories)                                            | Configure memory use and generation.                            | Turn memory injection or memory generation on or off without leaving the TUI.                              |
+| [`/skills`](#use-skills-with-skills)                                                        | Browse and use skills.                                          | Improve task-specific behavior by selecting a relevant local skill.                                        |
+| [`/import`](#import-claude-code-configuration-with-import)                                  | Import Claude Code setup, project files, and recent chats.      | Migrate supported external-agent artifacts into Codex configuration and local files.                       |
+| [`/feedback`](#send-feedback-with-feedback)                                                 | Send logs to the Codex maintainers.                             | Report issues or share diagnostics with support.                                                           |
+| [`/init`](#generate-agentsmd-with-init)                                                     | Generate an `AGENTS.md` scaffold in the current directory.      | Capture persistent instructions for the repository or subdirectory you're working in.                      |
+| [`/logout`](#sign-out-with-logout)                                                          | Sign out of Codex.                                              | Clear local credentials when using a shared machine.                                                       |
+| [`/mcp`](#list-mcp-tools-with-mcp)                                                          | List configured Model Context Protocol (MCP) tools.             | Check which external tools Codex can call during the session; add `verbose` for server details.            |
+| [`/mention`](#highlight-files-with-mention)                                                 | Attach a file to the conversation.                              | Point Codex at specific files or folders you want it to inspect next.                                      |
+| [`/model`](#set-the-active-model-with-model)                                                | Choose the active model (and reasoning effort, when available). | Switch between models such as `gpt-5.4-mini` and `gpt-5.5` before running a task.                          |
+| [`/fast`](#toggle-fast-mode-with-fast)                                                      | Toggle a Fast service tier when the model catalog exposes one.  | Turn the current model's Fast tier on or off and persist the selection.                                    |
+| [`/plan`](#switch-to-plan-mode-with-plan)                                                   | Switch to plan mode and optionally send a prompt.               | Ask Codex to propose an execution plan before implementation work starts.                                  |
+| [`/goal`](#set-or-view-a-task-goal-with-goal)                                               | Set, edit, pause, resume, view, or clear a task goal.           | Give Codex a persistent target to track while a larger task runs.                                          |
+| [`/personality`](#set-a-communication-style-with-personality)                               | Choose a communication style for responses.                     | Make Codex more concise, more explanatory, or more collaborative without changing your instructions.       |
+| [`/ps`](#check-background-terminals-with-ps)                                                | Show background terminals and their recent output.              | Check long-running commands without leaving the main transcript.                                           |
+| [`/stop`](#stop-background-terminals-with-stop)                                             | Stop all background terminals.                                  | Cancel background terminal work started by the current session.                                            |
+| [`/fork`](#fork-the-current-conversation-with-fork)                                         | Fork the current task into a new task.                          | Branch the active session to explore a new approach without losing the current transcript.                 |
+| [`/app`](#continue-in-the-desktop-app-with-app)                                             | Continue the current session in the ChatGPT desktop app.        | Move from the TUI to the desktop app on macOS or Windows.                                                  |
+| [`/side`, `/btw`](#start-a-side-conversation-with-side)                                     | Start an ephemeral side conversation.                           | Ask a focused follow-up without disrupting the main task's transcript.                                     |
+| [`/raw`](#toggle-raw-scrollback-with-raw)                                                   | Toggle raw scrollback mode.                                     | Make terminal selection and copying less formatted while reviewing long output.                            |
+| [`/resume`](#resume-a-saved-conversation-with-resume)                                       | Resume a saved conversation from your session list.             | Continue work from a previous CLI session without starting over.                                           |
+| [`/new`](#start-a-new-conversation-with-new)                                                | Start a new task inside the same CLI session.                   | Reset the task context without leaving the CLI when you want a fresh prompt in the same repo.              |
+| [`/quit`](#exit-the-cli-with-quit-or-exit)                                                  | Exit the CLI.                                                   | Leave the session immediately.                                                                             |
+| [`/review`](#ask-for-a-working-tree-review-with-review)                                     | Ask Codex to review your working tree.                          | Run after Codex completes work or when you want a second set of eyes on local changes.                     |
+| [`/status`](#inspect-the-session-with-status)                                               | Display session configuration and token usage.                  | Confirm the active model, approval policy, writable roots, and remaining context capacity.                 |
+| [`/usage`](#view-account-usage-with-usage)                                                  | View account token usage or use a rate-limit reset.             | Inspect daily, weekly, or cumulative ChatGPT token activity from inside the TUI.                           |
+| [`/debug-config`](#inspect-config-layers-with-debug-config)                                 | Print config layer and requirements diagnostics.                | Debug precedence and policy requirements, including experimental network constraints.                      |
+| [`/statusline`](#configure-footer-items-with-statusline)                                    | Configure TUI status-line fields interactively.                 | Pick and reorder footer items (model/context/limits/git/tokens/session) and persist in config.toml.        |
+| [`/title`](#configure-terminal-title-items-with-title)                                      | Configure terminal window or tab title fields interactively.    | Pick and reorder title items such as project, status, thread, branch, model, and task progress.            |
+| [`/theme`](#choose-a-syntax-theme-with-theme)                                               | Choose a syntax-highlighting theme.                             | Preview and persist a terminal syntax-highlighting theme.                                                  |
+| [`/pets`, `/pet`](#choose-a-terminal-pet-with-pets)                                         | Choose or hide a terminal pet.                                  | Personalize the TUI with a built-in or custom ambient pet.                                                 |
+
+`/quit` and `/exit` both exit the CLI. Use them only after you have saved or
+committed any important work.
+
+Use `/permissions` to adjust what Codex can do without asking first. Use
+`/approve` only when you need to retry a recent action that automatic review
+denied.
+
+## Control your session with slash commands
+
+The following workflows keep your session on track without restarting Codex.
+
+### Set the active model with `/model`
+
+1. Start Codex and open the composer.
+2. Type `/model` and press Enter.
+3. Choose a model such as `gpt-5.4-mini` or `gpt-5.5` from the popup.
+
+Expected: Codex confirms the new model in the transcript. Run `/status` to verify the change.
+
+### Toggle Fast mode with `/fast`
+
+1. Type `/fast` to turn the current model's Fast service tier on.
+2. Type `/fast` again to turn it off.
+
+Expected: Codex toggles the tier and saves the selection. In the TUI footer,
+you can also show a Fast mode status-line item with `/statusline`.
+
+Fast tier commands are catalog-driven. If the current model doesn't advertise a
+Fast tier, Codex won't show `/fast`.
+
+### Set a communication style with `/personality`
+
+Use `/personality` to change how Codex communicates without rewriting your prompt.
+
+1. In an active conversation, type `/personality` and press Enter.
+2. Choose a style from the popup.
+
+Expected: Codex confirms the new style in the transcript and uses it for later
+responses in the task.
+
+Codex supports `friendly`, `pragmatic`, and `none` personalities. Use `none`
+to disable personality instructions.
+
+If the active model doesn't support personality-specific instructions, Codex hides this command.
+
+### Switch to plan mode with `/plan`
+
+1. Type `/plan` and press Enter to switch the active conversation into plan
+   mode.
+2. Optional: provide inline prompt text (for example, `/plan Propose a
+migration plan for this service`).
+3. You can paste content or attach images while using inline `/plan` arguments.
+
+Expected: Codex enters plan mode and uses your optional inline prompt as the first planning request.
+
+While a task is already running, `/plan` is temporarily unavailable.
+
+### Set or view a task goal with `/goal`
+
+1. Type `/goal <objective>` to set the goal, for example `/goal Finish the migration and keep tests green`.
+2. Type `/goal` to view the current goal.
+3. Use `/goal edit` to revise the objective. Use `/goal pause`, `/goal resume`, or `/goal clear` to pause, resume, or remove it.
+
+Expected: Codex keeps the goal attached to the active task while work continues.
+
+Goal objectives must be non-empty and at most 4,000 characters. For longer
+instructions, put the details in a file and point the goal at that file.
+
+### Toggle experimental features with `/experimental`
+
+1. Type `/experimental` and press Enter.
+2. Toggle the features you want (for example, Network proxy or Prevent sleep while running), then restart Codex if the prompt asks you to.
+
+Expected: Codex saves your feature choices to config and applies them on restart.
+
+### Approve an auto review denial with `/approve`
+
+Use `/approve` when the automatic reviewer denied a recent action and you want
+Codex to retry it once.
+
+1. Type `/approve`.
+2. Confirm the retry when Codex shows the relevant denied action.
+
+Expected: Codex retries that denied action once under the current session
+policy.
+
+### Configure memories with `/memories`
+
+1. Type `/memories`.
+2. Choose whether Codex should use existing memories, generate new memories, or
+   keep memory behavior disabled.
+
+Expected: Codex updates the relevant memory settings for future sessions.
+
+### Use skills with `/skills`
+
+1. Type `/skills`.
+2. Pick the skill you want Codex to apply.
+
+Expected: Codex inserts the selected skill context so the next request follows
+that skill's instructions.
+
+### Import Claude Code configuration with `/import`
+
+1. Type `/import`.
+2. Choose the Claude Code setup, project files, or recent chats you want to migrate.
+
+Expected: Codex opens the external-agent import picker and imports the selected
+supported artifacts into Codex configuration and local files.
+
+Run `/import` from a local TUI session. It's unavailable while a task is running,
+in remote sessions, and while connected to the local app-server daemon.
+
+<a id="clear-the-terminal-and-start-a-new-chat-with-clear"></a>
+
+### Clear the terminal and start a new task with `/clear`
+
+1. Type `/clear` and press Enter.
+
+Expected: Codex clears the terminal, resets the visible transcript, and starts
+a fresh task in the same CLI session.
+
+Unlike <kbd>Ctrl</kbd>+<kbd>L</kbd>, `/clear` starts a new conversation.
+
+<kbd>Ctrl</kbd>+<kbd>L</kbd> only clears the terminal view and keeps the current
+task. Codex disables both actions while a task is in progress.
+
+### Archive the current session with `/archive`
+
+1. Type `/archive` and press Enter.
+2. Confirm that you want to archive the current session and exit Codex.
+
+Expected: Codex archives the current session and closes the interactive TUI.
+Codex keeps the session transcript stored locally; restore it later with
+`codex unarchive <SESSION>`.
+
+`/archive` is unavailable while a task is running.
+
+### Delete the current session with `/delete`
+
+1. Type `/delete` and press Enter.
+2. Confirm that you want to delete the current session and exit Codex.
+
+Expected: Codex deletes the current session transcript and closes the
+interactive TUI. Deletion is permanent and also removes spawned descendant
+sessions.
+
+`/delete` is unavailable while a task is running or in a side conversation.
+
+### Update permissions with `/permissions`
+
+1. Type `/permissions` and press Enter.
+2. Select the approval preset that matches your comfort level, for example
+   `Auto` for hands-off runs or `Read Only` to review edits. When named
+   permission profiles are active, the picker also shows configured custom
+   profiles and their descriptions.
+
+Expected: Codex announces the updated policy. Future actions respect the
+updated approval mode until you change it again.
+
+### Include IDE context with `/ide`
+
+1. Type `/ide`.
+2. Add optional inline text if you want to explain what Codex should do with the
+   current IDE selection or open files.
+
+Expected: Codex includes available IDE context in the next prompt.
+
+### Toggle Vim mode with `/vim`
+
+1. Type `/vim`.
+2. Continue editing in the composer.
+
+Expected: Codex toggles composer Vim mode for the current session. To make Vim
+mode the default for new sessions, set `tui.vim_mode_default = true` in
+`config.toml`.
+
+### Set up the elevated Windows sandbox with `/setup-default-sandbox`
+
+This command appears only on Windows when Codex is using the degraded
+restricted-token sandbox.
+
+1. Type `/setup-default-sandbox`.
+2. Follow the administrator setup flow.
+
+Expected: Codex configures the elevated Windows sandbox and selects the
+corresponding automatic approval preset.
+
+### Copy the latest response with `/copy`
+
+1. Type `/copy` and press Enter.
+
+Expected: Codex copies the latest completed Codex output to your clipboard.
+
+If a turn is still running, `/copy` uses the latest completed output instead of
+the in-progress response. The command is unavailable before the first completed
+Codex output and immediately after a rollback.
+
+You can also press <kbd>Ctrl</kbd>+<kbd>O</kbd> from the main TUI to copy the
+latest completed response without opening the slash command menu.
+
+### Toggle raw scrollback with `/raw`
+
+1. Type `/raw`, `/raw on`, or `/raw off`.
+
+Expected: Codex toggles raw scrollback mode, which makes terminal selection and
+copying more direct. You can also use the default <kbd>Alt</kbd>+<kbd>R</kbd>
+binding or persist the default with `tui.raw_output_mode = true`.
+
+### Grant sandbox read access with `/sandbox-add-read-dir`
+
+This command is available only when running the CLI natively on Windows.
+
+1. Type `/sandbox-add-read-dir C:\absolute\directory\path` and press Enter.
+2. Confirm the path is an existing absolute directory.
+
+Expected: Codex refreshes the Windows sandbox policy and grants read access to
+that directory for later commands that run in the sandbox.
+
+### Inspect the session with `/status`
+
+1. In any conversation, type `/status`.
+2. Review the output for the active model, approval policy, writable roots, and
+   current token usage. When the TUI connects remotely, the output also
+   shows the remote address and the server version.
+
+Expected: Codex prints a summary confirming that it's operating where you
+expect.
+
+### View account usage with `/usage`
+
+1. Type `/usage` to open the usage menu.
+2. Choose whether to show token activity or redeem an available earned reset.
+3. To open token activity directly, type `/usage daily`, `/usage weekly`, or `/usage cumulative`.
+
+Expected: Codex opens usage actions or shows account token activity for the
+selected view. If the session doesn't have Codex service account auth, Codex
+shows a sign-in requirement.
+
+### Inspect config layers with `/debug-config`
+
+1. Type `/debug-config`.
+2. Review the output for config layer order (lowest precedence first), on/off
+   state, and policy sources.
+
+Expected: Codex prints layer diagnostics plus policy details such as
+`allowed_approval_policies`, `allowed_sandbox_modes`, `mcp_servers`, `rules`,
+`enforce_residency`, and `experimental_network` when configured.
+
+Use this output to debug why an effective setting differs from `config.toml`.
+
+### Configure footer items with `/statusline`
+
+1. Type `/statusline`.
+2. Use the picker to toggle and reorder items, then confirm.
+
+Expected: The footer status line updates immediately and persists to
+`tui.status_line` in `config.toml`.
+
+Available status-line items include model, model+reasoning, context stats, rate
+limits, git branch, token counters, session id, current directory/project root,
+and Codex version.
+
+### Configure terminal title items with `/title`
+
+1. Type `/title`.
+2. Use the picker to toggle and reorder items, then confirm.
+
+Expected: The terminal window or tab title updates immediately and persists to
+`tui.terminal_title` in `config.toml`.
+
+Available title items include app name, project, spinner, status, thread, git
+branch, model, and task progress.
+
+### Choose a syntax theme with `/theme`
+
+1. Type `/theme`.
+2. Preview a theme from the picker, then confirm.
+
+Expected: Codex updates syntax highlighting and persists the choice to
+`tui.theme` in `config.toml`.
+
+### Choose a terminal pet with `/pets`
+
+1. Type `/pets` (or `/pet`) to open the pet picker.
+2. Choose a built-in or custom pet, or turn pets off.
+
+Expected: Codex displays the selected ambient pet in supported terminals and
+persists the selection. You can also type `/pets off` to hide it.
+
+### Remap TUI shortcuts with `/keymap`
+
+Use `/keymap` to inspect, update, and persist keyboard shortcut bindings for the TUI.
+
+1. Type `/keymap`.
+2. Pick the shortcut context and action you want to change.
+3. Enter the new binding or remove the existing one.
+
+Expected: Codex updates the active keymap and writes the custom binding to `tui.keymap` in `config.toml`.
+
+Key bindings use names such as `ctrl-a`, `shift-enter`, and `page-down`. Context-specific bindings override `tui.keymap.global`; an empty binding list unbinds the action.
+
+### Check background terminals with `/ps`
+
+1. Type `/ps`.
+2. Review the list of background terminals and their status.
+
+Expected: Codex shows each background terminal's command plus up to three
+recent, non-empty output lines so you can gauge progress at a glance.
+
+Background terminals appear when `unified_exec` is in use; otherwise, the list may be empty.
+
+### Stop background terminals with `/stop`
+
+1. Type `/stop`.
+2. Confirm if Codex asks before stopping the listed terminals.
+
+Expected: Codex stops all background terminals for the current session. `/clean`
+is still available as an alias for `/stop`.
+
+### Keep transcripts lean with `/compact`
+
+1. After a long exchange, type `/compact`.
+2. Confirm when Codex offers to summarize the conversation so far.
+
+Expected: Codex replaces earlier turns with a concise summary, freeing context
+while keeping critical details.
+
+### Review changes with `/diff`
+
+1. Type `/diff` to inspect the Git diff.
+2. Scroll through the output inside the CLI to review edits and added files.
+
+Expected: Codex shows changes you've staged, changes you haven't staged yet,
+and files Git hasn't started tracking, so you can decide what to keep.
+
+### Highlight files with `/mention`
+
+1. Type `/mention` followed by a path, for example `/mention src/lib/api.ts`.
+2. Select the matching result from the popup.
+
+Expected: Codex adds the file to the conversation, ensuring follow-up turns reference it directly.
+
+### Start a new conversation with `/new`
+
+1. Type `/new` and press Enter.
+
+Expected: Codex starts a fresh conversation in the same CLI session, so you
+can switch tasks without leaving your terminal.
+
+Unlike `/clear`, `/new` doesn't clear the current terminal view first.
+
+<a id="rename-the-current-chat-with-rename"></a>
+
+### Rename the current task with `/rename`
+
+1. Type `/rename <name>`, or type `/rename` to open the naming prompt.
+2. Enter a short name that will help you find the task later.
+
+Expected: Codex updates the saved task name without changing its transcript.
+
+### Resume a saved conversation with `/resume`
+
+1. Type `/resume` and press Enter.
+2. Choose the session you want from the saved-session picker.
+
+Expected: Codex reloads the selected conversation's transcript so you can pick
+up where you left off, keeping the original history intact.
+
+### Fork the current conversation with `/fork`
+
+1. Type `/fork` and press Enter.
+
+Expected: Codex clones the current task into a new task with a fresh
+ID, leaving the original transcript untouched so you can explore an alternative
+approach in parallel.
+
+If you need to fork a saved session instead of the current one, run
+`codex fork` in your terminal to open the session picker.
+
+### Continue in the desktop app with `/app`
+
+On macOS and Windows, type `/app` to open the current session in the ChatGPT
+desktop app. If the app isn't installed or running, Codex shows an error asking
+you to install or launch it.
+
+Expected: The desktop app opens the same saved task so you can continue there.
+
+### Start a side conversation with `/side`
+
+Use `/side` to start an ephemeral fork from the current conversation without switching away from the main task.
+
+1. Type `/side` to open a side conversation.
+2. Optionally add inline text, for example `/side Check whether this plan has an obvious risk`.
+3. Return to the parent task after the focused detour finishes.
+
+Expected: Codex opens a side conversation whose transcript is separate from
+the parent task. While you are in side mode, the TUI continues to show the
+parent task's status so you can see whether the main task is still running.
+
+`/side` is unavailable inside another side conversation and during review mode.
+
+### Generate `AGENTS.md` with `/init`
+
+1. Run `/init` in the directory where you want Codex to look for persistent instructions.
+2. Review the generated `AGENTS.md`, then edit it to match your repository conventions.
+
+Expected: Codex creates an `AGENTS.md` scaffold you can refine and commit for
+future sessions.
+
+### Ask for a working tree review with `/review`
+
+1. Type `/review`.
+2. Follow up with `/diff` if you want to inspect the exact file changes.
+
+Expected: Codex summarizes issues it finds in your working tree, focusing on
+behavior changes and missing tests. It uses the current session model unless
+you set `review_model` in `config.toml`.
+
+### List MCP tools with `/mcp`
+
+1. Type `/mcp`.
+2. Review the list to confirm which MCP servers and tools are available.
+
+Expected: You see the configured Model Context Protocol (MCP) tools Codex can call in this session.
+
+Use `/mcp verbose` to include detailed server diagnostics. If you pass anything other than `verbose`, Codex shows the command usage.
+
+### Browse apps with `/apps`
+
+1. Type `/apps`.
+2. Pick an app from the list.
+
+Expected: Codex inserts the app mention into the composer as `$app-slug`, so
+you can immediately ask Codex to use it.
+
+### Browse plugins with `/plugins`
+
+1. Type `/plugins`.
+2. Choose a marketplace tab, then pick a plugin to inspect its capabilities or available actions.
+
+Expected: Codex opens the plugin browser so you can review installed plugins,
+discoverable plugins that your configuration allows, and installed plugin state.
+Press <kbd>Space</kbd> on an installed plugin to toggle its enabled state.
+
+### View and manage lifecycle hooks with `/hooks`
+
+1. Type `/hooks`.
+2. Choose a hook event to inspect the matching handlers.
+3. Trust, disable, or re-enable non-managed hooks as needed.
+
+Expected: Codex opens the hook browser so you can review configured lifecycle
+hooks. Managed hooks appear as managed and can't be disabled from the user hook
+browser.
+
+### Switch agent threads with `/agent`
+
+1. Type `/agent` or `/subagents` and press Enter.
+2. Select the thread you want from the picker.
+
+Expected: Codex switches the active thread so you can inspect or continue that
+agent's work.
+
+### Send feedback with `/feedback`
+
+1. Type `/feedback` and press Enter.
+2. Follow the prompts to include logs or diagnostics.
+
+Expected: Codex collects the requested diagnostics and submits them to the
+maintainers.
+
+### Sign out with `/logout`
+
+1. Type `/logout` and press Enter.
+
+Expected: Codex clears local credentials for the current user session.
+
+### Exit the CLI with `/quit` or `/exit`
+
+1. Type `/quit` (or `/exit`) and press Enter.
+
+Expected: Codex exits immediately. Save or commit any important work first.

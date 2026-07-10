@@ -1,11 +1,11 @@
 # Custom Prompts
 
-Custom prompts are deprecated. Use [skills](https://developers.openai.com/codex/skills) for reusable
+Custom prompts are deprecated. Use [skills](https://learn.chatgpt.com/docs/build-skills) for reusable
   instructions that Codex can invoke explicitly or implicitly.
 
 Custom prompts (deprecated) let you turn Markdown files into reusable prompts that you can invoke as slash commands in both the Codex CLI and the Codex IDE extension.
 
-Custom prompts require explicit invocation and live in your local Codex home directory (for example, `~/.codex`), so they're not shared through your repository. If you want to share a prompt (or want Codex to implicitly invoke it), [use skills](https://developers.openai.com/codex/skills).
+Custom prompts require explicit invocation and live in your local Codex home directory (for example, `~/.codex`), so they're not shared through your repository. If you want to share a prompt (or want Codex to implicitly invoke it), [use skills](https://learn.chatgpt.com/docs/build-skills).
 
 1. Create the prompts directory:
 
@@ -41,7 +41,7 @@ Codex reads prompt metadata and resolves placeholders the next time the session 
 - **Named placeholders:** Use uppercase names like `$FILE` or `$TICKET_ID` and supply values as `KEY=value`. Quote values with spaces (for example, `FOCUS="loading state"`).
 - **Literal dollar signs:** Write `$$` to emit a single `$` in the expanded prompt.
 
-After editing prompt files, restart Codex or open a new chat so the updates load. Codex ignores non-Markdown files in the prompts directory.
+After editing prompt files, restart Codex or open a new task so the updates load. Codex ignores non-Markdown files in the prompts directory.
 
 ## Invoke and manage custom commands
 

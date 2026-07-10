@@ -1,144 +1,93 @@
-# Codex app commands
+# Commands
 
-Use these commands and keyboard shortcuts to navigate the Codex app.
+Use these commands and keyboard shortcuts to navigate the app.
 
 ## Keyboard shortcuts
 
-|             | Action             | macOS shortcut                                                                    |
-| ----------- | ------------------ | --------------------------------------------------------------------------------- |
-| **General** |                    |                                                                                   |
-|             | Command menu       | <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> or <kbd>Cmd</kbd> + <kbd>K</kbd> |
-|             | Settings           | <kbd>Cmd</kbd> + <kbd>,</kbd>                                                     |
-|             | Keyboard shortcuts | <kbd>Cmd</kbd> + <kbd>/</kbd>                                                     |
-|             | Open folder        | <kbd>Cmd</kbd> + <kbd>O</kbd>                                                     |
-|             | Navigate back      | <kbd>Cmd</kbd> + <kbd>[</kbd>                                                     |
-|             | Navigate forward   | <kbd>Cmd</kbd> + <kbd>]</kbd>                                                     |
-|             | Increase font size | <kbd>Cmd</kbd> + <kbd>+</kbd> or <kbd>Cmd</kbd> + <kbd>=</kbd>                    |
-|             | Decrease font size | <kbd>Cmd</kbd> + <kbd>-</kbd> or <kbd>Cmd</kbd> + <kbd>\_</kbd>                   |
-|             | Toggle sidebar     | <kbd>Cmd</kbd> + <kbd>B</kbd>                                                     |
-|             | Toggle diff panel  | <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>B</kbd>                                 |
-|             | Toggle terminal    | <kbd>Cmd</kbd> + <kbd>J</kbd>                                                     |
-|             | Clear the terminal | <kbd>Ctrl</kbd> + <kbd>L</kbd>                                                    |
-| **Thread**  |                    |                                                                                   |
-|             | New thread         | <kbd>Cmd</kbd> + <kbd>N</kbd> or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
-|             | Search threads     | <kbd>Cmd</kbd> + <kbd>G</kbd>                                                     |
-|             | Find in thread     | <kbd>Cmd</kbd> + <kbd>F</kbd>                                                     |
-|             | Previous thread    | <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd>                                  |
-|             | Next thread        | <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>]</kbd>                                  |
-|             | Dictation          | <kbd>Ctrl</kbd> + <kbd>M</kbd>                                                    |
+|             | Action              | Shortcut                                                                                                          |
+| ----------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **General** |                     |                                                                                                                   |
+|             | Command menu        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> or <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>K</kbd> |
+|             | Settings            | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>,</kbd>                                                                     |
+|             | Keyboard shortcuts  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>/</kbd>                                                  |
+|             | Open folder         | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>O</kbd>                                                                     |
+|             | Navigate back       | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>[</kbd>                                                                     |
+|             | Navigate forward    | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>]</kbd>                                                                     |
+|             | Increase font size  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>+</kbd>                                                                     |
+|             | Decrease font size  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>-</kbd>                                                                     |
+|             | Toggle sidebar      | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>B</kbd>                                                                     |
+|             | Open review tab     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>                                                                 |
+|             | Toggle review panel | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>B</kbd>                                                    |
+|             | Toggle bottom panel | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>J</kbd>                                                                     |
+|             | Toggle terminal     | <kbd>Ctrl</kbd> + <kbd>`</kbd>                                                                                    |
+|             | Clear the terminal  | <kbd>Ctrl</kbd> + <kbd>L</kbd>                                                                                    |
+| **Chat**    | Quick Chat          | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>N</kbd>                                                    |
+| **Task**    | New task            | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>N</kbd> or <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
+|             | Search tasks        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>G</kbd>                                                                     |
+|             | Find in task        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>F</kbd>                                                                     |
+|             | Previous task       | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd>                                                  |
+|             | Next task           | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>]</kbd>                                                  |
+| **Input**   | Dictation           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>                                                                 |
 
 To find, customize, or reset shortcuts, open **Settings > Keyboard Shortcuts**.
 You can search by command name or switch the search field into keystroke mode
 and press the shortcut you want to find.
 
-## Search past threads and find in a thread
+## Search past tasks and find in a task
 
-Use thread search (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>G</kbd>) to reopen a
-past conversation. When expanded matching is available in your Codex desktop
-app, it can also match conversation content and Git branch names, so you can
-search for a phrase from the thread or a branch such as `fix/login-redirect`.
+Use task search (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>G</kbd>) to reopen a past
+task. When expanded matching is available, it can also match task content and
+Git branch names, so you can search for a phrase from the task or a
+branch such as `fix/login-redirect`.
 
-Use **Find in thread** (<kbd>Cmd</kbd> + <kbd>F</kbd>) after opening a thread
-to find text within that current conversation. It doesn't search across other
-threads.
+Use **Find in task** (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>F</kbd>) after opening
+a task to find text within it. It doesn't search across other tasks.
 
-## Slash commands
-
-Slash commands let you control Codex without leaving the thread composer. Available commands vary based on your environment and access.
-
-### Use a slash command
-
-1. In the thread composer, type `/`.
-2. Select a command from the list, or keep typing to filter (for example, `/status`).
-
-You can also explicitly invoke skills by typing `$` in the thread composer. See [Skills](https://developers.openai.com/codex/skills).
-
-Enabled skills also appear in the slash command list.
-
-### Available slash commands
-
-| Slash command | Description                                                                            |
-| ------------- | -------------------------------------------------------------------------------------- |
-| `/feedback`   | Open the feedback dialog to submit feedback and optionally include logs.               |
-| `/goal`       | Set a persistent goal for Codex to work toward; use `/plan` first to shape it.         |
-| `/init`       | Generate an `AGENTS.md` scaffold for the current project.                              |
-| `/mcp`        | Open MCP status to view connected servers.                                             |
-| `/plan`       | Toggle plan mode for multi-step planning.                                              |
-| `/review`     | Start code review mode to review uncommitted changes or compare against a base branch. |
-| `/status`     | Show the thread ID, context usage, and rate limits.                                    |
-
-### Set or manage a goal with `/goal`
-
-Use `/goal` in the app composer to start Goal mode. A goal is a persistent
-objective that Codex works toward until it finishes the task, pauses, or needs
-more input. To define the goal with Codex first, start with `/plan`, then set
-the refined goal with `/goal`.
-
-If `/goal` doesn't appear in the slash command list, enable `features.goals`
-in `config.toml`:
-
-```toml
-[features]
-goals = true
-```
-
-You can also run `codex features enable goals` from the CLI or ask Codex to run it.
-
-<CodexScreenshot
-  alt="Codex app goal progress controls above the composer"
-  lightSrc="/images/codex/app/goal-dialog-light.webp"
-  darkSrc="/images/codex/app/goal-dialog-dark.webp"
-  class="mb-6"
-/>
-
-When a goal is active, the app shows its progress above the composer. Use the
-buttons in that progress row to pause or resume the goal, edit the goal text, or
-clear the goal instead of typing another slash command. You can keep steering
-Codex with follow-up messages while the goal runs.
-
-For guidance on writing effective goals, see [Goal mode](https://developers.openai.com/codex/prompting#goal-mode).
+For actions that start with `/`, see [Slash commands](https://learn.chatgpt.com/docs/reference/slash-commands).
 
 ## Deep links
 
-The Codex app registers the `codex://` URL scheme so links can open specific parts of the app directly. Encode query string values before adding them to a URL.
+The ChatGPT desktop app keeps the `codex://` URL scheme for compatibility, so
+links can open specific parts of the app directly. Encode query string values
+before adding them to a URL.
 
 ### Supported links
 
 Use these canonical forms when you create links. The sections below list the full reference by link type.
 
-| Deep link                                                                   | Opens                                                            |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `codex://threads/new`                                                       | A new local thread.                                              |
-| `codex://new?<query>`                                                       | A new local thread with at least one new-thread query parameter. |
-| `codex://threads/<thread-id>`                                               | A local thread. `<thread-id>` must be the thread's session UUID. |
-| `codex://settings`                                                          | Settings.                                                        |
-| `codex://settings/connections/<connection-type>`                            | Computer, device, or SSH connection settings.                    |
-| `codex://settings/connections/ssh/add?name=<ssh-config-host>`               | Adds a host from your SSH config to Codex.                       |
-| `codex://skills`                                                            | Skills.                                                          |
-| `codex://automations`                                                       | Automations with the create flow open.                           |
-| `codex://plugins/install/<plugin-name>?marketplace=<marketplace-name>`      | The install flow for a plugin from a known marketplace.          |
-| `codex://plugins/<plugin-id>`                                               | A plugin detail page.                                            |
-| `codex://plugins/<plugin-name>?marketplacePath=<absolute-marketplace-path>` | A local plugin detail page from a local marketplace.             |
-| `codex://pets/install?name=<pet-name>&imageUrl=<https-image-url>`           | The pet install flow.                                            |
+| Deep link                                                                   | Opens                                                   |
+| --------------------------------------------------------------------------- | ------------------------------------------------------- |
+| `codex://threads/new`                                                       | A new local task.                                       |
+| `codex://new?<query>`                                                       | A new local task with at least one query parameter.     |
+| `codex://threads/<thread-id>`                                               | A local task. `<thread-id>` is its technical thread ID. |
+| `codex://settings`                                                          | Settings.                                               |
+| `codex://settings/connections/<connection-type>`                            | Computer, device, or SSH connection settings.           |
+| `codex://settings/connections/ssh/add?name=<ssh-config-host>`               | Adds a host from your SSH config to Codex.              |
+| `codex://skills`                                                            | Skills.                                                 |
+| `codex://automations`                                                       | Scheduled with the create flow open.                    |
+| `codex://plugins/install/<plugin-name>?marketplace=<marketplace-name>`      | The install flow for a plugin from a known marketplace. |
+| `codex://plugins/<plugin-id>`                                               | A plugin detail page.                                   |
+| `codex://plugins/<plugin-name>?marketplacePath=<absolute-marketplace-path>` | A local plugin detail page from a local marketplace.    |
+| `codex://pets/install?name=<pet-name>&imageUrl=<https-image-url>`           | The pet install flow.                                   |
 
-### Threads
+### Tasks
 
-Use these links when you need to open an existing local thread or start a new one.
+Use these links when you need to open an existing local task or start a new one.
 
-| Deep link                     | Opens                                                                                                          |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `codex://threads/<thread-id>` | A local thread. `<thread-id>` must be the thread's session UUID.                                               |
-| `codex://threads/new`         | A new local thread.                                                                                            |
-| `codex://threads/new?<query>` | A new local thread with optional query parameters.                                                             |
-| `codex://new?<query>`         | A new local thread. Include at least one of `prompt`, `path`, or `originUrl`; otherwise the link does nothing. |
+| Deep link                     | Opens                                                                                                        |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `codex://threads/<thread-id>` | A local task. `<thread-id>` is its technical thread ID.                                                      |
+| `codex://threads/new`         | A new local task.                                                                                            |
+| `codex://threads/new?<query>` | A new local task with optional query parameters.                                                             |
+| `codex://new?<query>`         | A new local task. Include at least one of `prompt`, `path`, or `originUrl`; otherwise the link does nothing. |
 
 For `codex://threads/new` or `codex://new`, add any of these query parameters as needed; you can combine them in the same URL.
 
-| Query parameter              | Required | What it does                                                                                                                                                    |
-| ---------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `prompt=<text>`              | No       | Sets the initial composer text.                                                                                                                                 |
-| `path=<absolute-path>`       | No       | Opens the new thread in a local workspace. `path` must be an absolute path to a local directory. When valid, Codex uses that directory as the active workspace. |
-| `originUrl=<git-remote-url>` | No       | Matches one of your current workspace roots by Git remote URL. If `path` is also present, Codex resolves `path` first.                                          |
+| Query parameter              | Required | What it does                                                                                                                                                  |
+| ---------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prompt=<text>`              | No       | Sets the initial composer text.                                                                                                                               |
+| `path=<absolute-path>`       | No       | Opens the new task in a local workspace. `path` must be an absolute path to a local directory. When valid, Codex uses that directory as the active workspace. |
+| `originUrl=<git-remote-url>` | No       | Matches one of your current workspace roots by Git remote URL. If `path` is also present, Codex resolves `path` first.                                        |
 
 Example: [Show me some fun stats about how I've been using Codex](codex://threads/new?prompt=Show%20me%20some%20fun%20stats%20about%20how%20I%27ve%20been%20using%20Codex)
 
@@ -171,17 +120,17 @@ Use these links when you need to open Skills.
 | ---------------- | ------- |
 | `codex://skills` | Skills. |
 
-### Automations
+### Scheduled
 
-Use these links when you need to open Automations.
+Use these links when you need to open **Scheduled**.
 
-| Deep link             | Opens                                  |
-| --------------------- | -------------------------------------- |
-| `codex://automations` | Automations with the create flow open. |
+| Deep link             | Opens                                |
+| --------------------- | ------------------------------------ |
+| `codex://automations` | Scheduled with the create flow open. |
 
 ### Plugins
 
-Plugin links use different forms depending on whether you are installing from a marketplace, opening a plugin, or working from a local `marketplace.json`. For plugin basics, see [Plugins](https://developers.openai.com/codex/plugins). For local or repo marketplace setup, see [Build plugins](https://developers.openai.com/codex/plugins/build#build-your-own-curated-plugin-list).
+Plugin links use different forms depending on whether you are installing from a marketplace, opening a plugin, or working from a local `marketplace.json`. For plugin basics, see [Plugins](https://learn.chatgpt.com/docs/plugins). For local or repo marketplace setup, see [Build plugins](https://learn.chatgpt.com/docs/build-plugins#build-your-own-curated-plugin-list).
 
 #### Plugin install
 
@@ -216,7 +165,7 @@ Example: [Open the OpenAI Developers plugin](codex://plugins/openai-developers@o
 
 #### Local plugin
 
-For local or repo marketplace setup, see [Build plugins](https://developers.openai.com/codex/plugins/build#build-your-own-curated-plugin-list).
+For local or repo marketplace setup, see [Build plugins](https://learn.chatgpt.com/docs/build-plugins#build-your-own-curated-plugin-list).
 
 | Deep link                                                                   | Opens                                                |
 | --------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -235,13 +184,19 @@ Use these links to open the pet install flow when that feature is enabled.
 | ----------------------------------------------------------------- | --------------------- |
 | `codex://pets/install?name=<pet-name>&imageUrl=<https-image-url>` | The pet install flow. |
 
-| Query parameter              | Required | What it does                                      |
-| ---------------------------- | -------- | ------------------------------------------------- |
-| `name=<pet-name>`            | Yes      | Sets the pet name.                                |
-| `imageUrl=<https-image-url>` | Yes      | Sets the pet image URL. `imageUrl` must be HTTPS. |
-| `description=<text>`         | No       | Sets the optional pet description.                |
+| Query parameter                | Required | What it does                                                                                |
+| ------------------------------ | -------- | ------------------------------------------------------------------------------------------- |
+| `name=<pet-name>`              | Yes      | Sets the pet name. The value must contain at least one non-whitespace character.            |
+| `imageUrl=<https-image-url>`   | Yes      | Provides an absolute HTTPS URL for the pet image or sprite sheet.                           |
+| `description=<text>`           | No       | Adds a description to the install flow.                                                     |
+| `spriteVersionNumber=<1-or-2>` | No       | Selects the sprite-sheet format. The default is `1`; the only other supported value is `2`. |
+
+The install link accepts only these query parameters. Invalid names, non-HTTPS
+image URLs, unsupported sprite versions, or extra path segments cause the link
+to do nothing.
 
 ## See also
 
-- [Features](https://developers.openai.com/codex/app/features)
-- [Settings](https://developers.openai.com/codex/app/settings)
+- [Features](https://learn.chatgpt.com/docs/features)
+- [Settings](https://learn.chatgpt.com/docs/reference/settings)
+- [Slash commands](https://learn.chatgpt.com/docs/reference/slash-commands)
