@@ -1,4 +1,4 @@
-# Codex Pricing
+# Pricing
 
 <strong>ChatGPT Work and Codex share usage.</strong> Work usage inside ChatGPT
   uses the same pricing, credits, and usage limits as Codex.
@@ -750,21 +750,21 @@ sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_c
     <tbody>
       <tr>
         <td>GPT-5.6 Sol</td>
-        <td style="text-align:center">250 credits</td>
-        <td style="text-align:center">25 credits</td>
-        <td style="text-align:center">1,500 credits</td>
+        <td style="text-align:center">125 credits</td>
+        <td style="text-align:center">12.5 credits</td>
+        <td style="text-align:center">750 credits</td>
       </tr>
       <tr>
         <td>GPT-5.6 Terra</td>
-        <td style="text-align:center">125 credits</td>
-        <td style="text-align:center">12.50 credits</td>
-        <td style="text-align:center">125 credits</td>
+        <td style="text-align:center">62.5 credits</td>
+        <td style="text-align:center">6.25 credits</td>
+        <td style="text-align:center">375 credits</td>
       </tr>
       <tr>
         <td>GPT-5.6 Luna</td>
-        <td style="text-align:center">50 credits</td>
-        <td style="text-align:center">5 credits</td>
-        <td style="text-align:center">300 credits</td>
+        <td style="text-align:center">25 credits</td>
+        <td style="text-align:center">2.5 credits</td>
+        <td style="text-align:center">150 credits</td>
       </tr>
       <tr>
         <td>GPT-5.5</td>

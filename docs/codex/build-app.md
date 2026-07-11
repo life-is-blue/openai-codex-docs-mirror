@@ -76,6 +76,6 @@ install it.
    the app.
 4. Test the plugin locally.
 5. Review the Apps SDK
-   [app submission guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines), then
+   [app guidelines](https://developers.openai.com/apps-sdk/app-guidelines), then
    submit it for review as part of a plugin when it is ready for public
    distribution. See [Submit plugins](https://learn.chatgpt.com/docs/submit-plugins).

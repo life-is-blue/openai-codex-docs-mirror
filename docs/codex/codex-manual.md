@@ -20,9 +20,22 @@ hidden: true
 
 Entry points, plans, supported surfaces, maturity, and high-level product framing.
 
-### Codex Pricing
+### Feature Maturity
 
-Source: [Codex Pricing](https://learn.chatgpt.com/docs/pricing.md)
+Source: [Feature Maturity](https://learn.chatgpt.com/docs/feature-maturity.md)
+
+Some Codex features ship behind a maturity label so you can understand how reliable each one is, what might change, and what level of support to expect.
+
+| Maturity          | What it means                                                                                                 | Guidance                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Under development | Not ready for use.                                                                                            | Don't use.                                                                    |
+| Experimental      | Unstable and OpenAI may remove or change it.                                                                  | Use at your own risk.                                                         |
+| Beta              | Ready for broad testing; complete in most respects, but some aspects may change based on user feedback.       | OK for most evaluation and pilots; expect small changes.                      |
+| Stable            | Fully supported, documented, and ready for broad use; behavior and configuration remain consistent over time. | Safe for production use; removals typically go through a deprecation process. |
+
+### Pricing
+
+Source: [Pricing](https://learn.chatgpt.com/docs/pricing.md)
 
 ChatGPT Work and Codex share usage. Work usage inside ChatGPT
 uses the same pricing, credits, and usage limits as Codex.
@@ -120,19 +133,6 @@ Everything in Business and:
   Enterprise plan
 
 [Contact sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_codex)
-
-### Feature Maturity
-
-Source: [Feature Maturity](https://learn.chatgpt.com/docs/feature-maturity.md)
-
-Some Codex features ship behind a maturity label so you can understand how reliable each one is, what might change, and what level of support to expect.
-
-| Maturity          | What it means                                                                                                 | Guidance                                                                      |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Under development | Not ready for use.                                                                                            | Don't use.                                                                    |
-| Experimental      | Unstable and OpenAI may remove or change it.                                                                  | Use at your own risk.                                                         |
-| Beta              | Ready for broad testing; complete in most respects, but some aspects may change based on user feedback.       | OK for most evaluation and pilots; expect small changes.                      |
-| Stable            | Fully supported, documented, and ready for broad use; behavior and configuration remain consistent over time. | Safe for production use; removals typically go through a deprecation process. |
 
 ### Quickstart
 
@@ -7436,7 +7436,7 @@ install it.
    the app.
 4. Test the plugin locally.
 5. Review the Apps SDK
-   [app submission guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines), then
+   [app guidelines](https://developers.openai.com/apps-sdk/app-guidelines), then
    submit it for review as part of a plugin when it is ready for public
    distribution. See [Submit plugins](https://learn.chatgpt.com/docs/submit-plugins).
 
