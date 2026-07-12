@@ -83,8 +83,8 @@ Add player scores and avatar uploads to this game. Keep the scores and uploaded
 avatars between visits.
 ```
 
-Browse the [Sites showcase](https://developers.openai.com/showcase/sites) for deployed internal apps and
-  the full prompts used to create them.
+Browse the [Sites showcase](https://developers.openai.com/showcase) for deployed internal apps and the full
+  prompts used to create them.
 
 ## Understand projects, versions, and deployments
 
