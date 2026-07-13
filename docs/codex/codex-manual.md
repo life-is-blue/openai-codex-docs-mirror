@@ -171,10 +171,10 @@ local files, longer tasks, and quick conversations.
 3.  Start your task
 
                 - For research, analysis, or deliverables such as documents, presentations,
-                  spreadsheets, and Sites, select Work from the ChatGPT dropdown.
+                  spreadsheets, and Sites, select **ChatGPT Work** from the ChatGPT dropdown.
                 - For software development with codebase context and developer tools, select
-                  Codex from the ChatGPT dropdown.
-                - For a quick question or conversation, open **Quick Chat** separately.
+                  **Codex** from the ChatGPT dropdown.
+                - For a quick question or conversation, open **Chat** separately.
 
                 Learn more about [using ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt).
 
@@ -3560,7 +3560,7 @@ making it useful for larger tasks that can be split across subagents.
 #### Recommended models
 
 Start with the default Power setting, which uses `gpt-5.6-sol` with medium
-reasoning. Move toward **Powerful** for deeper reasoning or **Efficient** for
+reasoning. Move toward **Smarter** for deeper reasoning or **Faster** for
 faster, lower-cost work. Open **Advanced** when you want `gpt-5.6-luna` or a
 specific model, reasoning effort, or speed.
 
@@ -3606,6 +3606,9 @@ don't see Max in your options, you'll have to enable it in your app settings.
 **Ultra** uses [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) to handle
 separate parts of a complex task in parallel. Choose it when you can divide the
 work into meaningful parts. Most tasks do not need Max or Ultra.
+
+If Ultra doesn't appear in the desktop app's model slider, go to
+**Settings** > **Configuration**, then turn on **Ultra in model picker slider**.
 
 #### Other models
 

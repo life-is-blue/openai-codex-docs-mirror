@@ -223,7 +223,7 @@ making it useful for larger tasks that can be split across subagents.
 </div>
 
 Start with the default Power setting, which uses `gpt-5.6-sol` with medium
-  reasoning. Move toward **Powerful** for deeper reasoning or **Efficient** for
+  reasoning. Move toward **Smarter** for deeper reasoning or **Faster** for
   faster, lower-cost work. Open **Advanced** when you want `gpt-5.6-luna` or a
   specific model, reasoning effort, or speed.
 
@@ -269,6 +269,9 @@ don't see Max in your options, you'll have to enable it in your app settings.
 **Ultra** uses [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) to handle
 separate parts of a complex task in parallel. Choose it when you can divide the
 work into meaningful parts. Most tasks do not need Max or Ultra.
+
+If Ultra doesn't appear in the desktop app's model slider, go to
+**Settings** > **Configuration**, then turn on **Ultra in model picker slider**.
 
 
 

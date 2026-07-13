@@ -55,10 +55,10 @@ local files, longer tasks, and quick conversations.
           <div>
 
                 - For research, analysis, or deliverables such as documents, presentations,
-                  spreadsheets, and Sites, select <strong class="text-[#0875d1] dark:text-[#65b5ff]">Work</strong> from the ChatGPT dropdown.
+                  spreadsheets, and Sites, select **ChatGPT Work** from the ChatGPT dropdown.
                 - For software development with codebase context and developer tools, select
-                  <strong class="text-[#7b3edb] dark:text-[#b997ff]">Codex</strong> from the ChatGPT dropdown.
-                - For a quick question or conversation, open **Quick Chat** separately.
+                  **Codex** from the ChatGPT dropdown.
+                - For a quick question or conversation, open **Chat** separately.
 
                 Learn more about [using ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt).
 
