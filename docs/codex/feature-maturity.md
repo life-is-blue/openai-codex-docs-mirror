@@ -1,6 +1,6 @@
 # Feature Maturity
 
-Some Codex features ship behind a maturity label so you can understand how reliable each one is, what might change, and what level of support to expect.
+Some ChatGPT and Codex features ship behind a maturity label so you can understand how reliable each one is, what might change, and what level of support to expect.
 
 | Maturity          | What it means                                                                                                 | Guidance                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |

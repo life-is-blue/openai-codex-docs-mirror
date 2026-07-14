@@ -91,6 +91,30 @@ For `codex://threads/new` or `codex://new`, add any of these query parameters as
 
 Example: [Show me some fun stats about how I've been using Codex](codex://threads/new?prompt=Show%20me%20some%20fun%20stats%20about%20how%20I%27ve%20been%20using%20Codex)
 
+#### Start a task with a plugin
+
+To help users start a plugin-backed task, include a plugin mention in the
+prompt before you encode it:
+
+```text
+[@Example](plugin://example@openai-curated) Summarize this document: https://example.com/document/123
+```
+
+Encode the complete prompt as a URI component—for example, with
+`encodeURIComponent` in JavaScript—and pass it to the `prompt` parameter:
+
+```text
+codex://new?prompt=%5B%40Example%5D(plugin%3A%2F%2Fexample%40openai-curated)%20Summarize%20this%20document%3A%20https%3A%2F%2Fexample.com%2Fdocument%2F123
+```
+
+The link opens a new task with the decoded prompt in the composer. It doesn't
+send the prompt automatically. After the user sends it, Codex can use an
+installed plugin in that task. If the plugin isn't installed but is available
+to the user, Codex asks the user to install it and connect any required apps.
+After setup, the user can select **Continue** to resume the same task. Workspace
+settings can limit which plugins a user can install. For plugin installation
+and permission details, see [Plugins](https://learn.chatgpt.com/docs/plugins).
+
 ### Settings
 
 Use these links when you need to open Settings or a specific settings page.
