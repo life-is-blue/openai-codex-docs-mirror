@@ -208,5 +208,5 @@ requirements.
 
 - [Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay): Show ChatGPT a workflow
   once and turn it into a reusable skill.
-- [Codex Security plugin quickstart](https://learn.chatgpt.com/docs/security/plugin): Install the
-  plugin, scan authorized code, and review the result.
+- [Codex Security plugin](https://learn.chatgpt.com/docs/security/plugin): Scan authorized code,
+  confirm findings, and prepare reviewed fixes.

@@ -123,9 +123,9 @@ Complete the public listing and publisher fields:
 - **Website, support, privacy, and terms URLs:** Use public URLs that match the
   publisher and disclose relevant data handling.
 
-![Info tab with plugin listing fields filled out](https://developers.openai.com/images/codex/plugins/submit/info-fields.webp)
+![Info tab with plugin listing and developer identity fields filled out](https://developers.openai.com/images/codex/plugins/submit/info-fields.webp)
 
-![Info tab showing category and developer identity fields](https://developers.openai.com/images/codex/plugins/submit/developer-identity.webp)
+![Info tab with publisher and policy URLs filled out](https://developers.openai.com/images/codex/plugins/submit/developer-identity.webp)
 
 Review your MCP responses against your privacy policy before you submit. Remove
 unnecessary personal data, auth secrets, debug payloads, internal identifiers,
@@ -147,7 +147,7 @@ For app or MCP submissions:
 6. Review the discovered tools, domains, validation output, and tool metadata.
 7. Fix server or metadata issues, deploy the fix, then scan again.
 
-![MCP tab after scanning a demo MCP server](https://developers.openai.com/images/codex/plugins/submit/mcp-scan.webp)
+![MCP tab after scanning a demo MCP server with metadata recommendations](https://developers.openai.com/images/codex/plugins/submit/mcp-scan.webp)
 
 Do not enter a ChatGPT app ID or try to point the portal at an existing,
 published ChatGPT app. The submission must provide the MCP server URL and review
@@ -198,6 +198,8 @@ Set tool annotations to match each tool's real behavior:
 | `readOnlyHint`    | Set to `true` only when the tool fetches, looks up, lists, retrieves, previews, or computes information and doesn't change anything. Set to `false` if the tool can create, update, delete, send, enqueue, run jobs, start workflows, write logs, or otherwise change state.                                                                           |
 | `openWorldHint`   | For write tools, set to `true` if the tool can change publicly visible internet state, such as posting online, sending external messages, publishing content, pushing code, or submitting forms to third parties. Set to `false` only if the tool operates entirely within closed or private systems and can't change publicly visible internet state. |
 | `destructiveHint` | For write tools, set to `true` if the tool can delete, overwrite, revoke access, send messages or transactions that can't be undone, or cause another irreversible side effect. Otherwise, set it to `false`.                                                                                                                                          |
+
+![MCP tool metadata with explicit annotations and justifications](https://developers.openai.com/images/codex/plugins/submit/mcp-tool-metadata.webp)
 
 For implementation details, see
 [tool annotations and elicitation](https://developers.openai.com/apps-sdk/build/mcp-server#tool-annotations-and-elicitation).

@@ -11,6 +11,11 @@ A plugin can include skills, an MCP-backed app, or both. If your plugin needs
 to connect to a service or expose tools through an MCP server, see
 [Build an app](https://learn.chatgpt.com/docs/build-app).
 
+For complete public examples, inspect
+[Figma](https://github.com/openai/plugins/tree/main/plugins/figma),
+[Notion](https://github.com/openai/plugins/tree/main/plugins/notion), and
+[Build web apps](https://github.com/openai/plugins/tree/main/plugins/build-web-apps).
+
 ## Create a plugin with `@plugin-creator`
 
 For the fastest setup, use the built-in `@plugin-creator` skill.

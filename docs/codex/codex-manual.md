@@ -7482,6 +7482,11 @@ A plugin can include skills, an MCP-backed app, or both. If your plugin needs
 to connect to a service or expose tools through an MCP server, see
 [Build an app](https://learn.chatgpt.com/docs/build-app).
 
+For complete public examples, inspect
+[Figma](https://github.com/openai/plugins/tree/main/plugins/figma),
+[Notion](https://github.com/openai/plugins/tree/main/plugins/notion), and
+[Build web apps](https://github.com/openai/plugins/tree/main/plugins/build-web-apps).
+
 #### Create a plugin with `@plugin-creator`
 
 For the fastest setup, use the built-in `@plugin-creator` skill.
@@ -7949,29 +7954,6 @@ Here's a complete manifest example:
 `.codex-plugin/plugin.json` is the required entry point. The other manifest
 fields are optional, but published plugins commonly use them.
 
-#### Manifest fields
-
-Use the top-level fields to define package metadata and point to bundled
-components:
-
-- `name`, `version`, and `description` identify the plugin.
-- `author`, `homepage`, `repository`, `license`, and `keywords` provide
-  publisher and discovery metadata.
-- `skills`, `mcpServers`, `apps`, and `hooks` point to bundled components
-  relative to the plugin root.
-- `interface` controls how install surfaces present the plugin.
-
-Use the `interface` object for install-surface metadata:
-
-- `displayName`, `shortDescription`, and `longDescription` control the title
-  and descriptive copy.
-- `developerName`, `category`, and `capabilities` add publisher and capability
-  metadata.
-- `websiteURL`, `privacyPolicyURL`, and `termsOfServiceURL` provide external
-  links.
-- `defaultPrompt`, `brandColor`, `composerIcon`, `logo`, and `screenshots`
-  control starter prompts and visual presentation.
-
 ### Build skills
 
 Source: [Build skills](https://learn.chatgpt.com/docs/build-skills.md)
@@ -8125,7 +8107,13 @@ dependencies:
 - Write imperative steps with explicit inputs and outputs.
 - Test prompts against the skill description to confirm the right trigger behavior.
 
-For more examples, see [github.com/openai/skills](https://github.com/openai/skills) and [the agent skills specification](https://agentskills.io/specification).
+For more examples, see
+[GitHub CI repair](https://github.com/openai/skills/tree/main/skills/.curated/gh-fix-ci),
+[PDF](https://github.com/openai/skills/tree/main/skills/.curated/pdf),
+[Linear](https://github.com/openai/skills/tree/main/skills/.curated/linear),
+[openai/skills](https://github.com/openai/skills), and the
+[agent skills specification](https://agentskills.io/specification). For
+installable distribution, prefer [plugins](https://learn.chatgpt.com/docs/build-plugins).
 
 ### Chronicle
 
@@ -14224,8 +14212,8 @@ requirements.
 
 - [Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay): Show ChatGPT a workflow
   once and turn it into a reusable skill.
-- [Codex Security plugin quickstart](https://learn.chatgpt.com/docs/security/plugin): Install the
-  plugin, scan authorized code, and review the result.
+- [Codex Security plugin](https://learn.chatgpt.com/docs/security/plugin): Scan authorized code,
+  confirm findings, and prepare reviewed fixes.
 
 ### Projects, chats, and tasks
 

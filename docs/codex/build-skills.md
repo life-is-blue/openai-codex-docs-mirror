@@ -191,4 +191,10 @@ dependencies:
 - Write imperative steps with explicit inputs and outputs.
 - Test prompts against the skill description to confirm the right trigger behavior.
 
-For more examples, see [github.com/openai/skills](https://github.com/openai/skills) and [the agent skills specification](https://agentskills.io/specification).
+For more examples, see
+[GitHub CI repair](https://github.com/openai/skills/tree/main/skills/.curated/gh-fix-ci),
+[PDF](https://github.com/openai/skills/tree/main/skills/.curated/pdf),
+[Linear](https://github.com/openai/skills/tree/main/skills/.curated/linear),
+[openai/skills](https://github.com/openai/skills), and the
+[agent skills specification](https://agentskills.io/specification). For
+installable distribution, prefer [plugins](https://learn.chatgpt.com/docs/build-plugins).

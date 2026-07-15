@@ -58,10 +58,10 @@ project directory.
 You can also leave the model and reasoning effort on their default settings, or
 choose them explicitly if you want more control over how the scheduled task runs.
 
-<Illustration description="ChatGPT composer ready to create a scheduled task with 5.6 Sol High selected.">
+<Illustration description="ChatGPT composer ready to create a scheduled task with 5.6 Sol Extended selected.">
   <CodexScheduledTasksIllustration
     variant="manage"
-    ariaLabel="ChatGPT composer ready to create a scheduled task with 5.6 Sol High selected."
+    ariaLabel="ChatGPT composer ready to create a scheduled task with 5.6 Sol Extended selected."
   />
 </Illustration>
 

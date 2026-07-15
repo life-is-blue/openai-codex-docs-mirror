@@ -11,7 +11,7 @@
   hero={{
     illustration: "features-menu",
     backgroundImage: "/images/codex/codex-wallpaper-1.webp",
-    alt: "Codex menus for tasks, plugins, files, goals, and plan mode",
+    alt: "Codex sidebar and Add menu for tasks, plugins, and content tools",
   }}
   sections={[
     {
