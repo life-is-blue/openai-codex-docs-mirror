@@ -552,16 +552,18 @@ Codex offers the ability to increase the speed of the model for increased
 credit consumption.
 
 Fast mode increases supported model speed by 1.5x and consumes credits at a
-higher rate than Standard mode. It currently supports GPT-5.5 and GPT-5.4,
-consuming credits at 2.5x the Standard rate for GPT-5.5 and 2x the Standard
-rate for GPT-5.4.
+higher rate than Standard mode. It currently supports GPT-5.6, GPT-5.5, and
+GPT-5.4. GPT-5.6 and GPT-5.5 consume credits at 2.5x the Standard rate;
+GPT-5.4 consumes credits at 2x the Standard rate.
 
 Use `/fast on`, `/fast off`, or `/fast status` in the CLI to change or inspect
 the current setting. You can also persist the default with `service_tier =
 "fast"` plus `[features].fast_mode = true` in `config.toml`. Fast mode is
 available in the ChatGPT desktop app, Codex CLI, and IDE extension when you
-sign in with ChatGPT. With an API key, Codex uses standard API pricing instead
-and you can't use Fast mode credits.
+sign in with ChatGPT. Fast mode is a ChatGPT credit feature. With an API key,
+Codex uses API token pricing instead, and ChatGPT credit multipliers don't
+apply. API Priority processing has its own billing rate; for GPT-5.6, it costs
+2x the Standard API token rate.
 
 #### Codex-Spark
 
@@ -1117,7 +1119,7 @@ remediation guidance in a reviewable workspace. Use it to find security issues
 in code you own or have authorization to assess before they reach production.
 
 This quickstart takes you through one recommended first run: an ordinary,
-read-only scan of a local repository in the ChatGPT desktop app.
+read-only scan of a local repository in Codex.
 
 This page covers the plugin that runs in a local Codex task. To scan a
 connected GitHub repository in Codex cloud, see [Codex Security cloud
@@ -1125,13 +1127,28 @@ setup](https://learn.chatgpt.com/docs/security/setup).
 
 #### Install the plugin
 
-Open the repository you want to assess in Codex in the ChatGPT desktop app, then
-install Codex Security:
+1. Open the repository you want to assess in Codex in the [ChatGPT desktop
+   app](https://chatgpt.com/download/).
+2. Go to **Plugins** and search for **Codex Security**, or select the button
+   below:
 
 Install the Codex Security plugin
 
-After installation, start a new task in Codex for that repository. The app loads
-plugins when the task starts, so don't continue in a task that was already open.
+3. Start a new task in Codex for that repository (don't continue in a task that
+   was already open).
+
+1. In your terminal, go to the repository you want to assess and start Codex:
+
+   ```bash
+   codex
+   ```
+
+1. Enter `/plugins`, search for **Codex Security**, and select **Install
+   plugin**.
+1. Enter `/new` to start a new task for the repository.
+
+To install Codex Security for a local repository, use the ChatGPT desktop app
+or Codex CLI.
 
 #### Run your first scan
 
@@ -1177,10 +1194,38 @@ with `high` or `xhigh` reasoning effort.
         Browse findings by severity, category, directory, patch status, and
         review status.
 
+5.  Ask for an ordinary scan
+
+    Send this prompt in the new task:
+
+    ```text
+    Run a Codex Security scan on this repository.
+    ```
+
+6.  Let the scan finish
+
+    Codex runs the scan in the terminal without opening a setup workspace. Keep
+    the task running until Codex reports completion. If Codex identifies a
+    configuration limitation, review the exact limitation and proposed change
+    before allowing it to update your configuration.
+
+7.  Review the result
+
+    Review the summary in the terminal, then open the generated `report.md` for
+    the complete result.
+
+Run this local plugin workflow in the ChatGPT desktop app or Codex CLI.
+
 #### What the scan creates
 
 Every completed scan opens a findings workspace. Use it to review findings and
-coverage without inspecting raw artifacts. The scan also creates:
+coverage without inspecting raw artifacts. The scan also creates the files
+below.
+
+Every completed scan reports a summary in the terminal and creates the files
+below.
+
+Run this local plugin workflow in the ChatGPT desktop app or Codex CLI.
 
 - `report.md`, a complete portable report for sharing or archiving.
 - Structured scan data in `scan-manifest.json`, `findings.json`, and
@@ -1202,19 +1247,6 @@ coverage without inspecting raw artifacts. The scan also creates:
 - [Export or track findings](https://learn.chatgpt.com/docs/security/plugin/export-findings) when you
   need JSON, CSV, SARIF, an approval-gated Linear, GitHub, or Jira issue, or a
   private draft GitHub Security Advisory.
-
-#### Install from Codex CLI
-
-To install the same plugin from Codex CLI, start Codex in the repository and
-open the plugin browser:
-
-```text
-codex
-/plugins
-```
-
-Search for **Codex Security**, select `Install plugin`, and start a new task.
-Then use the same first-scan prompt.
 
 ### Export and track security findings
 
@@ -1537,42 +1569,280 @@ findings](https://learn.chatgpt.com/docs/security/plugin/export-findings).
 #### Automate reviews in CI/CD
 
 Run the same `$codex-security:security-diff-scan` skill from CI when the runner
-can invoke the Codex CLI without interaction. The runner must already have
-Codex Security installed in the `CODEX_HOME` used by `codex exec`. A fresh
-runner doesn't have marketplace plugins installed by default, and
-`openai/codex-action` doesn't install the plugin.
-
-Before running the scan:
-
-1. Provision Codex Security in the runner's `CODEX_HOME`.
-2. Check out the exact base and head revisions with their Git history.
-3. Set the runner's platform temporary directory, such as `TMPDIR`, to a
-   writable artifact location. The diff-scan workflow reviews the checkout
-   without changing it, but it writes its sealed scan bundle and final report
-   outside the repository.
-4. Start with advisory results. Review scan quality and runtime before making
-   the job a required check.
-
-Then invoke the plugin explicitly:
+can invoke the Codex CLI without interaction. First install the CLI and plugin
+without exposing the scan credential:
 
 ```bash
-export CODEX_HOME=/path/to/provisioned-codex-home
-export TMPDIR=/path/to/writable/temp
-
-codex exec \
-  --sandbox workspace-write \
-  --output-last-message "$TMPDIR/codex-security-review.md" \
-  'Use $codex-security:security-diff-scan to review changes from  to  for security regressions. Do not modify the checkout. Return the final report path, findings summary, reviewed surfaces, deferred coverage, and open questions.'
+npm install --global @openai/codex
+codex plugin add codex-security@openai-curated
 ```
 
-Archive the generated scan bundle and final report, then publish the Markdown
-summary through your CI/CD system. If you use `openai/codex-action`, point its
-`codex-home` input at the same provisioned directory and pass the skill prompt
-above. The action can install and run the Codex CLI, but plugin provisioning is
-a separate prerequisite.
+Then expose an OpenAI API key from your CI secret store as
+`CODEX_SECURITY_API_KEY` only for the scan:
 
-For API-key handling, sandbox controls, fork protections, and a GitHub Actions
-workflow, see the [Codex GitHub Action guide](https://learn.chatgpt.com/docs/github-action).
+```bash
+CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+  --sandbox workspace-write \
+  "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+```
+
+The scan writes its output to
+`$TMPDIR/codex-security-scans///`:
+
+| File                 | Contents                                                                                                                                                    |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `findings.json`      | Findings with stable identifiers, severity, confidence, source locations, and remediation. Use it to create pull-request comments or feed downstream tools. |
+| `scan-manifest.json` | Sealed scan receipt with the reviewed target, revisions, and artifact hashes.                                                                               |
+| `coverage.json`      | Reviewed and deferred surfaces, exclusions, and coverage completeness.                                                                                      |
+
+The [`findings.json` schema](https://github.com/openai/plugins/blob/main/plugins/codex-security/schemas/findings.schema.json)
+defines the complete structure. Some key fields are:
+
+| Field                     | Type   | Description                                                            |
+| ------------------------- | ------ | ---------------------------------------------------------------------- |
+| `documentType`            | String | Identifies the document as `codex-security.findings`.                  |
+| `schemaVersion`           | String | Identifies the findings schema version.                                |
+| `scanId`                  | String | Identifies the scan that produced the findings.                        |
+| `findings`                | Array  | Contains zero or more finding objects.                                 |
+| `findings[].findingId`    | String | Stable finding identifier derived from the finding fingerprint.        |
+| `findings[].occurrenceId` | String | Identifies this occurrence of the finding in a specific scan.          |
+| `findings[].ruleId`       | String | Identifies the vulnerability family.                                   |
+| `findings[].identity`     | Object | Contains the semantic anchor and optional sibling-instance identifier. |
+| `findings[].fingerprints` | Object | Contains the fingerprint algorithm and primary fingerprint.            |
+| `findings[].title`        | String | Provides the short finding title.                                      |
+| `findings[].summary`      | String | Summarizes the vulnerability and its impact.                           |
+| `findings[].severity`     | Object | Contains the severity level and optional scoring details.              |
+| `findings[].confidence`   | Object | Contains the confidence level and rationale.                           |
+| `findings[].taxonomy`     | Object | Contains the vulnerability category and CWE identifiers.               |
+| `findings[].locations`    | Array  | Lists affected files, line numbers, and location roles.                |
+| `findings[].remediation`  | String | Describes the recommended fix.                                         |
+| `findings[].provenance`   | Object | Identifies the source of the finding.                                  |
+
+For example, this command prints one tab-separated row per finding:
+
+```bash
+jq -r '
+  .findings[] |
+  [.findingId, .severity.level, .confidence.level, .locations[0].path, .locations[0].startLine, .title] |
+  @tsv
+' findings.json
+```
+
+These examples assume a trusted Linux runner with Node.js and `npm`, Git, Python
+3, `jq`, and the provider's command-line tools. The `npm` global package prefix
+must be writable.
+
+Here are examples of how to use Codex Security in common pipelines:
+
+```yaml
+name: Codex Security review
+
+on:
+  pull_request:
+
+jobs:
+  security-review:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install Codex Security
+        env:
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+        run: |
+          npm install --global @openai/codex
+          codex plugin add codex-security@openai-curated
+
+      - name: Review code changes
+        env:
+          CODEX_SECURITY_API_KEY: ${{ secrets.CODEX_SECURITY_API_KEY }}
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+          TMPDIR: ${{ runner.temp }}/codex-security
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_REVISION: ${{ github.event.pull_request.head.sha }}
+        run: |
+          BASE_REVISION="$(git merge-base "$BASE_SHA" "$HEAD_REVISION")"
+          CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+            --sandbox workspace-write \
+            "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+
+      - name: Comment with findings
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          findings="$(find "${{ runner.temp }}/codex-security/codex-security-scans" -name findings.json -print -quit 2>/dev/null || true)"
+          test -n "$findings" || exit 0
+          jq -r '
+            "## Codex Security findings",
+            "",
+            if (.findings | length) == 0 then "No findings reported."
+            else .findings[] | "- **\(.severity.level | ascii_upcase)**: \(.title) (`\(.locations[0].path):\(.locations[0].startLine)`)\n  \(.summary)"
+            end
+          ' "$findings" | gh pr comment "$PR_NUMBER" --body-file -
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: codex-security-review
+          path: ${{ runner.temp }}/codex-security/codex-security-scans
+```
+
+Create masked `CODEX_SECURITY_API_KEY` and `GITLAB_TOKEN` CI/CD variables. The
+GitLab token needs API access to create a merge-request note.
+
+````yaml
+codex-security-review:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == $CI_PROJECT_ID'
+  variables:
+    GIT_DEPTH: "0"
+  script:
+    - |
+      codex_security_api_key="$CODEX_SECURITY_API_KEY"
+      unset CODEX_SECURITY_API_KEY GITLAB_TOKEN
+      export CODEX_HOME="/tmp/codex-home-$CI_JOB_ID"
+      export TMPDIR="/tmp/codex-security-$CI_JOB_ID"
+      export BASE_REVISION="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+      export HEAD_REVISION="${CI_MERGE_REQUEST_SOURCE_BRANCH_SHA:-$CI_COMMIT_SHA}"
+      npm install --global @openai/codex
+      codex plugin add codex-security@openai-curated
+      CODEX_API_KEY="$codex_security_api_key" codex exec \
+        --sandbox workspace-write \
+        "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+  after_script:
+    - |
+      gitlab_token="$GITLAB_TOKEN"
+      unset CODEX_SECURITY_API_KEY GITLAB_TOKEN
+      scan_root="/tmp/codex-security-$CI_JOB_ID/codex-security-scans"
+      findings="$(find "$scan_root" -name findings.json -print -quit 2>/dev/null || true)"
+      if [ -n "$findings" ]; then
+        jq -r '
+          "## Codex Security findings",
+          "",
+          if (.findings | length) == 0 then "No findings reported."
+          else .findings[] | "- **\(.severity.level | ascii_upcase)**: \(.title) (`\(.locations[0].path):\(.locations[0].startLine)`)\n  \(.summary)"
+          end
+        ' "$findings" > codex-security-comment.md
+        curl --fail --request POST \
+          --header "PRIVATE-TOKEN: $gitlab_token" \
+          --form "body=
+
+```yaml
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    fetchDepth: 0
+
+  - bash: |
+      set -euo pipefail
+      export CODEX_HOME="$AGENT_TEMPDIRECTORY/codex-home"
+      npm install --global @openai/codex
+      codex plugin add codex-security@openai-curated
+    displayName: Install Codex Security
+
+  - bash: |
+      set -euo pipefail
+      export CODEX_HOME="$AGENT_TEMPDIRECTORY/codex-home"
+      export TMPDIR="$AGENT_TEMPDIRECTORY/codex-security"
+      export HEAD_REVISION="$SYSTEM_PULLREQUEST_SOURCECOMMITID"
+      export BASE_REVISION="$(git merge-base HEAD^1 "$HEAD_REVISION")"
+      CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+        --sandbox workspace-write \
+        "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+    displayName: Review code changes
+    condition: and(succeeded(), ne(variables['System.PullRequest.IsFork'], 'True'))
+    env:
+      CODEX_SECURITY_API_KEY: $(CODEX_SECURITY_API_KEY)
+
+  - publish: $(Agent.TempDirectory)/codex-security/codex-security-scans
+    artifact: codex-security-review
+    condition: always()
+````
+
+For Azure Repos, configure a **Build validation** branch policy to run the
+pipeline on pull requests.
+
+```groovy
+pipeline {
+  agent { label 'linux' }
+  stages {
+    stage('Codex Security review') {
+      when {
+        allOf {
+          changeRequest()
+          expression { !env.CHANGE_FORK?.trim() }
+        }
+      }
+      steps {
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+          export CODEX_HOME="/tmp/codex-home-$BUILD_TAG"
+          export TMPDIR="/tmp/codex-security-$BUILD_TAG"
+          mkdir -p "$TMPDIR"
+          git fetch --no-tags origin "$CHANGE_TARGET"
+          target="$(git rev-parse FETCH_HEAD)"
+          git fetch --no-tags origin "$CHANGE_BRANCH"
+          git rev-parse FETCH_HEAD > "$TMPDIR/head"
+          git merge-base "$target" "$(cat "$TMPDIR/head")" > "$TMPDIR/base"
+          npm install --global @openai/codex
+          codex plugin add codex-security@openai-curated
+        '''
+        withCredentials([string(credentialsId: 'codex-security-api-key', variable: 'CODEX_SECURITY_API_KEY')]) {
+          sh '''#!/usr/bin/env bash
+            set +x
+            set -euo pipefail
+            export CODEX_HOME="/tmp/codex-home-$BUILD_TAG"
+            export TMPDIR="/tmp/codex-security-$BUILD_TAG"
+            export HEAD_REVISION="$(cat "$TMPDIR/head")"
+            export BASE_REVISION="$(cat "$TMPDIR/base")"
+            CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+              --sandbox workspace-write \
+              "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+          '''
+        }
+      }
+      post {
+        always {
+          sh '''#!/usr/bin/env bash
+            set -euo pipefail
+            scan_root="/tmp/codex-security-$BUILD_TAG/codex-security-scans"
+            if [ -d "$scan_root" ]; then
+              tar -czf codex-security-artifacts.tar.gz -C "$scan_root" .
+            fi
+          '''
+          archiveArtifacts artifacts: 'codex-security-artifacts.tar.gz', allowEmptyArchive: true
+        }
+      }
+    }
+  }
+}
+```
+
+The examples skip forked pull requests. Run credentialed jobs only from a
+protected pipeline definition and only for contributors trusted with the scan
+credential. Archive `codex-security-scans` to keep the structured findings,
+manifest, and coverage artifacts. Start with advisory results and review
+coverage and runtime before making the job a required check.
+
+For API-key handling and sandbox controls, see [Non-interactive
+mode](https://learn.chatgpt.com/docs/non-interactive-mode). If your organization permits the [Codex
+GitHub Action](https://learn.chatgpt.com/docs/github-action), it can install the CLI at runtime, but
+you must still install the plugin first and point the action's `codex-home`
+input at the same `CODEX_HOME`.
 
 ### Run a Codex Security scan
 
@@ -6928,14 +7198,13 @@ Download the [ChatGPT desktop app](https://get.microsoft.com/installer/download/
 
 Then follow the [quickstart](https://learn.chatgpt.com/docs/quickstart?setup=app) to get started.
 
-For enterprises, administrators can deploy the app with Microsoft Store app
-distribution through enterprise management tools.
+For enterprise installation and update options, see
+[Deploy the Windows app](https://learn.chatgpt.com/docs/enterprise/windows-deployment).
 
-If you prefer a command-line install path, or need an alternative to opening
-the Microsoft Store UI, run:
+If you prefer a command-line install path, run:
 
 ```powershell
-winget install Codex -s msstore
+winget install --id 9PLM9XGG6VKS -s msstore
 ```
 
 #### Native sandbox
@@ -12108,6 +12377,89 @@ This page doesn't duplicate that contract.
 - [Governance](https://learn.chatgpt.com/docs/enterprise/governance)
 - [Analytics API](https://learn.chatgpt.com/docs/enterprise/analytics-api)
 
+### Deploy the Windows app
+
+Source: [Deploy the Windows app](https://learn.chatgpt.com/docs/enterprise/windows-deployment.md)
+
+Choose a deployment path based on who controls installation and updates and
+whether your network allows Microsoft's app-distribution services. The app is
+Store-signed, but users don't need to open the Microsoft Store. Standard
+installation and updates use Microsoft's app installation and Windows Update
+services.
+
+| Scenario                                                       | Deployment path                                                                                         |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Users install and update their own apps                        | Use the [web installer](https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi). |
+| IT deploys the app and Microsoft update services are available | Deploy the Microsoft Store app through Intune or another management tool.                               |
+| IT controls update timing or blocks Microsoft update services  | Redeploy each new version through your software-management process.                                     |
+| Your network blocks Microsoft app-distribution services        | Use the offline MSIX package for restricted networks.                                                   |
+
+#### Let users install and update the app
+
+If users can manage their own applications, direct them to the
+[web installer](https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi).
+The installer provides the standard installation and automatic-update
+experience. Microsoft Store components may appear during installation or
+updates, but users don't need to browse the Store themselves.
+
+You can also install the app from the command line:
+
+```powershell
+winget install --id 9PLM9XGG6VKS -s msstore
+```
+
+#### Deploy with an enterprise management tool
+
+If your organization centrally manages software, deploy the Microsoft Store app
+through Microsoft Intune or another compatible mobile device management (MDM)
+or software-deployment platform. Search for ChatGPT from OpenAI in the
+Microsoft Store app flow, or use this Store product ID:
+
+```text
+9PLM9XGG6VKS
+```
+
+This is the recommended enterprise deployment method when your environment
+allows Microsoft Store app deployment and update endpoints. Users don't need to
+open the Microsoft Store themselves.
+
+For Intune setup details, see
+[Add Microsoft Store apps to Microsoft Intune](https://learn.microsoft.com/en-us/intune/app-management/deployment/add-microsoft-store).
+
+#### Control update timing
+
+If your organization blocks automatic app updates, Windows Update, or Microsoft
+Store update endpoints, your IT team owns the update lifecycle. Codex can run in
+this environment, but you must redeploy newer packages through your change
+management process.
+
+Redeploy the package with each Codex release when possible. If that cadence
+isn't practical, check for a newer package at least weekly and redeploy when a
+newer version is available. Users should restart the app after you deploy an
+update.
+
+Deferring updates is a security and reliability tradeoff because the app
+includes browser and runtime components that receive regular updates.
+
+#### Deploy without Microsoft distribution services
+
+If your environment can't use the standard Microsoft distribution services,
+download [Codex-x64.zip](https://persistent.oaistatic.com/codex-app-prod/Codex-x64.zip)
+as an offline deployment option. The archive contains the Store-signed offline
+MSIX package and its associated license files. Ingest these files into your MDM
+or software-deployment platform.
+
+The offline package:
+
+- Supports deployment in restricted environments.
+- Doesn't provide a standalone MSI or non-Store EXE.
+- Doesn't let users update the app themselves.
+- Requires your organization to deploy newer packages when updating the app.
+
+#### Related resources
+
+- [ChatGPT desktop app for Windows](https://learn.chatgpt.com/docs/windows/windows-app)
+
 ### Governance
 
 Source: [Governance](https://learn.chatgpt.com/docs/enterprise/governance.md)
@@ -13029,6 +13381,186 @@ If a user can't select an expected model:
 - [Roles and workspace permissions](https://learn.chatgpt.com/docs/enterprise/roles-and-workspace-permissions)
 - [Managed configuration](https://learn.chatgpt.com/docs/enterprise/managed-configuration)
 
+### Codex Micro
+
+Source: [Codex Micro](https://learn.chatgpt.com/docs/features/codex-micro.md)
+
+Codex Micro is a limited-run collaboration between Codex and Work Louder. It
+works with the ChatGPT desktop app, giving you a quick way to check on tasks,
+jump between them, use push-to-talk, and trigger common actions or skills
+without leaving the keyboard.
+
+#### Set up Codex Micro
+
+1. Open the ChatGPT desktop app.
+2. Connect Codex Micro to your computer with a USB-C cable or Bluetooth, then
+   follow the setup that appears when ChatGPT detects it.
+3. On macOS, allow **Input Monitoring** when prompted so ChatGPT can respond to
+   key presses.
+4. Open **Settings > Codex Micro** to choose which tasks the Agent Keys follow,
+   assign actions to the Command Keys and analog directions, and adjust the
+   lighting.
+
+To open these settings again, press and hold the dial for 500 milliseconds or
+select the Codex Micro icon beside your account name at the bottom of ChatGPT.
+
+You'll see **Codex Micro** in Settings after ChatGPT detects the device for the
+first time. If you want to use the device outside ChatGPT, customize those
+controls with [Work Louder Input](https://worklouder.cc/micro-setup).
+
+#### Read and switch tasks with Agent Keys
+
+Each of the six frosted Agent Keys can follow a task and light up to show its
+current status. Press an Agent Key once to switch to that task without bringing
+ChatGPT forward. Press it twice within 350 milliseconds to switch tasks and
+bring the ChatGPT window forward.
+
+| Light | Status           | Meaning                                   |
+| ----- | ---------------- | ----------------------------------------- |
+| White | Idle             | The task is idle.                         |
+| Blue  | Thinking         | ChatGPT is working.                       |
+| Green | Complete         | The task completed with an unread update. |
+| Amber | Requires input   | ChatGPT needs your approval or response.  |
+| Red   | Error            | Something went wrong.                     |
+| Off   | No assigned task | The key doesn't follow a task.            |
+
+The selected task's key pulses with its status light.
+
+Out of the box, the keys follow your six most recently updated tasks, whether
+or not they're pinned. You can change **Agent source** in **Settings > Codex
+Micro** to use a different arrangement:
+
+- **Most recent tasks**: Follow the six most recently updated tasks, pinned or
+  unpinned.
+- **Pinned tasks**: Follow the first six tasks in **Pinned**.
+- **Priority tasks**: Put tasks waiting for input, unread tasks, and active
+  tasks first.
+- **Custom assignments**: Choose the task assigned to each Agent Key. Press an
+  unassigned Agent Key to open a new task. When you start the task, ChatGPT
+  assigns it to that key.
+
+The status colors stay the same. You can decide which tasks the Agent Keys
+follow, but you can't turn them into extra Command Keys.
+
+#### Use and customize Command Keys
+
+Codex Micro comes with six actions in its default layout:
+
+| Key | Default action                           |
+| :-: | ---------------------------------------- |
+|     | Turn Fast mode on or off.                |
+|     | Approve the current request.             |
+|     | Decline the current request.             |
+|     | Continue the current task in a new task. |
+|     | Start push-to-talk.                      |
+|     | Send the message in the composer.        |
+
+The Mic key uses your computer's microphone. Codex Micro doesn't have a
+microphone of its own. Hold the key while you speak, then release it to stop.
+For hands-free recording, press it twice within 350 milliseconds to keep
+recording. Press it again to stop.
+
+A sea-green light moves around the keyboard while you record. It changes to a
+moving white light while ChatGPT processes your speech, then turns solid white
+when the prompt is ready. Press the Codex key to send it.
+
+In **Settings > Codex Micro**, select a Command Key, then choose its keycap and
+action. You can open the browser or terminal, review changes, commit with Git,
+create a pull request, attach files or photos, manage scheduled tasks, change
+reasoning effort, or open **Skills**. If you choose a keycap that's already used
+somewhere else, ChatGPT swaps the two instead of using one keycap twice.
+
+After you remap a key, swap the physical keycap to match its new action.
+
+#### Use the analog stick and dial
+
+The analog stick moves freely in any direction. When you push it far enough
+from the center, ChatGPT turns the movement into one of four directional
+actions. Codex Micro starts with the mappings shown here.
+
+Choose any available ChatGPT desktop command or enabled skill for each
+direction in **Settings > Codex Micro**.
+
+| Direction | Default action             |
+| --------- | -------------------------- |
+| Up        | Turn Plan mode on or off.  |
+| Right     | Go forward in app history. |
+| Down      | Show or hide the sidebar.  |
+| Left      | Go back in app history.    |
+
+The dial moves through the composer controls and options, with **Reasoning**
+selected by default. Turn the dial to change the selection, then press it to
+open or select the focused control. When a composer control or menu is open,
+the Agent Key immediately to the right of the dial lights red. Press that key
+to cancel.
+
+In **Settings > Codex Micro**, choose whether the dial uses **Composer
+navigation** or **Reasoning only**. In **Reasoning only** mode, turning the dial
+opens and adjusts reasoning effort. Press the dial to open the slider or its
+advanced options.
+
+#### Adjust lighting
+
+In **Settings > Codex Micro**, adjust the brightness and choose how long the
+lights stay on when you're not using Codex Micro. They come back on when you
+use the keyboard or an Agent Key changes status. By default, the lights turn
+off after three minutes.
+
+When the keyboard reports its battery status, you can see it in **Settings >
+Codex Micro** and in the Codex Micro icon's sidebar tooltip.
+
+#### Add more layers
+
+Codex uses layer 1. Use [Work Louder
+Input](https://worklouder.cc/micro-setup) to configure up to five more layers
+with shortcuts and actions for other apps.
+
+#### Troubleshoot Codex Micro
+
+#### Pair the keyboard again
+
+Use the bottom-left touch control to start pairing again. The rear button
+controls power and doesn't start pairing.
+
+1. Hold the bottom-left touch control for three seconds to enter communication
+   mode.
+2. Tap the control to choose Bluetooth channel 1, 2, or 3.
+3. Hold the control for three seconds on that channel. The channel light flashes
+   while pairing and turns solid when paired.
+
+#### Fix Input Monitoring on macOS
+
+If **Settings > Codex Micro** shows that Input Monitoring isn't set up, select
+**Open System Settings**, then follow these steps:
+
+1. Open **System Settings > Privacy & Security > Input Monitoring**.
+2. Turn on access for ChatGPT if it's already listed. If it's missing, drag
+   **ChatGPT** from Applications into the list, or select **Add (+)** and choose
+   **ChatGPT**.
+3. Quit and reopen ChatGPT, then confirm ChatGPT detects Codex Micro on layer 1.
+
+For more about this macOS permission, see [Apple's Input Monitoring
+guide](https://support.apple.com/guide/mac-help/mchl4cedafb6/mac).
+
+#### Get more Work Louder help
+
+For help with Bluetooth, cables, power, or resetting the keyboard, see
+the [Creator Micro 2 setup guide from Work Louder](https://worklouder.cc/micro-setup).
+For direct support, email [hello@worklouder.cc](mailto:hello@worklouder.cc).
+
+#### Get Codex Micro
+
+You can buy Codex Micro through [OpenAI Supply
+Co](https://openai.com/supply/co-lab/work-louder/) while supplies last.
+
+{/_ vale Microsoft.We = NO _/}
+{/_ vale write-good.TooWordy = NO _/}
+
+We expect orders to begin shipping shortly after purchase.
+
+{/_ vale Microsoft.We = YES _/}
+{/_ vale write-good.TooWordy = YES _/}
+
 ### Codex Security
 
 Source: [Codex Security](https://learn.chatgpt.com/docs/security/index.md)
@@ -13939,11 +14471,6 @@ Pets are optional animated companions for following work. Where a pet appears
 and what it shows depend on the interface you use. Choosing a pet changes its
 appearance, not how ChatGPT completes tasks.
 
-#### Use a floating pet
-
-In the ChatGPT desktop app, a pet can float above other app windows and help
-you follow activity across your tasks.
-
 #### Choose and wake a pet
 
 1. Open the profile menu at the bottom of the app and select **Pets**. You can
@@ -14375,21 +14902,6 @@ larger work, select **Add to task** to bring it into the current task. Open
 
 Source: [Remote connections](https://learn.chatgpt.com/docs/remote-connections.md)
 
-import {
-Desktop,
-Storage,
-Terminal,
-} from "@components/react/oai/platform/ui/Icon.react";
-
-Remote connections let you access work running on another device or machine.
-In the ChatGPT mobile app, open **Remote** to work with ChatGPT Work or Codex tasks on
-a connected Mac or Windows device. You can also continue work from another
-supported device running the ChatGPT desktop app or connect the app to projects
-on an SSH host.
-
-Remote access uses the connected host's projects, tasks, files, credentials,
-permissions, plugins, Computer Use, browser setup, and local tools.
-
 #### What you can do remotely
 
 - Start new tasks in projects on the host, or continue existing ones.
@@ -14402,27 +14914,6 @@ permissions, plugins, Computer Use, browser setup, and local tools.
 The next sections cover opening **Remote** in the ChatGPT mobile app to access a
 desktop host. To connect Codex to a project on an SSH host, see
 [connect to an SSH host](#connect-to-an-ssh-host).
-
-#### Before you set up Remote
-
-Remote supports hosts running the ChatGPT desktop app on macOS and Windows.
-You can control a host from ChatGPT on iOS or Android, or from another Mac or
-Windows device when **Control other devices** is available. Availability can
-vary by rollout.
-
-Make sure you have:
-
-- Codex access in the ChatGPT account and workspace you want to use.
-- The latest ChatGPT mobile app on an iOS or Android device. If **Remote**
-  doesn't appear in the app, update ChatGPT first.
-- The latest ChatGPT desktop app for macOS or Windows running on a host that's awake,
-  online, and signed in to the same account and workspace. Mobile setup starts
-  from the app; you can't set it up from the Codex CLI or IDE extension.
-- Any required multi-factor authentication, SSO, or passkey configuration for
-  that account or workspace.
-
-If you use Codex through a ChatGPT workspace, your admin may need to enable
-Remote Control access before you can connect from your phone.
 
 #### Set up Remote
 
@@ -14523,17 +15014,6 @@ That means:
 A secure relay layer keeps trusted machines reachable across your authorized
 ChatGPT devices without exposing them directly to the public internet.
 
-#### Pick up work from another device
-
-You can continue work from another signed-in device running the ChatGPT desktop
-app and supporting remote control. For example, if your laptop is unavailable, you can
-start a task from your phone on an always-on host, then later open the app on
-your laptop and continue that same task there.
-
-On a Mac or Windows device where the feature is available, use **Settings >
-Connections > Control other devices** to add the other host. A device can allow
-remote access and control another device at the same time.
-
 #### Connect to an SSH host
 
 In the ChatGPT desktop app, add remote projects from an SSH host and run tasks
@@ -14570,6 +15050,56 @@ unauthenticated public listeners.
 
 4. In the app, open **Settings > Connections**, add or enable the SSH host, then
    choose a remote project folder.
+
+#### Hand off a task between hosts
+
+Handoff moves an existing task and its Git state between your local computer
+and a connected remote host. Use it to start work locally, continue in a
+worktree on a remote computer, and bring the task back later.
+
+Before you hand off a task, connect the destination host and save a project
+for the same Git repository on that host. If the project is a subdirectory of
+the repository, save the same subdirectory on both hosts. Codex only shows
+destinations with a matching saved project.
+
+To hand off a task:
+
+1. Open the task in the desktop app.
+2. In the task footer, select the current run location, then select the
+   destination host. Select **This computer** when handing a remote task back
+   to your local computer.
+3. Review the destination and branch, then select **Hand off**.
+
+Codex creates or reuses a worktree on the destination host, transfers the
+task and Git state, and switches the task to that host. If the task is
+running, handoff interrupts the current response before transferring it.
+
+You can also ask Codex in another task to hand off a named task to a
+connected host. Codex can't hand off the task making the request, and handoff
+to a Codex cloud environment isn't supported.
+
+#### Authentication and network exposure
+
+Remote connections use SSH to start and manage the remote Codex app server.
+Don't expose app-server transports directly on a shared or public network.
+
+If you need to reach a remote machine outside your current network, use a VPN
+or mesh networking tool instead of exposing the app server directly to the
+internet.
+
+#### Remote Control is off after you sign back in
+
+Signing out of ChatGPT turns off **Remote Control**, but it doesn't remove your
+existing device pairings. After you sign back in, turn on **Remote Control** to
+restore the previous connection state.
+
+If you see an error after you turn on **Remote Control** and select **Add**,
+restart the ChatGPT desktop app on the host, then try again.
+
+#### The remote session disconnects
+
+Check whether the host went to sleep, lost network access, or closed the app.
+Keep the host awake and connected while ChatGPT works.
 
 ### Sites
 
@@ -15515,20 +16045,6 @@ security work. Terra balances capability and cost for everyday work, while Luna
 is the fastest, lowest-cost option. The default **Power** setting uses Sol with
 medium reasoning.
 
-#### Use Codex in the ChatGPT desktop app
-
-On July 9, the Codex app merges into the new
-[ChatGPT desktop app](https://learn.chatgpt.com/docs/app) for macOS and Windows. Codex keeps its
-dedicated coding experience alongside Chat and Work, with inline editing in
-diffs, pull request review in the side panel, faster
-[Computer Use](https://learn.chatgpt.com/docs/computer-use) powered by GPT-5.6, and multi-repository
-projects.
-
-Existing Codex app users can update as usual. You can make Codex the default
-view, use the Codex logo as the app icon, and access desktop Codex projects from
-the ChatGPT mobile app. The updated desktop app is available globally on every
-ChatGPT plan, including Free.
-
 #### June 15–19, 2026
 
 #### Turn demonstrated workflows into reusable skills
@@ -15585,25 +16101,18 @@ onboarding. The Codex app also added `/init` for creating project instructions,
 plus improved plugin management, browser diagnostics, and completed-task
 summaries.
 
+#### Set up Codex tasks from iOS
+
+Remote on iOS can now choose a branch, create a worktree, run an environment
+setup script, manage goals, and add inline review comments.
+
+Read the [June 9 app](https://learn.chatgpt.com/docs/changelog#codex-2026-06-09-app),
+[June 9 iOS](https://learn.chatgpt.com/docs/changelog#codex-2026-06-09-mobile), and
+[June 11 app](https://learn.chatgpt.com/docs/changelog#codex-2026-06-11-app) release notes.
+
 ### Windows sandbox
 
 Source: [Windows sandbox](https://learn.chatgpt.com/docs/windows/windows-sandbox.md)
-
-Use Codex on Windows with the native [ChatGPT desktop app](https://learn.chatgpt.com/docs/windows/windows-app), the
-[CLI](https://learn.chatgpt.com/docs/codex/cli), or the [IDE extension](https://learn.chatgpt.com/docs/codex/ide).
-
-The ChatGPT desktop app on Windows supports core workflows such as parallel tasks,
-worktrees, scheduled tasks, Git functionality, the built-in browser, file previews,
-plugins, and skills.
-
-The app can run natively in PowerShell with a Windows sandbox instead of
-requiring WSL or a virtual machine. This keeps Codex in Windows-native
-workflows while enforcing bounded filesystem and network permissions.
-
-The native Windows sandbox has two modes:
-
-- natively on Windows with the stronger `elevated` sandbox,
-- natively on Windows with the fallback `unelevated` sandbox.
 
 #### Configure the Windows sandbox
 

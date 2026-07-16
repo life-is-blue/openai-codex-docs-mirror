@@ -63,6 +63,13 @@
           href: "/codex/pets",
           icon: "customize",
         },
+        {
+          title: "Codex Micro",
+          description:
+            "Monitor and control ChatGPT tasks from a Work Louder keyboard.",
+          href: "/codex/features/codex-micro",
+          icon: "key",
+        },
       ],
     },
     {

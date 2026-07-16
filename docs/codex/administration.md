@@ -156,8 +156,15 @@
     {
       title: "Deployment and model providers",
       description:
-        "Connect managed hosts or configure a supported external model provider.",
+        "Deploy the Windows app, connect managed hosts, or configure a supported external model provider.",
       pages: [
+        {
+          title: "Windows app deployment",
+          description:
+            "Choose an installation and update path for managed Windows devices.",
+          href: "/codex/enterprise/windows-deployment",
+          icon: "settings",
+        },
         {
           title: "Remote connections",
           description: "Start and control work on connected computers.",

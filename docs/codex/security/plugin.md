@@ -6,7 +6,7 @@ remediation guidance in a reviewable workspace. Use it to find security issues
 in code you own or have authorization to assess before they reach production.
 
 This quickstart takes you through one recommended first run: an ordinary,
-read-only scan of a local repository in the ChatGPT desktop app.
+read-only scan of a local repository in Codex.
 
 This page covers the plugin that runs in a local Codex task. To scan a
   connected GitHub repository in Codex cloud, see [Codex Security cloud
@@ -14,28 +14,40 @@ This page covers the plugin that runs in a local Codex task. To scan a
 
 ## Install the plugin
 
-Open the repository you want to assess in Codex in the ChatGPT desktop app, then
-install Codex Security:
 
-<div className="not-prose my-6">
-  <ButtonLink
-    href="codex://plugins/install/codex-security?marketplace=openai-curated"
-    color="primary"
-    variant="solid"
-    size="lg"
-    pill
-  >
-    Install the Codex Security plugin
-  </ButtonLink>
-</div>
 
-After installation, start a new task in Codex for that repository. The app loads
-plugins when the task starts, so don't continue in a task that was already open.
+1. Open the repository you want to assess in Codex in the [ChatGPT desktop
+   app](https://chatgpt.com/download/).
+2. Go to **Plugins** and search for **Codex Security**, or select the button
+   below:
+
+   <div className="not-prose my-6">
+     <ButtonLink
+       href="codex://plugins/install/codex-security?marketplace=openai-curated"
+       color="primary"
+       variant="solid"
+       size="lg"
+       pill
+     >
+       Install the Codex Security plugin
+     </ButtonLink>
+   </div>
+
+3. Start a new task in Codex for that repository (don't continue in a task that
+   was already open).
+
+
+
+
+
+
 
 ## Run your first scan
 
 For the best scan quality, use `gpt-5.6`
 with `high` or `xhigh` reasoning effort.
+
+
 
 <VideoPlayer
   src="/videos/codex/security/scan-setup-to-findings.mp4"
@@ -107,10 +119,25 @@ with `high` or `xhigh` reasoning effort.
 
 </WorkflowSteps>
 
+
+
+
+
+
+
 ## What the scan creates
 
+
+
 Every completed scan opens a findings workspace. Use it to review findings and
-coverage without inspecting raw artifacts. The scan also creates:
+coverage without inspecting raw artifacts. The scan also creates the files
+below.
+
+
+
+
+
+
 
 - `report.md`, a complete portable report for sharing or archiving.
 - Structured scan data in `scan-manifest.json`, `findings.json`, and
@@ -132,16 +159,3 @@ coverage without inspecting raw artifacts. The scan also creates:
 - [Export or track findings](https://learn.chatgpt.com/docs/security/plugin/export-findings) when you
   need JSON, CSV, SARIF, an approval-gated Linear, GitHub, or Jira issue, or a
   private draft GitHub Security Advisory.
-
-## Install from Codex CLI
-
-To install the same plugin from Codex CLI, start Codex in the repository and
-open the plugin browser:
-
-```text
-codex
-/plugins
-```
-
-Search for **Codex Security**, select `Install plugin`, and start a new task.
-Then use the same first-scan prompt.

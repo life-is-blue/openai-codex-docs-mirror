@@ -22,14 +22,13 @@ Download the [ChatGPT desktop app](https://get.microsoft.com/installer/download/
 
 Then follow the [quickstart](https://learn.chatgpt.com/docs/quickstart?setup=app) to get started.
 
-For enterprises, administrators can deploy the app with Microsoft Store app
-distribution through enterprise management tools.
+For enterprise installation and update options, see
+[Deploy the Windows app](https://learn.chatgpt.com/docs/enterprise/windows-deployment).
 
-If you prefer a command-line install path, or need an alternative to opening
-the Microsoft Store UI, run:
+If you prefer a command-line install path, run:
 
 ```powershell
-winget install Codex -s msstore
+winget install --id 9PLM9XGG6VKS -s msstore
 ```
 
 ## Native sandbox

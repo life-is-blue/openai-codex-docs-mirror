@@ -53,39 +53,315 @@ findings](https://learn.chatgpt.com/docs/security/plugin/export-findings).
 ## Automate reviews in CI/CD
 
 Run the same `$codex-security:security-diff-scan` skill from CI when the runner
-can invoke the Codex CLI without interaction. The runner must already have
-Codex Security installed in the `CODEX_HOME` used by `codex exec`. A fresh
-runner doesn't have marketplace plugins installed by default, and
-`openai/codex-action` doesn't install the plugin.
-
-Before running the scan:
-
-1. Provision Codex Security in the runner's `CODEX_HOME`.
-2. Check out the exact base and head revisions with their Git history.
-3. Set the runner's platform temporary directory, such as `TMPDIR`, to a
-   writable artifact location. The diff-scan workflow reviews the checkout
-   without changing it, but it writes its sealed scan bundle and final report
-   outside the repository.
-4. Start with advisory results. Review scan quality and runtime before making
-   the job a required check.
-
-Then invoke the plugin explicitly:
+can invoke the Codex CLI without interaction. First install the CLI and plugin
+without exposing the scan credential:
 
 ```bash
-export CODEX_HOME=/path/to/provisioned-codex-home
-export TMPDIR=/path/to/writable/temp
-
-codex exec \
-  --sandbox workspace-write \
-  --output-last-message "$TMPDIR/codex-security-review.md" \
-  'Use $codex-security:security-diff-scan to review changes from <base-revision> to <head-revision> for security regressions. Do not modify the checkout. Return the final report path, findings summary, reviewed surfaces, deferred coverage, and open questions.'
+npm install --global @openai/codex
+codex plugin add codex-security@openai-curated
 ```
 
-Archive the generated scan bundle and final report, then publish the Markdown
-summary through your CI/CD system. If you use `openai/codex-action`, point its
-`codex-home` input at the same provisioned directory and pass the skill prompt
-above. The action can install and run the Codex CLI, but plugin provisioning is
-a separate prerequisite.
+Then expose an OpenAI API key from your CI secret store as
+`CODEX_SECURITY_API_KEY` only for the scan:
 
-For API-key handling, sandbox controls, fork protections, and a GitHub Actions
-workflow, see the [Codex GitHub Action guide](https://learn.chatgpt.com/docs/github-action).
+```bash
+CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+  --sandbox workspace-write \
+  "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+```
+
+The scan writes its output to
+`$TMPDIR/codex-security-scans/<repository>/<scan-id>/`:
+
+| File                 | Contents                                                                                                                                                    |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `findings.json`      | Findings with stable identifiers, severity, confidence, source locations, and remediation. Use it to create pull-request comments or feed downstream tools. |
+| `scan-manifest.json` | Sealed scan receipt with the reviewed target, revisions, and artifact hashes.                                                                               |
+| `coverage.json`      | Reviewed and deferred surfaces, exclusions, and coverage completeness.                                                                                      |
+
+The [`findings.json` schema](https://github.com/openai/plugins/blob/main/plugins/codex-security/schemas/findings.schema.json)
+defines the complete structure. Some key fields are:
+
+| Field                     | Type   | Description                                                            |
+| ------------------------- | ------ | ---------------------------------------------------------------------- |
+| `documentType`            | String | Identifies the document as `codex-security.findings`.                  |
+| `schemaVersion`           | String | Identifies the findings schema version.                                |
+| `scanId`                  | String | Identifies the scan that produced the findings.                        |
+| `findings`                | Array  | Contains zero or more finding objects.                                 |
+| `findings[].findingId`    | String | Stable finding identifier derived from the finding fingerprint.        |
+| `findings[].occurrenceId` | String | Identifies this occurrence of the finding in a specific scan.          |
+| `findings[].ruleId`       | String | Identifies the vulnerability family.                                   |
+| `findings[].identity`     | Object | Contains the semantic anchor and optional sibling-instance identifier. |
+| `findings[].fingerprints` | Object | Contains the fingerprint algorithm and primary fingerprint.            |
+| `findings[].title`        | String | Provides the short finding title.                                      |
+| `findings[].summary`      | String | Summarizes the vulnerability and its impact.                           |
+| `findings[].severity`     | Object | Contains the severity level and optional scoring details.              |
+| `findings[].confidence`   | Object | Contains the confidence level and rationale.                           |
+| `findings[].taxonomy`     | Object | Contains the vulnerability category and CWE identifiers.               |
+| `findings[].locations`    | Array  | Lists affected files, line numbers, and location roles.                |
+| `findings[].remediation`  | String | Describes the recommended fix.                                         |
+| `findings[].provenance`   | Object | Identifies the source of the finding.                                  |
+
+For example, this command prints one tab-separated row per finding:
+
+```bash
+jq -r '
+  .findings[] |
+  [.findingId, .severity.level, .confidence.level, .locations[0].path, .locations[0].startLine, .title] |
+  @tsv
+' findings.json
+```
+
+These examples assume a trusted Linux runner with Node.js and `npm`, Git, Python
+3, `jq`, and the provider's command-line tools. The `npm` global package prefix
+must be writable.
+
+Here are examples of how to use Codex Security in common pipelines:
+
+<Tabs
+  id="codex-security-ci-examples"
+  param="ci"
+  defaultTab="github"
+  tabs={[
+    { id: "github", label: "GitHub Actions" },
+    { id: "gitlab", label: "GitLab CI/CD" },
+    { id: "azure", label: "Azure Pipelines" },
+    { id: "jenkins", label: "Jenkins" },
+  ]}
+>
+  <div slot="github">
+
+```yaml
+name: Codex Security review
+
+on:
+  pull_request:
+
+jobs:
+  security-review:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install Codex Security
+        env:
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+        run: |
+          npm install --global @openai/codex
+          codex plugin add codex-security@openai-curated
+
+      - name: Review code changes
+        env:
+          CODEX_SECURITY_API_KEY: ${{ secrets.CODEX_SECURITY_API_KEY }}
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+          TMPDIR: ${{ runner.temp }}/codex-security
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_REVISION: ${{ github.event.pull_request.head.sha }}
+        run: |
+          BASE_REVISION="$(git merge-base "$BASE_SHA" "$HEAD_REVISION")"
+          CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+            --sandbox workspace-write \
+            "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+
+      - name: Comment with findings
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          findings="$(find "${{ runner.temp }}/codex-security/codex-security-scans" -name findings.json -print -quit 2>/dev/null || true)"
+          test -n "$findings" || exit 0
+          jq -r '
+            "## Codex Security findings",
+            "",
+            if (.findings | length) == 0 then "No findings reported."
+            else .findings[] | "- **\(.severity.level | ascii_upcase)**: \(.title) (`\(.locations[0].path):\(.locations[0].startLine)`)\n  \(.summary)"
+            end
+          ' "$findings" | gh pr comment "$PR_NUMBER" --body-file -
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: codex-security-review
+          path: ${{ runner.temp }}/codex-security/codex-security-scans
+```
+
+  </div>
+
+  <div slot="gitlab">
+
+Create masked `CODEX_SECURITY_API_KEY` and `GITLAB_TOKEN` CI/CD variables. The
+GitLab token needs API access to create a merge-request note.
+
+```yaml
+codex-security-review:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == $CI_PROJECT_ID'
+  variables:
+    GIT_DEPTH: "0"
+  script:
+    - |
+      codex_security_api_key="$CODEX_SECURITY_API_KEY"
+      unset CODEX_SECURITY_API_KEY GITLAB_TOKEN
+      export CODEX_HOME="/tmp/codex-home-$CI_JOB_ID"
+      export TMPDIR="/tmp/codex-security-$CI_JOB_ID"
+      export BASE_REVISION="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+      export HEAD_REVISION="${CI_MERGE_REQUEST_SOURCE_BRANCH_SHA:-$CI_COMMIT_SHA}"
+      npm install --global @openai/codex
+      codex plugin add codex-security@openai-curated
+      CODEX_API_KEY="$codex_security_api_key" codex exec \
+        --sandbox workspace-write \
+        "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+  after_script:
+    - |
+      gitlab_token="$GITLAB_TOKEN"
+      unset CODEX_SECURITY_API_KEY GITLAB_TOKEN
+      scan_root="/tmp/codex-security-$CI_JOB_ID/codex-security-scans"
+      findings="$(find "$scan_root" -name findings.json -print -quit 2>/dev/null || true)"
+      if [ -n "$findings" ]; then
+        jq -r '
+          "## Codex Security findings",
+          "",
+          if (.findings | length) == 0 then "No findings reported."
+          else .findings[] | "- **\(.severity.level | ascii_upcase)**: \(.title) (`\(.locations[0].path):\(.locations[0].startLine)`)\n  \(.summary)"
+          end
+        ' "$findings" > codex-security-comment.md
+        curl --fail --request POST \
+          --header "PRIVATE-TOKEN: $gitlab_token" \
+          --form "body=<codex-security-comment.md" \
+          "$CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests/$CI_MERGE_REQUEST_IID/notes"
+      fi
+      if [ -d "$scan_root" ]; then
+        tar -czf codex-security-artifacts.tar.gz -C "$scan_root" .
+      fi
+  artifacts:
+    when: always
+    paths:
+      - codex-security-artifacts.tar.gz
+```
+
+  </div>
+
+  <div slot="azure">
+
+```yaml
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    fetchDepth: 0
+
+  - bash: |
+      set -euo pipefail
+      export CODEX_HOME="$AGENT_TEMPDIRECTORY/codex-home"
+      npm install --global @openai/codex
+      codex plugin add codex-security@openai-curated
+    displayName: Install Codex Security
+
+  - bash: |
+      set -euo pipefail
+      export CODEX_HOME="$AGENT_TEMPDIRECTORY/codex-home"
+      export TMPDIR="$AGENT_TEMPDIRECTORY/codex-security"
+      export HEAD_REVISION="$SYSTEM_PULLREQUEST_SOURCECOMMITID"
+      export BASE_REVISION="$(git merge-base HEAD^1 "$HEAD_REVISION")"
+      CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+        --sandbox workspace-write \
+        "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+    displayName: Review code changes
+    condition: and(succeeded(), ne(variables['System.PullRequest.IsFork'], 'True'))
+    env:
+      CODEX_SECURITY_API_KEY: $(CODEX_SECURITY_API_KEY)
+
+  - publish: $(Agent.TempDirectory)/codex-security/codex-security-scans
+    artifact: codex-security-review
+    condition: always()
+```
+
+For Azure Repos, configure a **Build validation** branch policy to run the
+pipeline on pull requests.
+
+  </div>
+
+  <div slot="jenkins">
+
+```groovy
+pipeline {
+  agent { label 'linux' }
+  stages {
+    stage('Codex Security review') {
+      when {
+        allOf {
+          changeRequest()
+          expression { !env.CHANGE_FORK?.trim() }
+        }
+      }
+      steps {
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+          export CODEX_HOME="/tmp/codex-home-$BUILD_TAG"
+          export TMPDIR="/tmp/codex-security-$BUILD_TAG"
+          mkdir -p "$TMPDIR"
+          git fetch --no-tags origin "$CHANGE_TARGET"
+          target="$(git rev-parse FETCH_HEAD)"
+          git fetch --no-tags origin "$CHANGE_BRANCH"
+          git rev-parse FETCH_HEAD > "$TMPDIR/head"
+          git merge-base "$target" "$(cat "$TMPDIR/head")" > "$TMPDIR/base"
+          npm install --global @openai/codex
+          codex plugin add codex-security@openai-curated
+        '''
+        withCredentials([string(credentialsId: 'codex-security-api-key', variable: 'CODEX_SECURITY_API_KEY')]) {
+          sh '''#!/usr/bin/env bash
+            set +x
+            set -euo pipefail
+            export CODEX_HOME="/tmp/codex-home-$BUILD_TAG"
+            export TMPDIR="/tmp/codex-security-$BUILD_TAG"
+            export HEAD_REVISION="$(cat "$TMPDIR/head")"
+            export BASE_REVISION="$(cat "$TMPDIR/base")"
+            CODEX_API_KEY="$CODEX_SECURITY_API_KEY" codex exec \
+              --sandbox workspace-write \
+              "Use \$codex-security:security-diff-scan to review changes from $BASE_REVISION to $HEAD_REVISION for security regressions. Do not modify the checkout."
+          '''
+        }
+      }
+      post {
+        always {
+          sh '''#!/usr/bin/env bash
+            set -euo pipefail
+            scan_root="/tmp/codex-security-$BUILD_TAG/codex-security-scans"
+            if [ -d "$scan_root" ]; then
+              tar -czf codex-security-artifacts.tar.gz -C "$scan_root" .
+            fi
+          '''
+          archiveArtifacts artifacts: 'codex-security-artifacts.tar.gz', allowEmptyArchive: true
+        }
+      }
+    }
+  }
+}
+```
+
+  </div>
+</Tabs>
+
+The examples skip forked pull requests. Run credentialed jobs only from a
+protected pipeline definition and only for contributors trusted with the scan
+credential. Archive `codex-security-scans` to keep the structured findings,
+manifest, and coverage artifacts. Start with advisory results and review
+coverage and runtime before making the job a required check.
+
+For API-key handling and sandbox controls, see [Non-interactive
+mode](https://learn.chatgpt.com/docs/non-interactive-mode). If your organization permits the [Codex
+GitHub Action](https://learn.chatgpt.com/docs/github-action), it can install the CLI at runtime, but
+you must still install the plugin first and point the action's `codex-home`
+input at the same `CODEX_HOME`.
