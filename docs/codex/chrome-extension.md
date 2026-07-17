@@ -1,13 +1,13 @@
 # Chrome extension
 
-Use ChatGPT with Chrome for browser tasks that need your signed-in browser
-state. Use it when ChatGPT needs to read or act on sites such as LinkedIn,
+Use the Chrome extension to let ChatGPT control your Chrome browser. ChatGPT can
+read or act on sites where you're already signed in, such as LinkedIn,
 Salesforce, Gmail, or internal tools.
 
-For local development servers, file-backed previews, and public pages that do
-not require sign-in, use the [built-in browser](https://learn.chatgpt.com/docs/browser?surface=app) first. The
-built-in browser keeps preview and verification work inside ChatGPT without using
-your Chrome profile.
+To let ChatGPT control its built-in browser instead, use `@Browser`. The
+[built-in browser](https://help.openai.com/en/articles/20001277-using-the-built-in-browser-in-the-chatgpt-desktop-app)
+supports sign-in and keeps browsing work inside ChatGPT without using your
+Chrome profile.
 
 ChatGPT can also switch between tools as a task requires, using plugins when a
 dedicated integration is available, Chrome when it needs logged-in browser
@@ -22,20 +22,63 @@ context, and the built-in browser for localhost.
   />
 </div>
 
-## Set up Chrome from Plugins
+## Use ChatGPT from Chrome
 
-Install the Chrome plugin to start setup:
+Open ChatGPT beside the page you're viewing to ask about the page or continue
+into tasks that can use its context alongside local files and connected apps.
+ChatGPT can use context from your open tabs when a task needs it.
 
-1. Open the ChatGPT desktop app, select ChatGPT Work or Codex, and go to **Plugins**.
-2. Add the **Chrome** plugin.
-3. Follow the setup flow. It guides you through installing the [Chrome
-   extension](https://chromewebstore.google.com/detail/codex/hehggadaopoacecdllhhajmbjkdcmajg)
-   and approving Chrome's permission prompts.
-4. Open Chrome and confirm the extension shows **Connected**.
+1. Open the page you want to work with.
+2. Select ChatGPT from the Chrome toolbar or **Extensions** menu. On macOS, you
+   can also press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd>.
+3. Ask a question about the page or give ChatGPT a task.
+
+The panel stays with the tab where you opened it. Threads you start in Chrome
+are available in the ChatGPT app, and you can open recent ChatGPT threads in
+Chrome, so you can continue work in either place.
+
+<Illustration description="ChatGPT open beside the current Chrome tab.">
+  <ChromeSidePanelIllustration
+    ariaLabel="ChatGPT open beside the current Chrome tab."
+    backgroundImage="/images/codex/codex-wallpaper-1.webp"
+  />
+</Illustration>
+
+## Set up the Chrome extension
+
+In the ChatGPT desktop app, open the Plugins Directory and install **Chrome**.
+Other Chromium-based browsers aren't currently supported. Follow the setup flow
+to:
+
+1. Install the [Chrome
+   extension](https://chromewebstore.google.com/detail/chatgpt/hehggadaopoacecdllhhajmbjkdcmajg).
+2. Approve Chrome's permission prompts.
+3. Open Chrome and confirm the ChatGPT side chat loads.
+
+<Illustration description="Computer Use settings showing Google Chrome connected through the Chrome extension.">
+  <ComputerUseSettingsIllustration
+    ariaLabel="Computer Use settings showing Google Chrome connected through the Chrome extension."
+    aspectRatio="3 / 1"
+    controlRows={[
+      {
+        id: "chrome",
+        title: "Google Chrome",
+        description: "Connected to browser extension for additional control",
+        icon: "chrome",
+        enabled: true,
+        connected: true,
+        manageLabel: "Manage",
+      },
+    ]}
+    showAlwaysAllowedApps={false}
+  />
+</Illustration>
+
+## Start a Chrome task from ChatGPT
 
 After the plugin setup is complete, start a new task in Work or Codex. ChatGPT
-can suggest Chrome when a task needs a signed-in website. You can also invoke it
-directly in a prompt:
+can use Chrome automatically when a task needs a website and you're already
+signed in to Chrome. You can also invoke it directly in a prompt:
 
 ```text
 @Chrome open Salesforce and update the account from these call notes.
@@ -52,24 +95,27 @@ the prompt on the website host, such as `example.com`.
 When ChatGPT asks to use a website, you can choose the option that matches the
 task and your risk tolerance:
 
-- Allow the website for the current task.
-- Always allow the host so ChatGPT can use that website again without asking.
-- Decline the website.
+- **Allow once** to let ChatGPT use the website one time.
+- **Allow for this site** so ChatGPT can use the website again without asking.
+- **Allow for all sites** so ChatGPT can use websites without asking.
+- **Decline** to prevent ChatGPT from using the website.
 
-### Manage the allowlist and blocklist
+### Manage allowed and blocked websites
 
-In Computer Use settings, you can manage an allowlist and blocklist for
-domains. The allowlist contains domains ChatGPT can use without asking again. The
-blocklist contains domains ChatGPT shouldn't use.
+In the ChatGPT desktop app, go to **Settings** > **Computer Use**, then select
+**Manage** next to **Google Chrome** to manage an allowlist and blocklist for
+domains. The allowlist contains domains ChatGPT can use without asking again.
+The blocklist contains domains ChatGPT shouldn't use.
 
 Removing a domain from the allowlist means ChatGPT asks again before using it.
 Removing a domain from the blocklist means ChatGPT can ask again instead of
 treating the domain as blocked.
 
-#### Always allow browser content <ElevatedRiskBadge class="ml-2" />
+#### Allow for all sites <ElevatedRiskBadge class="ml-2" />
 
-If you turn on always allow browser content, ChatGPT no longer asks for
-confirmation before using websites.
+If you select **Allow for all sites**, ChatGPT no longer asks for confirmation
+before using websites. Only choose this option if you trust ChatGPT to use any
+website open in Chrome.
 
 #### Browser history <ElevatedRiskBadge class="ml-2" />
 
@@ -125,33 +171,26 @@ If ChatGPT can't connect to Chrome, first confirm the website ChatGPT is trying 
 access isn't in the blocklist in Settings. If the website isn't blocked, work
 through these checks:
 
-1. Open the extension from the Chrome toolbar or Chrome's extensions
-   menu. Make sure it shows **Connected**. If it shows disconnected or mentions
-   a missing native host, remove and re-add the Chrome plugin from **Plugins**
-   in Work or Codex in the ChatGPT desktop app, then follow the setup flow
-   again.
-2. In the app, select Work or Codex, open **Plugins**, and confirm that the
+1. Update the ChatGPT desktop app. If you have more than one ChatGPT or Codex
+   desktop app installed, update each one or remove copies you no longer use.
+2. Close the ChatGPT side panel, restart Chrome, then reopen the extension from
+   the Chrome toolbar or **Extensions** menu. Confirm the side chat loads. If
+   it doesn't load or mentions a missing native host, remove and re-add the
+   Chrome plugin from **Plugins** in Work or Codex in the ChatGPT desktop app,
+   then follow the setup flow again.
+3. In the app, select Work or Codex, open **Plugins**, and confirm that the
    Chrome plugin is on. If the plugin is off, turn it on and
    try the task again.
-3. Make sure you are using the same Chrome profile where the extension is
+4. Make sure you are using the same Chrome profile where the extension is
    installed. If you use more than one Chrome profile, install and enable the
    extension in the active profile.
-4. Start a new task in Work or Codex and try the Chrome task again. This can
+5. Start a new task in Work or Codex and try the Chrome task again. This can
    clear task-specific connection state.
-5. Restart Chrome and the app, then try again. If the extension
-   still doesn't connect, uninstall the Chrome extension, remove and re-add the Chrome
+6. Restart the ChatGPT desktop app, then try again. If the extension still
+   doesn't connect, uninstall the Chrome extension, remove and re-add the Chrome
    plugin from **Plugins**, and follow the setup flow again.
-6. If the extension shows **Connected** but ChatGPT still can't use Chrome, run
-   `/feedback` in the app and include the task ID when you contact
-   support.
-
-<CodexScreenshot
-  alt="Chrome extension showing connected status"
-  lightSrc="/images/codex/app/chrome-connected-light.png"
-  darkSrc="/images/codex/app/chrome-connected-dark.png"
-  maxHeight="300px"
-  class="mt-4"
-/>
+7. If the side chat loads but ChatGPT still can't use Chrome, run `/feedback`
+   in the app and include the task ID when you contact support.
 
 ### Upload files
 
@@ -164,11 +203,3 @@ extension to access file URLs in Chrome:
 3. Turn on **Allow access to file URLs**.
 
 After you change the setting, start the Chrome task again.
-
-<CodexScreenshot
-  alt="Chrome extension settings showing Allow access to file URLs enabled for ChatGPT"
-  lightSrc="/images/codex/app/chrome-file-url-access-light.webp"
-  darkSrc="/images/codex/app/chrome-file-url-access-dark.webp"
-  maxHeight="420px"
-  class="mt-4"
-/>

@@ -86,6 +86,65 @@ avatars between visits.
 Browse the [Sites showcase](https://developers.openai.com/showcase) for deployed internal apps and the full
   prompts used to create them.
 
+## Review Site analytics
+
+Sites records traffic automatically, so you can see how people use a deployed
+Site without adding an analytics SDK. The analytics view shows total unique
+visitors and page views, plus both metrics over time. Change the date range or
+granularity to inspect a different period.
+
+
+
+Open **Sites**, find the Site, then select **More actions** > **Analytics**.
+
+
+
+
+
+
+
+<Illustration description="Interactive Sites analytics dashboard showing unique visitors and page views over seven days.">
+  <SitesAnalyticsIllustration ariaLabel="Interactive Sites analytics dashboard showing unique visitors and page views over seven days." />
+</Illustration>
+
+Analytics is currently available for Sites that aren't owned by an Enterprise
+  workspace.
+
+## Add Sign in with ChatGPT
+
+Public Sites can remain open to everyone while offering optional Sign in with
+ChatGPT for identity-aware features, such as saved progress, personalized views,
+or records that belong to a specific person. Workspace-restricted Sites already
+use ChatGPT identity to enforce their sharing settings.
+
+Ask Sites to add the sign-in experience:
+
+```text
+Add Sign in with ChatGPT to this public Site. Keep the Site available to signed-out visitors. Show a Sign in with ChatGPT action when someone is signed out. After they sign in, greet them with their full name when available, or their email address otherwise. Add a Sign out action, and keep authorization decisions in server-side code.
+```
+
+<ToggleSection title="How it works">
+
+Sites handles the sign-in and sign-out flows through platform-provided paths,
+then returns the visitor to your Site:
+
+```html
+<a href="/signin-with-chatgpt">Sign in with ChatGPT</a>
+<a href="/signout-with-chatgpt">Sign out</a>
+```
+
+After a visitor signs in, Sites forwards their identity to the server through
+these request headers:
+
+- `oai-authenticated-user-email` contains the authenticated email address.
+- `oai-authenticated-user-full-name` may contain a non-empty profile name. Treat
+  it as optional and fall back to the email address.
+
+Keep authorization decisions in server-side code, and don't depend on
+name-split headers.
+
+</ToggleSection>
+
 ## Understand projects, versions, and deployments
 
 A Site is a persistent hosted output that you can reopen, refine, configure,
