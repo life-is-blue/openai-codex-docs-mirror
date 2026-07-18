@@ -2,7 +2,7 @@
 
 Use agent skills to extend Codex with task-specific capabilities. A skill packages instructions, resources, and optional scripts so Codex can follow a workflow reliably. Skills build on the [open agent skills standard](https://agentskills.io).
 
-Skills are the authoring format for reusable workflows. Plugins distribute reusable skills and connectors to ChatGPT Work on the web and to Work and Codex in the ChatGPT desktop app. Codex CLI can also install plugins. Use skills to design the workflow itself, then package it as a [plugin](https://learn.chatgpt.com/docs/build-plugins) when you want other people in your workspace to install it.
+Skills are the authoring format for reusable workflows. Plugins distribute reusable skills and connectors to Work mode in ChatGPT on the web and to Work mode and Codex in the ChatGPT desktop app. Codex CLI can also install plugins. Use skills to design the workflow itself, then package it as a [plugin](https://learn.chatgpt.com/docs/build-plugins) when you want other people in your workspace to install it.
 
 Skills are available in the ChatGPT desktop app, Codex CLI, and IDE extension.
 

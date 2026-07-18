@@ -300,11 +300,11 @@ For public availability, the flow is:
    and scales the review process.
 3. After OpenAI approves the plugin, the developer chooses when to publish it
    and publishes it from the portal.
-4. After publication, the plugin appears in the universal plugin directory
+4. After publication, the plugin appears in the Plugins Directory
    available in both ChatGPT and Codex.
 
-No separate apps directory exists. Published apps, skills-only plugins, and
-app-plus-skills plugins all appear in the plugin directory.
+Plugins that contain apps, skills-only plugins, and app-plus-skills plugins all
+appear in the Plugins Directory.
 
 ## Final checklist
 

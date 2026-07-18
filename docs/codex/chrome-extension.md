@@ -33,8 +33,8 @@ ChatGPT can use context from your open tabs when a task needs it.
    can also press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd>.
 3. Ask a question about the page or give ChatGPT a task.
 
-The panel stays with the tab where you opened it. Threads you start in Chrome
-are available in the ChatGPT app, and you can open recent ChatGPT threads in
+The panel stays with the tab where you opened it. Chats you start in Chrome
+are available in the ChatGPT app, and you can open recent ChatGPT chats in
 Chrome, so you can continue work in either place.
 
 <Illustration description="ChatGPT open beside the current Chrome tab.">
@@ -76,7 +76,7 @@ to:
 
 ## Start a Chrome task from ChatGPT
 
-After the plugin setup is complete, start a new task in Work or Codex. ChatGPT
+After the plugin setup is complete, start a new chat in Work mode or Codex. ChatGPT
 can use Chrome automatically when a task needs a website and you're already
 signed in to Chrome. You can also invoke it directly in a prompt:
 
@@ -159,7 +159,7 @@ control doesn't use memories.
 OpenAI doesn't store a separate complete record of your Chrome actions from the
 extension. OpenAI stores browser activity only when it becomes part of the ChatGPT
 context, such as text ChatGPT reads from a page, screenshots, tool calls,
-summaries, messages, or other content included in the task.
+summaries, messages, or other content included in the chat.
 
 Your ChatGPT data controls apply to content processed in context.
 Avoid sending secrets or highly sensitive data through browser tasks unless
@@ -176,21 +176,21 @@ through these checks:
 2. Close the ChatGPT side panel, restart Chrome, then reopen the extension from
    the Chrome toolbar or **Extensions** menu. Confirm the side chat loads. If
    it doesn't load or mentions a missing native host, remove and re-add the
-   Chrome plugin from **Plugins** in Work or Codex in the ChatGPT desktop app,
-   then follow the setup flow again.
-3. In the app, select Work or Codex, open **Plugins**, and confirm that the
-   Chrome plugin is on. If the plugin is off, turn it on and
-   try the task again.
+   Chrome plugin from **Plugins** in the ChatGPT desktop app, then follow the
+   setup flow again.
+3. In the app, select ChatGPT and switch to Work mode, or select Codex. Open
+   **Plugins** and confirm that the Chrome plugin is on. If the plugin is off,
+   turn it on and try the task again.
 4. Make sure you are using the same Chrome profile where the extension is
    installed. If you use more than one Chrome profile, install and enable the
    extension in the active profile.
-5. Start a new task in Work or Codex and try the Chrome task again. This can
-   clear task-specific connection state.
+5. Start a new chat in Work mode or Codex and try the Chrome task again. This can
+   clear chat-specific connection state.
 6. Restart the ChatGPT desktop app, then try again. If the extension still
    doesn't connect, uninstall the Chrome extension, remove and re-add the Chrome
    plugin from **Plugins**, and follow the setup flow again.
 7. If the side chat loads but ChatGPT still can't use Chrome, run `/feedback`
-   in the app and include the task ID when you contact support.
+   in the app and include the chat ID when you contact support.
 
 ### Upload files
 

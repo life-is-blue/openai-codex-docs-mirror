@@ -13,7 +13,7 @@ it doesn't change what the model can do.
 ## Add custom instructions
 
 Use custom instructions for preferences you want ChatGPT to follow across
-chats and tasks, such as your preferred response style. In Codex, these personal
+chats, such as your preferred response style. In Codex, these personal
 instructions are stored in your global `AGENTS.md` file. Projects and
 repositories can also provide their own instructions.
 
@@ -21,7 +21,7 @@ repositories can also provide their own instructions.
 
 ## Carry context forward with memories
 
-[Memories](https://learn.chatgpt.com/docs/customization/memories) let ChatGPT carry useful context from earlier chats and tasks
+[Memories](https://learn.chatgpt.com/docs/customization/memories) let ChatGPT carry useful context from earlier chats
 into future work. They can include stable preferences, recurring workflows,
 project conventions, and other context you would otherwise need to repeat.
 

@@ -1,7 +1,7 @@
 # Long-running work
 
 For work that may take many steps, give ChatGPT a clear outcome, constraints,
-and definition of done. Keep related work in the same task or conversation so
+and definition of done. Keep related work in the same chat so
 ChatGPT can use the same context to choose the next step and decide when the
 work is complete.
 
@@ -79,8 +79,8 @@ In the ChatGPT desktop app, the goal progress row appears above the composer. Us
 pause or resume work, edit the goal, or clear it. You can also send follow-up
 messages while the goal runs to add context or adjust constraints.
 
-Use a side conversation when you want a status recap or an explanation without
-interrupting the main task. Pause the goal before you expect to lose
+Use a side chat when you want a status recap or an explanation without
+interrupting the main chat. Pause the goal before you expect to lose
 connectivity, then resume it when you're ready for ChatGPT to continue.
 
 
@@ -105,9 +105,9 @@ evaluate eligible requests without expanding those boundaries.
 
 ## Run goals in parallel
 
-Each task keeps its own context, messages, results, and goal. Run tasks
-concurrently, but avoid letting two tasks change the same files. Use
-[worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees) to give parallel coding tasks separate
+Each chat keeps its own context, messages, results, and goal. Run chats
+concurrently, but avoid letting two chats change the same files. Use
+[worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees) to give parallel coding chats separate
 checkouts.
 
 
@@ -116,7 +116,7 @@ checkouts.
 
 For local work, turn on **Prevent sleep while running** in settings so your Mac
 stays awake. Use [Pets](https://learn.chatgpt.com/docs/pets?surface=app) or [system
-notifications](https://learn.chatgpt.com/docs/notifications?surface=app) to see when a task needs input
+notifications](https://learn.chatgpt.com/docs/notifications?surface=app) to see when a chat needs input
 or is ready for review.
 
 
@@ -125,6 +125,6 @@ or is ready for review.
 
 ## Related docs
 
-- [Projects, chats, and tasks](https://learn.chatgpt.com/docs/projects)
+- [Projects and chats](https://learn.chatgpt.com/docs/projects)
 - [Goal mode and prompting](https://learn.chatgpt.com/docs/prompting#goal-mode)
 - [Git worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees)

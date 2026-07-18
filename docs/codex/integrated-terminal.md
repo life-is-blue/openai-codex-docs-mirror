@@ -1,11 +1,11 @@
 # Integrated terminal
 
-Each task in the ChatGPT desktop app includes a terminal scoped to its current project or
+Each chat in the ChatGPT desktop app includes a terminal scoped to its current project or
 worktree. Open it from the terminal icon in the top-right corner of the app, or
 press <kbd>Ctrl</kbd>+<kbd>`</kbd>.
 
 <CodexScreenshot
-  alt="Integrated terminal drawer open beneath a ChatGPT task"
+  alt="Integrated terminal drawer open beneath a ChatGPT chat"
   lightSrc="/images/codex/app/integrated-terminal-light.webp"
   darkSrc="/images/codex/app/integrated-terminal-dark.webp"
   maxHeight="400px"

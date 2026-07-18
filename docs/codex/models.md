@@ -251,7 +251,7 @@ start with Sol.
 Use the lowest reasoning effort that produces the result you need. Increase it
 for tasks that need more planning, analysis, or checking.
 
-- **Light** in the Codex app, ChatGPT Work, and IDE extension, or **Low** in the
+- **Light** in the ChatGPT desktop app, Work mode on the web, and IDE extension, or **Low** in the
   CLI, suits quick, well-scoped tasks.
 - **Medium** balances speed and depth for tasks that need more planning.
 - **High** and **Extra High** suit difficult work with multiple steps, sources,
@@ -378,6 +378,6 @@ model = "gpt-5.6"
 ```
 
 
-## Choose a model for cloud tasks
+## Choose a model for cloud chats
 
-Currently, you can't change the default model for Codex cloud tasks.
+Currently, you can't change the default model for Codex cloud chats.

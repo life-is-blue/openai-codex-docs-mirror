@@ -403,7 +403,7 @@ Codex supports opt-in monitoring via OpenTelemetry (OTel) to help teams audit us
 ### Overview
 
 - Codex turns off OTel export by default to keep local runs self-contained.
-- When enabled, Codex emits structured log events covering conversations, API requests, SSE/WebSocket stream activity, user prompts (redacted by default), tool approval decisions, and tool results.
+- When enabled, Codex emits structured log events covering chats, API requests, SSE/WebSocket stream activity, user prompts (redacted by default), tool approval decisions, and tool results.
 - Codex tags exported events with `service.name` (originator), CLI version, and an environment label to separate dev/staging/prod traffic.
 
 ### Enable OTel (opt-in)

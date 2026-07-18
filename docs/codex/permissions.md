@@ -21,7 +21,7 @@ Codex runs on your behalf. A profile is a named policy that combines filesystem
 rules, which define what commands can read or write, with network rules, which
 define which destinations commands can reach.
 
-Use profiles to give Codex enough access for the current task without granting
+Use profiles to give Codex enough access for the current chat without granting
 broad access to your machine or network. For example, a read-only profile can
 let Codex inspect a project without editing it, while a write-capable profile
 can limit edits to selected workspace roots.

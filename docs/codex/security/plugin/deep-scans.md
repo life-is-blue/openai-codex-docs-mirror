@@ -45,9 +45,13 @@ In the ChatGPT desktop app, a scoped deep scan resolves the selected folder as t
 4. Select **Start scan**.
 5. Review the capability preflight. If it proposes a configuration change,
    review the exact change and let Codex apply it only if it matches your
-   environment. Start a new task if Codex tells you a restart is required.
+   environment. Start a new chat if Codex tells you a restart is required.
 
 </WorkflowSteps>
+
+Deep scans require delegated workers and at least six usable worker slots. If
+the current runtime doesn't meet those requirements, use a standard scan or
+move the task to a runtime that passes the capability preflight.
 
 <VideoPlayer
   src="/videos/codex/security/deep-scan-progress.mp4"
@@ -56,10 +60,15 @@ In the ChatGPT desktop app, a scoped deep scan resolves the selected folder as t
 
 ## Review the result
 
-Deep scans use the same findings workspace and generated `report.md` as standard
-scans. Review the coverage summary before the findings. A deep scan searches
-the code more extensively, but any deferred surface or proof gap still limits
-the conclusion. For a finding you accept, continue with [Fix and verify a
+Deep scans use the same findings workspace and complete scan directory as
+standard scans. Start with `report.md`, which links to one detailed report for
+each reportable finding and a structural hardening portfolio when findings
+remain. Keep the linked `findings/` and `hardening/` directories with the
+report when sharing or archiving the result.
+
+Review the coverage summary before the findings. A deep scan searches the code
+more extensively, but any deferred surface or proof gap still limits the
+conclusion. For a finding you accept, continue with [Fix and verify a
 finding](https://learn.chatgpt.com/docs/security/plugin/fix-findings).
 
 To review a pull request, commit, branch range, or local patch, use [Review code

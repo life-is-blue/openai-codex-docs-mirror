@@ -73,7 +73,7 @@ calls and tool outputs, and the action now being proposed for approval. It can
 also perform read-only checks to gather missing context, but it does so rarely.
 
 Hidden assistant reasoning is not included. Auto-review sees retained
-conversation items and tool evidence, not private chain-of-thought.
+chat items and tool evidence, not private chain-of-thought.
 
 ## Denials and failure behavior
 

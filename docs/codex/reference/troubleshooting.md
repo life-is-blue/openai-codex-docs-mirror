@@ -20,27 +20,27 @@ pane to the **Last turn** view.
 
 To remove a project from the sidebar, hover over the name of your project, click
 the three dots and choose "Remove." To restore it, re-add the
-project using the **Add new project** button next to **Tasks** or using
+project using the **Add new project** button next to **Chats** or using
 
 <kbd>Cmd</kbd>+<kbd>O</kbd>.
 
 <a id="find-archived-threads"></a>
-<a id="find-archived-chats"></a>
+<a id="find-archived-tasks"></a>
 
-### Find archived tasks
+### Find archived chats
 
-Archived tasks can be found in [Settings](codex://settings). When you unarchive
-a task, it reappears in its original sidebar location.
+Archived chats can be found in [Settings](codex://settings). When you unarchive
+a chat, it reappears in its original sidebar location.
 
 <a id="only-some-threads-appear-in-the-sidebar"></a>
-<a id="only-some-chats-appear-in-the-sidebar"></a>
+<a id="only-some-tasks-appear-in-the-sidebar"></a>
 
-### Only some tasks appear in the sidebar
+### Only some chats appear in the sidebar
 
-The sidebar lets you filter tasks based on the state of a project. If you're
-missing tasks, select the filter icon next to **Tasks**, then select
-**Chronological**. If you still don't see the task, open
-[Settings](codex://settings) and check **Archived tasks**.
+The sidebar lets you filter chats based on the state of a project. If you're
+missing chats, select the filter icon next to **Chats**, then select
+**Chronological**. If you still don't see the chat, open
+[Settings](codex://settings) and check **Archived chats**.
 
 ### Code doesn't run on a worktree
 
@@ -76,7 +76,7 @@ worktrees.
 
 ### Recover a prompt after selecting the wrong target
 
-If you started a task with the wrong target (**Local**, **Worktree**, or **Cloud**) by accident, you can cancel the current run and recover your previous prompt by pressing the up arrow key in the composer.
+If you started a chat with the wrong target (**Local**, **Worktree**, or **Cloud**) by accident, you can cancel the current run and recover your previous prompt by pressing the up arrow key in the composer.
 
 ### Feature is working in the Codex CLI but not in the ChatGPT desktop app
 
@@ -100,7 +100,7 @@ retained `Codex.app` compatibility bundle path:
 ## Feedback and logs
 
 Type <kbd>/</kbd> into the message composer to provide feedback for the team. If
-you trigger feedback in an existing conversation, you can choose to share the
+you trigger feedback in an existing chat, you can choose to share the
 existing session along with your feedback. After submitting your feedback,
 you'll receive a session ID that you can share with the team.
 
@@ -120,11 +120,11 @@ information.
 
 ## Stuck states and recovery patterns
 
-If a task appears stuck:
+If a chat appears stuck:
 
 1. Check whether Codex is waiting for an approval.
 2. Open the terminal and run a basic command like `git status`.
-3. Start a new task with a smaller, more focused prompt.
+3. Start a new chat with a smaller, more focused prompt.
 
 If you cancel worktree creation by mistake and lose your prompt, press the up
 arrow key in the composer to recover it.
@@ -140,7 +140,7 @@ arrow key in the composer to recover it.
 If commands behave differently than expected, validate the current directory and
 branch in the terminal first.
 
-If it continues to be stuck, wait until your active tasks are complete and restart the app.
+If it continues to be stuck, wait until your active chats are complete and restart the app.
 
 **Fonts aren't rendering correctly**
 

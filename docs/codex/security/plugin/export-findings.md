@@ -74,7 +74,7 @@ metadata, and destination. Do not create or update anything until I approve
 that payload.
 ```
 
-Jira tracking requires the native Atlassian Rovo app in Codex. Reusing an issue
+Jira tracking requires the Atlassian Rovo plugin in Codex. Reusing an issue
 requires read access; creating or updating one requires read and write access.
 
 For a private draft GitHub Security Advisory, send:

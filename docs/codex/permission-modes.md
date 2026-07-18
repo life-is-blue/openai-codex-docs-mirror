@@ -22,7 +22,7 @@ When you're using the ChatGPT desktop app for the first time, you need to enable
 **Auto&#45;review** in settings) or **Full access** to the permissions menu, open
 **Settings > General** in the ChatGPT desktop app, then turn on the mode under
 **Permissions**. Enabling a mode makes it available in the menu; it doesn't
-select the mode or change an existing conversation.
+select the mode or change an existing chat.
 
 <Illustration description="Permission visibility controls showing Default permissions, automatic review, and Full access.">
   <PermissionModeSettingsIllustration ariaLabel="Permission visibility controls showing Default permissions, automatic review, and Full access." />

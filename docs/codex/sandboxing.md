@@ -1,7 +1,7 @@
 # Sandbox
 
 The sandbox is the boundary that lets the agent act autonomously without giving it
-unrestricted access to your machine. When a local task runs commands in the
+unrestricted access to your machine. When a local chat runs commands in the
 **ChatGPT desktop app**, **Codex CLI**, or **IDE extension**, those commands run inside a
 constrained environment instead of running with full access by default.
 

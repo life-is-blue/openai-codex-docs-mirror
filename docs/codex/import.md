@@ -29,7 +29,7 @@ Importing doesn't change or delete your existing agent setup.
 3. Choose the agents you want to import from, then select **Continue**.
 4. On **Select items to import**, select **Continue** to import everything or **Customize** to choose specific items.
 5. If you customize the import, select the items to bring over, then select **Confirm**.
-6. After the import finishes, open an imported project or task to continue working.
+6. After the import finishes, open an imported project or chat to continue working.
 
 </WorkflowSteps>
 
@@ -67,7 +67,7 @@ When you import, ChatGPT:
 | Skills                      | [Skills](https://learn.chatgpt.com/docs/build-skills)                        |
 | Plugins                     | Plugins                                              |
 | Existing project folders    | Projects using the same folders                      |
-| Chats from the last 30 days | ChatGPT tasks                                        |
+| Chats from the last 30 days | ChatGPT chats                                        |
 | MCP server configuration    | [Codex MCP configuration](https://learn.chatgpt.com/docs/extend/mcp)         |
 | Hooks                       | [Codex hooks](https://learn.chatgpt.com/docs/hooks)                          |
 | Slash commands              | [Skills](https://learn.chatgpt.com/docs/build-skills)                        |

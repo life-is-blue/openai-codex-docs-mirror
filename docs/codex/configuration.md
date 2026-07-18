@@ -3,7 +3,7 @@
 <CodexDocsOverviewLanding
   title="Configuration"
   description="Set defaults, add durable context, and customize how ChatGPT and Codex developer tools work."
-  intro="Configuration shapes how ChatGPT and Codex developer tools behave across tasks, repositories, and machines. Durable context, config files, repository guidance, subagents, external connections, and Windows setup work together to keep those workflows consistent for individuals and teams."
+  intro="Configuration shapes how ChatGPT and Codex developer tools behave across chats, repositories, and machines. Durable context, config files, repository guidance, subagents, external connections, and Windows setup work together to keep those workflows consistent for individuals and teams."
   primaryCta={{
     label: "Explore customization",
     href: "/codex/customization/overview",
@@ -17,7 +17,7 @@
     {
       title: "Customization",
       description:
-        "Adapt the experience and carry useful context between tasks.",
+        "Adapt the experience and carry useful context between chats.",
       pages: [
         {
           title: "Customization overview",
@@ -28,8 +28,7 @@
         },
         {
           title: "Memories",
-          description:
-            "Let ChatGPT retain useful context across chats and tasks.",
+          description: "Let ChatGPT retain useful context across chats.",
           href: "/codex/customization/memories",
           icon: "threads",
         },

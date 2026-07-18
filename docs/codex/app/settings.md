@@ -8,7 +8,7 @@ Open [**Settings**](codex://settings) from the app menu or press
 ## General
 
 Require <kbd>Cmd</kbd>+<kbd>Enter</kbd> for multiline prompts, or turn on
-**Prevent sleep while running** so local tasks can continue while you step away.
+**Prevent sleep while running** so local chats can continue while you step away.
 Under **Follow-up behavior**, choose whether a message sent while ChatGPT works
 should steer the current run or wait for the next run.
 
@@ -61,7 +61,7 @@ code fonts. You can also share your custom theme with friends.
     **Tuck Away Pet** to control the floating overlay.
 
     See [Pets](https://learn.chatgpt.com/docs/pets?surface=app) to understand pet status, follow
-    activity across tasks, or create your own pet.
+    activity across chats, or create your own pet.
 
   </div>
 
@@ -102,24 +102,28 @@ start or return to ChatGPT.
 ## Memories
 
 Enable Memories, where available, to let ChatGPT carry useful context from past
-chats and tasks into future work. See [Memories](https://learn.chatgpt.com/docs/customization/memories)
-for setup, storage, and controls for individual chats and tasks.
+chats into future work. See [Memories](https://learn.chatgpt.com/docs/customization/memories)
+for setup, storage, and controls for individual chats.
 
-## Archived tasks
+<a id="archived-tasks"></a>
 
-The **Archived tasks** section lists archived tasks with dates and project
-context. Use **Unarchive** to restore a task.
+## Archived chats
 
+The **Archived chats** section lists archived chats with dates and project
+context. Use **Unarchive** to restore a chat.
+
+<a id="keep-an-app-task-near-your-work"></a>
 <a id="keep-an-app-chat-near-your-work"></a>
+<a id="keep-a-task-near-your-work"></a>
 
-## Keep a task near your work
+## Keep a chat near your work
 
-In the ChatGPT desktop app, pop out an active task into a separate window and place it
+In the ChatGPT desktop app, pop out an active chat into a separate window and place it
 next to your browser, editor, or design preview. Turn on **Always on top** when
-you want the task to remain visible while you work in another app.
+you want the chat to remain visible while you work in another app.
 
 <CodexScreenshot
-  alt="ChatGPT desktop app task displayed in a floating pop-out window"
+  alt="ChatGPT desktop app chat displayed in a floating pop-out window"
   lightSrc="/images/codex/app/popover-light.webp"
   darkSrc="/images/codex/app/popover-dark.webp"
   maxHeight="400px"

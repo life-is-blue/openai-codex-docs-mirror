@@ -2,7 +2,7 @@
 
 Ask ChatGPT to generate or edit images. Use image generation for UI assets,
 banners, backgrounds, illustrations, sprite sheets, and placeholders you want
-to create alongside code or in a ChatGPT conversation.
+to create alongside code or in a ChatGPT chat.
 
 
 

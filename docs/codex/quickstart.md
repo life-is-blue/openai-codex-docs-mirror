@@ -28,7 +28,7 @@ If you're a developer and want to use Codex in your terminal or code editor,
 >
   <div slot="app">
 The ChatGPT desktop app is available for Windows and macOS. Use it for projects,
-local files, longer tasks, and quick conversations.
+local files, longer tasks, and quick chats.
 
 <WorkflowSteps variant="headings">
 1. <h3 id="setup-app-install">Install the ChatGPT desktop app</h3>
@@ -45,20 +45,23 @@ local files, longer tasks, and quick conversations.
 
 3.  <h3 id="setup-app-select-workspace">Select where ChatGPT should work</h3>
 
-    Start a task, create a project, or open a folder. ChatGPT can read and modify
-    files in the folder you choose. [Learn more about tasks and projects](https://learn.chatgpt.com/docs/projects).
+    Start a chat, create a project, or open a folder. ChatGPT can read and modify
+    files in the folder you choose. [Learn more about chats and projects](https://learn.chatgpt.com/docs/projects).
 
-4.  <h3 id="setup-app-start-task">Start your task</h3>
+4.  <h3 id="setup-app-start-task">Start a chat</h3>
 
             <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] md:items-start">
 
           <div>
 
                 - For research, analysis, or deliverables such as documents, presentations,
-                  spreadsheets, and Sites, select **ChatGPT Work** from the ChatGPT dropdown.
+                  spreadsheets, and Sites, select **ChatGPT**, then select **Work** from the mode
+                  toggle at the top of the new chat page, above the composer.
                 - For software development with codebase context and developer tools, select
                   **Codex** from the ChatGPT dropdown.
-                - For a quick question or conversation, open **Chat** separately.
+                - For a quick question or chat, select **ChatGPT**, then select **Chat**
+                  from the mode toggle at the top of the new chat page, above the composer. In
+                  Codex, point to **New chat**, then select the **Quick chat** icon on its right.
 
                 Learn more about [using ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt).
 
@@ -102,14 +105,14 @@ local files, longer tasks, and quick conversations.
   </div>
 
   <div slot="web">
-ChatGPT is available on the web and includes Chat and ChatGPT Work.
+ChatGPT is available on the web and includes Chat mode and Work mode.
 
 <WorkflowSteps variant="headings">
 1. <h3 id="setup-web-sign-in">Open ChatGPT and sign in</h3>
 
 Go to [chatgpt.com](https://chatgpt.com) and sign in with your ChatGPT account.
 
-2.  <h3 id="setup-web-start-task">Start your task</h3>
+2.  <h3 id="setup-web-start-task">Start a chat</h3>
 
             <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] md:items-stretch">
 

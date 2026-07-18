@@ -224,7 +224,8 @@ If you omit `profile`, Codex uses the standard AWS credential chain. Set
 `region` to the supported Bedrock region that should handle requests.
 
 For the full setup flow, authentication options, supported models, and feature
-availability, see [Use Codex with Amazon Bedrock](https://learn.chatgpt.com/docs/amazon-bedrock).
+availability, see [Use ChatGPT Work and Codex with Amazon
+Bedrock](https://learn.chatgpt.com/docs/amazon-bedrock).
 
 ## OSS mode (local providers)
 

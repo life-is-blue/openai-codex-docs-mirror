@@ -4,7 +4,7 @@
   <div class="min-w-0 [&_p]:!mt-0">
 
 Codex Micro is a limited-run collaboration between Codex and Work Louder. It
-works with the ChatGPT desktop app, giving you a quick way to check on tasks,
+works with the ChatGPT desktop app, giving you a quick way to check on chats,
 jump between them, use push-to-talk, and trigger common actions or skills
 without leaving the keyboard.
 
@@ -25,7 +25,7 @@ without leaving the keyboard.
    follow the setup that appears when ChatGPT detects it.
 3. On macOS, allow **Input Monitoring** when prompted so ChatGPT can respond to
    key presses.
-4. Open **Settings > Codex Micro** to choose which tasks the Agent Keys follow,
+4. Open **Settings > Codex Micro** to choose which chats the Agent Keys follow,
    assign actions to the Command Keys and analog directions, and adjust the
    lighting.
 
@@ -36,38 +36,40 @@ You'll see **Codex Micro** in Settings after ChatGPT detects the device for the
 first time. If you want to use the device outside ChatGPT, customize those
 controls with [Work Louder Input](https://worklouder.cc/micro-setup).
 
-## Read and switch tasks with Agent Keys
+<a id="read-and-switch-tasks-with-agent-keys"></a>
 
-Each of the six frosted Agent Keys can follow a task and light up to show its
-current status. Press an Agent Key once to switch to that task without bringing
-ChatGPT forward. Press it twice within 350 milliseconds to switch tasks and
+## Read and switch chats with Agent Keys
+
+Each of the six frosted Agent Keys can follow a chat and light up to show its
+current status. Press an Agent Key once to switch to that chat without bringing
+ChatGPT forward. Press it twice within 350 milliseconds to switch chats and
 bring the ChatGPT window forward.
 
 | Light | Status           | Meaning                                   |
 | ----- | ---------------- | ----------------------------------------- |
-| White | Idle             | The task is idle.                         |
+| White | Idle             | The chat is idle.                         |
 | Blue  | Thinking         | ChatGPT is working.                       |
-| Green | Complete         | The task completed with an unread update. |
+| Green | Complete         | The chat completed with an unread update. |
 | Amber | Requires input   | ChatGPT needs your approval or response.  |
 | Red   | Error            | Something went wrong.                     |
-| Off   | No assigned task | The key doesn't follow a task.            |
+| Off   | No assigned chat | The key doesn't follow a chat.            |
 
-The selected task's key pulses with its status light.
+The selected chat's key pulses with its status light.
 
-Out of the box, the keys follow your six most recently updated tasks, whether
+Out of the box, the keys follow your six most recently updated chats, whether
 or not they're pinned. You can change **Agent source** in **Settings > Codex
 Micro** to use a different arrangement:
 
-- **Most recent tasks**: Follow the six most recently updated tasks, pinned or
+- **Most recent chats**: Follow the six most recently updated chats, pinned or
   unpinned.
-- **Pinned tasks**: Follow the first six tasks in **Pinned**.
-- **Priority tasks**: Put tasks waiting for input, unread tasks, and active
-  tasks first.
-- **Custom assignments**: Choose the task assigned to each Agent Key. Press an
-  unassigned Agent Key to open a new task. When you start the task, ChatGPT
+- **Pinned chats**: Follow the first six chats in **Pinned**.
+- **Priority chats**: Put chats waiting for input, unread chats, and active
+  chats first.
+- **Custom assignments**: Choose the chat assigned to each Agent Key. Press an
+  unassigned Agent Key to open a new chat. When you start the chat, ChatGPT
   assigns it to that key.
 
-The status colors stay the same. You can decide which tasks the Agent Keys
+The status colors stay the same. You can decide which chats the Agent Keys
 follow, but you can't turn them into extra Command Keys.
 
 ## Use and customize Command Keys
@@ -82,7 +84,7 @@ Codex Micro comes with six actions in its default layout:
 |  <CodexMicroTableKeycap keycapId="FAST" label="Fast" />   | Turn Fast mode on or off.                |
 | <CodexMicroTableKeycap keycapId="APPR" label="Approve" /> | Approve the current request.             |
 | <CodexMicroTableKeycap keycapId="REJ" label="Decline" />  | Decline the current request.             |
-|  <CodexMicroTableKeycap keycapId="SPLIT" label="Fork" />  | Continue the current task in a new task. |
+|  <CodexMicroTableKeycap keycapId="SPLIT" label="Fork" />  | Continue the current chat in a new chat. |
 |   <CodexMicroTableKeycap keycapId="MIC" label="Mic" />    | Start push-to-talk.                      |
 | <CodexMicroTableKeycap keycapId="CODEX" label="Codex" />  | Send the message in the composer.        |
 

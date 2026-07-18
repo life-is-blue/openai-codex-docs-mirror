@@ -8,7 +8,7 @@ boundaries:
   Codex CLI, and IDE extension.
 - Codex cloud.
 - Platform API access.
-- Plugins and apps.
+- Plugins and connector access.
 - Permissions in connected systems.
 
 Complete the steps in order for a new rollout, or use the linked pages to change
@@ -154,22 +154,22 @@ setup and runtime guidance.
 
 ## Step 6: Configure plugins and connected capabilities
 
-Review plugin installation, bundled skills, app-backed capabilities, app
-actions, and source-system authorization as separate decisions. Disabling an
-app-backed capability doesn't necessarily uninstall the plugin or its bundled
-skills.
+Review plugin installation, bundled skills, connector-backed capabilities,
+connector actions, and source-system authorization as separate decisions.
+Disabling a connector-backed capability doesn't necessarily uninstall the
+plugin or its bundled skills.
 
 Before including a plugin or skill in the rollout:
 
 1. Confirm its source, accountable owner, intended audience, and review date.
-2. Review bundled skills, apps, MCP servers, hooks, and the data and actions
-   each capability requires.
+2. Review bundled skills, connectors, MCP servers, hooks, and the data and
+   actions each capability requires.
 3. Test it with non-sensitive data and the least access it needs.
 4. Record who owns re-review and retirement.
 
-Plugins are available in ChatGPT Work on the web, in ChatGPT Work and Codex in
-the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
-available in Chat, the IDE extension, or mobile.
+Plugins are available in Work mode in ChatGPT on the web, in Work mode and Codex
+in the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
+available in Chat mode, the IDE extension, or mobile.
 
 See [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors) and
 [Skill controls](https://learn.chatgpt.com/docs/enterprise/skills) for the complete model.
@@ -214,7 +214,7 @@ Verify every applicable boundary with representative identities:
   extension, including sign-in and effective runtime requirements.
 - Codex cloud access, environment configuration, and repository permissions.
 - Platform API organization and project access for API-key workflows.
-- Plugin installation, bundled skills, app access, and supported actions.
+- Plugin installation, bundled skills, connector access, and supported actions.
 - Connected-system authorization and data access.
 - Analytics and compliance access for the responsible administrators.
 

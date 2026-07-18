@@ -2,7 +2,7 @@
 
 Visualizations turn questions, ideas, and information into charts, maps,
 diagrams, calculators, simulations, and interactive explainers you can explore
-in a ChatGPT conversation. Use one when adjusting inputs or seeing a
+in a ChatGPT chat. Use one when adjusting inputs or seeing a
 relationship would make an answer easier to understand, compare, practice, or
 act on.
 
@@ -31,7 +31,7 @@ preview reaches your account.
 
 | Surface                     | Current availability                                                          |
 | --------------------------- | ----------------------------------------------------------------------------- |
-| ChatGPT on the web          | Available to supported accounts in Chat and ChatGPT Work                      |
+| ChatGPT on the web          | Available to supported accounts in Chat mode and Work mode                    |
 | ChatGPT desktop app         | Rolling out in preview                                                        |
 | ChatGPT mobile apps         | Rolling out to eligible accounts; composer controls can differ by app version |
 | Codex CLI and IDE extension | Visualization rendering isn't supported                                       |
@@ -70,7 +70,7 @@ interactions. Try this example:
 />
 
 Tell ChatGPT which information to use, such as content already in the
-conversation, pasted data, an attached file, or an available connected source.
+chat, pasted data, an attached file, or an available connected source.
 For complex requests, choose a higher reasoning setting when one is available.
 
 ## Explore interactive examples
@@ -85,7 +85,7 @@ explanation, lab, or teaching tool.
 
 ## Refine and continue
 
-Continue in the same conversation and describe the change you want. Useful
+Continue in the same chat and describe the change you want. Useful
 follow-ups include:
 
 - Add or remove a control, filter, comparison, or annotation.
@@ -101,8 +101,8 @@ original result in place. Review the new version before relying on it.
 
 ## Share or reuse a result
 
-Use the conversation's standard **Share** action when it's available. Review
-the entire shared conversation first, including its source data and earlier
+Use the chat's standard **Share** action when it's available. Review
+the entire shared chat first, including its source data and earlier
 messages. A visualization is generally a snapshot of the information available
 when ChatGPT created it, not a live dashboard that stays synchronized with a
 connected source.
@@ -121,7 +121,7 @@ and units, avoid relying on color alone, and make controls work from a keyboard.
 ## Recover from a failed result
 
 Visualizations can take a minute or longer to generate. If the result is blank
-or missing, wait for the response to finish, reload the conversation once, and
+or missing, wait for the response to finish, reload the chat once, and
 then retry. If it still fails:
 
 - Ask for a smaller or simpler visualization.
@@ -130,13 +130,13 @@ then retry. If it still fails:
 - Verify important values, geographic boundaries, and source assumptions.
 - Ask for a chart, diagram, table, or Site instead.
 
-Use the same data-handling judgment you use for any ChatGPT conversation. Only
+Use the same data-handling judgment you use for any ChatGPT chat. Only
 include sensitive information when your organization permits it, and review
-the full conversation before you share it.
+the full chat before you share it.
 
 ## Related docs
 
 - [Sites](https://learn.chatgpt.com/docs/sites)
-- [Projects, chats, and tasks](https://learn.chatgpt.com/docs/projects)
+- [Projects and chats](https://learn.chatgpt.com/docs/projects)
 - [Work with files](https://learn.chatgpt.com/docs/artifacts-viewer)
 - [Image generation](https://learn.chatgpt.com/docs/image-generation)

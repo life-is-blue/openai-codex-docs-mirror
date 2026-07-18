@@ -1,15 +1,15 @@
-# Use Codex with Amazon Bedrock
+# Use ChatGPT Work and Codex with Amazon Bedrock
 
-Configure Codex to use OpenAI models available through Amazon Bedrock. In this
-setup, Codex runs locally and sends model requests to Bedrock using
-AWS-managed authentication and access controls.
+Configure local ChatGPT Work and Codex surfaces to use OpenAI models available
+through Amazon Bedrock. In this setup, the local client sends model requests to
+Bedrock using AWS-managed authentication and access controls.
 
 ## How it works
 
-When you configure Codex with Amazon Bedrock as the model provider, the
-OpenAI-hosted Responses API isn't in the request path. Codex sends model
-requests to Amazon Bedrock, and Bedrock provides an OpenAI-compatible Responses
-API implementation for supported OpenAI models.
+When you configure a local ChatGPT Work or Codex surface with Amazon Bedrock as
+the model provider, the OpenAI-hosted Responses API isn't in the request path.
+The local client sends model requests to Amazon Bedrock, and Bedrock provides an
+OpenAI-compatible Responses API implementation for supported OpenAI models.
 
 Authentication is AWS-native. Users authenticate with a Bedrock API key or AWS
   IAM credentials. They do not use ChatGPT sign-in or `OPENAI_API_KEY` for this
@@ -24,31 +24,33 @@ Make sure you have:
 - Authentication for the Amazon Bedrock Mantle path configured for the AWS
   account.
 
-## Configure Codex
+## Configure the provider
 
 Add the `amazon-bedrock` model provider for the Amazon Bedrock Mantle path to
-`~/.codex/config.toml`. Supplying a model is optional. Select a supported model
-explicitly when needed.
+`~/.codex/config.toml`. The ChatGPT desktop app, Codex CLI, IDE extension, and
+SDK read the same local configuration layers. Supplying a model is optional.
+Select a supported model explicitly when needed.
 
 ```toml
 model_provider = "amazon-bedrock"
 ```
 
 This guide covers the Amazon Bedrock Mantle path in supported commercial AWS
-  Regions. Codex doesn't support Bedrock Mantle endpoints in AWS GovCloud
-  Regions.
+  Regions. Local ChatGPT Work and Codex surfaces don't support Bedrock Mantle
+  endpoints in AWS GovCloud Regions.
 
 ## Authentication options
 
-Codex supports two Bedrock authentication paths. It checks them in this order:
+Local ChatGPT Work and Codex surfaces support two Bedrock authentication paths.
+They check them in this order:
 
 1. Bedrock API key.
 2. AWS SDK credential chain.
 
 ### Option 1: Bedrock API key
 
-Set the Bedrock API key in the environment Codex reads. You must specify a
-Region when using API-key authentication.
+Set the Bedrock API key in the environment the local client reads. You must
+specify a Region when using API-key authentication.
 
 ```shell
 export AWS_BEARER_TOKEN_BEDROCK=<your-bedrock-api-key>
@@ -58,7 +60,8 @@ export AWS_REGION=us-east-2
 ### Option 2: AWS SDK credentials
 
 Use this path when your organization manages Bedrock access through the AWS SDK
-credential chain. Codex can use these standard AWS SDK credential sources:
+credential chain. The local client can use these standard AWS SDK credential
+sources:
 
 1. Shared AWS `config` and `credentials` files.
 
@@ -88,11 +91,11 @@ credential chain. Codex can use these standard AWS SDK credential sources:
    ```
 
 5. Federated identity configured with `credential_process`. For corporate SSO or
-   OIDC federation, configure the AWS profile outside Codex and let the AWS SDK
-   resolve credentials. Put browser login, token exchange, caching, and refresh
-   in your AWS profile's `credential_process` helper.
+   OIDC federation, configure the AWS profile outside the local client and let
+   the AWS SDK resolve credentials. Put browser login, token exchange, caching,
+   and refresh in your AWS profile's `credential_process` helper.
 
-## Desktop app and VS Code extension
+## Desktop app and IDE extension
 
 Desktop apps and IDE extensions may not inherit environment variables from the
 shell. Put required values in `~/.codex/.env`, then restart the app or
@@ -107,8 +110,9 @@ export AWS_REGION=us-east-2
 
 - In Codex CLI, open `/status` and confirm Codex is using the
   `amazon-bedrock` model provider.
-- In the desktop app or VS Code extension, start a new session after restarting
-  the app.
+- In the ChatGPT desktop app, select Work or Codex and start a new task after
+  restarting the app.
+- In the IDE extension, start a new session after restarting the extension.
 - Confirm the selected model is available in the configured AWS Region and that
   the AWS identity has permission to access it.
 
@@ -117,6 +121,9 @@ export AWS_REGION=us-east-2
 Use exact model IDs:
 
 ```text
+openai.gpt-5.6-sol
+openai.gpt-5.6-terra
+openai.gpt-5.6-luna
 openai.gpt-5.5
 openai.gpt-5.4
 ```
@@ -127,9 +134,10 @@ Region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compa
 
 ## Feature availability
 
-This configuration supports local Codex workflows. Some features that depend on
-OpenAI-hosted cloud services, hosted tools, or cloud-managed discovery aren't
-currently available.
+This configuration supports local ChatGPT Work and Codex workflows. Hosted
+ChatGPT Work on the web, Codex cloud, and features that depend on OpenAI-hosted
+cloud services, hosted tools, or cloud-managed discovery aren't currently
+available.
 
 Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
   processing, and the initial Amazon Bedrock offering supports on-demand
@@ -151,6 +159,13 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
           title: "Access and surfaces",
           features: [
             {
+              name: "ChatGPT Work on the web",
+              href: "/codex/get-started-with-work",
+              availability: {
+                bedrock: "unavailable",
+              },
+            },
+            {
               name: "Codex cloud",
               href: "/codex/cloud",
               availability: {
@@ -158,7 +173,8 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
               },
             },
             {
-              name: "ChatGPT desktop app for local tasks",
+              name: "ChatGPT Work or Codex in the ChatGPT desktop app",
+              shortName: "ChatGPT desktop app",
               href: "/codex/app",
               availability: {
                 bedrock: "available",
@@ -419,8 +435,8 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
           title: "Cloud and integrations",
           features: [
             {
-              name: "Codex cloud tasks",
-              shortName: "Cloud tasks",
+              name: "Codex cloud chats",
+              shortName: "Cloud chats",
               href: "/codex/cloud",
               availability: {
                 bedrock: "unavailable",
@@ -589,14 +605,14 @@ If setup fails, check the following:
 - The Bedrock API key or AWS credentials are valid and not expired.
 - The AWS identity has permission to access the selected Bedrock model.
 - `AWS_BEARER_TOKEN_BEDROCK` isn't set to an expired or unintended key.
-- For desktop app or VS Code extension usage, required environment variables
-  are present in `~/.codex/.env`.
+- For desktop app or IDE extension usage, required environment variables are
+  present in `~/.codex/.env`.
 
 ## Support boundaries
 
-OpenAI Support can help with Codex client setup, configuration, local CLI
-behavior, desktop app behavior, IDE extension behavior, and the local Codex
-product experience.
+OpenAI Support can help with ChatGPT Work and Codex client setup,
+configuration, local CLI behavior, desktop app behavior, IDE extension behavior,
+and the local product experience.
 
 For AWS credentials, IAM permissions, Bedrock model access, quotas, billing,
 regional availability, Bedrock request failures, AWS service logs, or Bedrock

@@ -1,22 +1,22 @@
 # Remote connections
 
 Remote connections let you access work running on another device or machine.
-In the ChatGPT mobile app, open **Remote** to work with ChatGPT Work or Codex tasks on
+In the ChatGPT mobile app, open **Remote** to work with ChatGPT or Codex chats on
 a connected Mac or Windows device. You can also continue work from another
 supported device running the ChatGPT desktop app or connect the app to projects
 on an SSH host.
 
-Remote access uses the connected host's projects, tasks, files, credentials,
+Remote access uses the connected host's projects, chats, files, credentials,
 permissions, plugins, Computer Use, browser setup, and local tools.
 
 ## What you can do remotely
 
-- Start new tasks in projects on the host, or continue existing ones.
+- Start new chats in projects on the host, or continue existing ones.
 - Send follow-up instructions, answer questions, and steer active work.
 - Approve commands and other actions.
 - Review outputs, diffs, test results, terminal output, and screenshots.
 - Get notified when ChatGPT completes a task or needs your attention.
-- Switch between connected hosts and tasks.
+- Switch between connected hosts and chats.
 
 The next sections cover opening **Remote** in the ChatGPT mobile app to access a
 desktop host. To connect Codex to a project on an SSH host, see
@@ -111,7 +111,7 @@ computer or SSH host when you need continuous access or a different environment.
 ### <span class="not-prose inline-flex items-center gap-3 align-middle"><span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-secondary text-secondary"><Desktop width={17} height={17} /></span><span>Your laptop or desktop</span></span>
 
 Connect the Mac or Windows PC where the desktop app is already installed. This
-gives remote access to the same projects, tasks, credentials, plugins, and local
+gives remote access to the same projects, chats, credentials, plugins, and local
 setup you already use.
 
 If that computer sleeps, loses network access, or closes the app, remote access
@@ -172,8 +172,8 @@ ChatGPT devices without exposing them directly to the public internet.
 
 You can continue work from another signed-in device running the ChatGPT desktop
 app and supporting remote control. For example, if your laptop is unavailable, you can
-start a task from your phone on an always-on host, then later open the app on
-your laptop and continue that same task there.
+start a chat from your phone on an always-on host, then later open the app on
+your laptop and continue that same chat there.
 
 On a Mac or Windows device where the feature is available, use **Settings >
 Connections > Control other devices** to add the other host. A device can allow
@@ -188,8 +188,8 @@ remote access and control another device at the same time.
 
 ## Connect to an SSH host
 
-In the ChatGPT desktop app, add remote projects from an SSH host and run tasks
-against the remote filesystem and shell. Remote project tasks run commands,
+In the ChatGPT desktop app, add remote projects from an SSH host and run chats
+against the remote filesystem and shell. Remote project chats run commands,
 read files, and write changes on the remote host.
 
 Keep the remote host configured with the same security expectations you use for
@@ -236,32 +236,33 @@ unauthenticated public listeners.
 
 <a id="hand-off-a-thread-between-hosts"></a>
 <a id="hand-off-a-chat-between-hosts"></a>
+<a id="hand-off-a-task-between-hosts"></a>
 
-## Hand off a task between hosts
+## Hand off a chat between hosts
 
-Handoff moves an existing task and its Git state between your local computer
+Handoff moves an existing chat and its Git state between your local computer
 and a connected remote host. Use it to start work locally, continue in a
-worktree on a remote computer, and bring the task back later.
+worktree on a remote computer, and bring the chat back later.
 
-Before you hand off a task, connect the destination host and save a project
+Before you hand off a chat, connect the destination host and save a project
 for the same Git repository on that host. If the project is a subdirectory of
 the repository, save the same subdirectory on both hosts. Codex only shows
 destinations with a matching saved project.
 
-To hand off a task:
+To hand off a chat:
 
-1. Open the task in the desktop app.
-2. In the task footer, select the current run location, then select the
-   destination host. Select **This computer** when handing a remote task back
+1. Open the chat in the desktop app.
+2. In the chat footer, select the current run location, then select the
+   destination host. Select **This computer** when handing a remote chat back
    to your local computer.
 3. Review the destination and branch, then select **Hand off**.
 
 Codex creates or reuses a worktree on the destination host, transfers the
-task and Git state, and switches the task to that host. If the task is
+chat and Git state, and switches the chat to that host. If the chat is
 running, handoff interrupts the current response before transferring it.
 
-You can also ask Codex in another task to hand off a named task to a
-connected host. Codex can't hand off the task making the request, and handoff
+You can also ask Codex in another chat to hand off a named chat to a
+connected host. Codex can't hand off the chat making the request, and handoff
 to a Codex cloud environment isn't supported.
 
 ## Authentication and network exposure

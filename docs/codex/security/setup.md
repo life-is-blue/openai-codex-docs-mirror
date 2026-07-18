@@ -138,5 +138,5 @@ You can review each finding and create a PR directly from the finding detail pag
 ## Related docs
 
 - [Codex Security](https://learn.chatgpt.com/docs/security) gives the product overview.
-- [FAQ](https://learn.chatgpt.com/docs/security/faq) covers common questions.
+- [Codex Security cloud FAQ](https://learn.chatgpt.com/docs/security/faq) covers common cloud questions.
 - [Improving the threat model](https://learn.chatgpt.com/docs/security/threat-model) explains how to improve scan context and finding prioritization.

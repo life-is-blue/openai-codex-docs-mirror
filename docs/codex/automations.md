@@ -25,6 +25,7 @@ the app running when a scheduled task needs local files.
 <a id="scheduled-tasks-in-threads"></a>
 <a id="scheduled-tasks-in-chats"></a>
 <a id="schedule-work-from-a-task"></a>
+<a id="schedule-a-task-inside-a-chat"></a>
 <a id="test-automations"></a>
 <a id="test-scheduled-tasks"></a>
 <a id="worktree-cleanup-for-automations"></a>
@@ -42,7 +43,7 @@ the app running when a scheduled task needs local files.
 
 For example, schedule a task to evaluate telemetry errors and submit fixes,
 or to create reports about recent codebase changes. For ongoing work that
-should keep using the same context, [schedule work from an existing task](#schedule-work-from-a-task).
+should keep using the same context, [schedule a task inside an existing chat](#schedule-a-task-inside-a-chat).
 
 For project-scoped scheduled tasks, keep the machine powered on and the ChatGPT
 desktop app running. The selected project must still be available on disk when
@@ -84,7 +85,7 @@ appear there, and an unread indicator shows when a run needs your attention.
   />
 </Illustration>
 
-Standalone scheduled tasks start a new task for each scheduled run and report
+Standalone scheduled tasks start a new chat for each scheduled run and report
 results in **Scheduled**. Use them when each run should be independent or when one
 scheduled task should run across one or more projects. If you need a custom
 cadence, use the custom schedule controls. For an advanced schedule, edit its
@@ -103,8 +104,8 @@ directory. You can have the same scheduled task run on more than one project.
 
 
 
-Scheduled tasks in ChatGPT Work on the web or in Work or Codex in the ChatGPT desktop
-app can use plugins. Scheduled tasks can also use skills. To keep scheduled
+Scheduled tasks in Work mode on the web, or in Work mode or Codex in the ChatGPT
+desktop app, can use plugins. Scheduled tasks can also use skills. To keep scheduled
 tasks maintainable and shareable across teams, use [skills](https://learn.chatgpt.com/docs/build-skills) to
 define the action and provide tools and context. Select or invoke a specific
 skill in the task prompt when the workflow shouldn't rely on automatic tool
@@ -112,13 +113,13 @@ selection.
 
 ## Ask ChatGPT to create or update scheduled tasks
 
-You can create and update scheduled tasks from a Work or Codex task in ChatGPT.
+You can create and update scheduled tasks from a ChatGPT or Codex chat.
 Describe the work, the schedule, and whether each scheduled run should return to
-the current task or start a new task. ChatGPT can draft the prompt, choose the
+the current chat or start a new chat. ChatGPT can draft the prompt, choose the
 right destination, and update the scheduled task when its scope or cadence
 changes.
 
-For example, ask ChatGPT to schedule a follow-up from the current task while a
+For example, ask ChatGPT to schedule a follow-up from the current chat while a
 deployment finishes, or ask it to create a standalone scheduled task that checks
 a project on a recurring schedule.
 
@@ -126,36 +127,36 @@ Skills can also create or update scheduled tasks. For example, a skill for
 babysitting a pull request could set up a scheduled task that checks the
 PR status with the GitHub plugin and fixes new review feedback.
 
-## Schedule work from a task
+## Schedule a task inside a chat
 
-Schedule work from an existing task when you want ChatGPT to return to that task
-on a schedule. The scheduled work uses the task's existing context instead of
+Schedule a task inside an existing chat when you want ChatGPT to return to that chat
+on a schedule. The scheduled task uses the chat's existing context instead of
 starting from a new prompt each time.
 
-Scheduled work in a task can use minute-based intervals for active follow-up
+Scheduled tasks in a chat can use minute-based intervals for active follow-up
 loops, or daily and weekly schedules when you need a check-in at a specific
 time.
 
-Schedule work from a task for:
+Schedule a task inside a chat for:
 
 - checking a long-running operation until it finishes
 - polling Slack, GitHub, or another connected source when the results should
-  stay in the same task
+  stay in the same chat
 - reminding ChatGPT to continue a review loop at a fixed cadence
 - running a skill-driven workflow that uses plugins, such as checking PR status
   and addressing new feedback
-- continuing an ongoing research or triage task without losing its context
+- continuing an ongoing research or triage chat without losing its context
 
 Use a standalone scheduled task when each run should be independent or when
 findings should appear as separate runs in **Scheduled**.
 
-When you schedule work from a task, make the prompt durable. It should describe
+When you schedule a task inside a chat, make the prompt durable. It should describe
 what ChatGPT should do on each scheduled run, how to decide whether there is
 anything important to report, and when to stop or ask you for input.
 
 ## Test scheduled tasks
 
-Before you schedule a task, test the prompt manually in a regular task
+Before you schedule a task, test the prompt manually in a regular chat
 first. This helps you confirm:
 
 - The prompt is clear and scoped correctly.

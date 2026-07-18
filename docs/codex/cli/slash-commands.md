@@ -99,7 +99,7 @@ debugging instruction discovery, session context, or prompt construction.
 
 ### `codex apply`
 
-Apply the most recent diff from a Codex cloud task to your local repository. You must authenticate and have access to the task.
+Apply the most recent diff from a Codex cloud chat to your local repository. You must authenticate and have access to the chat.
 
 <ConfigTable client:load options={applyOptions} />
 
@@ -146,7 +146,7 @@ confirmation so Codex doesn't delete a repeated or ambiguous name without a prom
 
 ### `codex cloud`
 
-Interact with Codex cloud tasks from the terminal. The default command opens an interactive picker; `codex cloud exec` submits a task directly, and `codex cloud list` returns recent tasks for scripting or quick inspection.
+Interact with Codex cloud chats from the terminal. The default command opens an interactive picker; `codex cloud exec` submits a task directly, and `codex cloud list` returns recent chats for scripting or quick inspection.
 
 <ConfigTable client:load options={cloudExecOptions} />
 
@@ -154,7 +154,7 @@ Authentication follows the same credentials as the main CLI. Codex exits non-zer
 
 #### `codex cloud list`
 
-List recent cloud tasks with optional filtering and pagination.
+List recent cloud chats with optional filtering and pagination.
 
 <ConfigTable client:load options={cloudListOptions} />
 
@@ -265,13 +265,13 @@ Run Codex as an MCP server over stdio so that other tools can connect. This comm
 
 ### `codex resume`
 
-Continue an interactive session by ID or resume the most recent conversation. `codex resume` scopes `--last` to the current working directory unless you pass `--all`. It accepts the same global flags as `codex`, including model and sandbox overrides.
+Continue an interactive session by ID or resume the most recent chat. `codex resume` scopes `--last` to the current working directory unless you pass `--all`. It accepts the same global flags as `codex`, including model and sandbox overrides.
 
 <ConfigTable client:load options={resumeOptions} />
 
 ### `codex fork`
 
-Fork a previous interactive session into a new task. By default, `codex fork` opens the session picker; add `--last` to fork your most recent session instead.
+Fork a previous interactive session into a new chat. By default, `codex fork` opens the session picker; add `--last` to fork your most recent session instead.
 
 <ConfigTable client:load options={forkOptions} />
 
@@ -310,7 +310,7 @@ Check for and apply a Codex CLI update when the installed release supports self-
 - Prefix a line with `!` to run a local shell command under the current approval and sandbox settings.
 - Press <kbd>Tab</kbd> while Codex is working to queue a follow-up prompt, slash command, or shell command for the next turn.
 - Press <kbd>Enter</kbd> while Codex is working to inject new instructions into the current turn.
-- Press <kbd>Esc</kbd> twice with an empty composer to edit the previous user message and fork the conversation from that point.
+- Press <kbd>Esc</kbd> twice with an empty composer to edit the previous user message and fork the chat from that point.
 - Press <kbd>Ctrl</kbd>+<kbd>C</kbd> or run `/exit` to close the session.
 
 ## Related resources
@@ -323,7 +323,7 @@ Check for and apply a Codex CLI update when the installed release supports self-
 Slash commands give you fast, keyboard-first control over Codex. Type `/` in
 the composer to open the slash popup, choose a command, and Codex will perform
 actions such as switching models, adjusting permissions, or summarizing long
-conversations without leaving the terminal.
+chats without leaving the terminal.
 
 This guide shows you how to:
 
@@ -336,7 +336,7 @@ This guide shows you how to:
 Codex ships with the following commands. Open the slash popup and start typing
 the command name to filter the list.
 
-When a task is already running, you can type a slash command and press `Tab` to
+When a chat is already running, you can type a slash command and press `Tab` to
 queue it for the next turn. Codex parses queued slash commands when they run, so
 command menus and errors appear after the current turn finishes. Slash
 completion still works before you queue the command.
@@ -353,11 +353,11 @@ completion still works before you queue the command.
 | [`/apps`](#browse-apps-with-apps)                                                           | Browse apps (connectors) and insert them into your prompt.      | Attach an app as `$app-slug` before asking Codex to use it.                                                |
 | [`/plugins`](#browse-plugins-with-plugins)                                                  | Browse installed and discoverable plugins.                      | Inspect plugin tools, install suggested plugins, or manage plugin availability.                            |
 | [`/hooks`](#view-and-manage-lifecycle-hooks-with-hooks)                                     | View and manage lifecycle hooks.                                | Inspect configured hooks, trust new or changed hooks, or disable non-managed hooks before they run.        |
-| [`/clear`](#clear-the-terminal-and-start-a-new-task-with-clear)                             | Clear the terminal and start a fresh task.                      | Reset the visible UI and task context together when you want a fresh start.                                |
-| [`/rename`](#rename-the-current-task-with-rename)                                           | Rename the current task.                                        | Give a saved session a recognizable name without leaving the TUI.                                          |
+| [`/clear`](#clear-the-terminal-and-start-a-new-chat-with-clear)                             | Clear the terminal and start a fresh chat.                      | Reset the visible UI and chat context together when you want a fresh start.                                |
+| [`/rename`](#rename-the-current-chat-with-rename)                                           | Rename the current chat.                                        | Give a saved session a recognizable name without leaving the TUI.                                          |
 | [`/archive`](#archive-the-current-session-with-archive)                                     | Archive the current session and exit Codex.                     | Remove the current session from active session lists without deleting its transcript.                      |
 | [`/delete`](#delete-the-current-session-with-delete)                                        | Permanently delete the current session and exit Codex.          | Remove the transcript and descendant sessions when archiving isn't enough.                                 |
-| [`/compact`](#keep-transcripts-lean-with-compact)                                           | Summarize the visible conversation to free tokens.              | Use after long runs so Codex retains key points without blowing the context window.                        |
+| [`/compact`](#keep-transcripts-lean-with-compact)                                           | Summarize the visible chat to free tokens.                      | Use after long runs so Codex retains key points without blowing the context window.                        |
 | [`/copy`](#copy-the-latest-response-with-copy)                                              | Copy the latest completed Codex output.                         | Grab the latest finished response or plan text without manually selecting it. You can also press `Ctrl+O`. |
 | [`/diff`](#review-changes-with-diff)                                                        | Show the Git diff, including files Git isn't tracking yet.      | Review Codex's edits before you commit or run tests.                                                       |
 | [`/exit`](#exit-the-cli-with-quit-or-exit)                                                  | Exit the CLI (same as `/quit`).                                 | Alternative spelling; both commands exit the session.                                                      |
@@ -370,7 +370,7 @@ completion still works before you queue the command.
 | [`/init`](#generate-agentsmd-with-init)                                                     | Generate an `AGENTS.md` scaffold in the current directory.      | Capture persistent instructions for the repository or subdirectory you're working in.                      |
 | [`/logout`](#sign-out-with-logout)                                                          | Sign out of Codex.                                              | Clear local credentials when using a shared machine.                                                       |
 | [`/mcp`](#list-mcp-tools-with-mcp)                                                          | List configured Model Context Protocol (MCP) tools.             | Check which external tools Codex can call during the session; add `verbose` for server details.            |
-| [`/mention`](#highlight-files-with-mention)                                                 | Attach a file to the conversation.                              | Point Codex at specific files or folders you want it to inspect next.                                      |
+| [`/mention`](#highlight-files-with-mention)                                                 | Attach a file to the chat.                                      | Point Codex at specific files or folders you want it to inspect next.                                      |
 | [`/model`](#set-the-active-model-with-model)                                                | Choose the active model (and reasoning effort, when available). | Switch between models such as `gpt-5.4-mini` and `gpt-5.5` before running a task.                          |
 | [`/fast`](#toggle-fast-mode-with-fast)                                                      | Toggle a Fast service tier when the model catalog exposes one.  | Turn the current model's Fast tier on or off and persist the selection.                                    |
 | [`/plan`](#switch-to-plan-mode-with-plan)                                                   | Switch to plan mode and optionally send a prompt.               | Ask Codex to propose an execution plan before implementation work starts.                                  |
@@ -378,12 +378,12 @@ completion still works before you queue the command.
 | [`/personality`](#set-a-communication-style-with-personality)                               | Choose a communication style for responses.                     | Make Codex more concise, more explanatory, or more collaborative without changing your instructions.       |
 | [`/ps`](#check-background-terminals-with-ps)                                                | Show background terminals and their recent output.              | Check long-running commands without leaving the main transcript.                                           |
 | [`/stop`](#stop-background-terminals-with-stop)                                             | Stop all background terminals.                                  | Cancel background terminal work started by the current session.                                            |
-| [`/fork`](#fork-the-current-conversation-with-fork)                                         | Fork the current task into a new task.                          | Branch the active session to explore a new approach without losing the current transcript.                 |
+| [`/fork`](#fork-the-current-chat-with-fork)                                                 | Fork the current chat into a new chat.                          | Branch the active session to explore a new approach without losing the current transcript.                 |
 | [`/app`](#continue-in-the-desktop-app-with-app)                                             | Continue the current session in the ChatGPT desktop app.        | Move from the TUI to the desktop app on macOS or Windows.                                                  |
-| [`/side`, `/btw`](#start-a-side-conversation-with-side)                                     | Start an ephemeral side conversation.                           | Ask a focused follow-up without disrupting the main task's transcript.                                     |
+| [`/side`, `/btw`](#start-a-side-chat-with-side)                                             | Start an ephemeral side chat.                                   | Ask a focused follow-up without disrupting the main chat's transcript.                                     |
 | [`/raw`](#toggle-raw-scrollback-with-raw)                                                   | Toggle raw scrollback mode.                                     | Make terminal selection and copying less formatted while reviewing long output.                            |
-| [`/resume`](#resume-a-saved-conversation-with-resume)                                       | Resume a saved conversation from your session list.             | Continue work from a previous CLI session without starting over.                                           |
-| [`/new`](#start-a-new-conversation-with-new)                                                | Start a new task inside the same CLI session.                   | Reset the task context without leaving the CLI when you want a fresh prompt in the same repo.              |
+| [`/resume`](#resume-a-saved-chat-with-resume)                                               | Resume a saved chat from your session list.                     | Continue work from a previous CLI session without starting over.                                           |
+| [`/new`](#start-a-new-chat-with-new)                                                        | Start a new chat inside the same CLI session.                   | Reset the chat context without leaving the CLI when you want a fresh prompt in the same repo.              |
 | [`/quit`](#exit-the-cli-with-quit-or-exit)                                                  | Exit the CLI.                                                   | Leave the session immediately.                                                                             |
 | [`/review`](#ask-for-a-working-tree-review-with-review)                                     | Ask Codex to review your working tree.                          | Run after Codex completes work or when you want a second set of eyes on local changes.                     |
 | [`/status`](#inspect-the-session-with-status)                                               | Display session configuration and token usage.                  | Confirm the active model, approval policy, writable roots, and remaining context capacity.                 |
@@ -428,11 +428,11 @@ Fast tier, Codex won't show `/fast`.
 
 Use `/personality` to change how Codex communicates without rewriting your prompt.
 
-1. In an active conversation, type `/personality` and press Enter.
+1. In an active chat, type `/personality` and press Enter.
 2. Choose a style from the popup.
 
 Expected: Codex confirms the new style in the transcript and uses it for later
-responses in the task.
+responses in the chat.
 
 Codex supports `friendly`, `pragmatic`, and `none` personalities. Use `none`
 to disable personality instructions.
@@ -441,7 +441,7 @@ If the active model doesn't support personality-specific instructions, Codex hid
 
 ### Switch to plan mode with `/plan`
 
-1. Type `/plan` and press Enter to switch the active conversation into plan
+1. Type `/plan` and press Enter to switch the active chat into plan
    mode.
 2. Optional: provide inline prompt text (for example, `/plan Propose a
 migration plan for this service`).
@@ -449,7 +449,7 @@ migration plan for this service`).
 
 Expected: Codex enters plan mode and uses your optional inline prompt as the first planning request.
 
-While a task is already running, `/plan` is temporarily unavailable.
+While Codex is already working, `/plan` is temporarily unavailable.
 
 ### Set or view a task goal with `/goal`
 
@@ -457,7 +457,7 @@ While a task is already running, `/plan` is temporarily unavailable.
 2. Type `/goal` to view the current goal.
 3. Use `/goal edit` to revise the objective. Use `/goal pause`, `/goal resume`, or `/goal clear` to pause, resume, or remove it.
 
-Expected: Codex keeps the goal attached to the active task while work continues.
+Expected: Codex keeps the goal attached to the active chat while work continues.
 
 Goal objectives must be non-empty and at most 4,000 characters. For longer
 instructions, put the details in a file and point the goal at that file.
@@ -508,18 +508,19 @@ Run `/import` from a local TUI session. It's unavailable while a task is running
 in remote sessions, and while connected to the local app-server daemon.
 
 <a id="clear-the-terminal-and-start-a-new-chat-with-clear"></a>
+<a id="clear-the-terminal-and-start-a-new-task-with-clear"></a>
 
-### Clear the terminal and start a new task with `/clear`
+### Clear the terminal and start a new chat with `/clear`
 
 1. Type `/clear` and press Enter.
 
 Expected: Codex clears the terminal, resets the visible transcript, and starts
-a fresh task in the same CLI session.
+a fresh chat in the same CLI session.
 
-Unlike <kbd>Ctrl</kbd>+<kbd>L</kbd>, `/clear` starts a new conversation.
+Unlike <kbd>Ctrl</kbd>+<kbd>L</kbd>, `/clear` starts a new chat.
 
 <kbd>Ctrl</kbd>+<kbd>L</kbd> only clears the terminal view and keeps the current
-task. Codex disables both actions while a task is in progress.
+chat. Codex disables both actions while a task is in progress.
 
 ### Archive the current session with `/archive`
 
@@ -541,7 +542,7 @@ Expected: Codex deletes the current session transcript and closes the
 interactive TUI. Deletion is permanent and also removes spawned descendant
 sessions.
 
-`/delete` is unavailable while a task is running or in a side conversation.
+`/delete` is unavailable while a chat is running or in a side chat.
 
 ### Update permissions with `/permissions`
 
@@ -615,7 +616,7 @@ that directory for later commands that run in the sandbox.
 
 ### Inspect the session with `/status`
 
-1. In any conversation, type `/status`.
+1. In any chat, type `/status`.
 2. Review the output for the active model, approval policy, writable roots, and
    current token usage. When the TUI connects remotely, the output also
    shows the remote address and the server version.
@@ -717,7 +718,7 @@ is still available as an alias for `/stop`.
 ### Keep transcripts lean with `/compact`
 
 1. After a long exchange, type `/compact`.
-2. Confirm when Codex offers to summarize the conversation so far.
+2. Confirm when Codex offers to summarize the chat so far.
 
 Expected: Codex replaces earlier turns with a concise summary, freeing context
 while keeping critical details.
@@ -735,39 +736,46 @@ and files Git hasn't started tracking, so you can decide what to keep.
 1. Type `/mention` followed by a path, for example `/mention src/lib/api.ts`.
 2. Select the matching result from the popup.
 
-Expected: Codex adds the file to the conversation, ensuring follow-up turns reference it directly.
+Expected: Codex adds the file to the chat, ensuring follow-up turns reference it directly.
 
-### Start a new conversation with `/new`
+<a id="start-a-new-conversation-with-new"></a>
+
+### Start a new chat with `/new`
 
 1. Type `/new` and press Enter.
 
-Expected: Codex starts a fresh conversation in the same CLI session, so you
-can switch tasks without leaving your terminal.
+Expected: Codex starts a fresh chat in the same CLI session, so you
+can switch chats without leaving your terminal.
 
 Unlike `/clear`, `/new` doesn't clear the current terminal view first.
 
 <a id="rename-the-current-chat-with-rename"></a>
+<a id="rename-the-current-task-with-rename"></a>
 
-### Rename the current task with `/rename`
+### Rename the current chat with `/rename`
 
 1. Type `/rename <name>`, or type `/rename` to open the naming prompt.
-2. Enter a short name that will help you find the task later.
+2. Enter a short name that will help you find the chat later.
 
-Expected: Codex updates the saved task name without changing its transcript.
+Expected: Codex updates the saved chat name without changing its transcript.
 
-### Resume a saved conversation with `/resume`
+<a id="resume-a-saved-conversation-with-resume"></a>
+
+### Resume a saved chat with `/resume`
 
 1. Type `/resume` and press Enter.
 2. Choose the session you want from the saved-session picker.
 
-Expected: Codex reloads the selected conversation's transcript so you can pick
+Expected: Codex reloads the selected chat's transcript so you can pick
 up where you left off, keeping the original history intact.
 
-### Fork the current conversation with `/fork`
+<a id="fork-the-current-conversation-with-fork"></a>
+
+### Fork the current chat with `/fork`
 
 1. Type `/fork` and press Enter.
 
-Expected: Codex clones the current task into a new task with a fresh
+Expected: Codex clones the current chat into a new chat with a fresh
 ID, leaving the original transcript untouched so you can explore an alternative
 approach in parallel.
 
@@ -780,21 +788,23 @@ On macOS and Windows, type `/app` to open the current session in the ChatGPT
 desktop app. If the app isn't installed or running, Codex shows an error asking
 you to install or launch it.
 
-Expected: The desktop app opens the same saved task so you can continue there.
+Expected: The desktop app opens the same saved chat so you can continue there.
 
-### Start a side conversation with `/side`
+<a id="start-a-side-conversation-with-side"></a>
 
-Use `/side` to start an ephemeral fork from the current conversation without switching away from the main task.
+### Start a side chat with `/side`
 
-1. Type `/side` to open a side conversation.
+Use `/side` to start an ephemeral fork from the current chat without switching away from the main chat.
+
+1. Type `/side` to open a side chat.
 2. Optionally add inline text, for example `/side Check whether this plan has an obvious risk`.
-3. Return to the parent task after the focused detour finishes.
+3. Return to the parent chat after the focused detour finishes.
 
-Expected: Codex opens a side conversation whose transcript is separate from
-the parent task. While you are in side mode, the TUI continues to show the
-parent task's status so you can see whether the main task is still running.
+Expected: Codex opens a side chat whose transcript is separate from
+the parent chat. While you are in side mode, the TUI continues to show the
+parent chat's status so you can see whether the main chat is still running.
 
-`/side` is unavailable inside another side conversation and during review mode.
+`/side` is unavailable inside another side chat and during review mode.
 
 ### Generate `AGENTS.md` with `/init`
 

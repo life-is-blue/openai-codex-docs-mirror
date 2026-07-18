@@ -69,8 +69,8 @@ review and iteration.
 
 ## Review and refine files
 
-Use the task sidebar while a task runs. It can surface the agent's plan,
-sources, generated files, and task summary so you can steer the work,
+Use the chat sidebar while a task runs. It can surface the agent's plan,
+sources, generated files, and chat summary so you can steer the work,
 inspect generated files, and request another pass.
 
 Ask ChatGPT to explain where it saved each file and how it verified the

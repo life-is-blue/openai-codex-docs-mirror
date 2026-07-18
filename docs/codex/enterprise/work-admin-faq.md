@@ -1,29 +1,29 @@
-# ChatGPT Work Admin FAQ
+# Work mode admin FAQ
 
-ChatGPT Work brings the technology behind Codex into ChatGPT for longer,
-multi-step tasks. It can gather context from conversations, files, workspace
+Work mode brings the technology behind Codex into ChatGPT for longer,
+multi-step tasks. It can gather context from chats, files, workspace
 resources, and connected systems; use approved tools; and create review-ready
-artifacts. Access, context, actions, network behavior, and credit use vary by
+outputs. Access, context, actions, network behavior, and credit use vary by
 plan, workspace settings, source permissions, and surface.
 
 ## Overview
 
-Work lets users delegate longer, multi-step tasks to ChatGPT. It can gather
+Work mode lets users delegate longer, multi-step tasks to ChatGPT. It can gather
 information from connected sources, reason across steps, create documents,
 presentations, or analyses, and return results for review.
 
-Work launches July 9, 2026. For Enterprise and Edu, web and mobile access starts
+Work mode launched July 9, 2026. For Enterprise and Edu, web and mobile access is
 off by default during a two-week preview. Admins can enable billable usage, and
 explicit opt-outs persist when the default changes. Desktop access remains
 governed separately through Codex Local permissions and managed configuration.
 
-This FAQ explains how admins manage Work in ChatGPT: access and data controls,
+This FAQ explains how admins manage Work mode in ChatGPT: access and data controls,
 compliance and visibility, usage and spend, incident response, and rollout
 practices.
 
 ## Core administrative controls
 
-Administrators govern Work through several control layers:
+Administrators govern Work mode through several control layers:
 
 - **Access to the enterprise workspace:** Identity and access controls manage
   authentication and access to the workspace. Depending on the plan and
@@ -33,9 +33,9 @@ Administrators govern Work through several control layers:
   enforce workspace-wide MFA through your identity provider. Manage SSO and
   related identity settings in the
   [Global Admin Console](https://help.openai.com/en/articles/12289294-admin-portal).
-- **Access to Work within the workspace:** On web and mobile, admins use the
-  top-level Work control and role-based access control (RBAC) to decide who can
-  use it. Enterprise and Edu access starts off during the two-week preview;
+- **Access to Work mode within the workspace:** On web and mobile, admins use the
+  Work mode access control and role-based access control (RBAC) to decide who can
+  use it. Enterprise and Edu access is off during the two-week preview;
   admins can enable it, and explicit opt-outs persist when the default changes.
   Desktop access follows separate Codex Local permissions and
   [managed configuration](https://learn.chatgpt.com/docs/enterprise/managed-configuration). Controls
@@ -46,11 +46,11 @@ Administrators govern Work through several control layers:
   [Groups and provisioning](https://learn.chatgpt.com/docs/enterprise/groups-and-provisioning).
 - **Workspace and member roles:** Built-in Owner, Admin, and Member roles
   determine who can administer the workspace. Custom roles and member RBAC
-  separately control end-user access to Work, apps, and other capabilities.
+  separately control end-user access to Work mode, plugins, and other capabilities.
   See
   [Roles and workspace permissions](https://learn.chatgpt.com/docs/enterprise/roles-and-workspace-permissions).
-- **Plugins and apps:** Plugin policy governs plugin availability and
-  installation. App access, action controls, and approval behavior are
+- **Plugins and connectors:** Plugin policy governs plugin availability and
+  installation. Connector access, action controls, and approval behavior are
   configured separately, and Workspace Agents have additional per-agent
   controls. See [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors),
   [Plugins](https://learn.chatgpt.com/docs/plugins), and the
@@ -58,11 +58,11 @@ Administrators govern Work through several control layers:
 - **Source-system permissions:** A user can access only the content and actions
   allowed by the account or shared connection in the native application. See
   [Admin controls, security, and compliance in apps](https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-in-apps-enterprise-edu-and-business).
-- **Approval and action restrictions:** For apps that support Action control,
+- **Approval and action restrictions:** For connectors that support Action control,
   admins can allow all actions, read-only actions, or a custom set and decide
   how newly added actions are handled. App permissions separately determine
-  when ChatGPT asks before using an app.
-- **Credits:** ChatGPT Work and Codex share pricing, credits, and usage limits.
+  when ChatGPT asks before using a connector.
+- **Credits:** Work mode and Codex share pricing, credits, and usage limits.
   Eligible Enterprise and Edu admins can set monthly per-user limits through a
   workspace default, group defaults, and individual overrides. Users can
   request increases when the workspace allows it. Business follows a separate
@@ -79,37 +79,39 @@ Administrators govern Work through several control layers:
 
 ### How are access to data, systems, and user actions protected?
 
-Work is governed by the identity, access, and permission controls already
+Work mode is governed by the identity, access, and permission controls already
 established in your ChatGPT workspace. Administrators use identity management,
 [RBAC](https://help.openai.com/en/articles/11750701-rbac), and workspace roles
-to determine who can use Work.
+to determine who can use Work mode.
 
 Where supported, access can be synchronized with your identity provider through
 [SCIM](https://help.openai.com/en/articles/10011769-openai-platform-scim-integration-faq)
 and group synchronization. This lets you manage access and permissions centrally
 as employees join the organization, change roles, or leave.
 
-Underlying source systems continue to enforce access to enterprise data. Work
+Underlying source systems continue to enforce access to enterprise data. Work mode
 respects the permissions defined in connected applications, so users and agents
 can access only files, repositories, channels, records, and actions they are
-authorized to use. Work doesn't bypass existing access controls or grant new
+authorized to use. Work mode doesn't bypass existing access controls or grant new
 permissions in connected systems.
 
-### How does Work access data and context?
+<a id="how-does-work-access-data-and-context"></a>
 
-Work can use the current conversation, uploaded files, workspace resources, and
+### How does Work mode access data and context?
+
+Work mode can use the current chat, uploaded files, workspace resources, and
 connected systems through plugins. Depending on enabled capabilities and
 permissions, this can include documents, repositories, tickets, channels,
-email, and calendars. Artifacts from earlier tasks or memory can be available
-when included in the current conversation or project, or when applicable
+email, and calendars. Files from earlier chats or memory can be available
+when included in the current chat or project, or when applicable
 workspace and user memory controls are enabled.
 
-Each context source keeps its own controls: users supply conversation context,
+Each context source keeps its own controls: users supply chat context,
 admins manage workspace resources, and connected systems enforce authentication
-and permissions. Work can access only information authorized for the user or an
+and permissions. Work mode can access only information authorized for the user or an
 approved shared connection.
 
-Work inherits applicable ChatGPT workspace protections. Residency, retention,
+Work mode inherits applicable ChatGPT workspace protections. Residency, retention,
 logging, and feature availability vary by plan, region, surface, and connected
 system, so confirm coverage for your configuration.
 
@@ -141,9 +143,11 @@ permissions and security controls.
 
 ## Compliance
 
-### How does Work support enterprise privacy and data commitments?
+<a id="how-does-work-support-enterprise-privacy-and-data-commitments"></a>
 
-Work uses the privacy, security, and data commitments applicable to the
+### How does Work mode support enterprise privacy and data commitments?
+
+Work mode uses the privacy, security, and data commitments applicable to the
 customer's ChatGPT workspace, subject to plan, configuration, surface, feature,
 and region. For ChatGPT Enterprise, this includes
 [no training on business data by default](https://help.openai.com/en/articles/8983130-what-if-i-want-to-keep-my-history-on-but-disable-model-training),
@@ -155,8 +159,8 @@ Associate Agreement isn't universal. Confirm current
 [data and inference residency guidance](https://help.openai.com/en/articles/9903489-data-residency-and-inference-residency-for-chatgpt)
 and the customer's agreement for the features and regions in use.
 
-Connected applications have their own retention, logging, access, residency,
-and compliance requirements. When Work uses apps, repositories, or third-party
+Connected services have their own retention, logging, access, residency, and
+compliance requirements. When Work mode uses plugins, repositories, or third-party
 systems, evaluate both the ChatGPT workspace controls and the connected
 system's controls.
 
@@ -167,15 +171,15 @@ repositories, configured tools, and related activity. Review
 
 ### What data is stored, retained, or deleted?
 
-Data retention and deletion for Work are governed by the ChatGPT workspace
+Data retention and deletion for Work mode are governed by the ChatGPT workspace
 plan, administrative settings, and the capabilities in use. Retention can vary
-across the information Work accesses. Data stored by ChatGPT follows the
+across the information Work mode accesses. Data stored by ChatGPT follows the
 configured workspace retention policies, while connected applications continue
 to manage their own data and lifecycle policies. See
 [Chat and file retention policies](https://help.openai.com/en/articles/8983778-chat-and-file-retention-policies-in-chatgpt).
 
-Work can create conversation content, uploaded or generated files, artifacts,
-and execution metadata. Codex tasks can also create repository or environment
+Work mode can create chat content, uploaded or generated files, artifacts,
+and execution metadata. Codex chats can also create repository or environment
 metadata, command output, diffs, and logs. Check the current product and
 [Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api) documentation for exact data
 classes, retention periods, and deletion paths.
@@ -235,7 +239,7 @@ opt-in. See
 
 Governance spans three related but separate layers:
 
-- **Work access controls** determine who can use the personal Work agent on
+- **Work mode access controls** determine who can use Work mode on
   each surface.
 - **Workspace Agent controls** determine who can build, publish, share,
   schedule, or configure reusable agents and shared connections.
@@ -245,7 +249,7 @@ Governance spans three related but separate layers:
 
 Managed configuration constrains supported runtime behavior. It doesn't grant
 workspace access, replace RBAC, or revoke a user's workspace access. These
-layers aren't one uniform Work policy surface. Analytics and compliance logs
+layers aren't one uniform Work mode policy surface. Analytics and compliance logs
 provide additional visibility within their documented product and event
 scopes.
 
@@ -262,58 +266,60 @@ filesystem, network, and runtime access.
 
 ### Can access be scoped by group, role, workspace, or capability?
 
-Yes. Work capabilities can be scoped with workspace roles, identity groups,
+Yes. Work mode capabilities can be scoped with workspace roles, identity groups,
 and administrator-defined permissions. Assign capabilities to groups based on
 business need and organizational policy instead of giving every user identical
 access. See the
 [RBAC guide](https://help.openai.com/en/articles/11750701-rbac) and this
 [RBAC walkthrough](https://vimeo.com/1207482321/d1286e4467?share=copy&fl=sv&fe=ci).
 
-Organizations can use RBAC to determine which users can access Work, manage
+Organizations can use RBAC to determine which users can access Work mode, manage
 workspace settings, configure approved plugins, or build and publish Workspace
 Agents. For eligible Enterprise and Edu workspaces, monthly usage limits can
 support a phased rollout through a workspace default, group defaults, and user
 overrides.
 
-Access to connected systems remains independently governed. Scope apps, shared
+Access to connected systems remains independently governed. Scope plugins, shared
 credentials, repositories, and write-capable actions to the minimum required
-audience using workspace permissions, app settings, and the source system's
+audience using workspace permissions, plugin settings, and the source system's
 controls. For higher-trust environments, use managed policies to restrict
 runtime capabilities further.
 
 ### How are runtime and network boundaries governed?
 
-The security boundaries for Work depend on the task. A conversational task, a
-connected workflow, a scheduled task, and a Codex task can run in different
+The security boundaries for Work mode depend on the task. A chat in Chat mode, a
+connected workflow, a scheduled task, and a Codex chat can run in different
 environments with different permissions, tools, and network access.
 
-Govern each execution environment through its applicable controls. Work
-permissions on web and mobile govern access to Work and supported browser or
-network capabilities. Search, apps, plugins, Workspace Agents, and
-source-system permissions remain separate controls. Desktop and Codex tasks
+Govern each execution environment through its applicable controls. Work mode
+permissions on web and mobile govern access to Work mode and supported browser or
+network capabilities. Search, plugins, Workspace Agents, and
+source-system permissions remain separate controls. Desktop and Codex chats
 follow Codex permissions, managed configuration, MCP policy, sandboxing, and
 approval controls. These controls aren't interchangeable.
 
 For Codex activity, local runs in the ChatGPT desktop app, CLI, and IDE execute
 on the user's machine with operating-system sandboxing and approval policies.
-Codex cloud runs tasks in isolated OpenAI-managed environments. Enterprise
+Codex cloud runs chats in isolated OpenAI-managed environments. Enterprise
 administrators can use managed requirements to constrain permission profiles,
 approvals, filesystem and network access, MCP servers, hooks, command rules,
 and other supported runtime behavior.
 
 ## Usage and cost
 
-### How does Work usage translate into spend over time?
+<a id="how-does-work-usage-translate-into-spend-over-time"></a>
 
-[ChatGPT Work and Codex share pricing, credits, and usage limits](https://learn.chatgpt.com/docs/pricing).
+### How does Work mode usage translate into spend over time?
+
+[Work mode and Codex share pricing, credits, and usage limits](https://learn.chatgpt.com/docs/pricing).
 Consumption varies with the model and capability, context size, task duration,
 tool use, and output size. Standard Chat usage is separate.
 
 The highest-variance patterns are often workflows that run frequently,
-retrieve or process large amounts of information, call multiple tools or apps,
+retrieve or process large amounts of information, call multiple tools or connectors,
 retry after failures, or produce large artifacts. Cost-sensitive examples
 include scheduled or recurring work, high-volume triggers, large files, broad
-retrieval across enterprise sources, repeated app calls, and Codex tasks that
+retrieval across enterprise sources, repeated connector calls, and Codex chats that
 process repositories, run commands, or use cloud environments.
 
 Use spend controls, usage analytics, and reporting to monitor these patterns
@@ -359,7 +365,7 @@ and the
 
 ### How can admins stop access or activity?
 
-Admins can need to stop users, apps, shared credentials, workflows, schedules,
+Admins can need to stop users, plugins, shared credentials, workflows, schedules,
 or Codex credentials during user removal or incident review.
 
 Revocation paths include:
@@ -367,7 +373,7 @@ Revocation paths include:
 - Remove a user's workspace or group access. For SCIM-managed users, remove
   access at the identity provider; otherwise, a later synchronization can
   provision the user again.
-- Disable or restrict the relevant app.
+- Disable or restrict the relevant plugin or connector.
 - Revoke a shared connection, bot, or service account through its owning
   surface. Workspace owners and admins can separately revoke Codex workspace
   access tokens.
@@ -394,22 +400,22 @@ Revocation paths include:
 
 ## Recommended admin actions
 
-- **Confirm who should have access first.** Decide whether to keep Work off,
+- **Confirm who should have access first.** Decide whether to keep Work mode off,
   run a pilot, or roll out broadly. Many organizations start with power users,
   champions, or teams with clear use cases.
 - **Review roles and permissions.** In **Permissions & roles**, confirm which
-  users or groups can access Work. Match access to business need, readiness,
+  users or groups can access Work mode. Match access to business need, readiness,
   and governance expectations.
-- **Review connected apps and data sources.** Work is most useful with approved
+- **Review plugins and data sources.** Work mode is most useful with approved
   business context such as files, email, calendars, Slack, or CRM. Review
-  enabled apps, their audiences, and whether app policies still match how users
+  enabled plugins, their audiences, and whether connector policies still match how users
   should delegate work.
-- **Set expectations for appropriate use cases.** Position Work for multi-step,
+- **Set expectations for appropriate use cases.** Position Work mode for multi-step,
   higher-value tasks such as research, synthesis, analysis, file creation,
-  workflow updates, and reusable outputs. Use Chat for quick questions,
+  workflow updates, and reusable outputs. Use Chat mode for quick questions,
   light rewrites, or brainstorming.
-- **Review credit and usage controls.** Because Work can perform longer-running
-  tasks, it can use more credits than a standard Chat conversation. Review
+- **Review credit and usage controls.** Because Work mode can perform longer-running
+  tasks, it can use more credits than a standard chat in Chat mode. Review
   defaults, group defaults, user overrides, and internal guidance about
   matching effort to business value.
 - **Identify your first high-value workflows.** Start with clear, reviewable

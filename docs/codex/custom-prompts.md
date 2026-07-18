@@ -41,7 +41,7 @@ Codex reads prompt metadata and resolves placeholders the next time the session 
 - **Named placeholders:** Use uppercase names like `$FILE` or `$TICKET_ID` and supply values as `KEY=value`. Quote values with spaces (for example, `FOCUS="loading state"`).
 - **Literal dollar signs:** Write `$$` to emit a single `$` in the expanded prompt.
 
-After editing prompt files, restart Codex or open a new task so the updates load. Codex ignores non-Markdown files in the prompts directory.
+After editing prompt files, restart Codex or open a new chat so the updates load. Codex ignores non-Markdown files in the prompts directory.
 
 ## Invoke and manage custom commands
 

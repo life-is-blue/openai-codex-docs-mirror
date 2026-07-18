@@ -1,11 +1,11 @@
 # Build plugins
 
 This page is for plugin authors. If you want to browse, install, and use
-plugins in ChatGPT Work on the web or in Work or Codex in the ChatGPT desktop app, see
-[Plugins](https://learn.chatgpt.com/docs/plugins). If you are still iterating on one repo or one personal
-workflow, start with a local skill. Build a plugin when you want to share that
-workflow across teams, bundle connectors or MCP config, package lifecycle hooks,
-or publish a stable package.
+plugins in Work mode in ChatGPT on the web or in Work mode or Codex in the
+ChatGPT desktop app, see [Plugins](https://learn.chatgpt.com/docs/plugins). If you are still iterating on
+one repo or one personal workflow, start with a local skill. Build a plugin when
+you want to share that workflow across teams, bundle connectors or MCP config,
+package lifecycle hooks, or publish a stable package.
 
 A plugin can include skills, an MCP-backed app, or both. If your plugin needs
 to connect to a service or expose tools through an MCP server, see
@@ -39,9 +39,9 @@ marketplace.
 
 ### Create and test a plugin locally that points to an MCP-server-backed dev-mode app
 
-You can also use `$plugin-creator` if you want to test a plugin locally that
-includes an MCP-server backed app. The plugin still needs a local plugin folder
-and manifest, but the app itself starts in ChatGPT developer mode.
+You can also use the plugin-creator skill if you want to test a plugin locally
+that includes an MCP-server backed app. The plugin still needs a local plugin
+folder and manifest, but the app itself starts in ChatGPT developer mode.
 
 First, enable developer mode in ChatGPT:
 
@@ -58,8 +58,8 @@ Then create the app in developer mode:
 4. After ChatGPT creates it, copy the app ID from the browser URL. It starts
    with `plugin_asdk_app`.
 
-Give that `plugin_asdk_app...` ID to `$plugin-creator` in ChatGPT or Codex. For
-example:
+Give that `plugin_asdk_app...` ID to `@plugin-creator` in Work mode in ChatGPT
+or `$plugin-creator` in Codex. For example, in Work mode:
 
 <div class="not-prose my-6 overflow-hidden rounded-xl border border-subtle bg-surface shadow-sm">
   <div class="border-b border-subtle bg-surface-secondary px-4 py-3">
@@ -68,18 +68,18 @@ example:
     </span>
   </div>
   <div class="overflow-x-auto p-4 font-mono text-sm leading-6 text-primary">
-    <code class="whitespace-pre-wrap break-words">{`$plugin-creator create a Codex plugin for my ChatGPT app.
+    <code class="whitespace-pre-wrap break-words">{`@plugin-creator create a Codex plugin for my ChatGPT app.
 Use plugin_asdk_app_6a4c0062f3b88191855c0a80eac5d53d and name it Acme Support.
 Include a personal marketplace entry so I can test it locally.`}</code>
   </div>
 </div>
 
-`$plugin-creator` will create the plugin folder, create the required
+The plugin-creator skill will create the plugin folder, create the required
 `.codex-plugin/plugin.json`, and add app wiring for the ChatGPT app. If you ask
-it to create a personal marketplace entry, the plugin appears in your local
-plugin directory for testing.
+it to create a personal marketplace entry, the plugin appears under your local
+source in the Plugins Directory for testing.
 
-After `$plugin-creator` creates the plugin:
+After the plugin-creator skill creates the plugin:
 
 1. Review `.app.json` and confirm it points at the correct
    `plugin_asdk_app...` ID.
@@ -87,9 +87,9 @@ After `$plugin-creator` creates the plugin:
    `./.app.json`.
 3. Add any bundled skills under `skills/` if the plugin should include
    repeatable workflows alongside the app.
-4. If `$plugin-creator` created a personal marketplace entry, refresh ChatGPT
-   and install the plugin from your local plugin directory. Then test it in a
-   new task.
+4. If the skill created a personal marketplace entry, refresh ChatGPT
+   and install the plugin from your local source in the Plugins Directory. Then
+   test it in a new chat.
 
 For the manifest shape and file layout, see [Plugin structure](#plugin-structure)
 and [Path rules](#path-rules).
@@ -100,15 +100,15 @@ A marketplace is a JSON catalog of plugins. `@plugin-creator` can generate one
 for a single plugin, and you can keep adding entries to that same marketplace
 to build your own curated list for a repo, team, or personal workflow.
 
-In Work or Codex in the ChatGPT desktop app, each marketplace appears as a
-selectable source in the plugin directory. Use
+In Work mode or Codex in the ChatGPT desktop app, each marketplace appears as a
+selectable source in the Plugins Directory. Use
 `$REPO_ROOT/.agents/plugins/marketplace.json` for a repo-scoped list or
 `~/.agents/plugins/marketplace.json` for a personal list. Add one entry per
 plugin under `plugins[]`, point each `source.path` at the plugin folder with a
 `./`-prefixed path relative to the marketplace root, and set
 `interface.displayName` to the label you want the app to show in the marketplace
-picker. Then restart the ChatGPT desktop app. After that, open the plugin
-directory, choose your marketplace, and browse or install the plugins in that
+picker. Then restart the ChatGPT desktop app. After that, open the Plugins
+Directory, choose your marketplace, and browse or install the plugins in that
 curated list.
 
 You don't need a separate marketplace per plugin. One marketplace can expose a
@@ -116,7 +116,7 @@ single plugin while you are testing, then grow into a larger curated catalog as
 you add more plugins.
 
 <CodexScreenshot
-  alt="custom local marketplace in the plugin directory"
+  alt="custom local marketplace in the Plugins Directory"
   lightSrc="/images/codex/plugins/codex-local-plugin-light.png"
   darkSrc="/images/codex/plugins/codex-local-plugin.png"
 />
@@ -294,8 +294,9 @@ up the new files.
 
 ### Share a local plugin with your workspace
 
-After you create a plugin and add it to Work or Codex, you can share it with
-other members of your ChatGPT workspace from the ChatGPT desktop app.
+After you create a plugin, add it from the ChatGPT desktop app. Select ChatGPT
+and switch to Work mode, or select Codex, then open **Plugins**. You can then
+share it with other members of your ChatGPT workspace.
 
 1. Open **Plugins** in the ChatGPT desktop app.
 2. Go to **Created by you** and open the plugin details page.
@@ -304,7 +305,7 @@ other members of your ChatGPT workspace from the ChatGPT desktop app.
 5. Choose who has access, then send the invitation or link.
 
 People you share with can find the plugin under **Shared with you** in the
-plugin directory. Sharing a local plugin with your workspace doesn't publish
+Plugins Directory. Sharing a local plugin with your workspace doesn't publish
 it to the public Plugins Directory. Shared plugins stay within your workspace
 and organization boundary; accounts that aren't signed in to that workspace
 can't access them. Use groups when a team or role should share the same plugin

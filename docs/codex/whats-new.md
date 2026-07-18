@@ -6,10 +6,12 @@ and minor improvement, see the [Codex changelog](https://learn.chatgpt.com/docs/
 
 ## July 6–10, 2026
 
-### Take on ambitious work with ChatGPT Work
+<a id="take-on-ambitious-work-with-chatgpt-work"></a>
 
-[ChatGPT Work](https://learn.chatgpt.com/docs/get-started-with-work) is an agent in
-ChatGPT that can gather context from your files and [plugins](https://learn.chatgpt.com/docs/plugins),
+### Take on ambitious work in ChatGPT
+
+[Work mode](https://learn.chatgpt.com/docs/get-started-with-work) in ChatGPT can gather context from
+your files and [plugins](https://learn.chatgpt.com/docs/plugins),
 take action across workflows, and create reviewable documents, presentations,
 spreadsheets, Sites, and other finished work. Powered by
 [GPT-5.6](https://learn.chatgpt.com/docs/models), it can break a goal into steps and work for hours while
@@ -27,7 +29,7 @@ changes.
 ### Choose the right GPT-5.6 model
 
 The [GPT-5.6 family](https://learn.chatgpt.com/docs/models#recommended-models) offers three recommended
-models across ChatGPT Work, the ChatGPT desktop app, Codex CLI, and the Codex IDE
+models across Work mode in ChatGPT, the ChatGPT desktop app, Codex CLI, and the Codex IDE
 extension. Sol is the flagship for complex coding, computer use, research, and
 security work. Terra balances capability and cost for everyday work, while Luna
 is the fastest, lowest-cost option. The default **Power** setting uses Sol with
@@ -35,10 +37,10 @@ medium reasoning.
 
 ### Use Codex in the ChatGPT desktop app
 
-On July 9, the Codex app merges into the new
+On July 9, the Codex app merged into the
 [ChatGPT desktop app](https://learn.chatgpt.com/docs/app) for macOS and Windows. Codex keeps its
-dedicated coding experience alongside Chat and Work, with inline editing in
-diffs, pull request review in the side panel, faster
+dedicated coding experience alongside ChatGPT's Chat and Work modes. The Codex
+experience includes inline editing in diffs, pull request review in the side panel, faster
 [Computer Use](https://learn.chatgpt.com/docs/computer-use) powered by GPT-5.6, and multi-repository
 projects.
 
@@ -57,14 +59,14 @@ tasks that are easier to show than describe, then refine the generated skill
 and replay it with new inputs. Initial availability excludes the EEA, the
 United Kingdom, and Switzerland, and requires Computer Use.
 
-<a id="continue-a-chat-on-another-host"></a>
+<a id="continue-a-task-on-another-host"></a>
 
-### Continue a task on another host
+### Continue a chat on another host
 
-[Task handoff](https://learn.chatgpt.com/docs/remote-connections#hand-off-a-task-between-hosts)
-moves a task and its Git state between your local computer and a connected
+[Chat handoff](https://learn.chatgpt.com/docs/remote-connections#hand-off-a-chat-between-hosts)
+moves a chat and its Git state between your local computer and a connected
 remote host. Codex can create or reuse a worktree on the destination, transfer
-the task, and continue from the matching project.
+the chat, and continue from the matching project.
 
 The same desktop release adds bulk actions to scheduled run history, so
 you can mark every run as read or archive eligible runs together.
@@ -72,8 +74,8 @@ you can mark every run as read or archive eligible runs together.
 ### Browse and review workspaces from iOS
 
 In the ChatGPT mobile app, **Remote** added a workspace file browser, a
-directory picker for new tasks, expand-and-collapse controls for diffs, and
-per-task or cross-task MCP approval choices on iOS.
+directory picker for new chats, expand-and-collapse controls for diffs, and
+per-chat or cross-chat MCP approval choices on iOS.
 
 Computer Use, the Chrome extension, Memories, and Chronicle also began
 rolling out to the EEA, the United Kingdom, and Switzerland. Memories remain
@@ -114,10 +116,12 @@ optimizations reduce browser round trips.
 
 New migration flows can import supported setup from other coding agents during
 onboarding. The Codex app also added `/init` for creating project instructions,
-plus improved plugin management, browser diagnostics, and completed-task
+plus improved plugin management, browser diagnostics, and completed-chat
 summaries.
 
-### Set up Codex tasks from iOS
+<a id="set-up-codex-tasks-from-ios"></a>
+
+### Set up Codex chats from iOS
 
 Remote on iOS can now choose a branch, create a worktree, run an environment
 setup script, manage goals, and add inline review comments.
@@ -167,10 +171,10 @@ elsewhere.
   prompt={`Use @Computer to open the Windows app, reproduce the export failure, save a diagnostic file, and summarize the exact steps that trigger the problem.`}
 />
 
-Remote on iOS also added Spotlight and Shortcuts entry points, archived-task
+Remote on iOS also added Spotlight and Shortcuts entry points, archived-chat
 browsing, `/side`, and options to save or copy rendered images. The desktop app
-added task coordination for local projects and worktrees, content and
-branch-name search for past tasks, and consistent visual identifiers for
+added chat coordination for local projects and worktrees, content and
+branch-name search for past chats, and consistent visual identifiers for
 background subagents.
 
 Read the [May 25 iOS](https://learn.chatgpt.com/docs/changelog#codex-2026-05-25-mobile) and
@@ -281,15 +285,15 @@ verification part of the same task as the code change.
   variant="no-wallpaper"
 />
 
-<a id="start-with-a-chat-and-keep-it-moving"></a>
+<a id="start-with-a-task-and-keep-it-moving"></a>
 
-### Start with a task and keep it moving
+### Start with a chat and keep it moving
 
-[Standalone tasks](https://learn.chatgpt.com/docs/projects#start-without-a-project) made it
+[Standalone chats](https://learn.chatgpt.com/docs/projects#start-without-a-project) made it
 possible to begin without choosing a project folder. The same release added
-[scheduled work from a task](https://learn.chatgpt.com/docs/automations#schedule-work-from-a-task),
+[scheduled tasks inside a chat](https://learn.chatgpt.com/docs/automations#schedule-a-task-inside-a-chat),
 pull-request context, richer file previews, and [Memories](https://learn.chatgpt.com/docs/customization/memories) for
-work that spans tasks.
+work that spans chats.
 
 [Read the April 16 Codex app release notes](https://learn.chatgpt.com/docs/changelog#codex-2026-04-16-app).
 
@@ -313,7 +317,7 @@ learn how to [review changes in the app](https://learn.chatgpt.com/docs/code-rev
 [Plugins](https://learn.chatgpt.com/docs/plugins) launched as installable bundles of skills,
 connectors, and MCP servers. They made complete workflows easier to discover,
 install, and share, while redesigned plugin and skill pages made their contents
-and status clearer. Search for past tasks also arrived that week.
+and status clearer. Search for past chats also arrived that week.
 
 Read the [task search](https://learn.chatgpt.com/docs/changelog#codex-2026-03-24-app),
 [plugins launch](https://learn.chatgpt.com/docs/changelog#codex-2026-03-25), and
@@ -323,13 +327,13 @@ Read the [task search](https://learn.chatgpt.com/docs/changelog#codex-2026-03-24
 
 ### Branch earlier and choose tools from the composer
 
-You could fork a task from an earlier message, making it easier to try a new
+You could fork a chat from an earlier message, making it easier to try a new
 approach without losing the original path. Model and reasoning commands became
 available while drafting, enabled skills appeared in the `@` menu, and GPT-5.4
 mini added a faster option for lighter tasks and subagents.
 
 Read the [GPT-5.4 mini](https://learn.chatgpt.com/docs/changelog#codex-2026-03-17),
-[conversation control](https://learn.chatgpt.com/docs/changelog#codex-2026-03-18-app), and
+[chat control](https://learn.chatgpt.com/docs/changelog#codex-2026-03-18-app), and
 [skill menu](https://learn.chatgpt.com/docs/changelog#codex-2026-03-19-app) release notes.
 
 ## March 9–13, 2026
@@ -352,7 +356,7 @@ personalize.
 ### Let Codex inspect terminal output
 
 Codex also learned to read the [integrated terminal](https://learn.chatgpt.com/docs/integrated-terminal#run-and-validate-your-project)
-for the current task. It could inspect a running development server or build
+for the current chat. It could inspect a running development server or build
 output directly instead of asking you to paste it.
 
 <PromptComponent
@@ -378,12 +382,12 @@ available for developers who preferred a Linux environment.
   variant="no-wallpaper"
 />
 
-<a id="move-chats-between-local-and-worktree"></a>
+<a id="move-tasks-between-local-and-worktree"></a>
 
-### Move tasks between Local and Worktree
+### Move chats between Local and Worktree
 
 [Local and Worktree handoff](https://learn.chatgpt.com/docs/environments/git-worktrees#working-between-local-and-worktree)
-made it possible to move an active task while preserving its context. GPT-5.4
+made it possible to move an active chat while preserving its context. GPT-5.4
 also arrived in Codex that week for coding, computer use, and longer-context
 workflows.
 
@@ -396,8 +400,8 @@ Read the [Windows launch](https://learn.chatgpt.com/docs/changelog#codex-2026-03
 ### Iterate in real time and branch an approach
 
 GPT-5.3-Codex-Spark entered research preview as a near-instant model for
-real-time coding iteration. The app also added conversation forking and a
-floating, always-on-top task window, so you could explore another approach or
+real-time coding iteration. The app also added chat forking and a
+floating, always-on-top chat window, so you could explore another approach or
 keep Codex beside an editor or browser.
 
 Read the [Spark](https://learn.chatgpt.com/docs/changelog#codex-2026-02-12) and

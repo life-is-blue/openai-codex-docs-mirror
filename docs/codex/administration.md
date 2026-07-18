@@ -3,7 +3,7 @@
 <CodexDocsOverviewLanding
   title="Administration"
   description="Set access and policy boundaries for ChatGPT, Codex developer tools, APIs, plugins, and connected systems."
-  intro="Administration covers six related boundaries: ChatGPT workspace access; local runtime policy for covered capabilities in the ChatGPT desktop app, Codex CLI, and IDE extension; Codex cloud eligibility; Platform API access; plugin and app availability; and permissions in connected systems. Start with workspace identity and access, then apply the runtime and source-system controls required for each deployment."
+  intro="Administration covers six related boundaries: ChatGPT workspace access; local runtime policy for covered capabilities in the ChatGPT desktop app, Codex CLI, and IDE extension; Codex cloud eligibility; Platform API access; plugin availability and connector permissions; and permissions in connected systems. Start with workspace identity and access, then apply the runtime and source-system controls required for each deployment."
   primaryCta={{
     label: "Explore authentication",
     href: "/codex/auth?surface=app",
@@ -27,9 +27,9 @@
           icon: "users",
         },
         {
-          title: "ChatGPT Work Admin FAQ",
+          title: "Work mode admin FAQ",
           description:
-            "Review access, data, governance, usage, and incident controls for ChatGPT Work.",
+            "Review access, data, governance, usage, and incident controls for Work mode.",
           href: "/codex/enterprise/work-admin-faq",
           icon: "userLock",
         },
@@ -100,12 +100,12 @@
     {
       title: "Plugin and connector controls",
       description:
-        "Control plugin installation, bundled skills, app-backed capabilities, and connected-service access.",
+        "Control plugin installation, bundled skills, connector-backed capabilities, and connected-service access.",
       pages: [
         {
           title: "Plugin controls",
           description:
-            "Separate plugin availability from app enablement, actions, and source-system permissions.",
+            "Manage plugin availability, connector access and actions, and source-system permissions.",
           href: "/codex/enterprise/apps-and-connectors",
           icon: "connect",
         },
@@ -133,7 +133,7 @@
         {
           title: "Workspace analytics",
           description:
-            "Review ChatGPT adoption and distinguish it from Codex analytics.",
+            "Review workspace-level ChatGPT adoption and Codex usage.",
           href: "/codex/enterprise/workspace-analytics",
           icon: "dataControls",
         },

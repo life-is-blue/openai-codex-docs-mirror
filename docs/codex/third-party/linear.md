@@ -1,14 +1,14 @@
 # Use Codex in Linear
 
-Use Codex in Linear to delegate work from issues. Assign an issue to Codex or mention `@Codex` in a comment, and Codex creates a cloud task and replies with progress and results.
+Use Codex in Linear to delegate work from issues. Assign an issue to Codex or mention `@Codex` in a comment, and Codex creates a cloud chat and replies with progress and results.
 
 Codex in Linear is available on paid plans (see [Pricing](https://learn.chatgpt.com/docs/pricing)).
 
-If you're on an Enterprise plan, ask your ChatGPT workspace admin to turn on Codex cloud tasks in [workspace settings](https://chatgpt.com/admin/settings) and enable **Codex for Linear** in [connector settings](https://chatgpt.com/admin/ca).
+If you're on an Enterprise plan, ask your ChatGPT workspace admin to turn on Codex cloud chats in [workspace settings](https://chatgpt.com/admin/settings) and enable **Codex for Linear** in [connector settings](https://chatgpt.com/admin/ca).
 
 ## Set up the Linear integration
 
-1. Set up [Codex cloud tasks](https://learn.chatgpt.com/docs/cloud) by connecting GitHub in [Codex](https://chatgpt.com/codex) and creating an [environment](https://learn.chatgpt.com/docs/environments/cloud-environment) for the repository you want Codex to work in.
+1. Set up [Codex cloud chats](https://learn.chatgpt.com/docs/cloud) by connecting GitHub in [Codex](https://chatgpt.com/codex) and creating an [environment](https://learn.chatgpt.com/docs/environments/cloud-environment) for the repository you want Codex to work in.
 2. Go to [Codex settings](https://chatgpt.com/codex/settings/connectors) and install **Codex for Linear** for your workspace.
 3. Link your Linear account by mentioning `@Codex` in a comment thread on a Linear issue.
 
@@ -33,7 +33,7 @@ After you install the integration, you can assign issues to Codex the same way y
 
 ### Mention `@Codex` in comments
 
-You can also mention `@Codex` in comment threads to delegate work or ask questions. After Codex replies, follow up in the thread to continue the same task.
+You can also mention `@Codex` in comment threads to delegate work or ask questions. After Codex replies, follow up in the thread to continue the same chat.
 
 <div class="not-prose max-w-3xl mr-auto my-4">
   <img src="https://developers.openai.com/images/codex/integrations/linear-comment-light.webp"
@@ -52,14 +52,14 @@ To pin a specific repo, include it in your comment, for example: `@Codex fix thi
 To track progress:
 
 - Open **Activity** on the issue to see progress updates.
-- Open the task link to follow along in more detail.
+- Open the chat link to follow along in more detail.
 
-When the task finishes, Codex posts a summary and a link to the completed task so you can create a pull request.
+When Codex finishes, it posts a summary and a link to the completed chat so you can create a pull request.
 
 ### How Codex chooses an environment and repo
 
 - Linear suggests a repository based on the issue context. Codex selects the environment that best matches that suggestion. If the request is ambiguous, it falls back to the environment you used most recently.
-- The task runs against the default branch of the first repository listed in that environment’s repo map. Update the repo map in Codex if you need a different default or more repositories.
+- The chat runs against the default branch of the first repository listed in that environment’s repo map. Update the repo map in Codex if you need a different default or more repositories.
 - If no suitable environment or repository is available, Codex will reply in Linear with instructions on how to fix the issue before retrying.
 
 ## Automatically assign issues to Codex
@@ -72,7 +72,7 @@ You can assign issues to Codex automatically using triage rules:
 4. In **Triage rules**, create a rule and choose **Delegate** > **Codex** (and any other properties you want to set).
 
 Linear assigns new issues that enter triage to Codex automatically.
-When you use triage rules, Codex runs tasks using the account of the issue creator.
+When you use triage rules, Codex runs chats using the account of the issue creator.
 
 <div class="not-prose max-w-3xl mr-auto my-4">
   <img src="https://developers.openai.com/images/codex/integrations/linear-triage-rule-light.webp"
@@ -87,7 +87,7 @@ When you use triage rules, Codex runs tasks using the account of the issue creat
 
 ## Data usage, privacy, and security
 
-When you mention `@Codex` or assign an issue to it, Codex receives your issue content to understand your request and create a task.
+When you mention `@Codex` or assign an issue to it, Codex receives your issue content to understand your request and create a chat.
 Data handling follows OpenAI's [Privacy Policy](https://openai.com/privacy), [Terms of Use](https://openai.com/terms/), and other applicable [policies](https://openai.com/policies).
 For more on security, see the [Codex security documentation](https://learn.chatgpt.com/docs/agent-approvals-security).
 
@@ -100,7 +100,9 @@ Codex uses large language models that can make mistakes. Always review answers a
 - **Wrong part of the code**: Add more context in the issue, or give explicit instructions in your `@Codex` comment.
 - **More help**: See the [OpenAI Help Center](https://help.openai.com/).
 
-## Connect Linear for local tasks (MCP)
+<a id="connect-linear-for-local-tasks-mcp"></a>
+
+## Connect Linear for local work (MCP)
 
 If you're using the ChatGPT desktop app, Codex CLI, or IDE extension and want it to access Linear issues locally, configure the Linear Model Context Protocol (MCP) server.
 

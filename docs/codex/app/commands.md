@@ -4,44 +4,46 @@ Use these commands and keyboard shortcuts to navigate the app.
 
 ## Keyboard shortcuts
 
-|             | Action              | Shortcut                                                                                                          |
-| ----------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **General** |                     |                                                                                                                   |
-|             | Command menu        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> or <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>K</kbd> |
-|             | Settings            | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>,</kbd>                                                                     |
-|             | Keyboard shortcuts  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>/</kbd>                                                  |
-|             | Open folder         | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>O</kbd>                                                                     |
-|             | Navigate back       | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>[</kbd>                                                                     |
-|             | Navigate forward    | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>]</kbd>                                                                     |
-|             | Increase font size  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>+</kbd>                                                                     |
-|             | Decrease font size  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>-</kbd>                                                                     |
-|             | Toggle sidebar      | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>B</kbd>                                                                     |
-|             | Open review tab     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>                                                                 |
-|             | Toggle review panel | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>B</kbd>                                                    |
-|             | Toggle bottom panel | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>J</kbd>                                                                     |
-|             | Toggle terminal     | <kbd>Ctrl</kbd> + <kbd>`</kbd>                                                                                    |
-|             | Clear the terminal  | <kbd>Ctrl</kbd> + <kbd>L</kbd>                                                                                    |
-| **Chat**    | Quick Chat          | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>N</kbd>                                                    |
-| **Task**    | New task            | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>N</kbd> or <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
-|             | Search tasks        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>G</kbd>                                                                     |
-|             | Find in task        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>F</kbd>                                                                     |
-|             | Previous task       | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd>                                                  |
-|             | Next task           | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>]</kbd>                                                  |
-| **Input**   | Dictation           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>                                                                 |
+|             | Action              | Shortcut                                                                                                               |
+| ----------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **General** |                     |                                                                                                                        |
+|             | Command menu        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> or <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>K</kbd>      |
+|             | Settings            | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>,</kbd>                                                                          |
+|             | Keyboard shortcuts  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>/</kbd>                                                       |
+|             | Open folder         | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>O</kbd>                                                                          |
+|             | Navigate back       | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>[</kbd>                                                                          |
+|             | Navigate forward    | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>]</kbd>                                                                          |
+|             | Increase font size  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>+</kbd>                                                                          |
+|             | Decrease font size  | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>-</kbd>                                                                          |
+|             | Toggle sidebar      | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>B</kbd>                                                                          |
+|             | Open review tab     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>                                                                      |
+|             | Toggle review panel | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>B</kbd>                                                         |
+|             | Toggle bottom panel | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>J</kbd>                                                                          |
+|             | Toggle terminal     | <kbd>Ctrl</kbd> + <kbd>`</kbd>                                                                                         |
+|             | Clear the terminal  | <kbd>Ctrl</kbd> + <kbd>L</kbd>                                                                                         |
+| **Chat**    | Quick chat          | <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>N</kbd> (macOS) or <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>N</kbd> (Windows) |
+|             | New chat            | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>N</kbd> or <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd>      |
+|             | Search chats        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>G</kbd>                                                                          |
+|             | Find in chat        | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>F</kbd>                                                                          |
+|             | Previous chat       | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd>                                                       |
+|             | Next chat           | <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>]</kbd>                                                       |
+| **Input**   | Dictation           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>                                                                      |
 
 To find, customize, or reset shortcuts, open **Settings > Keyboard Shortcuts**.
 You can search by command name or switch the search field into keystroke mode
 and press the shortcut you want to find.
 
-## Search past tasks and find in a task
+<a id="search-past-tasks-and-find-in-a-task"></a>
 
-Use task search (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>G</kbd>) to reopen a past
-task. When expanded matching is available, it can also match task content and
-Git branch names, so you can search for a phrase from the task or a
+## Search past chats and find in a chat
+
+Use chat search (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>G</kbd>) to reopen a past
+chat. When expanded matching is available, it can also match chat content and
+Git branch names, so you can search for a phrase from the chat or a
 branch such as `fix/login-redirect`.
 
-Use **Find in task** (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>F</kbd>) after opening
-a task to find text within it. It doesn't search across other tasks.
+Use **Find in chat** (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>F</kbd>) after opening
+a chat to find text within it. It doesn't search across other chats.
 
 For actions that start with `/`, see [Slash commands](https://learn.chatgpt.com/docs/reference/slash-commands).
 
@@ -57,9 +59,9 @@ Use these canonical forms when you create links. The sections below list the ful
 
 | Deep link                                                                   | Opens                                                   |
 | --------------------------------------------------------------------------- | ------------------------------------------------------- |
-| `codex://threads/new`                                                       | A new local task.                                       |
-| `codex://new?<query>`                                                       | A new local task with at least one query parameter.     |
-| `codex://threads/<thread-id>`                                               | A local task. `<thread-id>` is its technical thread ID. |
+| `codex://threads/new`                                                       | A new local chat.                                       |
+| `codex://new?<query>`                                                       | A new local chat with at least one query parameter.     |
+| `codex://threads/<thread-id>`                                               | A local chat. `<thread-id>` is its technical thread ID. |
 | `codex://settings`                                                          | Settings.                                               |
 | `codex://settings/connections/<connection-type>`                            | Computer, device, or SSH connection settings.           |
 | `codex://settings/connections/ssh/add?name=<ssh-config-host>`               | Adds a host from your SSH config to Codex.              |
@@ -70,30 +72,34 @@ Use these canonical forms when you create links. The sections below list the ful
 | `codex://plugins/<plugin-name>?marketplacePath=<absolute-marketplace-path>` | A local plugin detail page from a local marketplace.    |
 | `codex://pets/install?name=<pet-name>&imageUrl=<https-image-url>`           | The pet install flow.                                   |
 
-### Tasks
+<a id="tasks"></a>
 
-Use these links when you need to open an existing local task or start a new one.
+### Chats
+
+Use these links when you need to open an existing local chat or start a new one.
 
 | Deep link                     | Opens                                                                                                        |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `codex://threads/<thread-id>` | A local task. `<thread-id>` is its technical thread ID.                                                      |
-| `codex://threads/new`         | A new local task.                                                                                            |
-| `codex://threads/new?<query>` | A new local task with optional query parameters.                                                             |
-| `codex://new?<query>`         | A new local task. Include at least one of `prompt`, `path`, or `originUrl`; otherwise the link does nothing. |
+| `codex://threads/<thread-id>` | A local chat. `<thread-id>` is its technical thread ID.                                                      |
+| `codex://threads/new`         | A new local chat.                                                                                            |
+| `codex://threads/new?<query>` | A new local chat with optional query parameters.                                                             |
+| `codex://new?<query>`         | A new local chat. Include at least one of `prompt`, `path`, or `originUrl`; otherwise the link does nothing. |
 
 For `codex://threads/new` or `codex://new`, add any of these query parameters as needed; you can combine them in the same URL.
 
 | Query parameter              | Required | What it does                                                                                                                                                  |
 | ---------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `prompt=<text>`              | No       | Sets the initial composer text.                                                                                                                               |
-| `path=<absolute-path>`       | No       | Opens the new task in a local workspace. `path` must be an absolute path to a local directory. When valid, Codex uses that directory as the active workspace. |
+| `path=<absolute-path>`       | No       | Opens the new chat in a local workspace. `path` must be an absolute path to a local directory. When valid, Codex uses that directory as the active workspace. |
 | `originUrl=<git-remote-url>` | No       | Matches one of your current workspace roots by Git remote URL. If `path` is also present, Codex resolves `path` first.                                        |
 
 Example: [Show me some fun stats about how I've been using Codex](codex://threads/new?prompt=Show%20me%20some%20fun%20stats%20about%20how%20I%27ve%20been%20using%20Codex)
 
-#### Start a task with a plugin
+<a id="start-a-task-with-a-plugin"></a>
 
-To help users start a plugin-backed task, include a plugin mention in the
+#### Start a chat with a plugin
+
+To help users start a plugin-backed chat, include a plugin mention in the
 prompt before you encode it:
 
 ```text
@@ -107,11 +113,11 @@ Encode the complete prompt as a URI component—for example, with
 codex://new?prompt=%5B%40Example%5D(plugin%3A%2F%2Fexample%40openai-curated)%20Summarize%20this%20document%3A%20https%3A%2F%2Fexample.com%2Fdocument%2F123
 ```
 
-The link opens a new task with the decoded prompt in the composer. It doesn't
+The link opens a new chat with the decoded prompt in the composer. It doesn't
 send the prompt automatically. After the user sends it, Codex can use an
-installed plugin in that task. If the plugin isn't installed but is available
-to the user, Codex asks the user to install it and connect any required apps.
-After setup, the user can select **Continue** to resume the same task. Workspace
+installed plugin in that chat. If the plugin isn't installed but is available
+to the user, Codex asks the user to install it and connect any required connectors.
+After setup, the user can select **Continue** to resume the same chat. Workspace
 settings can limit which plugins a user can install. For plugin installation
 and permission details, see [Plugins](https://learn.chatgpt.com/docs/plugins).
 

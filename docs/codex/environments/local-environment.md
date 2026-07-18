@@ -13,7 +13,7 @@ directory that contains the shared `.codex` folder.
 
 ## Setup scripts
 
-Since worktrees run in different directories than your local tasks, your project might not be fully set up and might be missing dependencies or files that aren't checked into your repository. Setup scripts run automatically when Codex creates a new worktree at the start of a new task.
+Since worktrees run in different directories than your local chats, your project might not be fully set up and might be missing dependencies or files that aren't checked into your repository. Setup scripts run automatically when Codex creates a new worktree at the start of a new chat.
 
 Use this script to run any command required to configure your environment, such as installing dependencies or running a build process.
 

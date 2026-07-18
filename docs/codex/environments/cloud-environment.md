@@ -1,12 +1,14 @@
 # Cloud environments
 
-Use environments to control what Codex installs and runs during cloud tasks. For example, you can add dependencies, install tools like linters and formatters, and set environment variables.
+Use environments to control what Codex installs and runs during cloud chats. For example, you can add dependencies, install tools like linters and formatters, and set environment variables.
 
 Configure environments in [Codex settings](https://chatgpt.com/codex/settings/environments).
 
-## How Codex cloud tasks run
+<a id="how-codex-cloud-tasks-run"></a>
 
-Here's what happens when you submit a task:
+## How Codex cloud chats run
+
+Here's what happens when you submit a prompt:
 
 1. Codex creates a container and checks out your repo at the selected branch or commit SHA.
 2. Codex runs your setup script, plus an optional maintenance script when a cached container is resumed.
@@ -28,7 +30,7 @@ While `codex-universal` comes with languages pre-installed for speed and conveni
 
 ## Environment variables and secrets
 
-**Environment variables** are set for the full duration of the task (including setup scripts and the agent phase).
+**Environment variables** are set for the full duration of the chat (including setup scripts and the agent phase).
 
 **Secrets** are similar to environment variables, except:
 
@@ -58,7 +60,7 @@ Setup scripts run in a separate Bash session from the agent, so commands like
 
 ## Container caching
 
-Codex caches container state for up to 12 hours to speed up new tasks and follow-ups.
+Codex caches container state for up to 12 hours to speed up new chats and follow-ups.
 
 When an environment is cached:
 
@@ -67,7 +69,7 @@ When an environment is cached:
 
 When a cached container is resumed:
 
-- Codex checks out the branch specified for the task.
+- Codex checks out the branch specified for the chat.
 - Codex runs the maintenance script (optional). This is useful when the setup script ran on an older commit and dependencies need to be updated.
 
 Codex automatically invalidates the cache if you change the setup script, maintenance script, environment variables, or secrets. If your repo changes in a way that makes the cached state incompatible, select **Reset cache** on the environment page.

@@ -127,7 +127,7 @@
         },
         {
           title: "GitHub Action",
-          description: "Run Codex tasks from GitHub Actions workflows.",
+          description: "Run Codex from GitHub Actions workflows.",
           href: "/codex/github-action",
           icon: "github",
         },
@@ -153,7 +153,7 @@
         {
           title: "Slack",
           description:
-            "Start Codex tasks from conversations and return results.",
+            "Start Codex chats from external discussions and return results.",
           href: "/codex/third-party/slack",
           icon: "chat",
         },

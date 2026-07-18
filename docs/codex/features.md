@@ -3,15 +3,15 @@
 <CodexDocsOverviewLanding
   title="Features"
   description="Explore workflows, capabilities, commands, and settings for working in ChatGPT."
-  intro="ChatGPT brings projects and long-running tasks together with web browsing, files, images, and plugins. Commands, settings, and troubleshooting references round out these workflows, from choosing the right workflow to giving each task the context and tools it needs."
+  intro="ChatGPT brings projects and long-running chats together with web browsing, files, images, and plugins. Commands, settings, and troubleshooting references round out these workflows, from choosing the right workflow to giving each chat the context and tools it needs."
   primaryCta={{
-    label: "Explore projects and tasks",
+    label: "Explore projects and chats",
     href: "/codex/projects",
   }}
   hero={{
     illustration: "features-menu",
     backgroundImage: "/images/codex/codex-wallpaper-1.webp",
-    alt: "Codex sidebar and Add menu for tasks, plugins, and content tools",
+    alt: "Codex sidebar and Add menu for chats, plugins, and content tools",
   }}
   sections={[
     {
@@ -19,8 +19,8 @@
       description: "Ways to organize, delegate, and review work.",
       pages: [
         {
-          title: "Projects, chats, and tasks",
-          description: "Keep related chats, tasks, context, and work together.",
+          title: "Projects and chats",
+          description: "Keep related chats, context, and work together.",
           href: "/codex/projects",
           icon: "folder",
         },
@@ -59,14 +59,14 @@
         },
         {
           title: "Pets",
-          description: "Choose an animated companion and follow task activity.",
+          description: "Choose an animated companion and follow chat activity.",
           href: "/codex/pets",
           icon: "customize",
         },
         {
           title: "Codex Micro",
           description:
-            "Monitor and control ChatGPT tasks from a Work Louder keyboard.",
+            "Monitor and control ChatGPT chats from a Work Louder keyboard.",
           href: "/codex/features/codex-micro",
           icon: "key",
         },

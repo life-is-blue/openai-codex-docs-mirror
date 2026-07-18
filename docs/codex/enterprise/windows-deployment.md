@@ -11,7 +11,7 @@ services.
 | Users install and update their own apps                        | Use the [web installer](https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi). |
 | IT deploys the app and Microsoft update services are available | Deploy the Microsoft Store app through Intune or another management tool.                               |
 | IT controls update timing or blocks Microsoft update services  | Redeploy each new version through your software-management process.                                     |
-| Your network blocks Microsoft app-distribution services        | Use the offline MSIX package for restricted networks.                                                   |
+| Your network blocks Microsoft app-distribution services        | Deploy the Store-signed MSIX package for each device architecture.                                      |
 
 ## Let users install and update the app
 
@@ -63,14 +63,23 @@ includes browser and runtime components that receive regular updates.
 ## Deploy without Microsoft distribution services
 
 If your environment can't use the standard Microsoft distribution services,
-download [Codex-x64.zip](https://persistent.oaistatic.com/codex-app-prod/Codex-x64.zip)
-as an offline deployment option. The archive contains the Store-signed offline
-MSIX package and its associated license files. Ingest these files into your MDM
+download the Store-signed MSIX package for each device architecture:
+
+| Device architecture | Package                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| x64                 | [ChatGPT-x64.msix](https://persistent.oaistatic.com/codex-app-prod/ChatGPT-x64.msix)     |
+| Arm64               | [ChatGPT-arm64.msix](https://persistent.oaistatic.com/codex-app-prod/ChatGPT-arm64.msix) |
+
+These stable links point to the latest published Store package. For offline
+deployment workflows that require a license file, also download the
+[offline license (`ChatGPT-License.xml`)](https://persistent.oaistatic.com/codex-app-prod/ChatGPT-License.xml).
+Ingest the appropriate MSIX and, when required, the license file into your MDM
 or software-deployment platform.
 
-The offline package:
+This deployment path:
 
 - Supports deployment in restricted environments.
+- Supports x64 and Arm64 devices.
 - Doesn't provide a standalone MSI or non-Store EXE.
 - Doesn't let users update the app themselves.
 - Requires your organization to deploy newer packages when updating the app.

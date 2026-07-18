@@ -2,12 +2,12 @@
 
 Skills and plugins help ChatGPT complete repeatable work with the right
 instructions, resources, and tools. They reduce the need to paste the same
-prompt, template, requirements, or process into every conversation.
+prompt, template, requirements, or process into every chat.
 
 - A **skill** packages instructions and supporting resources for a specific
   task or workflow.
-- A **plugin** is an installable bundle that can include skills, an app, or
-  both. Apps are backed by Model Context Protocol (MCP) servers and can
+- A **plugin** is an installable bundle that can include skills, connectors, or
+  both. Connectors are backed by Model Context Protocol (MCP) servers and can
   optionally include custom ChatGPT UI.
 
 ## Use skills for repeatable work
@@ -69,10 +69,10 @@ For more details on building skills, see our dedicated guide below.
 ## Use plugins for tools and shared workflows
 
 Plugins make reusable capabilities easier to install and share. A plugin can
-combine skills with apps for services such as GitHub, Google Drive, or Slack,
-and can include MCP servers for additional tools and context.
+combine skills with connectors for services such as GitHub, Google Drive, or
+Slack, and can include MCP servers for additional tools and context.
 
-Browse the plugin directory when you want to add an existing workflow instead
+Browse the Plugins Directory when you want to add an existing workflow instead
 of building one yourself. After installing a plugin, describe the task directly
 or type `@` to choose a specific plugin or bundled skill.
 

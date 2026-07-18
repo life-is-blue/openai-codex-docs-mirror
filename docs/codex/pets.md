@@ -14,7 +14,7 @@ appearance, not how ChatGPT completes tasks.
 ## Use a floating pet
 
 In the ChatGPT desktop app, a pet can float above other app windows and help
-you follow activity across your tasks.
+you follow activity across your chats.
 
 ### Choose and wake a pet
 
@@ -33,16 +33,16 @@ When you select a custom pet, it also appears in your **Profile** view.
 
 | Status          | Meaning                                                  |
 | --------------- | -------------------------------------------------------- |
-| **Running**     | A task is actively working.                              |
-| **Needs input** | A task needs your approval, answer, or another decision. |
-| **Ready**       | A task has completed and has unread activity.            |
-| **Blocked**     | A task failed or encountered a system error.             |
+| **Running**     | A chat is actively working.                              |
+| **Needs input** | A chat needs your approval, answer, or another decision. |
+| **Ready**       | A chat has completed and has unread activity.            |
+| **Blocked**     | A chat failed or encountered a system error.             |
 
-When more than one task has activity, the pet prioritizes tasks that need
-input, followed by blocked, ready, and running tasks. Open the activity tray to
-choose a task.
+When more than one chat has activity, the pet prioritizes chats that need
+input, followed by blocked, ready, and running chats. Open the activity tray to
+choose a chat.
 
-Select the pet to return to ChatGPT, or select an activity to open its task.
+Select the pet to return to ChatGPT, or select an activity to open its chat.
 The activity tray is separate from [system
 notifications](https://learn.chatgpt.com/docs/notifications?surface=app).
 
@@ -55,7 +55,7 @@ attach to an awake pet. Move the pet, and the window follows.
 
 1. Open **Settings > Pets** and select **Create your own pet**.
 2. The app installs the bundled `hatch-pet` skill, reloads skills, and opens a
-   new task.
+   new chat.
 3. Describe the pet you want and send the prompt.
 4. When the task finishes, return to **Settings > Pets**, select **Refresh**,
    and choose your new pet.

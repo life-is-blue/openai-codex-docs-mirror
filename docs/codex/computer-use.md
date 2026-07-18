@@ -1,8 +1,8 @@
 # Computer Use
 
 In supported regions, Computer Use in the ChatGPT desktop app is available on
-  macOS and Windows in ChatGPT Work and Codex. Install the Computer Use plugin.
-  On macOS, grant Screen Recording and Accessibility permissions when prompted.
+  macOS and Windows in Work mode and Codex. Install the Computer Use plugin. On
+  macOS, grant Screen Recording and Accessibility permissions when prompted.
 
 With Computer Use, ChatGPT can see and operate graphical user interfaces on macOS
 or Windows. Use it for tasks where command-line tools or structured integrations
@@ -16,7 +16,8 @@ continuing.
 
 ## Set up Computer Use
 
-In the ChatGPT desktop app, select Work or Codex. Open **Plugins > Computer
+In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select
+Codex. Open **Plugins > Computer
 Use** and select **Install plugin** if prompted. If ChatGPT shows **Enable**,
 select it. Turn on the Computer Use server and skill toggles, then select **Try
 now** to start.

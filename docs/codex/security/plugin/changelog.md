@@ -3,6 +3,37 @@
 This changelog highlights changes that affect how you run scans, review
 results, and move findings toward remediation.
 
+## 0.1.11 (July 2026)
+
+### Produce detailed finding and hardening reports
+
+- Generate one source-backed vulnerability report for every reportable scan
+  finding, with supporting proof-of-concept files when available.
+- Review a structural hardening portfolio that analyzes the complete finding
+  set, engineering tradeoffs, migration options, and supporting diagrams.
+- Use `report.md` as the entry point to these derived outputs under `findings/`
+  and `hardening/`. Keep the full scan directory together when sharing or
+  archiving results.
+
+### Run reporting workflows directly
+
+- Use `$codex-security:vulnerability-writeup` to turn disclosure documents,
+  rough findings, PoCs, and source code into polished reports without first
+  running a Codex Security scan.
+- Use `$codex-security:propose-security-hardening` to develop evidence-backed
+  structural or architectural options from scans, findings, incident or
+  assessment documents, and source code.
+
+### Apply repository guidance and coverage consistently
+
+- Define threat-model context, security invariants, reportable finding
+  criteria, exclusions, and severity context in root or nested `SECURITY.md`
+  files. The closest applicable file takes precedence.
+- Review deleted source files in change scans and expand the default repository
+  review coverage before validation.
+- Check deep-scan phase skills, delegated workers, and worker capacity before a
+  deep scan starts.
+
 ## 0.1.9 (June 2026)
 
 ### Review scans in the findings workspace

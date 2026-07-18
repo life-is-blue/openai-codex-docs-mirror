@@ -12,7 +12,7 @@ before sharing sensitive information or allowing ChatGPT to act.
 
 
 The built-in browser in the ChatGPT desktop app gives you and ChatGPT a shared
-view of websites and local web apps inside a task. Use it to preview a page,
+view of websites and local web apps inside a chat. Use it to preview a page,
 leave visual feedback, or let ChatGPT interact with a site on your behalf.
 
 The built-in browser uses a browser profile that is separate from your regular
@@ -44,13 +44,14 @@ manually, or by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>
 
 ## Computer Use in the browser
 
-Computer Use lets ChatGPT operate the built-in browser directly. ChatGPT can
-open pages, click, type, inspect rendered state, take screenshots, and verify
-the result of its work in the page.
+In the desktop app, Computer Use lets ChatGPT in Work mode or Codex operate the
+built-in browser directly. The selected experience can open pages, click, type,
+inspect rendered state, take screenshots, and verify the result of its work in
+the page.
 
-In the desktop app, open the Plugins Directory and install **Browser**. Then ask
-ChatGPT to use the browser in your task, or reference it directly with
-`@Browser`.
+Select ChatGPT and switch to Work mode, or select Codex. Open the Plugins
+Directory and install **Browser**. Then ask ChatGPT or Codex to use the browser
+in your task, or reference it directly with `@Browser`.
 
 For example:
 
@@ -93,7 +94,7 @@ ChatGPT precise feedback.
 1. Turn on **Annotation mode**.
 2. Click an element, or drag to select an area.
 3. Write and save your comment.
-4. Send a message in the task asking ChatGPT to address the comments.
+4. Send a message in the chat asking ChatGPT to address the comments.
 
 Comments work best when you name the problem and the result you want:
 

@@ -96,12 +96,12 @@ request by leaving another comment:
 @codex fix the P1 issue
 ```
 
-Codex starts a cloud task with the pull request as context and can push a fix
+Codex starts a cloud chat with the pull request as context and can push a fix
 back to the branch when it has permission to do so.
 
 ## Give Codex other tasks
 
-If you mention `@codex` in a comment with anything other than `review`, Codex starts a [cloud task](https://learn.chatgpt.com/docs/cloud) using your pull request as context.
+If you mention `@codex` in a comment with anything other than `review`, Codex starts a [cloud chat](https://learn.chatgpt.com/docs/cloud) using your pull request as context.
 
 ```md
 @codex fix the CI failures

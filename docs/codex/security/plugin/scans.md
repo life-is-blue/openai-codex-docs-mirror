@@ -62,8 +62,12 @@ A scan runs these phases in order:
    or proof gaps.
 4. **Attack-path analysis** evaluates realistic reachability, impact, and
    severity.
-5. **Finalization** validates the structured scan contract and generates
-   `report.md`.
+5. **Detailed reporting** creates one source-backed vulnerability report per
+   reportable finding, with supporting proof-of-concept files when available.
+6. **Structural hardening** analyzes the complete finding set and creates a
+   design portfolio when reportable findings remain.
+7. **Finalization** validates the structured scan contract and generates
+   `report.md`, which links the detailed reports and hardening portfolio.
 
 Codex reports phase and coverage progress as the scan runs. Don't judge the
 result from early candidates or stop the scan because one phase takes longer
@@ -115,7 +119,10 @@ Review the result in this order:
 
 Use the findings workspace for normal review. It presents findings, coverage,
 and follow-up areas without requiring you to inspect raw JSON. Open `report.md`
-when you need a complete portable review for sharing or archiving.
+as the primary readable entry point to the complete scan directory. Keep the
+directory together when sharing or archiving it because the report links to
+detailed reports under `findings/` and, when reportable findings exist,
+structural hardening guidance under `hardening/`.
 
 Behind the workspace, each scan preserves `scan-manifest.json`, `findings.json`,
 and `coverage.json` for automation and integrations. You normally don't need to
@@ -128,4 +135,4 @@ The findings workspace can also create portable JSON, CSV, and SARIF files. See
 
 After a person accepts a finding, use [Fix and verify a finding](https://learn.chatgpt.com/docs/security/plugin/fix-findings)
 to generate and review one bounded patch. Don't ask Codex to fix every finding
-from a scan in one task.
+from a scan in one chat.

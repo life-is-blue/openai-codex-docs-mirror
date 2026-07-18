@@ -58,8 +58,8 @@ base branch, or **Last turn** for the most recent assistant turn.
 
 Review findings appear as inline comments in the review pane.
 
-Reviews run in the current task by default. Under **Settings** > **General** >
-**Code review**, choose **Detached** to start a separate review task. See
+Reviews run in the current chat by default. Under **Settings** > **General** >
+**Code review**, choose **Detached** to start a separate review chat. See
 [developer settings](https://learn.chatgpt.com/docs/developer-settings?surface=app#app-code-review).
 
 <CodexScreenshot
@@ -105,7 +105,7 @@ To leave an inline comment:
 2. Hover over the line you want to comment on.
 3. Select the **+** button that appears.
 4. Write your feedback and submit it.
-5. After you finish leaving feedback, send a message back to the task.
+5. After you finish leaving feedback, send a message back to the chat.
 
 Because comments are line-specific, Codex can respond more precisely than with
 a general instruction.
@@ -120,7 +120,7 @@ When Codex has GitHub access for your repository and the current project is on
 the pull request branch, the ChatGPT desktop app can help you work through pull
 request feedback without leaving the app. The sidebar shows pull request
 context and feedback from reviewers, and the review pane shows comments
-alongside the diff so you can ask Codex to address issues in the same task.
+alongside the diff so you can ask Codex to address issues in the same chat.
 
 Install the GitHub CLI (`gh`) and authenticate it with `gh auth login` so Codex
 can load pull request context, review comments, and changed files. If `gh` is

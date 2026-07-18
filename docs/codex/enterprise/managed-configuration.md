@@ -554,7 +554,7 @@ reserved name match. The requirements don't filter already configured user
 marketplaces or their plugins at runtime.
 
 These source restrictions apply only where a local client supports plugin
-marketplace operations: ChatGPT Work and Codex in the ChatGPT desktop app, and
+marketplace operations: Work mode and Codex in the ChatGPT desktop app, and
 Codex CLI. They don't add plugins to Chat, the IDE extension, or mobile.
 
 ## Managed defaults (`managed_config.toml`)

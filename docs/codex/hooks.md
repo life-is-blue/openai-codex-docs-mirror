@@ -3,10 +3,10 @@
 Hooks are an extensibility framework for Codex. They allow
 you to inject your own scripts into the agentic loop, enabling features such as:
 
-- Send the conversation to a custom logging/analytics engine
+- Send the chat to a custom logging/analytics engine
 - Scan your team's prompts to block accidentally pasting API keys
-- Summarize conversations to create persistent memories automatically
-- Run a custom validation check when a conversation turn stops, enforcing standards
+- Summarize chats to create persistent memories automatically
+- Run a custom validation check when a chat turn stops, enforcing standards
 - Customize prompting when in a certain directory
 
 Runtime behavior to keep in mind:
@@ -81,6 +81,7 @@ Hooks are organized in three levels:
 
 ```json
 {
+  "description": "Optional lifecycle hooks for this workspace.",
   "hooks": {
     "SessionStart": [
       {
@@ -157,6 +158,8 @@ Hooks are organized in three levels:
 
 Notes:
 
+- `description` is optional top-level metadata for a `hooks.json` file. It
+  doesn't change which hooks run.
 - `timeout` is in seconds.
 - If `timeout` is omitted, Codex uses `600` seconds.
 - `statusMessage` is optional.
@@ -295,10 +298,10 @@ Only some current Codex events honor `matcher`:
 | Event               | What `matcher` filters | Notes                                                        |
 | ------------------- | ---------------------- | ------------------------------------------------------------ |
 | `PermissionRequest` | tool name              | Support includes `Bash`, `apply_patch`\*, and MCP tool names |
-| `PostToolUse`       | tool name              | Support includes `Bash`, `apply_patch`\*, and MCP tool names |
+| `PostToolUse`       | tool name              | See [Tool coverage](#tool-coverage)                          |
 | `PostCompact`       | compaction trigger     | Values are `manual` or `auto`                                |
 | `PreCompact`        | compaction trigger     | Values are `manual` or `auto`                                |
-| `PreToolUse`        | tool name              | Support includes `Bash`, `apply_patch`\*, and MCP tool names |
+| `PreToolUse`        | tool name              | See [Tool coverage](#tool-coverage)                          |
 | `SessionStart`      | start source           | Values are `startup`, `resume`, `clear`, and `compact`       |
 | `SubagentStart`     | subagent type          | Values depend on the subagent that starts                    |
 | `SubagentStop`      | subagent type          | Values depend on the subagent that stops                     |
@@ -316,6 +319,28 @@ Examples:
 - `mcp__filesystem__.*`
 - `startup|resume|clear|compact`
 - `manual|auto`
+
+### Tool coverage
+
+`PreToolUse` and `PostToolUse` can observe more than shell and MCP calls. Most
+local function tools use the same hook path, so you can match their tool name,
+inspect their JSON arguments, and, for `PreToolUse`, block or rewrite the call.
+
+| Tool path                         | `PreToolUse` | `PostToolUse` | Notes                                                                                                                    |
+| --------------------------------- | ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Shell commands                    | Yes          | Yes           | Match as `Bash`.                                                                                                         |
+| Unified exec (`exec_command`)     | Yes          | Yes           | Match as `Bash`. A later `write_stdin` poll can deliver the original command's `PostToolUse` when that command finishes. |
+| `apply_patch`                     | Yes          | Yes           | Match as `apply_patch`, `Edit`, or `Write`.                                                                              |
+| MCP tools                         | Yes          | Yes           | Match the MCP tool name, such as `mcp__filesystem__read_file`.                                                           |
+| Other local function tools        | Yes          | Yes           | Match the function tool name, such as `update_plan`. `spawn_agent` also matches `Agent`.                                 |
+| Hosted tools, such as `WebSearch` | No           | No            | These don't use the local function-tool hook path.                                                                       |
+
+`write_stdin` is transport for an existing unified-exec session. It doesn't run
+`PreToolUse` again when it sends input or polls a command that already passed
+`PreToolUse`.
+
+Some specialized tool paths can opt out of the default hook path. Treat tool
+hooks as a useful guardrail, not a complete enforcement boundary.
 
 ## Common input fields
 
@@ -339,7 +364,7 @@ event-specific tables.
 `permission_mode`, which describes the current permission mode as `default`,
 `acceptEdits`, `plan`, `dontAsk`, or `bypassPermissions`.
 
-`transcript_path` points to a conversation transcript for convenience, but the
+`transcript_path` points to a chat transcript for convenience, but the
 transcript format isn't a stable interface for hooks and may change over time.
 
 If you need the full wire format, see [Schemas](#schemas).
@@ -376,6 +401,24 @@ that hook run as failed, reports the error, and continues the tool call.
 
 `PostToolUse` supports `systemMessage`, `continue: false`, and `stopReason`.
 `suppressOutput` is parsed but not currently supported for that event.
+
+### Large hook output
+
+Codex limits each model-visible hook-output message to roughly 2,500 tokens.
+If a hook returns more, Codex saves the full text under
+`<temp_dir>/hook_outputs/<session_id>/<uuid>.txt` and gives the model a
+head-and-tail preview with the saved-file path. If the file can't be written,
+the model still receives a truncated preview.
+
+This applies to additional context from `SessionStart`, `SubagentStart`,
+`PreToolUse`, `PostToolUse`, and `UserPromptSubmit`, feedback from
+`PostToolUse`, and continuation prompts from `Stop` and `SubagentStop`. The
+limit applies to each additional-context entry or continuation prompt. For
+`PostToolUse` feedback, Codex combines feedback from all matching hooks and
+applies the limit to the combined message.
+
+Because oversized output can be written to disk, avoid returning secrets or
+other sensitive data in hook output.
 
 ## Hooks
 
@@ -438,14 +481,8 @@ subagent from starting.
 ### PreToolUse
 
 `PreToolUse` can intercept Bash, file edits performed through `apply_patch`,
-and MCP tool calls. It's still a guardrail rather than a complete enforcement
-boundary because Codex can often perform equivalent work through another
-supported tool path.
-
-This doesn't intercept all shell calls yet, only the simple ones. The newer
-  `unified_exec` mechanism allows richer streaming stdin/stdout handling of
-  shell, but interception is incomplete. Similarly, this doesn't intercept
-  `WebSearch` or other non-shell, non-MCP tool calls.
+MCP tool calls, and other local function tools. See [Tool
+coverage](#tool-coverage) for the supported paths and exceptions.
 
 `matcher` is applied to `tool_name` and matcher aliases. For file edits through
 `apply_patch`, `matcher` values can use `apply_patch`, `Edit`, or `Write`; hook input
@@ -453,12 +490,12 @@ still reports `tool_name: "apply_patch"`.
 
 Fields in addition to [Common input fields](#common-input-fields):
 
-| Field         | Type         | Meaning                                                                                                    |
-| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------- |
-| `turn_id`     | `string`     | Codex-specific extension. Active Codex turn id                                                             |
-| `tool_name`   | `string`     | Canonical hook tool name, such as `Bash`, `apply_patch`, or an MCP name like `mcp__fs__read`               |
-| `tool_use_id` | `string`     | Tool-call id for this invocation                                                                           |
-| `tool_input`  | `JSON value` | Tool-specific input. `Bash` and `apply_patch` use `tool_input.command` while MCP tools send all arguments. |
+| Field         | Type         | Meaning                                                                                                                          |
+| ------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| `turn_id`     | `string`     | Codex-specific extension. Active Codex turn id                                                                                   |
+| `tool_name`   | `string`     | Canonical hook tool name, such as `Bash`, `apply_patch`, or an MCP name like `mcp__fs__read`                                     |
+| `tool_use_id` | `string`     | Tool-call id for this invocation                                                                                                 |
+| `tool_input`  | `JSON value` | Tool-specific input. `Bash` and `apply_patch` use `tool_input.command`. MCP and other local function tools send their arguments. |
 
 Plain text on `stdout` is ignored.
 
@@ -514,9 +551,10 @@ To rewrite a supported tool call without blocking, return
 ```
 
 For Bash commands and `apply_patch`, `updatedInput` must include a string
-`command` field. For MCP tools, `updatedInput` is the replacement arguments
-object. Return `updatedInput` only with `permissionDecision: "allow"`; other
-`updatedInput` shapes are reported as errors.
+`command` field. For MCP and other local function tools, `updatedInput` is the
+replacement arguments object. Return `updatedInput` only with
+`permissionDecision: "allow"`; other `updatedInput` shapes are reported as
+errors.
 
 `permissionDecision: "ask"`, legacy `decision: "approve"`, `continue: false`,
 `stopReason`, and `suppressOutput` are parsed but not supported yet. Codex marks
@@ -585,14 +623,10 @@ closed today.
 ### PostToolUse
 
 `PostToolUse` runs after supported tools produce output, including Bash,
-`apply_patch`, and MCP tool calls. For Bash, it also runs after commands that
-exit with a non-zero status. It can't undo side effects from the tool that
-already ran.
-
-This doesn't intercept all shell calls yet, only the simple ones. The newer
-  `unified_exec` mechanism allows richer streaming stdin/stdout handling of
-  shell, but interception is incomplete. Similarly, this doesn't intercept
-  `WebSearch` or other non-shell, non-MCP tool calls.
+`apply_patch`, MCP tool calls, and other local function tools. For Bash, it
+also runs after commands that exit with a non-zero status. It can't undo side
+effects from a tool that already ran. See [Tool coverage](#tool-coverage) for
+the supported paths and exceptions.
 
 `matcher` is applied to `tool_name` and matcher aliases. For file edits through
 `apply_patch`, `matcher` values can use `apply_patch`, `Edit`, or `Write`; hook input
@@ -600,13 +634,13 @@ still reports `tool_name: "apply_patch"`.
 
 Fields in addition to [Common input fields](#common-input-fields):
 
-| Field           | Type         | Meaning                                                                                                    |
-| --------------- | ------------ | ---------------------------------------------------------------------------------------------------------- |
-| `turn_id`       | `string`     | Codex-specific extension. Active Codex turn id                                                             |
-| `tool_name`     | `string`     | Canonical hook tool name, such as `Bash`, `apply_patch`, or an MCP name like `mcp__fs__read`               |
-| `tool_use_id`   | `string`     | Tool-call id for this invocation                                                                           |
-| `tool_input`    | `JSON value` | Tool-specific input. `Bash` and `apply_patch` use `tool_input.command` while MCP tools send all arguments. |
-| `tool_response` | `JSON value` | Tool-specific output. For MCP tools, this is the MCP call result.                                          |
+| Field           | Type         | Meaning                                                                                                                          |
+| --------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| `turn_id`       | `string`     | Codex-specific extension. Active Codex turn id                                                                                   |
+| `tool_name`     | `string`     | Canonical hook tool name, such as `Bash`, `apply_patch`, or an MCP name like `mcp__fs__read`                                     |
+| `tool_use_id`   | `string`     | Tool-call id for this invocation                                                                                                 |
+| `tool_input`    | `JSON value` | Tool-specific input. `Bash` and `apply_patch` use `tool_input.command`. MCP and other local function tools send their arguments. |
+| `tool_response` | `JSON value` | Tool-specific output. MCP tools send the MCP call result. Other local function tools normally send their model-facing output.    |
 
 Plain text on `stdout` is ignored.
 
@@ -639,9 +673,23 @@ your feedback or stop text and continue from there.
 Codex marks the hook run as failed, reports the error, and continues normal
 processing of the tool result.
 
+#### Tool calls from code mode
+
+When a model uses code mode to call a tool from JavaScript, hook decisions apply
+to that nested call. `PreToolUse` can stop the tool before it runs or rewrite
+its input. A blocking `PostToolUse` can't undo the tool's side effects, but it
+can keep the original result from reaching the running script.
+
+| Hook result                                                      | What code mode sees                                                                                    |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `PreToolUse` blocks                                              | The tool promise rejects before the tool runs.                                                         |
+| `PreToolUse` returns `updatedInput`                              | The tool runs with the rewritten input and the promise resolves with that result.                      |
+| `PostToolUse` returns `decision: "block"` or exits with code `2` | The tool runs, then the promise rejects with the hook reason.                                          |
+| `PostToolUse` returns `continue: false`                          | Codex uses the hook feedback for the model-visible result, but doesn't reject the nested tool promise. |
+
 ### PreCompact
 
-`PreCompact` runs before Codex compacts the conversation. `matcher` is applied
+`PreCompact` runs before Codex compacts the chat. `matcher` is applied
 to `trigger`, whose values are `manual` and `auto`.
 
 Fields in addition to [Common input fields](#common-input-fields):
@@ -659,7 +707,7 @@ compacting.
 
 ### PostCompact
 
-`PostCompact` runs after Codex compacts the conversation. `matcher` is applied
+`PostCompact` runs after Codex compacts the chat. `matcher` is applied
 to `trigger`, whose values are `manual` and `auto`.
 
 Fields in addition to [Common input fields](#common-input-fields):

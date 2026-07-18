@@ -13,10 +13,12 @@ controls let you turn permission and question notifications on or off. Your
 operating system may ask you to grant notification permission to the ChatGPT
 desktop app.
 
-### Follow task activity with a pet
+<a id="follow-task-activity-with-a-pet"></a>
 
-In the ChatGPT desktop app, a floating pet is another way to follow task
-activity while you work in other apps. It can show when a task is **Running**,
+### Follow chat activity with a pet
+
+In the ChatGPT desktop app, a floating pet is another way to follow chat
+activity while you work in other apps. It can show when a chat is **Running**,
 **Needs input**, **Ready**, or **Blocked**.
 
 See [Pets](https://learn.chatgpt.com/docs/pets?surface=app) to choose a pet, understand its status, or

@@ -1,6 +1,6 @@
 # Appshots
 
-Appshots let you send the frontmost app window to a task in ChatGPT. Use them when
+Appshots let you send the frontmost app window to a chat in ChatGPT. Use them when
 you're actively working in another app on your computer and want to provide
 ChatGPT with your current context so it can help you with the task.
 
@@ -15,7 +15,7 @@ An appshot captures the frontmost window only. It can include:
 - Available text from that window, including visible text and text the app makes
   available outside the visible scroll area.
 
-After you add an appshot to a task, it behaves like an attachment. ChatGPT
+After you add an appshot to a chat, it behaves like an attachment. ChatGPT
 stores appshots locally in the session file, like files or images you attach
 manually.
 
@@ -40,13 +40,13 @@ Examples:
 3. Allow macOS permissions if ChatGPT asks.
 4. Ask ChatGPT to perform a task with the appshot.
 
-<Illustration description="ChatGPT task composer with an Appshot attachment and follow-up prompt">
-  <AppshotsComposerIllustration ariaLabel="ChatGPT task composer with an Appshot attachment and follow-up prompt" />
+<Illustration description="ChatGPT chat composer with an Appshot attachment and follow-up prompt">
+  <AppshotsComposerIllustration ariaLabel="ChatGPT chat composer with an Appshot attachment and follow-up prompt" />
 </Illustration>
 
-By default, ChatGPT starts a new task for the appshot. If you interacted with a
-task in the last 60 seconds, ChatGPT adds the appshot to that recent
-task instead. Taking consecutive appshots adds them to the same task.
+By default, ChatGPT starts a new chat for the appshot. If you interacted with a
+chat in the last 60 seconds, ChatGPT adds the appshot to that recent
+chat instead. Taking consecutive appshots adds them to the same chat.
 
 You can change the Appshots hotkey in the app settings.
 
@@ -67,13 +67,13 @@ with ChatGPT.
 
 ## Limits and troubleshooting
 
-Appshots are available in the ChatGPT desktop app on macOS. If you resume a task
-in the CLI that already contains an appshot, the attachment is part of the task
+Appshots are available in the ChatGPT desktop app on macOS. If you resume a chat
+in the CLI that already contains an appshot, the attachment is part of the chat
 history, but the CLI can't create a new appshot.
 
 For some apps and websites, including Google Docs, Gmail, Google Sheets, and
 Google Slides, ChatGPT may receive only the visible screenshot and may not receive
-the full document or off-screen text. In ChatGPT Work or Codex, ChatGPT can use a
+the full document or off-screen text. In Work mode or Codex, ChatGPT can use a
 matching installed plugin to access the relevant app content and help with your
 request.
 

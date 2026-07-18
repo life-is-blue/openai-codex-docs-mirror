@@ -49,7 +49,7 @@ matter, and explain what ChatGPT should take from each one.
   relying on the image alone.
 - Ask ChatGPT to use [web search](https://learn.chatgpt.com/docs/web-search) when the answer depends on
   current information, and ask for sources when you need to check the result.
-- Use a [project](https://learn.chatgpt.com/docs/projects) when related chats or tasks should share files,
+- Use a [project](https://learn.chatgpt.com/docs/projects) when related chats should share files,
   sources, or a local folder.
 
 ### Use connected sources
@@ -81,8 +81,8 @@ ChatGPT choose from the tools available to it. To choose a specific plugin, type
 
 ### Personalize ChatGPT
 
-Put preferences that should apply across chats and tasks in **Settings > Personalization**
-as custom instructions. Keep details that matter only to the current task in the
+Put preferences that should apply across chats in **Settings > Personalization**
+as custom instructions. Keep details that matter only to the current chat in the
 prompt.
 
 [<IconItem title="Review personalization settings" className="mt-4">
@@ -229,19 +229,23 @@ Plan five weekday dinners that take less than 30 minutes. Avoid peanuts, reuse
 ingredients across meals, and finish with one consolidated shopping list.
 ```
 
-## Prompting for Work
+<a id="prompting-for-work"></a>
 
-Use Chat for quick questions, short rewrites, brainstorming, and lightweight
-drafts. Use Work for tasks that draw on different sources or tools, involve a
+## Prompting in Work mode
+
+Use Chat mode for quick questions, short rewrites, brainstorming, and lightweight
+drafts. Use Work mode for tasks that draw on different sources or tools, involve a
 sequence of steps, make changes, or produce a larger deliverable.
 
-For Work tasks, describe the result you need, provide the source material, name
+In Work mode, describe the result you need, provide the source material, name
 the audience, and explain how you'll review the work. Ask ChatGPT to plan,
 gather the needed information, create files, and check them before it finishes.
 
-### Use Work efficiently
+<a id="use-work-efficiently"></a>
 
-Work is useful for time-consuming or recurring tasks, or for finished files you
+### Use Work mode efficiently
+
+Work mode is useful for time-consuming or recurring tasks, or for finished files you
 can reuse. A task that uses more credits can still be worthwhile if it saves
 time, improves quality, or helps you make an important decision.
 
@@ -285,10 +289,10 @@ owners, dependencies, risks, announcement draft, customer FAQ, and a checklist
 for launch day. Flag any missing decisions before producing the final files.
 ```
 
-For recurring work, first refine the prompt in a normal task. After the output is
-reliable, [schedule work from that task](https://learn.chatgpt.com/docs/automations#schedule-work-from-a-task).
+For recurring work, first refine the prompt in a normal chat. After the output is
+reliable, [schedule a task inside that chat](https://learn.chatgpt.com/docs/automations#schedule-a-task-inside-a-chat).
 Create a standalone scheduled task instead when each scheduled run should start
-a new task.
+a new chat.
 
 <a id="use-editor-context"></a>
 
@@ -528,7 +532,7 @@ Start the dev server and tell me the local URL/route to view the prototype.
 
 <WorkflowSteps>
 
-1. Attach the image in the Codex task (drag-and-drop or paste).
+1. Attach the image in the Codex chat (drag-and-drop or paste).
 2. Prompt Codex:
 
    ```text
@@ -592,7 +596,7 @@ Verification:
 
 ### Delegate refactor to the cloud
 
-Use this when you want to design an approach with local context, then delegate the long implementation to a cloud task that can run in parallel.
+Use this when you want to design an approach with local context, then delegate the long implementation to a cloud chat that can run in parallel.
 
 #### Local planning (IDE)
 
@@ -635,7 +639,7 @@ Context notes:
 
 1. If you haven't already done so, set up a [Codex cloud environment](https://learn.chatgpt.com/docs/environments/cloud-environment).
 2. Click on the cloud icon beneath the prompt composer and select your cloud environment.
-3. When you enter the next prompt, Codex creates a new task in the cloud that carries over the existing task context (including the plan and any local source changes).
+3. When you enter the next prompt, Codex creates a new chat in the cloud that carries over the existing chat context (including the plan and any local source changes).
 
    ```text
    Implement Milestone 1 from the plan.

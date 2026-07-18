@@ -10,6 +10,13 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
   maxVisibleEntries={100}
   options={[
     {
+      key: "Action",
+      href: "/codex/agent-approvals-security",
+      appliesTo: "Desktop app, Web, Mobile, CLI, IDE extension, Cloud",
+      description:
+        "An operation performed by a person, ChatGPT, or Codex, such as editing a file, running a command, or using a connected service.",
+    },
+    {
       key: "Agent",
       href: "/codex",
       appliesTo: "Desktop app, CLI, IDE extension, Cloud",
@@ -53,14 +60,14 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/plugins",
       appliesTo: "Desktop app, CLI, IDE extension",
       description:
-        "Compatibility name used by Codex configuration and app-server fields for connectors.",
+        "Codex configuration and app-server fields that store connector settings under the `apps` name.",
     },
     {
       key: "Appshot",
       href: "/codex/appshots",
       appliesTo: "Desktop app",
       description:
-        "Snapshot of the frontmost app window sent to a Work or Codex task.",
+        "Snapshot of the frontmost app window sent to a ChatGPT or Codex chat.",
     },
     {
       key: "Auth cache",
@@ -79,14 +86,15 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       key: "Scheduled task",
       href: "/codex/automations",
       appliesTo: "Desktop app, Web",
-      description: "A scheduled or recurring task in ChatGPT.",
+      description:
+        "A prompt ChatGPT runs at a future time or on a recurring schedule, with its own settings and run history.",
     },
     {
       key: "Scheduled run",
       href: "/codex/automations#managing-tasks",
       appliesTo: "Desktop app, Web",
       description:
-        "One execution of a scheduled task that may report findings or archive itself.",
+        "One execution of a scheduled task, including its status and any resulting findings.",
     },
     {
       key: "Computer Use in the browser",
@@ -98,9 +106,9 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Chat",
       href: "/codex/projects#start-a-chat",
-      appliesTo: "Desktop app, Web, Mobile",
+      appliesTo: "Desktop app, Web, Mobile, CLI, IDE extension, Cloud",
       description:
-        "An ordinary ChatGPT conversation containing prompts and responses. Quick Chat opens this same conversation type.",
+        "A saved space for exchanging messages with ChatGPT or Codex, including shared context, results, and actions. Quick chat starts a ChatGPT chat from Codex.",
     },
     {
       key: "ChatGPT sign-in",
@@ -127,14 +135,13 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       key: "Cloud environment",
       href: "/codex/environments/cloud-environment",
       appliesTo: "Cloud",
-      description: "Configured container setup used for Codex cloud tasks.",
+      description: "Configured container setup used for Codex cloud chats.",
     },
     {
-      key: "Cloud task",
+      key: "Cloud chat",
       href: "/codex/environments/cloud-environment#how-codex-cloud-tasks-run",
       appliesTo: "Cloud",
-      description:
-        "A remotely executed Codex task that runs in a cloud environment.",
+      description: "A Codex chat that runs remotely in a cloud environment.",
     },
     {
       key: "Codex",
@@ -147,7 +154,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/app",
       appliesTo: "Desktop",
       description:
-        "Desktop app with ChatGPT Work, Codex, and a separate Quick Chat window, including projects, file previews, scheduled tasks, and developer tools.",
+        "Desktop app with ChatGPT and Codex, including Chat and Work modes, projects, file previews, scheduled tasks, and developer tools.",
     },
     {
       key: "Codex app-server",
@@ -195,7 +202,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       key: "Codex-managed worktree",
       href: "/codex/environments/git-worktrees#codex-managed-and-permanent-worktrees",
       appliesTo: "Desktop app",
-      description: "A temporary worktree Codex creates and manages for a task.",
+      description: "A temporary worktree Codex creates and manages for a chat.",
     },
     {
       key: "Compaction",
@@ -229,21 +236,28 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/remote-connections#what-comes-from-the-connected-host",
       appliesTo: "Desktop app, Mobile",
       description:
-        "Computer or development environment that provides files, tools, and shell access for Work or Codex tasks opened through Remote.",
+        "Computer or development environment that provides files, tools, and shell access for ChatGPT or Codex chats opened through Remote.",
     },
     {
       key: "Connector",
       href: "/codex/plugins",
-      appliesTo: "Desktop app (Work, Codex), Web (Work)",
+      appliesTo: "Desktop app (Work mode, Codex), Web (Work mode)",
       description:
-        "Connector that lets Work or Codex access external services through a plugin.",
+        "A component of a plugin that connects ChatGPT or Codex to data and actions in an external service.",
+    },
+    {
+      key: "Conversation",
+      href: "/codex/projects#start-a-chat",
+      appliesTo: "Desktop app, Web, Mobile, CLI, IDE extension, Cloud",
+      description:
+        "The ongoing exchange of messages and shared context between a person and ChatGPT or Codex within a chat.",
     },
     {
       key: "Container cache",
       href: "/codex/environments/cloud-environment#container-caching",
       appliesTo: "Cloud",
       description:
-        "Saved cloud container state reused to speed up future tasks.",
+        "Saved cloud container state reused to speed up future cloud chats.",
     },
     {
       key: "Context",
@@ -345,14 +359,14 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       key: "Handoff",
       href: "/codex/environments/git-worktrees#working-between-local-and-worktree",
       appliesTo: "Desktop app",
-      description: "Moving a task and its work between Local and Worktree.",
+      description: "Moving a chat and its work between Local and Worktree.",
     },
     {
       key: "Heartbeat",
-      href: "/codex/automations#schedule-work-from-a-task",
+      href: "/codex/automations#schedule-a-task-inside-a-chat",
       appliesTo: "Desktop app",
       description:
-        "Shorthand for recurring scheduled work that returns ChatGPT to the same task.",
+        "A recurring scheduled task that returns ChatGPT to the same chat.",
     },
     {
       key: "Hook",
@@ -393,10 +407,10 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       description: "Mode where Codex works on the user's computer.",
     },
     {
-      key: "Local task",
+      key: "Local chat",
       href: "/codex/environments/modes",
       appliesTo: "Desktop app, CLI, IDE extension",
-      description: "A Work or Codex task that runs on the user's machine.",
+      description: "A ChatGPT or Codex chat that runs on the user's machine.",
     },
     {
       key: "Maintenance script",
@@ -505,16 +519,16 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Plugin",
       href: "/codex/plugins",
-      appliesTo: "Desktop app (Work, Codex), Web (Work), CLI",
+      appliesTo: "Desktop app (Work mode, Codex), Web (Work mode), CLI",
       description:
-        "Installable bundle that can distribute skills, tools, and integrations.",
+        "An installable bundle of capabilities such as skills, connectors, and tools.",
     },
     {
       key: "Plugin manifest",
       href: "/codex/build-plugins#plugin-structure",
-      appliesTo: "Desktop app, CLI, IDE extension, Plugins",
+      appliesTo: "Plugin authoring",
       description:
-        "Plugin metadata file that identifies a plugin and points to bundled skills, apps, MCP servers, hooks, and metadata.",
+        "Plugin metadata file that identifies a plugin and points to bundled skills, connector mappings, MCP servers, hooks, and metadata.",
     },
     {
       key: "Prefix rule",
@@ -541,7 +555,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/projects",
       appliesTo: "Desktop app",
       description:
-        "A group of related chats or tasks and shared sources, or a local folder used for file-based work.",
+        "A group of related chats and shared sources, or a local folder used for file-based work.",
     },
     {
       key: "Prompt",
@@ -580,7 +594,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/remote-connections",
       appliesTo: "Desktop app, Mobile",
       description:
-        "Connection that lets you access Work or Codex tasks on another device through a connected host.",
+        "Connection that lets you access ChatGPT or Codex chats on another device through a connected host.",
     },
     {
       key: "requirements.toml",
@@ -668,7 +682,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/automations",
       appliesTo: "Desktop app, Web",
       description:
-        "Scheduled task whose runs each start a new task and report findings in Triage.",
+        "Scheduled task whose runs each start a new chat and report findings in Triage.",
     },
     {
       key: "STDIO MCP server",
@@ -698,25 +712,31 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
         "Workflow where Codex runs delegated agents in parallel and combines their results.",
     },
     {
+      key: "Standalone task",
+      href: "/codex/projects",
+      appliesTo: "Desktop app, CLI, IDE extension, Cloud",
+      description: "A Codex task that isn't grouped within a project.",
+    },
+    {
       key: "Task",
       href: "/codex/projects",
       appliesTo: "Desktop app, Web, Mobile, CLI, IDE extension, Cloud",
       description:
-        "Durable unit of Work or Codex activity containing its context, messages, results, and actions.",
+        "A defined outcome ChatGPT or Codex works toward, such as fixing a bug, creating a document, or researching a topic.",
     },
     {
       key: "Thread",
       href: "/codex/app-server#threads",
       appliesTo: "App-server, SDK",
       description:
-        "Technical conversation object exposed by Codex app-server APIs and protocol fields.",
+        "A technical object in Codex app-server APIs that contains turns and stored conversation history.",
     },
     {
-      key: "Scheduled work",
-      href: "/codex/automations#schedule-work-from-a-task",
+      key: "Scheduled task in a chat",
+      href: "/codex/automations#schedule-a-task-inside-a-chat",
       appliesTo: "Desktop app, Web",
       description:
-        "Work scheduled from an existing task that returns to the same task context on each scheduled run.",
+        "A scheduled task that uses an existing chat's context and returns each run's results to that chat.",
     },
     {
       key: "Thread fork",
@@ -730,7 +750,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/app-server#core-primitives",
       appliesTo: "Desktop app, CLI, IDE extension, Cloud, SDK",
       description:
-        "One exchange in a chat or task, usually a user prompt plus the agent's response and actions.",
+        "One exchange in a chat, usually a user prompt plus the agent's response and actions.",
     },
     {
       key: "Universal image",
@@ -747,11 +767,11 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
         "Pre-indexed search results Codex can use without live browsing.",
     },
     {
-      key: "Work",
+      key: "Work mode",
       href: "/codex/get-started-with-work",
       appliesTo: "Desktop app, Web",
       description:
-        "ChatGPT Work is an agent for research, analysis, and creating documents, presentations, spreadsheets, and other finished work.",
+        "Mode in ChatGPT for research, analysis, and creating documents, presentations, spreadsheets, and other finished work.",
     },
     {
       key: "Worktree",
