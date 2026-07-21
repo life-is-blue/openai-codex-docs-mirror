@@ -7,16 +7,9 @@ plugins or connections that need authorization.
 
 Importing doesn't change or delete your existing agent setup.
 
-<div class="not-prose my-6 max-w-5xl">
-  <CodexScreenshot
-    alt="Choose the other AI apps to import from"
-    lightSrc="/images/codex/import/import-source.png"
-    darkSrc="/images/codex/import/import-source.png"
-    maxHeight="680px"
-    variant="no-wallpaper"
-    imageClass="rounded-xl"
-  />
-</div>
+<Illustration description="ChatGPT import screen for choosing other AI apps to import from.">
+  <ExternalAgentImportIllustration step="providers" />
+</Illustration>
 
 ## Start an import
 
@@ -27,22 +20,14 @@ Importing doesn't change or delete your existing agent setup.
    agent setup**.
 2. Select **Import**.
 3. Choose the agents you want to import from, then select **Continue**.
-4. On **Select items to import**, select **Continue** to import everything or **Customize** to choose specific items.
-5. If you customize the import, select the items to bring over, then select **Confirm**.
-6. After the import finishes, open an imported project or chat to continue working.
+4. On **Select items to import**, choose what to bring over, then select **Continue**.
+5. After the import finishes, open an imported project or chat to continue working.
 
 </WorkflowSteps>
 
-<div class="not-prose my-6 max-w-5xl">
-  <CodexScreenshot
-    alt="Select the setup and recent work to import into ChatGPT"
-    lightSrc="/images/codex/import/import-overview.png"
-    darkSrc="/images/codex/import/import-overview.png"
-    maxHeight="680px"
-    variant="no-wallpaper"
-    imageClass="rounded-xl"
-  />
-</div>
+<Illustration description="ChatGPT import screen for selecting setup, projects, and recent chats to import.">
+  <ExternalAgentImportIllustration step="items" />
+</Illustration>
 
 ## How importing works
 
@@ -72,17 +57,6 @@ When you import, ChatGPT:
 | Hooks                       | [Codex hooks](https://learn.chatgpt.com/docs/hooks)                          |
 | Slash commands              | [Skills](https://learn.chatgpt.com/docs/build-skills)                        |
 | Subagents                   | [Codex agents](https://learn.chatgpt.com/docs/agent-configuration/subagents) |
-
-<div class="not-prose my-6 max-w-5xl">
-  <CodexScreenshot
-    alt="Choose the instructions, settings, skills, plugins, projects, and chats to import"
-    lightSrc="/images/codex/import/import-instructions.png"
-    darkSrc="/images/codex/import/import-instructions.png"
-    maxHeight="680px"
-    variant="no-wallpaper"
-    imageClass="rounded-xl"
-  />
-</div>
 
 ## Finish setup after importing
 

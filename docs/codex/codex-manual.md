@@ -1129,8 +1129,8 @@ or Codex CLI.
 
 #### Run your first scan
 
-For the best scan quality, use `gpt-5.6`
-with `high` or `xhigh` reasoning effort.
+For the best scan quality, use `gpt-5.6-sol`
+with `xhigh` reasoning effort.
 
 1.  Ask for an ordinary scan
 
@@ -14072,9 +14072,8 @@ Importing doesn't change or delete your existing agent setup.
    agent setup**.
 2. Select **Import**.
 3. Choose the agents you want to import from, then select **Continue**.
-4. On **Select items to import**, select **Continue** to import everything or **Customize** to choose specific items.
-5. If you customize the import, select the items to bring over, then select **Confirm**.
-6. After the import finishes, open an imported project or chat to continue working.
+4. On **Select items to import**, choose what to bring over, then select **Continue**.
+5. After the import finishes, open an imported project or chat to continue working.
 
 #### How importing works
 

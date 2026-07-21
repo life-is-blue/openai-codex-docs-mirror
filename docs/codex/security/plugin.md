@@ -44,8 +44,8 @@ This page covers the plugin that runs in a local Codex chat. To scan a
 
 ## Run your first scan
 
-For the best scan quality, use `gpt-5.6`
-with `high` or `xhigh` reasoning effort.
+For the best scan quality, use `gpt-5.6-sol`
+with `xhigh` reasoning effort.
 
 
 

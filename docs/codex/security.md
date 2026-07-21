@@ -4,7 +4,7 @@
   href="https://chatgpt.com/plugins/share/676aca3811d54fa7bcdef5255236b3c4"
   label="Install plugin in ChatGPT"
   icon="external"
-  class="my-8"
+  class="mb-8 mt-2"
 />
 
 For a prescriptive first local scan, start with the [Codex Security plugin
