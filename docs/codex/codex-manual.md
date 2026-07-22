@@ -8748,25 +8748,50 @@ needing an `@codex review` comment.
 
 #### Customize what Codex reviews
 
-Codex searches your repository for `AGENTS.md` files and follows any **Review guidelines** you include.
+Codex searches your repository for `AGENTS.md` files and follows the applicable
+code review rules. Add a `## Code Review Rules` section to the file closest to
+the code the rules govern. Use `###` headings to group related checks when
+helpful.
 
-To set guidelines for a repository, add or update a top-level `AGENTS.md` with a section like this:
+For example, an experiment-reporting service can keep post-exposure behavior
+from changing a comparison cohort:
 
 ```md
-## Review guidelines
+## Code Review Rules
 
-- Don't log PII.
-- Verify that authentication middleware wraps every route.
+### Experiment cohorts
+
+- Do not filter treatment comparisons on post-exposure behavior, including conversion or retention.
+  Safe path: build cohorts from assignment or exposure; report conversion as an outcome.
 ```
 
-Codex applies guidance from the closest `AGENTS.md` to each changed file. You can place more specific instructions deeper in the tree when particular packages need extra scrutiny.
+Put repository-wide rules in the root `AGENTS.md` and service-specific rules
+in a nested file, such as `services/experiment_reporting/AGENTS.md`. Codex
+applies the root and more-specific guidance that covers each changed file, so
+unrelated changes don't have to carry service-specific context.
+
+Start with two or three concise rules that encode checks reviewers often explain. Useful rules:
+
+- **Focus on consequential, repository-specific behavior.** Describe the
+  compatibility constraint, data boundary, or unsafe side effect to flag and
+  why it matters.
+- **State the safe path or exception.** Give Codex enough context to distinguish
+  a real issue from expected behavior.
+- **Keep rules scoped and durable.** Prefer outcomes over function names that
+  can change, and place guidance near the code it governs.
+- **Leave mechanical checks in CI.** Keep formatting, lint, and other
+  deterministic checks out of review rules.
+
+Open a representative pull request and request a review with `@codex review`.
+Refine the rules based on the findings and feedback you see, and narrow or
+remove guidance that produces noise.
+
+Code review rules guide Codex; they don't replace tests, branch protections, or
+required approvals.
 
 For a one-off focus, add it to your pull request comment:
 
 `@codex review for security regressions`
-
-If you want Codex to flag typos in documentation, add guidance in `AGENTS.md`
-(for example, “Treat typos in docs as P1.”).
 
 #### Act on review findings
 
@@ -8883,6 +8908,27 @@ Repository-level files keep Codex aware of project norms while still inheriting 
 Codex stops searching once it reaches your current directory, so place overrides as close to specialized work as possible.
 
 Here is a sample repository after you add a global file and a payments-specific override:
+
+#### Add code review rules
+
+For [Codex code review in GitHub](https://learn.chatgpt.com/docs/third-party/github#customize-what-codex-reviews),
+add a `## Code Review Rules` section to the `AGENTS.md` closest to the code the
+rules govern. Put repository-wide checks at the root and service-specific
+checks in a nested file.
+
+```md
+## Code Review Rules
+
+### Experiment cohorts
+
+- Do not filter treatment comparisons on post-exposure behavior, including conversion or retention.
+  Safe path: build cohorts from assignment or exposure; report conversion as an outcome.
+```
+
+Keep rules concise, explain the behavior to flag and any safe path or
+exception, and reserve formatting and lint checks for CI. See [Customize what
+Codex reviews](https://learn.chatgpt.com/docs/third-party/github#customize-what-codex-reviews) for
+setup and rule-writing guidance.
 
 #### Customize fallback filenames
 
@@ -10191,8 +10237,8 @@ If the Platform shows that the developer or business identity is verified but
 the plugin submission form does not recognize it, check that you are submitting
 from the same organization and project where the identity was verified. The
 submitter also needs **Apps Management** write access for that organization.
-Ask an organization owner or admin to update the submitter's role, then reload
-the plugin submission portal.
+Ask an organization owner or admin to update the role assigned to the
+submitter, then reload the plugin submission portal.
 
 #### Prepare required materials
 
@@ -10251,7 +10297,7 @@ For app or MCP submissions:
 3. Define a content security policy that allows the exact domains your app
    fetches from.
 4. Complete domain verification if the portal shows a **Domain not verified**
-   challenge. Use an HTTPS origin on the MCP hostname or a parent hostname, and
+   challenge. Use an HTTPS origin on the MCP host or a parent host, and
    host the exact token at `/.well-known/openai-apps-challenge`.
 5. Select **Scan Tools**.
 6. Review the discovered tools, domains, validation output, and tool metadata.
@@ -10276,23 +10322,23 @@ The challenge endpoint must return only that plugin's verification token. Do not
 return JSON, a list of tokens, or multiple tokens from the same URL.
 
 The **Challenge Base URL** is an optional HTTPS origin that tells the portal
-where to check the token. It must be the MCP hostname or a parent hostname.
+where to check the token. It must be the MCP host or a parent host.
 Paths are ignored. For example, if the MCP server URL is
 `https://api.example.com/mcp`, the default challenge URL is
 `https://api.example.com/.well-known/openai-apps-challenge`, and
 `https://example.com` can be used as a parent-origin challenge base if you can
 host the token there.
 
-If two plugins that contain apps share the same MCP hostname but differ only by
+If two plugins that contain apps share the same MCP host but differ only by
 path, they also share the same default challenge URL. You cannot verify them
 separately by putting different tenant paths in the Challenge Base URL, because
 the path is ignored. Use a parent origin that can host the new token, give the
-app's MCP server a distinct hostname, or work with OpenAI support if neither
+app's MCP server a distinct host, or work with OpenAI support if neither
 hosting option is possible.
 
-If another plugin that contains an app already uses the same MCP hostname, do
+If another plugin that contains an app already uses the same MCP host, do
 not replace its existing challenge token unless that plugin no longer needs it.
-Use an allowed parent-origin Challenge Base URL or a distinct MCP hostname for
+Use an allowed parent-origin Challenge Base URL or a distinct MCP host for
 the new submission.
 
 Every tool should have clear names, descriptions, schemas, and output
@@ -10316,6 +10362,12 @@ For review expectations, see the Apps SDK
 
 Upload the final skill bundle for skills-only or app-plus-skills submissions.
 Use the same file tree and instructions you tested locally.
+
+For a **Skills only** submission, upload a ZIP no larger than 100 MB with one
+plugin root. Put the plugin manifest, such as `.codex-plugin/plugin.json`, and
+`skills//SKILL.md` in that root. ZIP uploads only support skills. The
+portal excludes `.mcp.json`, `mcpServers`, `.app.json`, `apps`, and
+`interface.screenshots` and reports a warning when they are present.
 
 Each skill should include:
 
@@ -10373,6 +10425,10 @@ are ready for users.
 #### Submit
 
 Review the full draft before submitting.
+
+Directory plugins are held to a higher standard and require additional
+validation. See [Plugin submission errors](https://learn.chatgpt.com/docs/plugin-submission-errors) for
+the full list of checks and how to fix each error.
 
 In the release notes, summarize:
 
@@ -12207,18 +12263,9 @@ This page doesn't duplicate that contract.
 
 Source: [Deploy the Windows app](https://learn.chatgpt.com/docs/enterprise/windows-deployment.md)
 
-Choose a deployment path based on who controls installation and updates and
-whether your network allows Microsoft's app-distribution services. The app is
-Store-signed, but users don't need to open the Microsoft Store. Standard
-installation and updates use Microsoft's app installation and Windows Update
-services.
-
-| Scenario                                                       | Deployment path                                                                                         |
-| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Users install and update their own apps                        | Use the [web installer](https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi). |
-| IT deploys the app and Microsoft update services are available | Deploy the Microsoft Store app through Intune or another management tool.                               |
-| IT controls update timing or blocks Microsoft update services  | Redeploy each new version through your software-management process.                                     |
-| Your network blocks Microsoft app-distribution services        | Deploy the Store-signed MSIX package for each device architecture.                                      |
+Users can install the ChatGPT desktop app themselves, or your IT team can
+deploy it with an enterprise management tool. The app is Store-signed, but
+users don't need to open the Microsoft Store to install or update it.
 
 #### Let users install and update the app
 
@@ -12234,62 +12281,51 @@ You can also install the app from the command line:
 winget install --id 9PLM9XGG6VKS -s msstore
 ```
 
-#### Deploy with an enterprise management tool
+#### Deploy the app with an enterprise management tool
 
-If your organization centrally manages software, deploy the Microsoft Store app
-through Microsoft Intune or another compatible mobile device management (MDM)
-or software-deployment platform. Search for ChatGPT from OpenAI in the
-Microsoft Store app flow, or use this Store product ID:
+If your organization centrally manages software, use Microsoft Intune or
+another compatible mobile device management (MDM) or software-deployment
+platform. If your platform supports Microsoft Store app deployment, search for
+ChatGPT from OpenAI in the Store app flow, or use this Store product ID:
 
 ```text
 9PLM9XGG6VKS
 ```
 
-This is the recommended enterprise deployment method when your environment
-allows Microsoft Store app deployment and update endpoints. Users don't need to
-open the Microsoft Store themselves.
+For setup details, see the following Microsoft documentation:
 
-For Intune setup details, see
-[Add Microsoft Store apps to Microsoft Intune](https://learn.microsoft.com/en-us/intune/app-management/deployment/add-microsoft-store).
+- [Enterprise deployment guide](https://1drv.ms/b/c/123ec1ed6c72a14a/IQDVdo5pE5P3QKg5r0eieSvfAeE7cW0yy58ncBFW7OYajwU?e=dGH94F)
+- [Intune deployment guide](https://1drv.ms/b/c/123ec1ed6c72a14a/IQDh_5o31T6XT7bUn5RPldEJAZX58gEuRr8YnJD7d2IMpec?e=nByKw6)
+- [MECM deployment guide](https://1drv.ms/b/c/123ec1ed6c72a14a/IQB829f_TSbkR7-H9qA4Q9ntAa9D2He3qMjXksWi2ozdeg8?e=GTKgAl)
+- [Add Microsoft Store apps to Microsoft Intune](https://learn.microsoft.com/en-us/intune/app-management/deployment/add-microsoft-store)
 
-#### Control update timing
+#### Install without Microsoft distribution services
 
-If your organization blocks automatic app updates, Windows Update, or Microsoft
-Store update endpoints, your IT team owns the update lifecycle. Codex can run in
-this environment, but you must redeploy newer packages through your change
-management process.
-
-Redeploy the package with each Codex release when possible. If that cadence
-isn't practical, check for a newer package at least weekly and redeploy when a
-newer version is available. Users should restart the app after you deploy an
-update.
-
-Deferring updates is a security and reliability tradeoff because the app
-includes browser and runtime components that receive regular updates.
-
-#### Deploy without Microsoft distribution services
-
-If your environment can't use the standard Microsoft distribution services,
-download the Store-signed MSIX package for each device architecture:
+If your environment can't use Microsoft app-distribution services for the
+initial installation, download the Store-signed MSIX package for each device
+architecture:
 
 | Device architecture | Package                                                                                  |
 | ------------------- | ---------------------------------------------------------------------------------------- |
 | x64                 | [ChatGPT-x64.msix](https://persistent.oaistatic.com/codex-app-prod/ChatGPT-x64.msix)     |
 | Arm64               | [ChatGPT-arm64.msix](https://persistent.oaistatic.com/codex-app-prod/ChatGPT-arm64.msix) |
 
-These stable links point to the latest published Store package. For offline
-deployment workflows that require a license file, also download the
+These stable links point to the latest published Store-signed package for each
+architecture. For offline deployment workflows that require a license file,
+also download the
 [offline license (`ChatGPT-License.xml`)](https://persistent.oaistatic.com/codex-app-prod/ChatGPT-License.xml).
 Ingest the appropriate MSIX and, when required, the license file into your MDM
 or software-deployment platform.
 
+After the initial installation, devices that can reach
+`persistent.oaistatic.com` can install updates automatically, so you don't
+need to redeploy newer packages through your management tool.
+
 This deployment path:
 
-- Supports deployment in restricted environments.
+- Supports initial installation in restricted environments.
 - Supports x64 and Arm64 devices.
 - Doesn't provide a standalone MSI or non-Store EXE.
-- Doesn't let users update the app themselves.
-- Requires your organization to deploy newer packages when updating the app.
 
 #### Related resources
 
@@ -14716,6 +14752,92 @@ Use the ChatGPT desktop app or Codex CLI when you want to use your own pet.
 - [Long-running work](https://learn.chatgpt.com/docs/long-running-work)
 - [ChatGPT desktop app settings](https://learn.chatgpt.com/docs/reference/settings#pets)
 
+### Plugin submission errors
+
+Source: [Plugin submission errors](https://learn.chatgpt.com/docs/plugin-submission-errors.md)
+
+Plugins submitted to the public directory are held to a higher standard than
+plugins installed in a workspace. Directory submissions must pass the shared
+package checks and the additional checks for listing fields, review materials,
+MCP tools, skills, assets, and images. This reference also covers shared
+package checks, such as app references, that can appear outside the submission
+portal.
+
+Use the error code returned during submission to find the matching requirement.
+Errors block submission. Warnings don't block submission, but you should review
+them before continuing.
+
+Non-empty values can't contain only whitespace. Supported text excludes control
+characters, Unicode line or paragraph separators, and unsupported invisible
+formatting characters. HTTPS URLs must include a host and contain no embedded
+credentials or unsupported characters.
+
+#### Final directory submission
+
+A package can pass upload validation and still fail final directory submission.
+Final submission uses stricter listing limits and checks MCP configuration,
+skill scans, test cases, and policy attestations.
+
+| Field             | Final submission rule                                                                                                                                                       |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Package name      | Required; at most 64 characters. Start with an ASCII letter or digit and use only ASCII letters, digits, `_`, and `-`.                                                      |
+| Version           | Required; use a semantic version of at most 64 characters.                                                                                                                  |
+| Display name      | Required; one line; at most 30 characters.                                                                                                                                  |
+| Short description | Required; one line; at most 30 characters.                                                                                                                                  |
+| Long description  | Required; at most 4,000 characters. Line breaks are allowed.                                                                                                                |
+| Developer name    | Required; one line; at most 80 characters.                                                                                                                                  |
+| Category          | Required; choose a supported category listed in the [Listing and interface errors](#listing-and-interface-errors) section.                                                  |
+| Capabilities      | At most 20. Each capability must be non-empty, one line, and at most 120 characters.                                                                                        |
+| Starter prompts   | At most 3. Each prompt must be non-empty, unique after Unicode and whitespace normalization, one line, at most 128 characters, and contain no app `@mention`.               |
+| URLs              | Required for MCP-backed submissions; optional for skills-only submissions. Website, support, privacy policy, and terms URLs must use HTTPS and be at most 1,024 characters. |
+| Brand colors      | Optional six-digit hex colors. The light color must have at least 2:1 contrast against white, and the dark color must have at least 2:1 contrast against `#212121`.         |
+
+Every plugin submission also requires:
+
+- Passing safety and security scans for every bundled skill. Scans can take up
+  to 2 hours.
+- A verified developer or business identity and all required policy
+  attestations.
+
+For an MCP-backed plugin, final submission also requires:
+
+- Website, support, privacy policy, and terms URLs that meet the rules above.
+- A demo-recording URL that shows the main use cases and tools across supported
+  platforms.
+- Exactly five positive test cases, three negative test cases, and release
+  notes.
+- A production HTTPS MCP server URL, a completed domain-verification challenge,
+  and a successful, current tool scan.
+- Explicit `readOnlyHint`, `openWorldHint`, and `destructiveHint` values and a
+  justification for each value on every MCP tool.
+- Reviewer-ready demo credentials when the server uses OAuth.
+- Screenshots only when the MCP server provides custom UI. If you add
+  screenshots, provide one PNG or JPEG image for every starter prompt. Each
+  screenshot must be exactly 706 pixels wide and 400–860 pixels tall.
+
+#### Final metadata errors
+
+In these error names, `subtitle` means short description and `description`
+means long description.
+
+| Name                                              | Requirement                                                                                             |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `submission_display_name_required`                | Display name is required, non-empty, and single-line.                                                   |
+| `submission_display_name_too_long`                | Display name must be 30 characters or fewer.                                                            |
+| `submission_display_name_character_unsupported`   | Display name must use supported text and fit on one line.                                               |
+| `submission_subtitle_required`                    | Short description is required, non-empty, and single-line.                                              |
+| `submission_subtitle_too_long`                    | Short description must be 30 characters or fewer.                                                       |
+| `submission_subtitle_character_unsupported`       | Short description must use supported text and fit on one line.                                          |
+| `submission_description_required`                 | Long description is required and must be non-empty. Line breaks are allowed.                            |
+| `submission_description_too_long`                 | Long description must be 4,000 characters or fewer.                                                     |
+| `submission_description_character_unsupported`    | Long description must use supported text. Line breaks are allowed.                                      |
+| `submission_developer_name_required`              | Developer name is required, non-empty, and single-line.                                                 |
+| `submission_developer_name_too_long`              | Developer name must be 80 characters or fewer.                                                          |
+| `submission_developer_name_character_unsupported` | Developer name must use supported text and fit on one line.                                             |
+| `plugin_capability_invalid`                       | Each capability must be non-empty, use supported text, fit on one line, and be 120 characters or fewer. |
+| `plugin_default_prompt_mention`                   | Starter prompts must not contain app `@mentions`.                                                       |
+| `plugin_default_prompt_duplicate`                 | Starter prompts must be unique after Unicode and whitespace normalization.                              |
+
 ### Plugins
 
 Source: [Plugins](https://learn.chatgpt.com/docs/plugins.md)
@@ -16178,6 +16300,35 @@ This weekly digest highlights ChatGPT and Codex features that can change how you
 work, with examples and links to learn more. For every versioned update, bug fix,
 and minor improvement, see the [Codex changelog](https://learn.chatgpt.com/docs/changelog).
 
+#### July 13–17, 2026
+
+#### Keep Work conversations and Projects together on desktop
+
+The ChatGPT desktop app now keeps Chat and Work conversations together in the
+ChatGPT view. Cloud Work conversations sync across web, mobile, and desktop;
+local Work conversations stay on your computer. ChatGPT Projects are available
+in the desktop app. Codex keeps its dedicated view and separate history for
+developer workflows.
+
+[Compare Work mode and Codex on
+desktop](https://learn.chatgpt.com/docs/use-chatgpt#compare-work-mode-and-codex-on-desktop) to choose the
+view that fits your task.
+
+#### Use GPT-5.6 through Amazon Bedrock
+
+GPT-5.6 Sol, Terra, and Luna reached general availability through Amazon
+Bedrock. Local ChatGPT Work and Codex surfaces can use the built-in
+[`amazon-bedrock` provider](https://learn.chatgpt.com/docs/amazon-bedrock) with a Bedrock API key or the
+AWS SDK credential chain. This includes Work and Codex in the ChatGPT desktop
+app, Codex CLI, the IDE extension, and the Codex SDK.
+
+#### Inspect Codex task visualizations on iOS
+
+ChatGPT for iOS 1.2026.188 added inline visualizations to Codex tasks and
+improved creating and managing tasks from conversations, including reliable
+links to newly created tasks. Read the
+[July 13 iOS release notes](https://learn.chatgpt.com/docs/changelog#codex-2026-07-13-mobile).
+
 #### July 6–10, 2026
 
 #### Take on ambitious work in ChatGPT
@@ -16237,36 +16388,6 @@ for ChatGPT Pro subscribers on macOS.
 Read the [June 15 iOS](https://learn.chatgpt.com/docs/changelog#codex-2026-06-15-mobile),
 [June 16 availability](https://learn.chatgpt.com/docs/changelog#codex-2026-06-16-app), and
 [June 18 app](https://learn.chatgpt.com/docs/changelog#codex-2026-06-18-app) release notes.
-
-#### June 8–12, 2026
-
-#### Debug web apps with Browser Developer mode
-
-[Developer mode](https://learn.chatgpt.com/docs/browser?surface=app#app-developer-mode) gives Codex controlled
-access to Chrome DevTools Protocol capabilities in Chrome and the built-in
-browser. Codex can inspect network traffic, console output, runtime errors, and
-page state while it profiles or debugs your app. Under **Developer mode** in
-**Settings** > **Browser**, turn on **Enable full CDP access**. Codex asks for
-explicit approval before it uses that access on a website.
-
-Browser use is also up to twice as fast because CDP and DOM snapshot
-optimizations reduce browser round trips.
-
-#### Bring your setup to Codex
-
-New migration flows can import supported setup from other coding agents during
-onboarding. The Codex app also added `/init` for creating project instructions,
-plus improved plugin management, browser diagnostics, and completed-chat
-summaries.
-
-#### Set up Codex chats from iOS
-
-Remote on iOS can now choose a branch, create a worktree, run an environment
-setup script, manage goals, and add inline review comments.
-
-Read the [June 9 app](https://learn.chatgpt.com/docs/changelog#codex-2026-06-09-app),
-[June 9 iOS](https://learn.chatgpt.com/docs/changelog#codex-2026-06-09-mobile), and
-[June 11 app](https://learn.chatgpt.com/docs/changelog#codex-2026-06-11-app) release notes.
 
 ### Windows sandbox
 

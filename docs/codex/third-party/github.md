@@ -67,25 +67,50 @@ needing an `@codex review` comment.
 
 ## Customize what Codex reviews
 
-Codex searches your repository for `AGENTS.md` files and follows any **Review guidelines** you include.
+Codex searches your repository for `AGENTS.md` files and follows the applicable
+code review rules. Add a `## Code Review Rules` section to the file closest to
+the code the rules govern. Use `###` headings to group related checks when
+helpful.
 
-To set guidelines for a repository, add or update a top-level `AGENTS.md` with a section like this:
+For example, an experiment-reporting service can keep post-exposure behavior
+from changing a comparison cohort:
 
 ```md
-## Review guidelines
+## Code Review Rules
 
-- Don't log PII.
-- Verify that authentication middleware wraps every route.
+### Experiment cohorts
+
+- Do not filter treatment comparisons on post-exposure behavior, including conversion or retention.
+  Safe path: build cohorts from assignment or exposure; report conversion as an outcome.
 ```
 
-Codex applies guidance from the closest `AGENTS.md` to each changed file. You can place more specific instructions deeper in the tree when particular packages need extra scrutiny.
+Put repository-wide rules in the root `AGENTS.md` and service-specific rules
+in a nested file, such as `services/experiment_reporting/AGENTS.md`. Codex
+applies the root and more-specific guidance that covers each changed file, so
+unrelated changes don't have to carry service-specific context.
+
+Start with two or three concise rules that encode checks reviewers often explain. Useful rules:
+
+- **Focus on consequential, repository-specific behavior.** Describe the
+  compatibility constraint, data boundary, or unsafe side effect to flag and
+  why it matters.
+- **State the safe path or exception.** Give Codex enough context to distinguish
+  a real issue from expected behavior.
+- **Keep rules scoped and durable.** Prefer outcomes over function names that
+  can change, and place guidance near the code it governs.
+- **Leave mechanical checks in CI.** Keep formatting, lint, and other
+  deterministic checks out of review rules.
+
+Open a representative pull request and request a review with `@codex review`.
+Refine the rules based on the findings and feedback you see, and narrow or
+remove guidance that produces noise.
+
+Code review rules guide Codex; they don't replace tests, branch protections, or
+required approvals.
 
 For a one-off focus, add it to your pull request comment:
 
 `@codex review for security regressions`
-
-If you want Codex to flag typos in documentation, add guidance in `AGENTS.md`
-(for example, “Treat typos in docs as P1.”).
 
 ## Act on review findings
 

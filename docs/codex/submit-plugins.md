@@ -75,8 +75,8 @@ If the Platform shows that the developer or business identity is verified but
 the plugin submission form does not recognize it, check that you are submitting
 from the same organization and project where the identity was verified. The
 submitter also needs **Apps Management** write access for that organization.
-Ask an organization owner or admin to update the submitter's role, then reload
-the plugin submission portal.
+Ask an organization owner or admin to update the role assigned to the
+submitter, then reload the plugin submission portal.
 
 ### Prepare required materials
 
@@ -141,7 +141,7 @@ For app or MCP submissions:
 3. Define a content security policy that allows the exact domains your app
    fetches from.
 4. Complete domain verification if the portal shows a **Domain not verified**
-   challenge. Use an HTTPS origin on the MCP hostname or a parent hostname, and
+   challenge. Use an HTTPS origin on the MCP host or a parent host, and
    host the exact token at `/.well-known/openai-apps-challenge`.
 5. Select **Scan Tools**.
 6. Review the discovered tools, domains, validation output, and tool metadata.
@@ -168,23 +168,23 @@ The challenge endpoint must return only that plugin's verification token. Do not
 return JSON, a list of tokens, or multiple tokens from the same URL.
 
 The **Challenge Base URL** is an optional HTTPS origin that tells the portal
-where to check the token. It must be the MCP hostname or a parent hostname.
+where to check the token. It must be the MCP host or a parent host.
 Paths are ignored. For example, if the MCP server URL is
 `https://api.example.com/mcp`, the default challenge URL is
 `https://api.example.com/.well-known/openai-apps-challenge`, and
 `https://example.com` can be used as a parent-origin challenge base if you can
 host the token there.
 
-If two plugins that contain apps share the same MCP hostname but differ only by
+If two plugins that contain apps share the same MCP host but differ only by
 path, they also share the same default challenge URL. You cannot verify them
 separately by putting different tenant paths in the Challenge Base URL, because
 the path is ignored. Use a parent origin that can host the new token, give the
-app's MCP server a distinct hostname, or work with OpenAI support if neither
+app's MCP server a distinct host, or work with OpenAI support if neither
 hosting option is possible.
 
-If another plugin that contains an app already uses the same MCP hostname, do
+If another plugin that contains an app already uses the same MCP host, do
 not replace its existing challenge token unless that plugin no longer needs it.
-Use an allowed parent-origin Challenge Base URL or a distinct MCP hostname for
+Use an allowed parent-origin Challenge Base URL or a distinct MCP host for
 the new submission.
 
 Every tool should have clear names, descriptions, schemas, and output
@@ -210,6 +210,12 @@ For review expectations, see the Apps SDK
 
 Upload the final skill bundle for skills-only or app-plus-skills submissions.
 Use the same file tree and instructions you tested locally.
+
+For a **Skills only** submission, upload a ZIP no larger than 100 MB with one
+plugin root. Put the plugin manifest, such as `.codex-plugin/plugin.json`, and
+`skills/<skill>/SKILL.md` in that root. ZIP uploads only support skills. The
+portal excludes `.mcp.json`, `mcpServers`, `.app.json`, `apps`, and
+`interface.screenshots` and reports a warning when they are present.
 
 ![Skills tab with a skill bundle ready to upload](https://developers.openai.com/images/codex/plugins/submit/skills-upload.webp)
 
@@ -275,6 +281,10 @@ are ready for users.
 ### Submit
 
 Review the full draft before submitting.
+
+Directory plugins are held to a higher standard and require additional
+validation. See [Plugin submission errors](https://learn.chatgpt.com/docs/plugin-submission-errors) for
+the full list of checks and how to fix each error.
 
 In the release notes, summarize:
 

@@ -1162,6 +1162,47 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
       description: "Client private key path for OTEL trace exporter TLS.",
     },
     {
+      key: "desktop.custom_file_handlers.<id>",
+      type: "table",
+      description:
+        "User-level only. Defines an additional **Open in** target for the ChatGPT desktop app. See [Add custom file handlers](https://learn.chatgpt.com/docs/config-file/config-advanced#add-custom-file-handlers) for examples and handler ID constraints.",
+    },
+    {
+      key: "desktop.custom_file_handlers.<id>.label",
+      type: "string",
+      description: "Display name shown in **Open in** menus. Required.",
+    },
+    {
+      key: "desktop.custom_file_handlers.<id>.icon",
+      type: "string",
+      description:
+        "Bundled asset path, Base64-encoded `data:image/...` URL, file URI, or absolute local path for the handler icon. Required; unsupported sources use the default VS Code icon.",
+    },
+    {
+      key: "desktop.custom_file_handlers.<id>.command",
+      type: "string",
+      description:
+        "Executable path or command name to detect and launch. Required.",
+    },
+    {
+      key: "desktop.custom_file_handlers.<id>.args",
+      type: "array<string>",
+      description:
+        "Arguments inserted between the command and file input (default: `[]`).",
+    },
+    {
+      key: "desktop.custom_file_handlers.<id>.input",
+      type: "path | json_argument | json_stdin",
+      description:
+        "How the app sends file input to the handler (default: `path`).",
+    },
+    {
+      key: "desktop.custom_file_handlers.<id>.supports_ssh",
+      type: "boolean",
+      description:
+        "Offer the handler for files in SSH workspaces (default: `false`).",
+    },
+    {
       key: "tui",
       type: "table",
       description:

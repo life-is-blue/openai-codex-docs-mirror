@@ -119,6 +119,27 @@ Here is a sample repository after you add a global file and a payments-specific 
   ]}
 />
 
+## Add code review rules
+
+For [Codex code review in GitHub](https://learn.chatgpt.com/docs/third-party/github#customize-what-codex-reviews),
+add a `## Code Review Rules` section to the `AGENTS.md` closest to the code the
+rules govern. Put repository-wide checks at the root and service-specific
+checks in a nested file.
+
+```md
+## Code Review Rules
+
+### Experiment cohorts
+
+- Do not filter treatment comparisons on post-exposure behavior, including conversion or retention.
+  Safe path: build cohorts from assignment or exposure; report conversion as an outcome.
+```
+
+Keep rules concise, explain the behavior to flag and any safe path or
+exception, and reserve formatting and lint checks for CI. See [Customize what
+Codex reviews](https://learn.chatgpt.com/docs/third-party/github#customize-what-codex-reviews) for
+setup and rule-writing guidance.
+
 ## Customize fallback filenames
 
 If your repository already uses a different filename (for example `TEAM_GUIDE.md`), add it to the fallback list so Codex treats it like an instructions file.

@@ -701,6 +701,94 @@ Codex reads `AGENTS.md` (and related files) and includes a limited amount of pro
 
 For a detailed walkthrough, see [Custom instructions with AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
 
+## Desktop
+
+Options in this section apply only to the ChatGPT desktop app.
+
+### Add custom file handlers
+
+In your user-level `~/.codex/config.toml`, add entries under
+`desktop.custom_file_handlers` to open files in editors or internal launchers
+that the ChatGPT desktop app doesn't support by default. Each entry adds an
+editor target to the app's **Open in** menus. The app lists the target when
+`command` is an existing absolute path or resolves from the app's `PATH`.
+
+The following example shows three ways to pass a file to a handler:
+
+```toml
+# Append the opened path directly after the command.
+[desktop.custom_file_handlers.vscodium]
+label = "VSCodium"
+icon = "/Users/you/.codex/icons/vscodium.png"
+command = "codium"
+
+# Place fixed arguments before the opened path.
+[desktop.custom_file_handlers.textedit]
+label = "TextEdit"
+icon = "/Users/you/.codex/icons/textedit.png"
+command = "/usr/bin/open"
+args = ["-a", "TextEdit"]
+
+# Append one JSON argument with the path and editor context.
+[desktop.custom_file_handlers.company_editor]
+label = "Company Editor"
+icon = "/opt/company/editor/icon.png"
+command = "/opt/company/bin/editor"
+input = "json_argument"
+```
+
+Save `config.toml`, then restart the ChatGPT desktop app.
+
+The handler ID is the final segment of the TOML table header. It must contain
+1–64 characters, start with an ASCII letter or number, and otherwise contain
+only ASCII letters, numbers, periods, underscores, or hyphens. The app exposes
+the ID with a `custom:` prefix; for example, `company_editor` becomes
+`custom:company_editor`. Quote an ID that contains a period so TOML doesn't
+interpret it as a nested table. For example:
+
+```toml
+[desktop.custom_file_handlers."company.editor"]
+label = "Company Editor"
+icon = "/opt/company/editor/icon.png"
+command = "/opt/company/bin/editor"
+```
+
+Each handler supports these fields:
+
+| Field          | Required | Description                                                                                                                                                              |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `label`        | Yes      | Display name in the app.                                                                                                                                                 |
+| `icon`         | Yes      | Bundled app icon such as `apps/vscode.png`, base64 `data:image/...` URL, `file:` URI, or absolute local image path. An unsupported source uses the default VS Code icon. |
+| `command`      | Yes      | Executable path or command name to detect and launch.                                                                                                                    |
+| `args`         | No       | String array inserted between `command` and the file input. Defaults to `[]`.                                                                                            |
+| `input`        | No       | How the app sends file input: `path`, `json_argument`, or `json_stdin`. Defaults to `path`.                                                                              |
+| `supports_ssh` | No       | Whether to offer the handler for files in SSH workspaces. Defaults to `false`. Use `json_stdin` when the handler needs remote host and path details.                     |
+
+The `input` value controls what follows `args`:
+
+- `path` appends the path as the final command argument.
+- `json_argument` appends a JSON object with `target`, `path`, `appPath`, and
+  `location`. The `location` value is an object with 1-based `line` and
+  `column` values, or `null`.
+- `json_stdin` writes the JSON object to standard input instead of adding an
+  argument. It also includes `hostConfig`, `remoteWorkspaceRoot`, and
+  `remotePath`; these fields are `null` when they don't apply.
+
+For example, `company_editor` can receive this argument when the user opens a
+specific source location:
+
+```json
+{
+  "target": "custom:company_editor",
+  "path": "/repo/src/index.ts",
+  "appPath": null,
+  "location": { "line": 12, "column": 3 }
+}
+```
+
+Selecting a custom handler as the preferred editor persists the choice the same
+way as selecting a built-in editor, including per-project preferences.
+
 ## TUI options
 
 Running `codex` with no subcommand launches the interactive terminal UI (TUI). Codex exposes some TUI-specific configuration under `[tui]`, including:

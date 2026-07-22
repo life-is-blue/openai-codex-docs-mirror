@@ -169,7 +169,7 @@
     {
       title: "Reference",
       description:
-        "Find commands, slash commands, and settings for developer surfaces.",
+        "Find commands, settings, and plugin submission errors for developer surfaces.",
       pages: [
         {
           title: "CLI customization",
@@ -191,6 +191,12 @@
             "Configure the desktop app, Codex CLI, and IDE extension for development.",
           href: "/codex/developer-settings?surface=app",
           icon: "settings",
+        },
+        {
+          title: "Plugin submission errors",
+          description: "Find and fix plugin package and submission errors.",
+          href: "/codex/plugin-submission-errors",
+          icon: "plugin",
         },
       ],
     },

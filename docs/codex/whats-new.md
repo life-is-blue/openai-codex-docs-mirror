@@ -4,6 +4,48 @@ This weekly digest highlights ChatGPT and Codex features that can change how you
 work, with examples and links to learn more. For every versioned update, bug fix,
 and minor improvement, see the [Codex changelog](https://learn.chatgpt.com/docs/changelog).
 
+## July 13–17, 2026
+
+### Keep Work conversations and Projects together on desktop
+
+The ChatGPT desktop app now keeps Chat and Work conversations together in the
+ChatGPT view. Cloud Work conversations sync across web, mobile, and desktop;
+local Work conversations stay on your computer. ChatGPT Projects are available
+in the desktop app. Codex keeps its dedicated view and separate history for
+developer workflows.
+
+[Compare Work mode and Codex on
+desktop](https://learn.chatgpt.com/docs/use-chatgpt#compare-work-mode-and-codex-on-desktop) to choose the
+view that fits your task.
+
+<PromptComponent
+  prompt={`Open the Launch project, review its files and recent conversations, and continue the launch plan from the latest Work conversation.`}
+/>
+
+### Control parallel Codex work with Codex Micro
+
+On July 15, OpenAI and Work Louder launched
+[Codex Micro](https://learn.chatgpt.com/docs/features/codex-micro), a limited-run physical control
+surface for Codex in the ChatGPT desktop app. Its Agent Keys show the status of
+up to six chats and switch between them. Customizable Command Keys, an analog
+stick, and a dial can trigger common actions or skills, start push-to-talk, and
+adjust reasoning effort without leaving the keyboard.
+
+### Use GPT-5.6 through Amazon Bedrock
+
+GPT-5.6 Sol, Terra, and Luna reached general availability through Amazon
+Bedrock. Local ChatGPT Work and Codex surfaces can use the built-in
+[`amazon-bedrock` provider](https://learn.chatgpt.com/docs/amazon-bedrock) with a Bedrock API key or the
+AWS SDK credential chain. This includes Work and Codex in the ChatGPT desktop
+app, Codex CLI, the IDE extension, and the Codex SDK.
+
+### Inspect Codex task visualizations on iOS
+
+ChatGPT for iOS 1.2026.188 added inline visualizations to Codex tasks and
+improved creating and managing tasks from conversations, including reliable
+links to newly created tasks. Read the
+[July 13 iOS release notes](https://learn.chatgpt.com/docs/changelog#codex-2026-07-13-mobile).
+
 ## July 6–10, 2026
 
 <a id="take-on-ambitious-work-with-chatgpt-work"></a>
