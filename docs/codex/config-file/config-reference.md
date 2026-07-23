@@ -243,7 +243,7 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
       key: "service_tier",
       type: "string",
       description:
-        "Preferred service tier for new turns. Built-in values include `flex` and `fast`; legacy `fast` config maps to the request value `priority`, and catalog-provided tier IDs can also be stored.",
+        "Preferred service tier for new turns. Use `fast` or another tier advertised by the active model; `fast` maps to the request value `priority`.",
     },
     {
       key: "experimental_compact_prompt_file",
@@ -569,22 +569,39 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
         "Experimental placement for an MCP server. `remote` starts stdio servers through a remote executor environment; streamable HTTP remote placement is not implemented.",
     },
     {
+      key: "agents",
+      type: "table",
+      description:
+        "Multi-agent settings and custom role declarations. Scalar setting names are reserved and can't be used as custom role names.",
+    },
+    {
+      key: "agents.enabled",
+      type: "boolean",
+      description: "Enable or disable multi-agent tools (default: true).",
+    },
+    {
+      key: "agents.max_concurrent_threads_per_session",
+      type: "number",
+      description:
+        "Maximum number of spawned-agent threads that can be open concurrently, excluding the primary thread. When unset, Codex chooses the default.",
+    },
+    {
       key: "agents.max_threads",
       type: "number",
       description:
-        "Maximum number of agent threads that can be open concurrently. Defaults to `6` when unset.",
+        "Legacy alias for `agents.max_concurrent_threads_per_session`.",
     },
     {
-      key: "agents.max_depth",
-      type: "number",
+      key: "agents.default_subagent_model",
+      type: "string",
       description:
-        "Maximum nesting depth allowed for spawned agent threads (root sessions start at depth 0; default: 1).",
+        "Default model for spawned agents. An explicit spawn model takes precedence.",
     },
     {
-      key: "agents.job_max_runtime_seconds",
-      type: "number",
+      key: "agents.default_subagent_reasoning_effort",
+      type: "string",
       description:
-        "Default per-worker timeout for `spawn_agents_on_csv` jobs. When unset, the tool falls back to 1800 seconds per worker.",
+        "Default reasoning effort for spawned agents. An explicit spawn effort takes precedence.",
     },
     {
       key: "agents.interrupt_message",
@@ -603,12 +620,6 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
       type: "string (path)",
       description:
         "Path to a TOML config layer for that role; relative paths resolve from the config file that declares the role.",
-    },
-    {
-      key: "agents.<name>.nickname_candidates",
-      type: "array<string>",
-      description:
-        "Optional pool of display nicknames for spawned agents in that role.",
     },
     {
       key: "memories.generate_memories",

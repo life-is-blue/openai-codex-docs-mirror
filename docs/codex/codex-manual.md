@@ -6,7 +6,7 @@ hidden: true
 ## Find By Topic
 
 - `pricing`, `plans`, `ChatGPT`, `API key`, `Plus`, `Pro`, `Business`, `Enterprise`, `Edu`, `feature maturity`: [Surfaces and experiences](#surfaces-and-modes)
-- `prompting`, `threads`, `context window`, `multi_agent`, `spawn_agents_on_csv`, `/plan`, `workflow`: [Execution Model and Workflows](#execution-model-and-workflows)
+- `prompting`, `threads`, `context window`, `multi_agent`, `/plan`, `workflow`: [Execution Model and Workflows](#execution-model-and-workflows)
 - `approval_policy`, `sandbox_mode`, `read-only`, `workspace-write`, `danger-full-access`, `security`, `cyber`: [Approvals, Sandboxing, and Security](#approvals-sandboxing-and-security)
 - `config.toml`, `.codex/config.toml`, `auth.json`, `ChatGPT sign-in`, `API key login`, `models`, `providers`, `model_reasoning_effort`: [Configuration, Authentication, and Models](#configuration-auth-and-models)
 - `codex exec`, `codex cloud`, `codex mcp`, `worktrees`, `automations`, `cloud environments`, `internet access`: [CLI, IDE, App, and Cloud Behavior](#surface-behavior)
@@ -275,16 +275,13 @@ that balances intelligence, speed, and price for the task. It may favor `gpt-5.6
 For most tasks in Codex, start with
 `gpt-5.6`. Use
 `gpt-5.6-terra` when you want
-a faster, lower-cost option for lighter subagent work. If you have ChatGPT Pro
-and want near-instant text-only iteration, `gpt-5.3-codex-spark` remains
-available in research preview.
+a faster, lower-cost option for lighter subagent work.
 
 #### Model choice
 
 - **`gpt-5.6`**: Start here for demanding agents. It's strongest for ambiguous, multi-step work that needs planning, tool use, validation, and follow-through across a larger context.
 - **`gpt-5.4`**: Use this when a workflow is pinned to GPT-5.4. It combines strong coding, reasoning, tool use, and broader workflows.
 - **`gpt-5.6-terra`**: Use for agents that favor speed and efficiency over depth, such as exploration, read-heavy scans, large-file review, or processing supporting documents. It works well for parallel workers that return distilled results to the main agent.
-- **`gpt-5.3-codex-spark`**: If you have ChatGPT Pro, use this research preview model for near-instant, text-only iteration when latency matters more than broader capability.
 
 #### Reasoning effort (`model_reasoning_effort`)
 
@@ -295,14 +292,8 @@ available in research preview.
 - **`high`**: Use when an agent needs to trace complex logic, check assumptions, or work through edge cases (for example, reviewer or security-focused agents).
 - **`medium`**: A balanced default for most agents.
 - **`low`**: Use when the task is straightforward and speed matters most.
-- **`minimal`** and **`none`**: Use when the selected model supports these
-  lower-latency levels and the task needs little or no reasoning.
 
 Higher reasoning effort increases response time and token usage, but it can improve quality for complex work. For details, see [Models](https://learn.chatgpt.com/docs/models), [Config basics](https://learn.chatgpt.com/docs/config-file/config-basic), and [Configuration Reference](https://learn.chatgpt.com/docs/config-file/config-reference).
-
-agents.max_depth controls nesting and defaults to 1,
-which lets the root thread spawn direct children but prevents those children
-from spawning deeper descendants.
 
 #### Orchestration and thread controls
 
@@ -405,37 +396,41 @@ Every standalone custom agent file must define:
 - `description`
 - `developer_instructions`
 
-Optional fields such as `nickname_candidates`, `model`,
-`model_reasoning_effort`, `sandbox_mode`, `mcp_servers`, and `skills.config`
-inherit from the parent session when you omit them.
+If a custom agent file sets `model` or `model_reasoning_effort`, the value in
+the file takes precedence. Otherwise, Codex resolves each setting independently:
+an explicit spawn value, then the corresponding `[agents]` default, then the
+parent's value. If a spawn selects a different model and neither an explicit nor
+configured effort is present, Codex uses that model's default effort. Other
+session settings, such as `sandbox_mode`, `mcp_servers`, and `skills.config`,
+inherit from the parent when the custom agent file omits them.
 
 #### Global settings
 
 Global subagent settings still live under `[agents]` in your [configuration](https://learn.chatgpt.com/docs/config-file/config-basic#configuration-precedence).
 
-| Field                            | Type    | Required | Purpose                                                           |
-| -------------------------------- | ------- | :------: | ----------------------------------------------------------------- |
-| `agents.max_threads`             | number  |    No    | Concurrent open agent thread cap.                                 |
-| `agents.max_depth`               | number  |    No    | Spawned agent nesting depth (root session starts at 0).           |
-| `agents.job_max_runtime_seconds` | number  |    No    | Default timeout per worker for `spawn_agents_on_csv` jobs.        |
-| `agents.interrupt_message`       | boolean |    No    | Record a model-visible message when an agent turn is interrupted. |
+| Field                                       | Type    | Required | Purpose                                                             |
+| ------------------------------------------- | ------- | :------: | ------------------------------------------------------------------- |
+| `agents.enabled`                            | boolean |    No    | Enable or disable multi-agent tools.                                |
+| `agents.max_concurrent_threads_per_session` | number  |    No    | Cap concurrently open spawned-agent threads, excluding the primary. |
+| `agents.default_subagent_model`             | string  |    No    | Set the default model for spawned agents.                           |
+| `agents.default_subagent_reasoning_effort`  | string  |    No    | Set the default reasoning effort for spawned agents.                |
+| `agents.interrupt_message`                  | boolean |    No    | Record a model-visible message when an agent turn is interrupted.   |
 
 **Notes:**
 
-- `agents.max_threads` defaults to `6` when you leave it unset.
-- `agents.max_depth` defaults to `1`, which lets the root thread spawn direct children but prevents those children from spawning deeper descendants. Keep the default unless you specifically need recursive delegation. Raising this value can turn broad delegation instructions into repeated fan-out, which increases token usage, latency, and local resource consumption. `agents.max_threads` still caps concurrent open threads, but it doesn't remove the cost and predictability risks of deeper recursion.
-- `agents.job_max_runtime_seconds` is optional. When you leave it unset, `spawn_agents_on_csv` falls back to its per-call default timeout of 1800 seconds per worker.
+- `agents.enabled` defaults to `true`. Set it to `false` to disable multi-agent tools.
+- When you leave `agents.max_concurrent_threads_per_session` unset, Codex chooses the default. Existing configurations can keep using `agents.max_threads` as a legacy alias.
+- Explicit spawn values override `agents.default_subagent_model` and `agents.default_subagent_reasoning_effort`.
 - `agents.interrupt_message` defaults to `true`. Set it to `false` to omit the model-visible interruption message from the agent's context.
 - If a custom agent name matches a built-in agent such as `explorer`, your custom agent takes precedence.
 
 #### Custom agent file schema
 
-| Field                    | Type     | Required | Purpose                                                         |
-| ------------------------ | -------- | :------: | --------------------------------------------------------------- |
-| `name`                   | string   |   Yes    | Agent name Codex uses when spawning or referring to this agent. |
-| `description`            | string   |   Yes    | Human-facing guidance for when Codex should use this agent.     |
-| `developer_instructions` | string   |   Yes    | Core instructions that define the agent's behavior.             |
-| `nickname_candidates`    | string[] |    No    | Optional pool of display nicknames for spawned agents.          |
+| Field                    | Type   | Required | Purpose                                                         |
+| ------------------------ | ------ | :------: | --------------------------------------------------------------- |
+| `name`                   | string |   Yes    | Agent name Codex uses when spawning or referring to this agent. |
+| `description`            | string |   Yes    | Human-facing guidance for when Codex should use this agent.     |
+| `developer_instructions` | string |   Yes    | Core instructions that define the agent's behavior.             |
 
 You can also include other supported `config.toml` keys in a custom agent file, such as `model`, `model_reasoning_effort`, `sandbox_mode`, `mcp_servers`, and `skills.config`.
 
@@ -443,40 +438,80 @@ Codex identifies the custom agent by its `name` field. Matching the filename to
 the agent name is the simplest convention, but the `name` field is the source
 of truth.
 
-#### Display nicknames
-
-Use `nickname_candidates` when you want Codex to assign more readable display
-names to spawned agents. This is especially helpful when you run many
-instances of the same custom agent and want the UI to show distinct labels
-instead of repeating the same agent name.
-
-Nicknames are presentation-only. Codex still identifies and spawns the agent by
-its `name`.
-
-Nickname candidates must be a non-empty list of unique names. Each nickname can
-use ASCII letters, digits, spaces, hyphens, and underscores.
-
-Example:
-
-```toml
-name = "reviewer"
-description = "PR reviewer focused on correctness, security, and missing tests."
-developer_instructions = """
-Review code like an owner.
-Prioritize correctness, security, behavior regressions, and missing test coverage.
-"""
-nickname_candidates = ["Atlas", "Delta", "Echo"]
-```
-
-In practice, the ChatGPT desktop app, Codex CLI, and IDE extension can show the
-nicknames where agent activity appears, while the underlying agent type stays
-`reviewer`.
-
 #### Example custom agents
 
 The best custom agents are narrow and opinionated. Give each one clear job, a
 tool surface that matches that job, and instructions that keep it from
 drifting into adjacent work.
+
+#### Example 1: PR review
+
+This pattern splits review across three focused custom agents:
+
+- `pr_explorer` maps the codebase and gathers evidence.
+- `reviewer` looks for correctness, security, and test risks.
+- `docs_researcher` checks framework or API documentation through a dedicated MCP server.
+
+Project config (`.codex/config.toml`):
+
+```toml
+[agents]
+max_concurrent_threads_per_session = 8
+```
+
+`.codex/agents/pr-explorer.toml`:
+
+```toml
+name = "pr_explorer"
+description = "Read-only codebase explorer for gathering evidence before changes are proposed."
+model = "gpt-5.3-codex-spark"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+developer_instructions = """
+Stay in exploration mode.
+Trace the real execution path, cite files and symbols, and avoid proposing fixes unless the parent agent asks for them.
+Prefer fast search and targeted file reads over broad scans.
+"""
+```
+
+`.codex/agents/reviewer.toml`:
+
+```toml
+name = "reviewer"
+description = "PR reviewer focused on correctness, security, and missing tests."
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+developer_instructions = """
+Review code like an owner.
+Prioritize correctness, security, behavior regressions, and missing test coverage.
+Lead with concrete findings, include reproduction steps when possible, and avoid style-only comments unless they hide a real bug.
+"""
+```
+
+`.codex/agents/docs-researcher.toml`:
+
+```toml
+name = "docs_researcher"
+description = "Documentation specialist that uses the docs MCP server to verify APIs and framework behavior."
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+developer_instructions = """
+Use the docs MCP server to confirm APIs, options, and version-specific behavior.
+Return concise answers with links or exact references when available.
+Do not make code changes.
+"""
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+```
+
+This setup works well for prompts like:
+
+```text
+Review this branch against main. Have pr_explorer map the affected code paths, reviewer find real risks, and docs_researcher verify the framework APIs that the patch relies on.
+```
 
 ### Speed
 
@@ -4110,9 +4145,9 @@ model_provider = "openai"
 
 # oss_provider = "ollama"
 
-# Preferred service tier. Built-in examples: fast | flex; model catalogs can add more.
+# Preferred service tier. Use fast or another tier supported by the active model.
 
-# service_tier = "flex"
+# service_tier = "fast"
 
 # Optional manual model metadata. When unset, Codex uses model or preset defaults.
 
@@ -4386,17 +4421,21 @@ web_search = "cached"
 
 [agents]
 
-# Maximum concurrently open agent threads. Default: 6
+# Enable or disable multi-agent tools. Default: true
 
-# max_threads = 6
+# enabled = true
 
-# Maximum nested spawn depth. Root session starts at depth 0. Default: 1
+# Maximum concurrently open spawned-agent threads, excluding the primary thread. When unset, Codex chooses the default.
 
-# max_depth = 1
+# max_concurrent_threads_per_session = 6
 
-# Default timeout per worker for spawn_agents_on_csv jobs. When unset, the tool defaults to 1800 seconds.
+# Default model for spawned agents. An explicit spawn model takes precedence.
 
-# job_max_runtime_seconds = 1800
+# default_subagent_model = "gpt-5.6-terra"
+
+# Default reasoning effort for spawned agents. An explicit spawn effort takes precedence.
+
+# default_subagent_reasoning_effort = "high"
 
 # Record a model-visible message when an agent turn is interrupted. Default: true
 
@@ -4407,8 +4446,6 @@ web_search = "cached"
 # description = "Find correctness, security, and test risks in code."
 
 # config_file = "./agents/reviewer.toml" # relative to the config.toml that defines it
-
-# nickname_candidates = ["Athena", "Ada"]
 
 ################################################################################
 
@@ -5074,7 +5111,7 @@ enabled = true
 
 # sandbox_mode = "read-only"
 
-# service_tier = "flex" # or another supported service tier id
+# service_tier = "fast" # or another supported service tier id
 
 # oss_provider = "ollama"
 
@@ -9125,10 +9162,10 @@ Use skills for:
 
 Skills can be global (in your user directory, for you as a developer) or repo-specific (checked into `.agents/skills`, for your team). Put repo skills in `.agents/skills` when the workflow applies to that project; use your user directory for skills you want across all repos.
 
-| Layer  | Global                 | Repo                                           |
-| :----- | :--------------------- | :--------------------------------------------- |
-| AGENTS | `~/.codex/AGENTS.md`   | `AGENTS.md` in repo root or nested directories |
-| Skills | `$HOME/.agents/skills` | `.agents/skills` in repo                       |
+| Layer  | Global               | Repo                                           |
+| :----- | :------------------- | :--------------------------------------------- |
+| AGENTS | `~/.codex/AGENTS.md` | `AGENTS.md` in repo root or nested directories |
+| Skills | `~/.agents/skills`   | `.agents/skills` in repo                       |
 
 Codex uses progressive disclosure for skills:
 

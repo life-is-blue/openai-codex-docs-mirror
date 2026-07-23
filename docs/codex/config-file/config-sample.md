@@ -49,9 +49,9 @@ model_provider = "openai"
 
 # oss_provider = "ollama"
 
-# Preferred service tier. Built-in examples: fast | flex; model catalogs can add more.
+# Preferred service tier. Use fast or another tier supported by the active model.
 
-# service_tier = "flex"
+# service_tier = "fast"
 
 # Optional manual model metadata. When unset, Codex uses model or preset defaults.
 
@@ -325,17 +325,21 @@ web_search = "cached"
 
 [agents]
 
-# Maximum concurrently open agent threads. Default: 6
+# Enable or disable multi-agent tools. Default: true
 
-# max_threads = 6
+# enabled = true
 
-# Maximum nested spawn depth. Root session starts at depth 0. Default: 1
+# Maximum concurrently open spawned-agent threads, excluding the primary thread. When unset, Codex chooses the default.
 
-# max_depth = 1
+# max_concurrent_threads_per_session = 6
 
-# Default timeout per worker for spawn_agents_on_csv jobs. When unset, the tool defaults to 1800 seconds.
+# Default model for spawned agents. An explicit spawn model takes precedence.
 
-# job_max_runtime_seconds = 1800
+# default_subagent_model = "gpt-5.6-terra"
+
+# Default reasoning effort for spawned agents. An explicit spawn effort takes precedence.
+
+# default_subagent_reasoning_effort = "high"
 
 # Record a model-visible message when an agent turn is interrupted. Default: true
 
@@ -346,8 +350,6 @@ web_search = "cached"
 # description = "Find correctness, security, and test risks in code."
 
 # config_file = "./agents/reviewer.toml" # relative to the config.toml that defines it
-
-# nickname_candidates = ["Athena", "Ada"]
 
 ################################################################################
 
@@ -1013,7 +1015,7 @@ enabled = true
 
 # sandbox_mode = "read-only"
 
-# service_tier = "flex" # or another supported service tier id
+# service_tier = "fast" # or another supported service tier id
 
 # oss_provider = "ollama"
 
