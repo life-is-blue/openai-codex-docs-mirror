@@ -9,9 +9,9 @@ When a plugin includes a connector, workspace admins must make the plugin
 available through plugin controls and configure connector access before members
 can use the connector-backed capability.
 
-Plugins are available in Work mode in ChatGPT on the web, in Work mode and Codex
+Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
 in the ChatGPT desktop app, and through the Codex CLI plugin browser.
-Availability on those surfaces doesn't make plugins available in Chat mode,
+Availability on those surfaces doesn't make plugins available in Chat,
 the IDE extension, or mobile.
 
 For the complete administration model, see
@@ -82,7 +82,7 @@ the connected service and returns data or action results allowed by the
 authenticated user's provider permissions. Custom Apps SDK apps expose these
 operations as tools through Model Context Protocol (MCP).
 
-For non-synced connector use, ChatGPT processes data from Chat mode and deep
+For non-synced connector use, ChatGPT processes data from Chat and deep
 research transiently and doesn't index it. Connectors with sync index selected
 connected content in advance. This indexing distinction doesn't replace normal
 chat-retention controls; chats that use plugins remain available through the

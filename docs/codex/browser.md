@@ -44,12 +44,12 @@ manually, or by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>
 
 ## Computer Use in the browser
 
-In the desktop app, Computer Use lets ChatGPT in Work mode or Codex operate the
+In the desktop app, Computer Use lets ChatGPT Work or Codex operate the
 built-in browser directly. The selected experience can open pages, click, type,
 inspect rendered state, take screenshots, and verify the result of its work in
 the page.
 
-Select ChatGPT and switch to Work mode, or select Codex. Open the Plugins
+Select ChatGPT and turn on Work in the switcher, or select Codex. Open the Plugins
 Directory and install **Browser**. Then ask ChatGPT or Codex to use the browser
 in your task, or reference it directly with `@Browser`.
 

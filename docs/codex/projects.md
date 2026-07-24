@@ -88,19 +88,34 @@ Restore archived chats from **Settings > Archived chats**.
 
 ## Use local projects for folders and codebases
 
-Add a local project when ChatGPT needs to read or change files in a folder on
-your computer. For a codebase, the project folder becomes the working directory
-for Codex chats.
+Add a local project when ChatGPT needs to read or change files on your computer.
+Projects don’t need a folder, but you can attach folders as needed.
 
-If a repository contains more than one app or package, use distinct local
-projects when each chat should access only one part of the repository. This
-keeps the working context focused. Use [local environments](https://learn.chatgpt.com/docs/environments/local-environment)
-to define setup actions and common commands for a project.
+To add or change folders, open the project's menu and select **Edit project**.
+Select **Add folder** to attach multiple folders. ChatGPT can read and change files
+in every attached folder. To change the default working directory, point to a
+folder and select **Make primary**.
 
-When you want to isolate code changes from your current checkout, select Codex
-and start the chat in a [worktree](https://learn.chatgpt.com/docs/environments/git-worktrees). Projects and worktrees organize work,
-but the [sandbox](https://learn.chatgpt.com/docs/sandboxing) enforces what local commands can
-read, change, or access over the network.
+New chats start in the primary folder. Codex also uses that folder for Git
+operations and automatic discovery of `AGENTS.md`, skills, and `config.toml`.
+Secondary folders remain available for file search, reading, and editing, but
+Codex doesn't automatically discover those project files from secondary
+folders.
+
+Use multiple folders when related work lives in different places, like an app and
+its documentation or a website and its backend. Create separate projects for
+unrelated work or when each chat should access only one part of a repository.
+This keeps the working context focused. Remote projects currently support one
+folder.
+
+Use [local environments](https://learn.chatgpt.com/docs/environments/local-environment) to define setup
+actions and common commands for a project. Git review, pull request, and
+[worktree](https://learn.chatgpt.com/docs/environments/git-worktrees) actions target the primary
+repository. When you start a chat in a worktree, the other folders remain
+attached.
+
+Projects and worktrees organize work, but the [sandbox](https://learn.chatgpt.com/docs/sandboxing)
+enforces what local commands can read, change, or access over the network.
 
 
 

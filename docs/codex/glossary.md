@@ -154,7 +154,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
       href: "/codex/app",
       appliesTo: "Desktop",
       description:
-        "Desktop app with ChatGPT and Codex, including Chat and Work modes, projects, file previews, scheduled tasks, and developer tools.",
+        "Desktop app with ChatGPT and Codex, including Chat and Work, projects, file previews, scheduled tasks, and developer tools.",
     },
     {
       key: "Codex app-server",
@@ -241,7 +241,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Connector",
       href: "/codex/plugins",
-      appliesTo: "Desktop app (Work mode, Codex), Web (Work mode)",
+      appliesTo: "Desktop app (ChatGPT Work, Codex), Web (ChatGPT Work)",
       description:
         "A component of a plugin that connects ChatGPT or Codex to data and actions in an external service.",
     },
@@ -519,7 +519,7 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
     {
       key: "Plugin",
       href: "/codex/plugins",
-      appliesTo: "Desktop app (Work mode, Codex), Web (Work mode), CLI",
+      appliesTo: "Desktop app (ChatGPT Work, Codex), Web (ChatGPT Work), CLI",
       description:
         "An installable bundle of capabilities such as skills, connectors, and tools.",
     },
@@ -767,11 +767,11 @@ Use this glossary as a quick reference for Codex terms across the app, CLI, IDE 
         "Pre-indexed search results Codex can use without live browsing.",
     },
     {
-      key: "Work mode",
+      key: "ChatGPT Work",
       href: "/codex/get-started-with-work",
       appliesTo: "Desktop app, Web",
       description:
-        "Mode in ChatGPT for research, analysis, and creating documents, presentations, spreadsheets, and other finished work.",
+        "The agent in ChatGPT for research, analysis, and creating documents, presentations, spreadsheets, and other finished work.",
     },
     {
       key: "Worktree",

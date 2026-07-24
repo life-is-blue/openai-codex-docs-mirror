@@ -92,6 +92,13 @@
           icon: "computerUse",
         },
         {
+          title: "ChatGPT Voice",
+          description:
+            "Try voice in Chat, Work, and Codex in the ChatGPT desktop app.",
+          href: "/codex/features/voice",
+          icon: "chat",
+        },
+        {
           title: "Plugins",
           description:
             "Install reusable workflows, connected tools, and shared context.",

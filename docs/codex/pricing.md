@@ -1,6 +1,6 @@
 # Pricing
 
-<strong>Work mode and Codex share usage.</strong> Work mode usage inside
+<strong>ChatGPT Work and Codex share usage.</strong> ChatGPT Work usage inside
   ChatGPT uses the same pricing, credits, and usage limits as Codex.
 
 <h2 class="sr-only">Pricing options</h2>
@@ -70,6 +70,8 @@
         - Access to GPT-5.3-Codex-Spark (research preview), a fast Codex model
           for day-to-day coding tasks
         - 5x or 20x more Codex usage than Plus*
+        - Unlimited ChatGPT Voice on the $200/month tier; tasks still draw from
+          your Codex usage budget
         - Other [ChatGPT features](https://chatgpt.com/pricing) as part of the
           Pro plan
       </PricingCard>
@@ -184,11 +186,11 @@ beta. Availability depends on your plan, region, and workspace settings.
 
 ### What are the usage limits for my plan?
 
-The number of Codex messages you can send depends on the model used, size and
-complexity of your coding tasks and whether you run them locally or in the
-cloud. Small scripts or routine functions may consume only a fraction of your
-allowance, while larger codebases, long-running tasks, or extended sessions that
-require Codex to hold more context will use significantly more per message.
+The number of messages you can send depends on the model used, size and
+complexity of your tasks, and whether you run them locally or in the cloud.
+Small scripts or routine functions may consume only a fraction of your
+allowance, while larger projects, long-running tasks, or extended sessions that
+require the agent to hold more context will use significantly more per message.
 
 Tasks that look similar can consume different amounts of your allowance. Model
 choice, context, reasoning, tool use, retrieval, and caching all affect usage,
@@ -652,8 +654,8 @@ Choose the GPT-5.6 model that best fits your work:
   </ContentSwitcher>
 </div>
 
-Codex usage limits are shared with other agentic features once pricing for
-those features is effective. This currently includes [ChatGPT for
+Usage limits are shared with other agentic features once pricing for those
+features is effective. This currently includes [ChatGPT for
 Excel](https://help.openai.com/articles/20001063) on Plus and Pro.
 
 Speed configurations increase credit consumption for all applicable models, so
@@ -664,6 +666,28 @@ depending on image quality and size. GPT-5.3-Codex-Spark is in research preview
 for ChatGPT Pro users only, and isn't available in the API at launch. Because it
 runs on specialized low-latency hardware, usage is governed by a separate usage
 limit that may adjust based on demand.
+
+### ChatGPT Voice in Desktop
+
+ChatGPT Voice on desktop uses a separate, plan-dependent allowance measured in
+rolling five-hour windows. Tasks started through Voice use your existing Codex
+usage budget. ChatGPT notifies you when you reach either limit.
+
+ChatGPT Voice in Desktop uses a duplex model: GPT-Live manages the live
+conversation, while GPT-5.6 Terra starts and coordinates tasks in the app.
+
+- **Plus:** Approximately 15–30 minutes
+- **Pro 5x ($100/month):** Approximately 1–2.5 hours
+- **Pro 20x ($200/month):** Unlimited voice access
+- **Business:** Approximately 45 minutes
+- **Enterprise / Edu (legacy):** Approximately 45 minutes
+
+Unlimited voice access doesn't make Codex tasks unlimited. Tasks started through
+ChatGPT Voice continue to use your existing Codex usage budget.
+
+For Business, Edu, and Enterprise workspaces with credit-based or pay-as-you-go
+billing, Desktop voice costs approximately 6 credits per minute. ChatGPT Voice
+in Desktop is not available via API Key currently.
 
 ### What happens when you hit usage limits?
 
@@ -676,7 +700,7 @@ credits to continue working without needing to upgrade their existing plan.
 
 Business, Edu, and Enterprise plans with [flexible
 pricing](https://help.openai.com/en/articles/11487671-flexible-pricing-for-the-enterprise-edu-and-business-plans)
-can purchase additional workspace credits to continue using Codex.
+can purchase additional workspace credits to continue working.
 
 If you are approaching usage limits, you can also switch to a smaller model to
 make your usage limits last longer.
@@ -688,7 +712,7 @@ All users may also run extra local chats using an API key, with usage charged at
 
 ### How does image generation count toward usage limits?
 
-Image generation counts toward the same general Codex usage limits as local
+Image generation counts toward the same general usage limits as local
 messages and cloud chats. Image generations use included limits 3-5x faster on
 average than similar turns without image generation, depending on
 image quality and size. After you reach your included limits, image generation
@@ -700,7 +724,7 @@ usage limits.
 
 ### Where can I see my current usage limits?
 
-You can find your current limits in the [Codex usage
+You can find your current limits in the [usage
 dashboard](https://chatgpt.com/codex/settings/usage). If you want to see your
 remaining limits during an active Codex CLI session, you can use `/status`.
 
@@ -719,16 +743,16 @@ consumption. The credit cost varies by model, context, reasoning, and tools.
 After you reach your included limits, available credits let you continue
 working.
 
-Codex usage is calculated in credits per million input tokens, cached input
-tokens, and output tokens. [Learn more about
+Usage is calculated in credits per million input tokens, cached input tokens,
+and output tokens. [Learn more about
 tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them).
 
-The rate card below shows the credit cost per million tokens for Codex models
-and features.
+The rate card below shows the credit cost per million tokens for models and
+features.
 
 A small subset of Enterprise customers should continue using the legacy rate
-card until we migrate you to the new token-based pricing for Codex. For more
-information, [contact OpenAI
+card until we migrate you to the new token-based pricing. For more information,
+[contact OpenAI
 sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_codex).
 
 <div id="credits-overview">
@@ -842,7 +866,7 @@ The usage limits and credits above are average rates. You can try the following
 tips to maximize your limits:
 
 - **Control the size of your prompts.** Be precise with the instructions you
-  give Codex, but remove unnecessary context.
+  give the agent, but remove unnecessary context.
 - **Limit source material.** Provide only relevant files and, when possible,
   narrow the sources or date range.
 - **Match the output to the need.** Define the audience, format, and length, and
@@ -850,9 +874,9 @@ tips to maximize your limits:
 - **Reduce the size of your AGENTS.md.** If you work on a larger project, you
   can control how much context you inject through AGENTS.md files by [nesting
   them within your repository](https://learn.chatgpt.com/docs/agent-configuration/agents-md#layer-project-instructions).
-- **Limit the number of MCP servers you use.** Every [MCP](https://learn.chatgpt.com/docs/extend/mcp) you add
-  to Codex adds more context to your messages and uses more of your limit.
-  Disable MCP servers when you don’t need them.
+- **Limit the number of MCP servers you use.** Every
+  [MCP](https://learn.chatgpt.com/docs/extend/mcp) server adds more context to your messages and uses
+  more of your limit. Disable MCP servers when you don’t need them.
 - **Switch to a smaller model for routine tasks.** Using GPT-5.4 or
   GPT-5.4 mini can extend your local-message usage limits, depending on the
   model you switch from.
@@ -896,7 +920,7 @@ efficiently](https://learn.chatgpt.com/docs/prompting#use-work-efficiently).
             },
           },
           {
-            name: "Work mode in ChatGPT on the web",
+            name: "ChatGPT Work on the web",
             href: "/codex/get-started-with-work",
             availability: {
               plus: "available",
@@ -1026,6 +1050,17 @@ efficiently](https://learn.chatgpt.com/docs/prompting#use-work-efficiently).
           {
             name: "Voice dictation",
             href: "/codex/prompting#use-voice-dictation",
+            availability: {
+              plus: "available",
+              pro: "available",
+              business: "available",
+              enterprise: "available",
+              api: "unavailable",
+            },
+          },
+          {
+            name: "ChatGPT Voice",
+            href: "/codex/features/voice",
             availability: {
               plus: "available",
               pro: "available",

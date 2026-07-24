@@ -76,7 +76,7 @@ to:
 
 ## Start a Chrome task from ChatGPT
 
-After the plugin setup is complete, start a new chat in Work mode or Codex. ChatGPT
+After the plugin setup is complete, start a new ChatGPT Work or Codex chat. ChatGPT
 can use Chrome automatically when a task needs a website and you're already
 signed in to Chrome. You can also invoke it directly in a prompt:
 
@@ -178,13 +178,13 @@ through these checks:
    it doesn't load or mentions a missing native host, remove and re-add the
    Chrome plugin from **Plugins** in the ChatGPT desktop app, then follow the
    setup flow again.
-3. In the app, select ChatGPT and switch to Work mode, or select Codex. Open
+3. In the app, select ChatGPT and turn on Work in the switcher, or select Codex. Open
    **Plugins** and confirm that the Chrome plugin is on. If the plugin is off,
    turn it on and try the task again.
 4. Make sure you are using the same Chrome profile where the extension is
    installed. If you use more than one Chrome profile, install and enable the
    extension in the active profile.
-5. Start a new chat in Work mode or Codex and try the Chrome task again. This can
+5. Start a new ChatGPT Work or Codex chat and try the Chrome task again. This can
    clear chat-specific connection state.
 6. Restart the ChatGPT desktop app, then try again. If the extension still
    doesn't connect, uninstall the Chrome extension, remove and re-add the Chrome

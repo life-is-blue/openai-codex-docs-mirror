@@ -37,7 +37,7 @@ Some ChatGPT and Codex features ship behind a maturity label so you can understa
 
 Source: [Pricing](https://learn.chatgpt.com/docs/pricing.md)
 
-Work mode and Codex share usage. Work mode usage inside
+ChatGPT Work and Codex share usage. ChatGPT Work usage inside
 ChatGPT uses the same pricing, credits, and usage limits as Codex.
 
 Pricing options
@@ -79,6 +79,8 @@ Everything in Plus and:
 - Access to GPT-5.3-Codex-Spark (research preview), a fast Codex model
   for day-to-day coding tasks
 - 5x or 20x more Codex usage than Plus\*
+- Unlimited ChatGPT Voice on the $200/month tier; tasks still draw from
+  your Codex usage budget
 - Other [ChatGPT features](https://chatgpt.com/pricing) as part of the
   Pro plan
 
@@ -157,7 +159,7 @@ How Codex reasons through work, tasks, prompting, speed, and multi-agent coordin
 
 Source: [Subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents.md)
 
-Work mode and Codex can run subagent workflows by spawning specialized
+ChatGPT Work and Codex can run subagent workflows by spawning specialized
 agents in parallel and then collecting their results in one response. This can
 be particularly helpful for complex tasks that are highly parallel, such as
 codebase exploration or implementing a multi-step feature plan.
@@ -167,7 +169,7 @@ configurations and instructions for different tasks.
 
 #### Availability
 
-Work mode exposes subagent workflows and activity to eligible accounts.
+ChatGPT Work exposes subagent workflows and activity to eligible accounts.
 
 Current Codex releases enable subagent workflows by default. Subagent activity
 appears in the ChatGPT desktop app, Codex CLI, and the IDE extension.
@@ -175,7 +177,7 @@ appears in the ChatGPT desktop app, Codex CLI, and the IDE extension.
 Because each subagent does its own model and tool work, subagent workflows
 consume more tokens than comparable single-agent runs.
 
-In Work mode, ask ChatGPT to delegate independent work to subagents. The
+In ChatGPT Work, ask ChatGPT to delegate independent work to subagents. The
 agents run in ChatGPT's hosted environment, and the chat shows their
 activity and results. At most intelligence levels, ask for delegation
 explicitly. With Ultra, ChatGPT can proactively delegate work when parallel
@@ -260,7 +262,7 @@ Review this branch with parallel subagents. Spawn one subagent for security risk
 
 Different agents need different model and reasoning settings.
 
-In Work mode, choose a model and an intelligence level from the composer.
+In ChatGPT Work, choose a model and an intelligence level from the composer.
 Available intelligence levels can include **Light**, **Medium**, **High**,
 **Extra High**, and **Max**, depending on the selected model. **Ultra** is
 available only to eligible accounts and supported models. It uses maximum
@@ -346,7 +348,7 @@ subagent.
 
 Subagents inherit your current sandbox policy.
 
-Work mode runs subagents in its hosted environment and doesn't expose a
+ChatGPT Work runs subagents in its hosted environment and doesn't expose a
 local Codex sandbox or approval-mode control. Subagents use the tools available
 to the parent chat. Website and connector permissions remain
 tool-specific.
@@ -517,9 +519,9 @@ Review this branch against main. Have pr_explorer map the affected code paths, r
 
 Source: [Speed](https://learn.chatgpt.com/docs/agent-configuration/speed.md)
 
-Work mode and Codex share usage. Work mode usage inside
-ChatGPT uses the same pricing, credits, and usage limits as Codex. See [Codex
-pricing](https://learn.chatgpt.com/docs/pricing) for details.
+ChatGPT Work and Codex share usage. Both use the same
+pricing, credits, and usage limits. See [Codex pricing](https://learn.chatgpt.com/docs/pricing) for
+details.
 
 #### Fast mode
 
@@ -2919,7 +2921,7 @@ choose the narrowest scope that lets the task continue. Keep the project
 boundary as the default; use separate projects or worktrees instead of
 broadening access across unrelated repositories.
 
-Work mode in ChatGPT runs code and shell commands in a managed, isolated environment.
+ChatGPT Work runs code and shell commands in a managed, isolated environment.
 Workspace policy and tool-specific controls determine which capabilities are
 available. When the setting is available, use **Settings > Data controls > Work
 network access** to manage network access for code and shell commands. Turn on
@@ -3955,7 +3957,7 @@ making it useful for larger tasks that can be split across subagents.
 
 #### Choose a model
 
-These recommendations apply to **Work mode** in ChatGPT on the web. Use the
+These recommendations apply to **ChatGPT Work** on the web. Use the
 model and reasoning control beneath the composer to choose an available model
 and adjust its reasoning effort.
 
@@ -4038,7 +4040,7 @@ start with Sol.
 Use the lowest reasoning effort that produces the result you need. Increase it
 for tasks that need more planning, analysis, or checking.
 
-- **Light** in the ChatGPT desktop app, Work mode on the web, and IDE extension, or **Low** in the
+- **Light** in the ChatGPT desktop app, ChatGPT Work on the web, and IDE extension, or **Low** in the
   CLI, suits quick, well-scoped tasks.
 - **Medium** balances speed and depth for tasks that need more planning.
 - **High** and **Extra High** suit difficult work with multiple steps, sources,
@@ -5628,12 +5630,12 @@ manually, or by pressing Cmd+Shift+B
 
 #### Computer Use in the browser
 
-In the desktop app, Computer Use lets ChatGPT in Work mode or Codex operate the
+In the desktop app, Computer Use lets ChatGPT Work or Codex operate the
 built-in browser directly. The selected experience can open pages, click, type,
 inspect rendered state, take screenshots, and verify the result of its work in
 the page.
 
-Select ChatGPT and switch to Work mode, or select Codex. Open the Plugins
+Select ChatGPT and turn on Work in the switcher, or select Codex. Open the Plugins
 Directory and install **Browser**. Then ask ChatGPT or Codex to use the browser
 in your task, or reference it directly with `@Browser`.
 
@@ -5742,14 +5744,14 @@ This app is slow. Use @Browser to capture a performance trace and inspect
 network traffic, then identify the bottleneck.
 ```
 
-In Work mode in ChatGPT on the web, ChatGPT can use a cloud-operated browser to
+With ChatGPT Work on the web, ChatGPT can use a cloud-operated browser to
 research and interact with public websites. It runs separately from the
 browser on your device, so you can delegate web tasks without giving ChatGPT
 access to your open tabs or personal browser history.
 
 #### Start browser work
 
-1. Select **ChatGPT**, switch to **Work** at the top of the new chat page above the composer, and describe the result you want. Include relevant
+1. Select **ChatGPT**, switch to **Work** in the switcher, and describe the result you want. Include relevant
    websites or constraints when they matter.
 2. If ChatGPT needs a website, review the site-access request before allowing
    it.
@@ -6185,7 +6187,7 @@ to:
 
 #### Start a Chrome task from ChatGPT
 
-After the plugin setup is complete, start a new chat in Work mode or Codex. ChatGPT
+After the plugin setup is complete, start a new ChatGPT Work or Codex chat. ChatGPT
 can use Chrome automatically when a task needs a website and you're already
 signed in to Chrome. You can also invoke it directly in a prompt:
 
@@ -6285,13 +6287,13 @@ through these checks:
    it doesn't load or mentions a missing native host, remove and re-add the
    Chrome plugin from **Plugins** in the ChatGPT desktop app, then follow the
    setup flow again.
-3. In the app, select ChatGPT and switch to Work mode, or select Codex. Open
+3. In the app, select ChatGPT and turn on Work in the switcher, or select Codex. Open
    **Plugins** and confirm that the Chrome plugin is on. If the plugin is off,
    turn it on and try the task again.
 4. Make sure you are using the same Chrome profile where the extension is
    installed. If you use more than one Chrome profile, install and enable the
    extension in the active profile.
-5. Start a new chat in Work mode or Codex and try the Chrome task again. This can
+5. Start a new ChatGPT Work or Codex chat and try the Chrome task again. This can
    clear chat-specific connection state.
 6. Restart the ChatGPT desktop app, then try again. If the extension still
    doesn't connect, uninstall the Chrome extension, remove and re-add the Chrome
@@ -6454,7 +6456,7 @@ Use ChatGPT or Codex to inspect code changes before you commit or push them.
 
 #### Start a review
 
-In Work mode, upload the code you want reviewed or make it available through
+In ChatGPT Work, upload the code you want reviewed or make it available through
 an installed source [plugin](https://learn.chatgpt.com/docs/plugins). In your prompt, identify the pull
 request, branch, commit, files, and review criteria.
 
@@ -6746,8 +6748,9 @@ Slash commands let you control Codex without leaving the composer. Use them to c
 Source: [Computer Use](https://learn.chatgpt.com/docs/computer-use.md)
 
 In supported regions, Computer Use in the ChatGPT desktop app is available on
-macOS and Windows in Work mode and Codex. Install the Computer Use plugin. On
-macOS, grant Screen Recording and Accessibility permissions when prompted.
+macOS and Windows with ChatGPT Work and Codex. Install the Computer Use
+plugin. On macOS, grant Screen Recording and Accessibility permissions when
+prompted.
 
 With Computer Use, ChatGPT can see and operate graphical user interfaces on macOS
 or Windows. Use it for tasks where command-line tools or structured integrations
@@ -6761,7 +6764,7 @@ continuing.
 
 #### Set up Computer Use
 
-In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select
+In the ChatGPT desktop app, select ChatGPT and switch to Work in the switcher, or select
 Codex. Open **Plugins > Computer
 Use** and select **Install plugin** if prompted. If ChatGPT shows **Enable**,
 select it. Turn on the Computer Use server and skill toggles, then select **Try
@@ -7055,7 +7058,7 @@ run in the project directory or an isolated worktree. Keep the computer on and
 the app running when a scheduled task needs local files.
 
 When scheduled tasks are enabled for your workspace, create them from Chat or
-Work mode in ChatGPT web and manage their runs from **Scheduled**. Web tasks
+ChatGPT Work on the web and manage their runs from **Scheduled**. Web tasks
 can use uploaded context and connected tools, but they can't work directly in
 a folder on your computer.
 
@@ -7130,12 +7133,12 @@ checkout, keeping in mind that it can change files you are actively editing.
 In non-version-controlled projects, scheduled tasks run directly in the project
 directory. You can have the same scheduled task run on more than one project.
 
-Scheduled tasks in Work mode on the web, or in Work mode or Codex in the ChatGPT
-desktop app, can use plugins. Scheduled tasks can also use skills. To keep scheduled
-tasks maintainable and shareable across teams, use [skills](https://learn.chatgpt.com/docs/build-skills) to
-define the action and provide tools and context. Select or invoke a specific
-skill in the task prompt when the workflow shouldn't rely on automatic tool
-selection.
+Scheduled tasks created with ChatGPT Work on the web, or with ChatGPT Work or
+Codex in the desktop app, can use plugins. Scheduled tasks can also use
+skills. To keep scheduled tasks maintainable and shareable across teams, use
+[skills](https://learn.chatgpt.com/docs/build-skills) to define the action and provide tools and context.
+Select or invoke a specific skill in the task prompt when the workflow shouldn't
+rely on automatic tool selection.
 
 #### Ask ChatGPT to create or update scheduled tasks
 
@@ -7840,7 +7843,7 @@ history, but the CLI can't create a new appshot.
 
 For some apps and websites, including Google Docs, Gmail, Google Sheets, and
 Google Slides, ChatGPT may receive only the visible screenshot and may not receive
-the full document or off-screen text. In Work mode or Codex, ChatGPT can use a
+the full document or off-screen text. In ChatGPT Work or Codex, ChatGPT can use a
 matching installed plugin to access the relevant app content and help with your
 request.
 
@@ -7946,7 +7949,7 @@ install it.
 Source: [Build plugins](https://learn.chatgpt.com/docs/build-plugins.md)
 
 This page is for plugin authors. If you want to browse, install, and use
-plugins in Work mode in ChatGPT on the web or in Work mode or Codex in the
+plugins with ChatGPT Work on the web or with ChatGPT Work or Codex in the
 ChatGPT desktop app, see [Plugins](https://learn.chatgpt.com/docs/plugins). If you are still iterating on
 one repo or one personal workflow, start with a local skill. Build a plugin when
 you want to share that workflow across teams, bundle connectors or MCP config,
@@ -7991,8 +7994,8 @@ Then create the app in developer mode:
 4. After ChatGPT creates it, copy the app ID from the browser URL. It starts
    with `plugin_asdk_app`.
 
-Give that `plugin_asdk_app...` ID to `@plugin-creator` in Work mode in ChatGPT
-or `$plugin-creator` in Codex. For example, in Work mode:
+Give that `plugin_asdk_app...` ID to `@plugin-creator` in a ChatGPT Work chat
+or `$plugin-creator` in Codex. For example, with ChatGPT Work:
 
       Plugin Creator prompt
 
@@ -8027,7 +8030,7 @@ A marketplace is a JSON catalog of plugins. `@plugin-creator` can generate one
 for a single plugin, and you can keep adding entries to that same marketplace
 to build your own curated list for a repo, team, or personal workflow.
 
-In Work mode or Codex in the ChatGPT desktop app, each marketplace appears as a
+In ChatGPT Work or Codex in the ChatGPT desktop app, each marketplace appears as a
 selectable source in the Plugins Directory. Use
 `$REPO_ROOT/.agents/plugins/marketplace.json` for a repo-scoped list or
 `~/.agents/plugins/marketplace.json` for a personal list. Add one entry per
@@ -8194,7 +8197,7 @@ up the new files.
 #### Share a local plugin with your workspace
 
 After you create a plugin, add it from the ChatGPT desktop app. Select ChatGPT
-and switch to Work mode, or select Codex, then open **Plugins**. You can then
+and switch to Work in the switcher, or select Codex, then open **Plugins**. You can then
 share it with other members of your ChatGPT workspace.
 
 1. Open **Plugins** in the ChatGPT desktop app.
@@ -8435,7 +8438,7 @@ Source: [Build skills](https://learn.chatgpt.com/docs/build-skills.md)
 
 Use agent skills to extend Codex with task-specific capabilities. A skill packages instructions, resources, and optional scripts so Codex can follow a workflow reliably. Skills build on the [open agent skills standard](https://agentskills.io).
 
-Skills are the authoring format for reusable workflows. Plugins distribute reusable skills and connectors to Work mode in ChatGPT on the web and to Work mode and Codex in the ChatGPT desktop app. Codex CLI can also install plugins. Use skills to design the workflow itself, then package it as a [plugin](https://learn.chatgpt.com/docs/build-plugins) when you want other people in your workspace to install it.
+Skills are the authoring format for reusable workflows. Plugins distribute reusable skills and connectors to ChatGPT Work on the web and to ChatGPT Work and Codex in the desktop app. Codex CLI can also install plugins. Use skills to design the workflow itself, then package it as a [plugin](https://learn.chatgpt.com/docs/build-plugins) when you want other people in your workspace to install it.
 
 Skills are available in the ChatGPT desktop app, Codex CLI, and IDE extension.
 
@@ -9243,10 +9246,14 @@ Runtime behavior to keep in mind:
 - Multiple matching command hooks for the same event are launched concurrently,
   so one hook can't prevent another matching hook from starting.
 - Non-managed command hooks must be reviewed and trusted before they run.
-- `PreToolUse`, `PermissionRequest`, `PostToolUse`, `PreCompact`,
-  `PostCompact`, `UserPromptSubmit`, `SubagentStop`, and `Stop` run at turn
-  scope. `SessionStart` and `SubagentStart` run at thread or subagent-start
-  scope.
+
+Hooks run at different points in a conversation:
+
+| When                              | Hooks                                                                                                                     |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| During a turn                     | `PreToolUse`, `PermissionRequest`, `PostToolUse`, `PreCompact`, `PostCompact`, `UserPromptSubmit`, `SubagentStop`, `Stop` |
+| When a session or subagent starts | `SessionStart`, `SubagentStart`                                                                                           |
+| When the main thread ends         | `SessionEnd` (doesn't run for subagents)                                                                                  |
 
 #### Where Codex looks for hooks
 
@@ -9323,6 +9330,17 @@ Hooks are organized in three levels:
         ]
       }
     ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.codex/hooks/session_end.py",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -9389,12 +9407,13 @@ Notes:
 - `description` is optional top-level metadata for a `hooks.json` file. It
   doesn't change which hooks run.
 - `timeout` is in seconds.
-- If `timeout` is omitted, Codex uses `600` seconds.
+- If `timeout` is omitted, Codex uses `600` seconds for most hooks.
+  - `SessionEnd` uses `1` second by default and supports up to `3` seconds.
 - `statusMessage` is optional.
 - `commandWindows` is an optional Windows-only command override. In TOML, use
   `command_windows` or `commandWindows`.
 - The `async` option is parsed, but asynchronous command hooks aren't supported
-  yet. Codex skips those handlers.
+  yet.
 - Only `type: "command"` handlers run today. `prompt` and `agent` handlers are
   parsed but skipped.
 - Commands run with the session `cwd` as their working directory.
@@ -9530,6 +9549,7 @@ Only some current Codex events honor `matcher`:
 | `PostCompact`       | compaction trigger     | Values are `manual` or `auto`                                |
 | `PreCompact`        | compaction trigger     | Values are `manual` or `auto`                                |
 | `PreToolUse`        | tool name              | See [Tool coverage](#tool-coverage)                          |
+| `SessionEnd`        | end reason             | Currently only `other`                                       |
 | `SessionStart`      | start source           | Values are `startup`, `resume`, `clear`, and `compact`       |
 | `SubagentStart`     | subagent type          | Values depend on the subagent that starts                    |
 | `SubagentStop`      | subagent type          | Values depend on the subagent that stops                     |
@@ -9630,24 +9650,6 @@ that hook run as failed, reports the error, and continues the tool call.
 `PostToolUse` supports `systemMessage`, `continue: false`, and `stopReason`.
 `suppressOutput` is parsed but not currently supported for that event.
 
-#### Large hook output
-
-Codex limits each model-visible hook-output message to roughly 2,500 tokens.
-If a hook returns more, Codex saves the full text under
-`/hook_outputs//.txt` and gives the model a
-head-and-tail preview with the saved-file path. If the file can't be written,
-the model still receives a truncated preview.
-
-This applies to additional context from `SessionStart`, `SubagentStart`,
-`PreToolUse`, `PostToolUse`, and `UserPromptSubmit`, feedback from
-`PostToolUse`, and continuation prompts from `Stop` and `SubagentStop`. The
-limit applies to each additional-context entry or continuation prompt. For
-`PostToolUse` feedback, Codex combines feedback from all matching hooks and
-applies the limit to the combined message.
-
-Because oversized output can be written to disk, avoid returning secrets or
-other sensitive data in hook output.
-
 ### Memories
 
 Source: [Memories](https://learn.chatgpt.com/docs/customization/memories.md)
@@ -9665,7 +9667,7 @@ In the ChatGPT desktop app, use `/memories` to choose whether a chat can use
 local memories or contribute to future memories. Manage the feature from
 **Settings > Personalization** when you need to turn it on or off.
 
-Manage ChatGPT memory from **Settings > Personalization**. Work mode uses
+Manage ChatGPT memory from **Settings > Personalization**. ChatGPT Work uses
 the memory settings available to your account and workspace; it doesn't use a
 local Codex memory store or local memory controls.
 
@@ -9808,13 +9810,13 @@ to view connected servers.
 
 #### Use MCP-backed tools in ChatGPT web
 
-In a hosted chat in Work mode, install a [plugin](https://learn.chatgpt.com/docs/plugins) to use
+In a hosted ChatGPT Work chat, install a [plugin](https://learn.chatgpt.com/docs/plugins) to use
 its bundled connectors and remote MCP tools. Workspace administrators can
 control which plugins and tools are available.
 
 ChatGPT web doesn't read local Codex configuration files or expose the local
 Codex command menu. Browse and manage available tools through **Plugins** in
-Work mode in ChatGPT.
+ChatGPT Work.
 
 #### Configure with the CLI
 
@@ -10007,7 +10009,7 @@ best when the steps are stable and the success criteria are clear.
 
 #### Start a recording
 
-1. In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select Codex. Then open **Plugins**.
+1. In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select Codex. Then open **Plugins**.
 2. Open the **+** menu.
 3. Select **Record a skill**.
 4. Review the suggested prompt, give Codex any helpful context, and submit it.
@@ -12095,9 +12097,9 @@ Before including a plugin or skill in the rollout:
 3. Test it with non-sensitive data and the least access it needs.
 4. Record who owns re-review and retirement.
 
-Plugins are available in Work mode in ChatGPT on the web, in Work mode and Codex
+Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
 in the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
-available in Chat mode, the IDE extension, or mobile.
+available in Chat, the IDE extension, or mobile.
 
 See [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors) and
 [Skill controls](https://learn.chatgpt.com/docs/enterprise/skills) for the complete model.
@@ -12229,6 +12231,313 @@ source-system permissions or govern Platform API usage or billing.
 - [Governance](https://learn.chatgpt.com/docs/enterprise/governance)
 - [Workspace analytics](https://learn.chatgpt.com/docs/enterprise/workspace-analytics)
 - [Codex pricing](https://learn.chatgpt.com/docs/pricing)
+
+### ChatGPT Work admin FAQ
+
+Source: [ChatGPT Work admin FAQ](https://learn.chatgpt.com/docs/enterprise/work-admin-faq.md)
+
+ChatGPT Work brings the technology behind Codex into ChatGPT for longer,
+multi-step tasks. It can gather context from chats, files, workspace
+resources, and connected systems; use approved tools; and create review-ready
+outputs. Access, context, actions, network behavior, and credit use vary by
+plan, workspace settings, source permissions, and surface.
+
+#### Overview
+
+ChatGPT Work lets users delegate longer, multi-step tasks to ChatGPT. It can gather
+information from connected sources, reason across steps, create documents,
+presentations, or analyses, and return results for review.
+
+ChatGPT Work launched July 9, 2026. For Enterprise and Edu, web and mobile access is
+off by default during a two-week preview. Admins can enable billable usage, and
+explicit opt-outs persist when the default changes. Desktop access remains
+governed separately through Codex Local permissions and managed configuration.
+
+This FAQ explains how admins manage ChatGPT Work: access and data controls,
+compliance and visibility, usage and spend, incident response, and rollout
+practices.
+
+#### Core administrative controls
+
+Administrators govern ChatGPT Work through several control layers:
+
+- **Access to the enterprise workspace:** Identity and access controls manage
+  authentication and access to the workspace. Depending on the plan and
+  configuration, administrator-controlled identity features can include SSO,
+  domain verification, SCIM provisioning, user lifecycle management, and
+  identity-group synchronization. Users can enable account-level OpenAI MFA;
+  enforce workspace-wide MFA through your identity provider. Manage SSO and
+  related identity settings in the
+  [Global Admin Console](https://help.openai.com/en/articles/12289294-admin-portal).
+- **Access to ChatGPT Work within the workspace:** On web and mobile, admins use the
+  ChatGPT Work access control and role-based access control (RBAC) to decide who can
+  use it. Enterprise and Edu access is off during the two-week preview;
+  admins can enable it, and explicit opt-outs persist when the default changes.
+  Desktop access follows separate Codex Local permissions and
+  [managed configuration](https://learn.chatgpt.com/docs/enterprise/managed-configuration). Controls
+  vary by plan and surface.
+- **Group membership:** Groups can be synchronized through SCIM and an identity
+  provider so access updates automatically as employees join the organization,
+  change roles, or leave. See
+  [Groups and provisioning](https://learn.chatgpt.com/docs/enterprise/groups-and-provisioning).
+- **Workspace and member roles:** Built-in Owner, Admin, and Member roles
+  determine who can administer the workspace. Custom roles and member RBAC
+  separately control end-user access to ChatGPT Work, plugins, and other capabilities.
+  See
+  [Roles and workspace permissions](https://learn.chatgpt.com/docs/enterprise/roles-and-workspace-permissions).
+- **Plugins and connectors:** Plugin policy governs plugin availability and
+  installation. Connector access, action controls, and approval behavior are
+  configured separately, and Workspace Agents have additional per-agent
+  controls. See [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors),
+  [Plugins](https://learn.chatgpt.com/docs/plugins), and the
+  [App security white paper](https://cdn.openai.com/business-guides-and-resources/app-security-whitepaper.pdf).
+- **Source-system permissions:** A user can access only the content and actions
+  allowed by the account or shared connection in the native application. See
+  [Admin controls, security, and compliance in apps](https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-in-apps-enterprise-edu-and-business).
+- **Approval and action restrictions:** For connectors that support Action control,
+  admins can allow all actions, read-only actions, or a custom set and decide
+  how newly added actions are handled. App permissions separately determine
+  when ChatGPT asks before using a connector.
+- **Credits:** ChatGPT Work and Codex share pricing, credits, and usage limits.
+  Eligible Enterprise and Edu admins can set monthly per-user limits through a
+  workspace default, group defaults, and individual overrides. Users can
+  request increases when the workspace allows it. Business follows a separate
+  credit and spend-control model. See
+  [ChatGPT usage limits and spend controls](https://learn.chatgpt.com/docs/enterprise/usage-limits).
+- **Analytics and reporting:** The Global Admin Console and workspace analytics
+  support adoption and credit-usage analysis. Use the Compliance API and Codex
+  reporting surfaces for their documented event and product scopes; review the
+  current schemas before promising coverage of particular prompts, files,
+  approvals, actions, errors, or tool calls. See
+  [Governance](https://learn.chatgpt.com/docs/enterprise/governance).
+
+#### Access, data, systems, and user actions
+
+#### How are access to data, systems, and user actions protected?
+
+ChatGPT Work is governed by the identity, access, and permission controls already
+established in your ChatGPT workspace. Administrators use identity management,
+[RBAC](https://help.openai.com/en/articles/11750701-rbac), and workspace roles
+to determine who can use ChatGPT Work.
+
+Where supported, access can be synchronized with your identity provider through
+[SCIM](https://help.openai.com/en/articles/10011769-openai-platform-scim-integration-faq)
+and group synchronization. This lets you manage access and permissions centrally
+as employees join the organization, change roles, or leave.
+
+Underlying source systems continue to enforce access to enterprise data. ChatGPT Work
+respects the permissions defined in connected applications, so users and agents
+can access only files, repositories, channels, records, and actions they are
+authorized to use. ChatGPT Work doesn't bypass existing access controls or grant new
+permissions in connected systems.
+
+#### How does ChatGPT Work access data and context?
+
+ChatGPT Work can use the current chat, uploaded files, workspace resources, and
+connected systems through plugins. Depending on enabled capabilities and
+permissions, this can include documents, repositories, tickets, channels,
+email, and calendars. Files from earlier chats or memory can be available
+when included in the current chat or project, or when applicable
+workspace and user memory controls are enabled.
+
+Each context source keeps its own controls: users supply chat context,
+admins manage workspace resources, and connected systems enforce authentication
+and permissions. ChatGPT Work can access only information authorized for the user or an
+approved shared connection.
+
+ChatGPT Work inherits applicable ChatGPT workspace protections. Residency, retention,
+logging, and feature availability vary by plan, region, surface, and connected
+system, so confirm coverage for your configuration.
+
+#### What high-impact actions are restricted or require review?
+
+Action risk varies. Reading or drafting is generally lower impact than changing
+data, sharing information, or acting in external systems. Combine roles, narrow
+permissions and credentials, and supported approvals to limit higher-impact
+actions to trusted, reviewed use.
+
+Common action categories include:
+
+- **Read:** Access, search, or summarize information from approved sources
+  without changing the underlying data.
+- **Draft:** Prepare documents, email, reports, code, or other content for a
+  person to review before use.
+- **Write:** Create, update, or delete records in connected systems, such as
+  documents, tickets, repositories, or project-management tools.
+- **Share:** Send, publish, or otherwise make information available to more
+  people, systems, or external destinations.
+- **Scheduled:** Start a task at a future time or on a recurring schedule
+  without requiring a user to initiate each run.
+- **Execute:** Run code, shell commands, browser automation, or other
+  tool-driven tasks that interact directly with external environments.
+
+For higher-impact actions, use human review, restricted credentials, narrow
+scopes, and supported approvals. Plugin actions still follow each integration's
+permissions and security controls.
+
+#### Compliance
+
+#### How does ChatGPT Work support enterprise privacy and data commitments?
+
+ChatGPT Work uses the privacy, security, and data commitments applicable to the
+customer's ChatGPT workspace, subject to plan, configuration, surface, feature,
+and region. For ChatGPT Enterprise, this includes
+[no training on business data by default](https://help.openai.com/en/articles/8983130-what-if-i-want-to-keep-my-history-on-but-disable-model-training),
+encryption in transit and at rest, workspace-level access controls, and
+supported audit logging.
+
+Coverage for data residency, inference residency, FedRAMP, HIPAA, or a Business
+Associate Agreement isn't universal. Confirm current
+[data and inference residency guidance](https://help.openai.com/en/articles/9903489-data-residency-and-inference-residency-for-chatgpt)
+and the customer's agreement for the features and regions in use.
+
+Connected services have their own retention, logging, access, residency, and
+compliance requirements. When ChatGPT Work uses plugins, repositories, or third-party
+systems, evaluate both the ChatGPT workspace controls and the connected
+system's controls.
+
+For Codex activity, enterprise controls can extend to development environments,
+repositories, configured tools, and related activity. Review
+[Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup) and
+[Governance](https://learn.chatgpt.com/docs/enterprise/governance) alongside the workspace controls.
+
+#### What data is stored, retained, or deleted?
+
+Data retention and deletion for ChatGPT Work are governed by the ChatGPT workspace
+plan, administrative settings, and the capabilities in use. Retention can vary
+across the information ChatGPT Work accesses. Data stored by ChatGPT follows the
+configured workspace retention policies, while connected applications continue
+to manage their own data and lifecycle policies. See
+[Chat and file retention policies](https://help.openai.com/en/articles/8983778-chat-and-file-retention-policies-in-chatgpt).
+
+ChatGPT Work can create chat content, uploaded or generated files, artifacts,
+and execution metadata. Codex chats can also create repository or environment
+metadata, command output, diffs, and logs. Check the current product and
+[Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api) documentation for exact data
+classes, retention periods, and deletion paths.
+
+Review retention requirements across both the ChatGPT workspace and connected
+enterprise systems so your organization's data governance, compliance, and
+record-retention policies apply to each system.
+
+#### Observability
+
+#### What usage data is available to admins or owners?
+
+Admins and owners can use product analytics and compliance logs for different
+kinds of visibility. The Global Admin Console shows adoption and credit use by
+user, product, and model, including the ability to drill down across Chat, Work,
+and Codex usage. The Compliance API covers all user messages and responses
+across Chat, Work, and Codex. See
+[Workspace analytics](https://learn.chatgpt.com/docs/enterprise/workspace-analytics) and the
+[Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api).
+
+#### Are prompts, outputs, files, actions, or tool calls logged?
+
+The Compliance Logs Platform provides user prompts and agent responses. It
+doesn't track files, actions, or tool calls.
+
+The Compliance Logs Platform retains data for 30 days. Export records
+continuously to an approved electronic discovery, data loss prevention, SIEM,
+or data-lake system when your organization requires longer retention. See the
+[OpenAI Compliance Platform guide](https://help.openai.com/en/articles/9261474-compliance-api-for-chatgpt-enterprise-edu-and-chatgpt-for-teachers).
+
+#### Can unusual behavior, failures, or usage spikes be detected quickly?
+
+Workspace analytics, compliance logs, and connected monitoring tools help
+admins review usage and investigate supported ChatGPT, Work, and Codex
+activity. Signals can include active users, messages, tool activity, agent
+activity, authentication and administrative events, and credit consumption.
+Exported logs can support electronic discovery, data loss prevention, SIEM,
+auditing, and investigations. Detection quality depends on plan, event
+coverage, attribution, freshness, and configured rules.
+
+Signals that can warrant review include unexpected increases in usage or credit
+consumption, unusual user or agent activity, recurring operational errors, and
+relevant authentication or administrative events. Confirm the exact signals
+against the applicable analytics, compliance, and audit-log schemas.
+
+For Codex activity, Codex analytics and the Analytics API provide supported
+adoption and activity metrics. Organizations using local Codex clients can opt
+in to OpenTelemetry exports for events such as API requests, errors, prompt
+metadata, tool-approval decisions, and tool results. Prompt contents are
+redacted unless `otel.log_user_prompt = true` is enabled as a separate explicit
+opt-in. See
+[Monitoring and telemetry](https://learn.chatgpt.com/docs/agent-approvals-security#monitoring-and-telemetry).
+
+#### Governance
+
+#### How can admins control access, permissions, and policies?
+
+Governance spans three related but separate layers:
+
+- **ChatGPT Work access controls** determine who can use ChatGPT Work on
+  each surface.
+- **Workspace Agent controls** determine who can build, publish, share,
+  schedule, or configure reusable agents and shared connections.
+- **Codex managed configuration** governs covered local runtime behavior,
+  including permissions, approvals, filesystem and network access, MCP servers,
+  hooks, and command rules.
+
+Managed configuration constrains supported runtime behavior. It doesn't grant
+workspace access, replace RBAC, or revoke a user's workspace access. These
+layers aren't one uniform ChatGPT Work policy surface. Analytics and compliance logs
+provide additional visibility within their documented product and event
+scopes.
+
+Enterprise administrators can use
+[managed requirements](https://learn.chatgpt.com/docs/enterprise/managed-configuration) to enforce
+supported settings that users can't override while the requirements are
+active. Supported policies cover approval behavior, permission profiles, web
+search, hooks, MCP servers, feature flags, command rules, and filesystem
+access. Network requirements are experimental and should be tested on the
+client versions and operating systems in your deployment before broad use. For
+current Codex clients, managed
+[permission profiles](https://learn.chatgpt.com/docs/permissions) are the preferred way to define
+filesystem, network, and runtime access.
+
+#### Can access be scoped by group, role, workspace, or capability?
+
+Yes. ChatGPT Work capabilities can be scoped with workspace roles, identity groups,
+and administrator-defined permissions. Assign capabilities to groups based on
+business need and organizational policy instead of giving every user identical
+access. See the
+[RBAC guide](https://help.openai.com/en/articles/11750701-rbac) and this
+[RBAC walkthrough](https://vimeo.com/1207482321/d1286e4467?share=copy&fl=sv&fe=ci).
+
+Organizations can use RBAC to determine which users can access ChatGPT Work, manage
+workspace settings, configure approved plugins, or build and publish Workspace
+Agents. For eligible Enterprise and Edu workspaces, monthly usage limits can
+support a phased rollout through a workspace default, group defaults, and user
+overrides.
+
+Access to connected systems remains independently governed. Scope plugins, shared
+credentials, repositories, and write-capable actions to the minimum required
+audience using workspace permissions, plugin settings, and the source system's
+controls. For higher-trust environments, use managed policies to restrict
+runtime capabilities further.
+
+#### How are runtime and network boundaries governed?
+
+The security boundaries for ChatGPT Work depend on the task. A standard Chat conversation, a
+connected workflow, a scheduled task, and a Codex chat can run in different
+environments with different permissions, tools, and network access.
+
+Govern each execution environment through its applicable controls. ChatGPT Work
+permissions on web and mobile govern access to ChatGPT Work and supported browser or
+network capabilities. Search, plugins, Workspace Agents, and
+source-system permissions remain separate controls. Desktop and Codex chats
+follow Codex permissions, managed configuration, MCP policy, sandboxing, and
+approval controls. These controls aren't interchangeable.
+
+For Codex activity, local runs in the ChatGPT desktop app, CLI, and IDE execute
+on the user's machine with operating-system sandboxing and approval policies.
+Codex cloud runs chats in isolated OpenAI-managed environments. Enterprise
+administrators can use managed requirements to constrain permission profiles,
+approvals, filesystem and network access, MCP servers, hooks, command rules,
+and other supported runtime behavior.
+
+#### Usage and cost
 
 ### Compliance API and audit events
 
@@ -12945,9 +13254,9 @@ When a plugin includes a connector, workspace admins must make the plugin
 available through plugin controls and configure connector access before members
 can use the connector-backed capability.
 
-Plugins are available in Work mode in ChatGPT on the web, in Work mode and Codex
+Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
 in the ChatGPT desktop app, and through the Codex CLI plugin browser.
-Availability on those surfaces doesn't make plugins available in Chat mode,
+Availability on those surfaces doesn't make plugins available in Chat,
 the IDE extension, or mobile.
 
 For the complete administration model, see
@@ -13016,7 +13325,7 @@ the connected service and returns data or action results allowed by the
 authenticated user's provider permissions. Custom Apps SDK apps expose these
 operations as tools through Model Context Protocol (MCP).
 
-For non-synced connector use, ChatGPT processes data from Chat mode and deep
+For non-synced connector use, ChatGPT processes data from Chat and deep
 research transiently and doesn't index it. Connectors with sync index selected
 connected content in advance. This indexing distinction doesn't replace normal
 chat-retention controls; chats that use plugins remain available through the
@@ -13146,9 +13455,9 @@ surface-specific plugin installation are separate paths. Moving a skill doesn't
 transfer ChatGPT workspace ownership, sharing, role assignments, plugin
 installation state, or connector authorization.
 
-Plugins are available in Work mode in ChatGPT on the web, in Work mode and Codex
+Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
 in the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
-available in Chat mode, the IDE extension, or mobile.
+available in Chat, the IDE extension, or mobile.
 
 #### Owning controls
 
@@ -13171,313 +13480,6 @@ owns it.
 - [Build plugins](https://learn.chatgpt.com/docs/build-plugins)
 - [Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup)
 - [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors)
-
-### Work mode admin FAQ
-
-Source: [Work mode admin FAQ](https://learn.chatgpt.com/docs/enterprise/work-admin-faq.md)
-
-Work mode brings the technology behind Codex into ChatGPT for longer,
-multi-step tasks. It can gather context from chats, files, workspace
-resources, and connected systems; use approved tools; and create review-ready
-outputs. Access, context, actions, network behavior, and credit use vary by
-plan, workspace settings, source permissions, and surface.
-
-#### Overview
-
-Work mode lets users delegate longer, multi-step tasks to ChatGPT. It can gather
-information from connected sources, reason across steps, create documents,
-presentations, or analyses, and return results for review.
-
-Work mode launched July 9, 2026. For Enterprise and Edu, web and mobile access is
-off by default during a two-week preview. Admins can enable billable usage, and
-explicit opt-outs persist when the default changes. Desktop access remains
-governed separately through Codex Local permissions and managed configuration.
-
-This FAQ explains how admins manage Work mode in ChatGPT: access and data controls,
-compliance and visibility, usage and spend, incident response, and rollout
-practices.
-
-#### Core administrative controls
-
-Administrators govern Work mode through several control layers:
-
-- **Access to the enterprise workspace:** Identity and access controls manage
-  authentication and access to the workspace. Depending on the plan and
-  configuration, administrator-controlled identity features can include SSO,
-  domain verification, SCIM provisioning, user lifecycle management, and
-  identity-group synchronization. Users can enable account-level OpenAI MFA;
-  enforce workspace-wide MFA through your identity provider. Manage SSO and
-  related identity settings in the
-  [Global Admin Console](https://help.openai.com/en/articles/12289294-admin-portal).
-- **Access to Work mode within the workspace:** On web and mobile, admins use the
-  Work mode access control and role-based access control (RBAC) to decide who can
-  use it. Enterprise and Edu access is off during the two-week preview;
-  admins can enable it, and explicit opt-outs persist when the default changes.
-  Desktop access follows separate Codex Local permissions and
-  [managed configuration](https://learn.chatgpt.com/docs/enterprise/managed-configuration). Controls
-  vary by plan and surface.
-- **Group membership:** Groups can be synchronized through SCIM and an identity
-  provider so access updates automatically as employees join the organization,
-  change roles, or leave. See
-  [Groups and provisioning](https://learn.chatgpt.com/docs/enterprise/groups-and-provisioning).
-- **Workspace and member roles:** Built-in Owner, Admin, and Member roles
-  determine who can administer the workspace. Custom roles and member RBAC
-  separately control end-user access to Work mode, plugins, and other capabilities.
-  See
-  [Roles and workspace permissions](https://learn.chatgpt.com/docs/enterprise/roles-and-workspace-permissions).
-- **Plugins and connectors:** Plugin policy governs plugin availability and
-  installation. Connector access, action controls, and approval behavior are
-  configured separately, and Workspace Agents have additional per-agent
-  controls. See [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors),
-  [Plugins](https://learn.chatgpt.com/docs/plugins), and the
-  [App security white paper](https://cdn.openai.com/business-guides-and-resources/app-security-whitepaper.pdf).
-- **Source-system permissions:** A user can access only the content and actions
-  allowed by the account or shared connection in the native application. See
-  [Admin controls, security, and compliance in apps](https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-in-apps-enterprise-edu-and-business).
-- **Approval and action restrictions:** For connectors that support Action control,
-  admins can allow all actions, read-only actions, or a custom set and decide
-  how newly added actions are handled. App permissions separately determine
-  when ChatGPT asks before using a connector.
-- **Credits:** Work mode and Codex share pricing, credits, and usage limits.
-  Eligible Enterprise and Edu admins can set monthly per-user limits through a
-  workspace default, group defaults, and individual overrides. Users can
-  request increases when the workspace allows it. Business follows a separate
-  credit and spend-control model. See
-  [ChatGPT usage limits and spend controls](https://learn.chatgpt.com/docs/enterprise/usage-limits).
-- **Analytics and reporting:** The Global Admin Console and workspace analytics
-  support adoption and credit-usage analysis. Use the Compliance API and Codex
-  reporting surfaces for their documented event and product scopes; review the
-  current schemas before promising coverage of particular prompts, files,
-  approvals, actions, errors, or tool calls. See
-  [Governance](https://learn.chatgpt.com/docs/enterprise/governance).
-
-#### Access, data, systems, and user actions
-
-#### How are access to data, systems, and user actions protected?
-
-Work mode is governed by the identity, access, and permission controls already
-established in your ChatGPT workspace. Administrators use identity management,
-[RBAC](https://help.openai.com/en/articles/11750701-rbac), and workspace roles
-to determine who can use Work mode.
-
-Where supported, access can be synchronized with your identity provider through
-[SCIM](https://help.openai.com/en/articles/10011769-openai-platform-scim-integration-faq)
-and group synchronization. This lets you manage access and permissions centrally
-as employees join the organization, change roles, or leave.
-
-Underlying source systems continue to enforce access to enterprise data. Work mode
-respects the permissions defined in connected applications, so users and agents
-can access only files, repositories, channels, records, and actions they are
-authorized to use. Work mode doesn't bypass existing access controls or grant new
-permissions in connected systems.
-
-#### How does Work mode access data and context?
-
-Work mode can use the current chat, uploaded files, workspace resources, and
-connected systems through plugins. Depending on enabled capabilities and
-permissions, this can include documents, repositories, tickets, channels,
-email, and calendars. Files from earlier chats or memory can be available
-when included in the current chat or project, or when applicable
-workspace and user memory controls are enabled.
-
-Each context source keeps its own controls: users supply chat context,
-admins manage workspace resources, and connected systems enforce authentication
-and permissions. Work mode can access only information authorized for the user or an
-approved shared connection.
-
-Work mode inherits applicable ChatGPT workspace protections. Residency, retention,
-logging, and feature availability vary by plan, region, surface, and connected
-system, so confirm coverage for your configuration.
-
-#### What high-impact actions are restricted or require review?
-
-Action risk varies. Reading or drafting is generally lower impact than changing
-data, sharing information, or acting in external systems. Combine roles, narrow
-permissions and credentials, and supported approvals to limit higher-impact
-actions to trusted, reviewed use.
-
-Common action categories include:
-
-- **Read:** Access, search, or summarize information from approved sources
-  without changing the underlying data.
-- **Draft:** Prepare documents, email, reports, code, or other content for a
-  person to review before use.
-- **Write:** Create, update, or delete records in connected systems, such as
-  documents, tickets, repositories, or project-management tools.
-- **Share:** Send, publish, or otherwise make information available to more
-  people, systems, or external destinations.
-- **Scheduled:** Start a task at a future time or on a recurring schedule
-  without requiring a user to initiate each run.
-- **Execute:** Run code, shell commands, browser automation, or other
-  tool-driven tasks that interact directly with external environments.
-
-For higher-impact actions, use human review, restricted credentials, narrow
-scopes, and supported approvals. Plugin actions still follow each integration's
-permissions and security controls.
-
-#### Compliance
-
-#### How does Work mode support enterprise privacy and data commitments?
-
-Work mode uses the privacy, security, and data commitments applicable to the
-customer's ChatGPT workspace, subject to plan, configuration, surface, feature,
-and region. For ChatGPT Enterprise, this includes
-[no training on business data by default](https://help.openai.com/en/articles/8983130-what-if-i-want-to-keep-my-history-on-but-disable-model-training),
-encryption in transit and at rest, workspace-level access controls, and
-supported audit logging.
-
-Coverage for data residency, inference residency, FedRAMP, HIPAA, or a Business
-Associate Agreement isn't universal. Confirm current
-[data and inference residency guidance](https://help.openai.com/en/articles/9903489-data-residency-and-inference-residency-for-chatgpt)
-and the customer's agreement for the features and regions in use.
-
-Connected services have their own retention, logging, access, residency, and
-compliance requirements. When Work mode uses plugins, repositories, or third-party
-systems, evaluate both the ChatGPT workspace controls and the connected
-system's controls.
-
-For Codex activity, enterprise controls can extend to development environments,
-repositories, configured tools, and related activity. Review
-[Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup) and
-[Governance](https://learn.chatgpt.com/docs/enterprise/governance) alongside the workspace controls.
-
-#### What data is stored, retained, or deleted?
-
-Data retention and deletion for Work mode are governed by the ChatGPT workspace
-plan, administrative settings, and the capabilities in use. Retention can vary
-across the information Work mode accesses. Data stored by ChatGPT follows the
-configured workspace retention policies, while connected applications continue
-to manage their own data and lifecycle policies. See
-[Chat and file retention policies](https://help.openai.com/en/articles/8983778-chat-and-file-retention-policies-in-chatgpt).
-
-Work mode can create chat content, uploaded or generated files, artifacts,
-and execution metadata. Codex chats can also create repository or environment
-metadata, command output, diffs, and logs. Check the current product and
-[Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api) documentation for exact data
-classes, retention periods, and deletion paths.
-
-Review retention requirements across both the ChatGPT workspace and connected
-enterprise systems so your organization's data governance, compliance, and
-record-retention policies apply to each system.
-
-#### Observability
-
-#### What usage data is available to admins or owners?
-
-Admins and owners can use product analytics and compliance logs for different
-kinds of visibility. The Global Admin Console shows adoption and credit use by
-user, product, and model, including the ability to drill down across Chat, Work,
-and Codex usage. The Compliance API covers all user messages and responses
-across Chat, Work, and Codex. See
-[Workspace analytics](https://learn.chatgpt.com/docs/enterprise/workspace-analytics) and the
-[Compliance API](https://learn.chatgpt.com/docs/enterprise/compliance-api).
-
-#### Are prompts, outputs, files, actions, or tool calls logged?
-
-The Compliance Logs Platform provides user prompts and agent responses. It
-doesn't track files, actions, or tool calls.
-
-The Compliance Logs Platform retains data for 30 days. Export records
-continuously to an approved electronic discovery, data loss prevention, SIEM,
-or data-lake system when your organization requires longer retention. See the
-[OpenAI Compliance Platform guide](https://help.openai.com/en/articles/9261474-compliance-api-for-chatgpt-enterprise-edu-and-chatgpt-for-teachers).
-
-#### Can unusual behavior, failures, or usage spikes be detected quickly?
-
-Workspace analytics, compliance logs, and connected monitoring tools help
-admins review usage and investigate supported ChatGPT, Work, and Codex
-activity. Signals can include active users, messages, tool activity, agent
-activity, authentication and administrative events, and credit consumption.
-Exported logs can support electronic discovery, data loss prevention, SIEM,
-auditing, and investigations. Detection quality depends on plan, event
-coverage, attribution, freshness, and configured rules.
-
-Signals that can warrant review include unexpected increases in usage or credit
-consumption, unusual user or agent activity, recurring operational errors, and
-relevant authentication or administrative events. Confirm the exact signals
-against the applicable analytics, compliance, and audit-log schemas.
-
-For Codex activity, Codex analytics and the Analytics API provide supported
-adoption and activity metrics. Organizations using local Codex clients can opt
-in to OpenTelemetry exports for events such as API requests, errors, prompt
-metadata, tool-approval decisions, and tool results. Prompt contents are
-redacted unless `otel.log_user_prompt = true` is enabled as a separate explicit
-opt-in. See
-[Monitoring and telemetry](https://learn.chatgpt.com/docs/agent-approvals-security#monitoring-and-telemetry).
-
-#### Governance
-
-#### How can admins control access, permissions, and policies?
-
-Governance spans three related but separate layers:
-
-- **Work mode access controls** determine who can use Work mode on
-  each surface.
-- **Workspace Agent controls** determine who can build, publish, share,
-  schedule, or configure reusable agents and shared connections.
-- **Codex managed configuration** governs covered local runtime behavior,
-  including permissions, approvals, filesystem and network access, MCP servers,
-  hooks, and command rules.
-
-Managed configuration constrains supported runtime behavior. It doesn't grant
-workspace access, replace RBAC, or revoke a user's workspace access. These
-layers aren't one uniform Work mode policy surface. Analytics and compliance logs
-provide additional visibility within their documented product and event
-scopes.
-
-Enterprise administrators can use
-[managed requirements](https://learn.chatgpt.com/docs/enterprise/managed-configuration) to enforce
-supported settings that users can't override while the requirements are
-active. Supported policies cover approval behavior, permission profiles, web
-search, hooks, MCP servers, feature flags, command rules, and filesystem
-access. Network requirements are experimental and should be tested on the
-client versions and operating systems in your deployment before broad use. For
-current Codex clients, managed
-[permission profiles](https://learn.chatgpt.com/docs/permissions) are the preferred way to define
-filesystem, network, and runtime access.
-
-#### Can access be scoped by group, role, workspace, or capability?
-
-Yes. Work mode capabilities can be scoped with workspace roles, identity groups,
-and administrator-defined permissions. Assign capabilities to groups based on
-business need and organizational policy instead of giving every user identical
-access. See the
-[RBAC guide](https://help.openai.com/en/articles/11750701-rbac) and this
-[RBAC walkthrough](https://vimeo.com/1207482321/d1286e4467?share=copy&fl=sv&fe=ci).
-
-Organizations can use RBAC to determine which users can access Work mode, manage
-workspace settings, configure approved plugins, or build and publish Workspace
-Agents. For eligible Enterprise and Edu workspaces, monthly usage limits can
-support a phased rollout through a workspace default, group defaults, and user
-overrides.
-
-Access to connected systems remains independently governed. Scope plugins, shared
-credentials, repositories, and write-capable actions to the minimum required
-audience using workspace permissions, plugin settings, and the source system's
-controls. For higher-trust environments, use managed policies to restrict
-runtime capabilities further.
-
-#### How are runtime and network boundaries governed?
-
-The security boundaries for Work mode depend on the task. A chat in Chat mode, a
-connected workflow, a scheduled task, and a Codex chat can run in different
-environments with different permissions, tools, and network access.
-
-Govern each execution environment through its applicable controls. Work mode
-permissions on web and mobile govern access to Work mode and supported browser or
-network capabilities. Search, plugins, Workspace Agents, and
-source-system permissions remain separate controls. Desktop and Codex chats
-follow Codex permissions, managed configuration, MCP policy, sandboxing, and
-approval controls. These controls aren't interchangeable.
-
-For Codex activity, local runs in the ChatGPT desktop app, CLI, and IDE execute
-on the user's machine with operating-system sandboxing and approval policies.
-Codex cloud runs chats in isolated OpenAI-managed environments. Enterprise
-administrators can use managed requirements to constrain permission profiles,
-approvals, filesystem and network access, MCP servers, hooks, command rules,
-and other supported runtime behavior.
-
-#### Usage and cost
 
 ### Workspace analytics
 
@@ -13597,6 +13599,75 @@ If a user can't select an expected model:
 - [Groups and provisioning](https://learn.chatgpt.com/docs/enterprise/groups-and-provisioning)
 - [Roles and workspace permissions](https://learn.chatgpt.com/docs/enterprise/roles-and-workspace-permissions)
 - [Managed configuration](https://learn.chatgpt.com/docs/enterprise/managed-configuration)
+
+### ChatGPT Voice
+
+Source: [ChatGPT Voice](https://learn.chatgpt.com/docs/features/voice.md)
+
+Powered by GPT-Live, ChatGPT Voice lets you talk through ideas and coordinate
+tasks in Chat, Work, and Codex in the ChatGPT desktop app. Start work, check
+progress, or change direction without switching back to typing.
+
+ChatGPT Voice is available in the ChatGPT desktop app with ChatGPT Plus,
+Pro, Business, Edu, and Enterprise plans. Enterprise and Edu availability
+begins with a two-week early-access period before the feature becomes available
+by default. You can also use ChatGPT Voice through
+[Remote on iOS](https://learn.chatgpt.com/docs/remote-connections#set-up-mobile-access) after pairing
+your phone with a desktop host. Availability also depends on rollout status and
+workspace settings. See [feature availability](https://learn.chatgpt.com/docs/pricing#feature-availability).
+
+#### Start talking
+
+1. Open a new, empty chat or task in the ChatGPT desktop app.
+2. Select **Start new voice chat** before sending a message.
+3. The first time you start a voice chat, allow microphone access, choose a
+   voice, and review screen context on macOS.
+4. Start talking. Select **End** when you finish.
+
+A chat or task must begin in voice mode to use ChatGPT Voice. Chats or tasks that
+start in another mode offer voice dictation instead. To resume an earlier voice
+chat, open it and select **Start voice chat**.
+
+You can set a shortcut in **Settings > Voice > Voice chat hotkey**.
+
+#### Have a conversation
+
+ChatGPT Voice supports natural turn-taking. You can interrupt ChatGPT
+during a response, ask a follow-up, or change direction. If ChatGPT starts work,
+keep talking to check progress or steer the task.
+
+#### Delegate and coordinate work
+
+ChatGPT Voice can start separate threads for longer tasks, check existing threads,
+and send follow-up instructions. It brings progress, blockers, and results back
+to your voice conversation so you can keep talking while work continues.
+
+For example:
+
+- “Review today's launch brief and summarize decisions that need approval.”
+- “Start a Codex task to run the tests and investigate anything that doesn't pass.”
+- “Check active tasks and summarize anything blocking progress.”
+
+ChatGPT Voice follows the same [permissions](https://learn.chatgpt.com/docs/permission-modes) as
+the tasks it directs in Chat, Work, and Codex in the ChatGPT desktop app.
+
+#### Show ChatGPT what you see
+
+On macOS, turn on **Screen context** in **Settings > Voice**, then say, “Take a
+look at this.” ChatGPT can take an
+[appshot](https://learn.chatgpt.com/docs/appshots#permissions-and-safety) of your frontmost window and
+use it as context. Your organization can disable this capability.
+
+An appshot can include the window's image and accessible text, including content
+outside the visible scroll area. macOS may request **Screen & System Audio
+Recording** and **Accessibility** permissions. Avoid sharing windows that
+contain sensitive information, including text outside the visible scroll area.
+
+#### ChatGPT Voice and voice dictation
+
+Use ChatGPT Voice for a live conversation with ChatGPT. Use [voice
+dictation](https://learn.chatgpt.com/docs/prompting#use-voice-dictation) when you only want to turn
+speech into prompt text before sending it.
 
 ### Codex Micro
 
@@ -13839,59 +13910,70 @@ Codex cloud workspace or contact your OpenAI account team.
 - [Improving the threat model](https://learn.chatgpt.com/docs/security/threat-model) explains how to tune scope, attack surface, and criticality assumptions.
 - [Codex Security cloud FAQ](https://learn.chatgpt.com/docs/security/faq) covers common cloud product questions.
 
-### Get started with Work mode
+### Get started with ChatGPT Work
 
-Source: [Get started with Work mode](https://learn.chatgpt.com/docs/get-started-with-work.md)
+Source: [Get started with ChatGPT Work](https://learn.chatgpt.com/docs/get-started-with-work.md)
 
-#### Introducing Work mode
+#### Introducing ChatGPT Work
 
-Work mode is a way to delegate real work to ChatGPT.
+ChatGPT Work is a way to delegate real work to ChatGPT.
 
-Use Chat mode when you want an answer, explanation, brainstorm, or short draft.
-Use Work mode when you want ChatGPT to complete a task with a clear outcome, such as a
+Use Chat when you want an answer, explanation, brainstorm, or short draft.
+Use ChatGPT Work when you want ChatGPT to complete a task with a clear outcome, such as a
 brief, deck, analysis, recurring update, workflow, or file you can review and
-use. Learn more about [using Chat mode and Work mode together](https://learn.chatgpt.com/docs/use-chatgpt).
+use. Learn more about [using Chat and ChatGPT Work together](https://learn.chatgpt.com/docs/use-chatgpt).
 
-Work mode can use your files, plugins, and approved tools to retrieve information,
-create deliverables, run workflows, and complete work that is ready for you to
+ChatGPT Work can use your files, plugins, and approved tools to retrieve information,
+create finished files, run workflows, and complete work that is ready for you to
 review. You can follow progress, answer questions, change direction, and
 approve important actions.
 
-On the [desktop app](https://learn.chatgpt.com/docs/app), Work mode can also use local files, apps, and the
+On the [desktop app](https://learn.chatgpt.com/docs/app), ChatGPT Work can also use local files, apps, and the
 browser when those tools are available.
 
-If you have used Codex for non-coding work, you can stay in Codex or switch to
-Work mode. Work mode gives you the same core capabilities with an experience designed
-for everyday work.
+If you have used Codex for non-coding work, you can stay in Codex or use
+ChatGPT Work instead. ChatGPT Work gives you the same core capabilities with
+an experience designed for everyday work.
 
 #### What to try first
 
-First, make sure you have Work selected in ChatGPT. Then choose your first
-task. Good tasks have a clear outcome, a few source materials, and an output
-you can review.
+First, switch to **Work**. Then choose your first task.
+Good tasks have a clear outcome, a few source materials, and an output you can
+review.
+
+#### Choose local or cloud work
+
+In the desktop app, open the composer control labeled **Work locally**. If
+**Cloud** appears as an option, choose it when you want ChatGPT Work to keep
+running after you close the app or turn off your computer, or when you want to
+continue the chat from the web or mobile app. Keep **Work locally** selected when
+the task needs files or apps on your computer.
+
+Cloud is also useful for scheduled tasks that research or check websites over
+time because their runs don't depend on your computer being awake.
 
 Here are three common use cases you can get started with:
 
 #### Create a presentation
 
-Use Work mode to turn notes, docs, research, or meeting materials into a structured
+Use ChatGPT Work to turn notes, docs, research, or meeting materials into a structured
 deck.
 
 #### Create a comparison spreadsheet
 
-Use Work mode to turn notes, files, or research into a spreadsheet that compares
+Use ChatGPT Work to turn notes, files, or research into a spreadsheet that compares
 options and helps you make a decision.
 
 #### Set up a recurring update
 
-Use scheduled tasks when you want Work mode to repeat, monitor, or refresh something
+Use scheduled tasks when you want ChatGPT Work to repeat, monitor, or refresh something
 over time.
 
 Learn more about [scheduled tasks](https://learn.chatgpt.com/docs/automations?surface=app).
 
-#### Best practices for using Work mode
+#### Best practices for using ChatGPT Work
 
-Use Work mode when you want ChatGPT to complete a task, create a file, or manage work
+Use ChatGPT Work when you want ChatGPT to complete a task, create a file, or manage work
 over time. It is a good fit for tasks that:
 
 - Use multiple sources, plugins, tools, or steps.
@@ -13905,12 +13987,13 @@ review or approval.
 
 **Instead of:** Make me a presentation about our customer research.
 
-Learn more about [prompting for Work mode](https://learn.chatgpt.com/docs/prompting#prompting-for-work).
+Learn more about [prompting for ChatGPT Work](https://learn.chatgpt.com/docs/prompting#prompting-for-work).
 
 #### Add plugins for more context and better outputs
 
-Plugins connect Work mode to tools your team uses, like Slack, Google Drive,
-SharePoint, email, calendars, CRMs, and project trackers.
+Plugins connect ChatGPT Work to tools your team uses, like Slack, Google Drive,
+SharePoint, email, calendars, customer relationship management systems, and
+project trackers.
 
 - Select **Plugins** in the left sidebar to view the plugins library.
 - Install the plugins most relevant to your work.
@@ -13918,25 +14001,25 @@ SharePoint, email, calendars, CRMs, and project trackers.
 
 Learn more about [plugins](https://learn.chatgpt.com/docs/plugins).
 
-#### Use Work mode efficiently
+#### Use ChatGPT Work efficiently
 
-Work mode is best for substantial tasks that involve multiple steps, sources, or
+ChatGPT Work is best for substantial tasks that involve multiple steps, sources, or
 tools, or require a completed deliverable. Longer or more complex tasks may use
 more credits because ChatGPT is doing more on your behalf. Focus on the value of
-the completed result, rather than simply the number of prompts.
+the completed result, rather than the number of prompts.
 
 Keep the task focused by setting useful boundaries. For example: “use only
 these sources,” “compare the top five options,” or “stop before sending
 anything.”
 
-Use Chat mode instead for quick questions, short rewrites, and decisions where you
+Use Chat instead for quick questions, short rewrites, and decisions where you
 only need advice.
 
 Learn more about [working efficiently](https://learn.chatgpt.com/docs/prompting#prompting-for-work).
 
 #### More use cases
 
-Explore practical Work mode workflows for common teams and tasks.
+Explore practical ChatGPT Work workflows for common teams and tasks.
 
 ### Glossary
 
@@ -14215,7 +14298,7 @@ work is complete.
 In the ChatGPT desktop app, enter `/goal` to start Goal mode. The progress row
 lets you pause, resume, edit, or clear the goal while ChatGPT works.
 
-For hosted long-running work in ChatGPT web, use Work mode and put the
+For hosted long-running work in ChatGPT web, use ChatGPT Work and put the
 outcome, constraints, and review criteria directly in your prompt.
 
 Continue in the same web chat to add context, change constraints, or
@@ -14753,7 +14836,7 @@ If Pets are available for your account and workspace, open **Settings >
 Personalization > Pet > Select pet**. Choose a built-in pet, or choose
 **Default** to use ChatGPT without a pet.
 
-A web pet appears inside supported Work-mode chats. It doesn't provide the
+A web pet appears inside supported ChatGPT Work chats. It doesn't provide the
 desktop app's floating overlay, activity tray, or `/pet` command.
 
 #### Upload a custom pet
@@ -14882,16 +14965,16 @@ Source: [Plugins](https://learn.chatgpt.com/docs/plugins.md)
 #### Overview
 
 Plugins bundle capabilities into reusable workflows in ChatGPT. They can
-include skills, connectors, or both. Plugins are available in Work mode in
-ChatGPT on the web and in Work mode or Codex in the ChatGPT desktop app. Codex
+include skills, connectors, or both. Plugins are available with ChatGPT Work on
+the web and with ChatGPT Work or Codex in the ChatGPT desktop app. Codex
 CLI also has a plugin browser for Codex environments. Plugins aren't available
-in Chat mode, the IDE extension, or mobile.
+in Chat, the IDE extension, or mobile.
 
-In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select
+In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select
 Codex. Then open **Plugins** to browse, install, and use plugins. Installed
 plugins can add skills, connectors, and MCP tools to new chats.
 
-In ChatGPT web, switch to Work mode and open **Plugins** to browse, install, and
+In ChatGPT web, turn on Work in the switcher and open **Plugins** to browse, install, and
 use plugins. A plugin can prompt you to connect an external service before its
 tools become available.
 
@@ -14946,8 +15029,8 @@ If the app needs custom ChatGPT UI, use the
 
 To browse and install curated plugins:
 
-- On the web, switch to Work mode and open **Plugins**.
-- In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select
+- On the web, turn on Work in the switcher and open **Plugins**.
+- In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select
   Codex. Then open **Plugins**.
 
 The Plugins Directory organizes plugins into tabs:
@@ -15004,7 +15087,7 @@ on or off.
 
 #### How permissions and data sharing work
 
-On ChatGPT web, chats in Work mode use the workspace permissions and
+On ChatGPT web, ChatGPT Work chats use the workspace permissions and
 tools available to that chat. Connectors still require their own sign-in
 and access.
 
@@ -15071,7 +15154,7 @@ output, or depend on the same files and sources. Start a chat without a project
 when the work is self-contained and doesn't need shared project context.
 
 Use a project to keep related chats, files, instructions, and sources together.
-The same project can contain chats started in Chat mode and Work mode.
+The same project can contain chats started with Chat or ChatGPT Work.
 
 #### Work in a project
 
@@ -15086,8 +15169,8 @@ focused while the project keeps related work organized.
 #### Work in a project
 
 A ChatGPT project gives its chats access to the same uploaded files, project
-instructions, and connected sources. Use Chat mode for a quick chat or
-Work mode for a larger deliverable; both appear as chats in the project's
+instructions, and connected sources. Use Chat for a quick chat or
+ChatGPT Work for a larger deliverable; both appear as chats in the project's
 **Chats** section. Start a separate chat for each distinct outcome so its
 messages and results stay focused while the project preserves shared context.
 
@@ -15122,26 +15205,10 @@ where the project or chat appears in the sidebar.
 
 Restore archived chats from **Settings > Archived chats**.
 
-#### Use local projects for folders and codebases
-
-Add a local project when ChatGPT needs to read or change files in a folder on
-your computer. For a codebase, the project folder becomes the working directory
-for Codex chats.
-
-If a repository contains more than one app or package, use distinct local
-projects when each chat should access only one part of the repository. This
-keeps the working context focused. Use [local environments](https://learn.chatgpt.com/docs/environments/local-environment)
-to define setup actions and common commands for a project.
-
-When you want to isolate code changes from your current checkout, select Codex
-and start the chat in a [worktree](https://learn.chatgpt.com/docs/environments/git-worktrees). Projects and worktrees organize work,
-but the [sandbox](https://learn.chatgpt.com/docs/sandboxing) enforces what local commands can
-read, change, or access over the network.
-
 #### Start a chat without a project
 
 Start a chat from ChatGPT Home when the chat doesn't need shared project
-files, instructions, or sources. You can use Chat mode or Work mode; on the web,
+files, instructions, or sources. You can use Chat or ChatGPT Work; on the web,
 both create chats.
 
 If the work grows, move it into a project and use clear chat names for each
@@ -15190,7 +15257,7 @@ chat**, you can open an existing ChatGPT chat and add it to a Codex chat.
   should be available across its chats.
 - Attach files or [image inputs](https://learn.chatgpt.com/docs/image-inputs) directly to a chat when
   they apply only to that chat.
-- In Work mode, install [plugins](https://learn.chatgpt.com/docs/plugins) to bring in context and
+- In ChatGPT Work, install [plugins](https://learn.chatgpt.com/docs/plugins) to bring in context and
   actions from other services.
 - Use [memories](https://learn.chatgpt.com/docs/customization/memories), where available, to carry useful context from
   past work into future chats.
@@ -15568,7 +15635,7 @@ file storage can contain:
 }
 ```
 
-A Site appears in your Sites list even after the chat in Work mode that created it ends.
+A Site appears in your Sites list even after the ChatGPT Work chat that created it ends.
 You don't need a local project or manifest to start a Site on the web. A Site is
 separate from a ChatGPT Project.
 
@@ -15843,16 +15910,16 @@ ChatGPT is an AI agent that you communicate with in natural language:
 
 #### Choose how you want to work
 
-Use Chat mode for a question or back-and-forth. Switch to Work mode when you want
+Use Chat for a question or back-and-forth. Turn on Work in the switcher when you want
 ChatGPT to carry a larger task through to a reviewable result. Select Codex when
 you want developer views or more technical detail, especially for software
 development.
 
-| Choose    | When you want to                              | Examples                                                                     |
-| --------- | --------------------------------------------- | ---------------------------------------------------------------------------- |
-| Chat mode | Work through something with ChatGPT           | Ask a question, search the web, brainstorm, draft a message, compare options |
-| Work mode | Define an outcome and get a reviewable result | Create a deck, analyze files, draft a report, build a project plan           |
-| Codex     | Use developer tools and see technical details | Debug code, run tests, review a PR, implement a feature                      |
+| Choose       | When you want to                              | Examples                                                                     |
+| ------------ | --------------------------------------------- | ---------------------------------------------------------------------------- |
+| Chat         | Work through something with ChatGPT           | Ask a question, search the web, brainstorm, draft a message, compare options |
+| ChatGPT Work | Define an outcome and get a reviewable result | Create a deck, analyze files, draft a report, build a project plan           |
+| Codex        | Use developer tools and see technical details | Debug code, run tests, review a PR, implement a feature                      |
 
 In Codex, point to **New chat**, then select the **Quick chat** icon on its right
 when you want to:
@@ -15866,27 +15933,27 @@ when you want to:
 - Compare options or think through a decision.
 - Clarify what you need before starting a larger task.
 
-When you need a substantial, reviewable result, switch to Work mode and describe
-the outcome you need. See [Get started with Work mode](https://learn.chatgpt.com/docs/get-started-with-work)
+When you need a substantial, reviewable result, turn on Work in the switcher and describe
+the outcome you need. See [Get started with ChatGPT Work](https://learn.chatgpt.com/docs/get-started-with-work)
 for example tasks, prompts, and best practices.
 
-#### Compare Work mode and Codex on desktop
+#### Compare ChatGPT Work and Codex on desktop
 
-Work mode and Codex use the same agent, and their capabilities overlap. If you
+ChatGPT Work and Codex have overlapping capabilities. If you
 prefer Codex, you can keep using it for research, documents, presentations, and
 other knowledge work. When both are available to you, the desktop app changes
 the interface and how the agent presents its work.
 
 #### Detailed comparison
 
-| Difference          | ChatGPT in Desktop app                                                         | Codex in Desktop app                                              |
-| ------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| Where to start      | Select **ChatGPT**, then switch the composer to **Work**                       | Select **Codex** in the product selector                          |
-| Chats you see       | See Chat-mode chats started in ChatGPT on web and mobile, plus Work-mode chats | Focus on Codex chats and development projects                     |
-| Quick chat          | Not available                                                                  | When available, access ChatGPT chats from web and mobile in Codex |
-| Technical detail    | Hide technical details like Git or shell commands                              | See developer details, including diff and review views            |
-| Agent communication | Prefers nontechnical language and finished outputs                             | Can include technical and implementation details                  |
-| Pull requests pane  | Not available in Work mode                                                     | Available when enabled                                            |
+| Difference          | ChatGPT in Desktop app                                                 | Codex in Desktop app                                              |
+| ------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Where to start      | Select **ChatGPT**, then switch to **Work**                            | Select **Codex** in the product selector                          |
+| Chats you see       | See chats started with Chat on web and mobile, plus ChatGPT Work chats | Focus on Codex chats and development projects                     |
+| Quick chat          | Not available                                                          | When available, access ChatGPT chats from web and mobile in Codex |
+| Technical detail    | Hide technical details like Git or shell commands                      | See developer details, including diff and review views            |
+| Agent communication | Prefers nontechnical language and finished outputs                     | Can include technical and implementation details                  |
+| Pull requests pane  | Not available when using ChatGPT Work                                  | Available when enabled                                            |
 
 #### Talk to ChatGPT naturally
 
@@ -16156,7 +16223,7 @@ inference only.
 Source: [Visualizations](https://learn.chatgpt.com/docs/visualizations.md)
 
 Visualizations turn questions, ideas, and information into charts, maps,
-diagrams, calculators, simulations, and interactive explainers you can explore
+diagrams, calculators, simulations, and interactive explanations you can explore
 in a ChatGPT chat. Use one when adjusting inputs or seeing a
 relationship would make an answer easier to understand, compare, practice, or
 act on.
@@ -16172,7 +16239,7 @@ The Visualizations preview is rolling out in the ChatGPT desktop app. When
 If **Visualize** doesn't appear, use ChatGPT on the web or try again after the
 preview reaches your account.
 
-In a supported chat in Chat mode or Work mode, type `@` in the composer,
+In a supported Chat or ChatGPT Work chat, type `@` in the composer,
 start entering `Visualize`, and select **Visualize** under **Plugins**. Its
 description is **Create visualizations and interactive tools**. The composer
 adds a **Visualize** tag before your request.
@@ -16189,7 +16256,7 @@ or the ChatGPT desktop app for this workflow.
 
 | Surface                     | Current availability                                                          |
 | --------------------------- | ----------------------------------------------------------------------------- |
-| ChatGPT on the web          | Available to supported accounts in Chat mode and Work mode                    |
+| ChatGPT on the web          | Available to supported accounts in Chat and ChatGPT Work                      |
 | ChatGPT desktop app         | Rolling out in preview                                                        |
 | ChatGPT mobile apps         | Rolling out to eligible accounts; composer controls can differ by app version |
 | Codex CLI and IDE extension | Visualization rendering isn't supported                                       |
@@ -16270,7 +16337,7 @@ or missing, wait for the response to finish, reload the chat once, and
 then retry. If it still fails:
 
 - Ask for a smaller or simpler visualization.
-- Aggregate, bin, downsample, or reduce precision in a large dataset.
+- Aggregate or bin data, sample fewer points, or reduce precision in a large dataset.
 - Remove a generated control or library that isn't working.
 - Verify important values, geographic boundaries, and source assumptions.
 - Ask for a chart, diagram, table, or Site instead.
@@ -16337,6 +16404,33 @@ This weekly digest highlights ChatGPT and Codex features that can change how you
 work, with examples and links to learn more. For every versioned update, bug fix,
 and minor improvement, see the [Codex changelog](https://learn.chatgpt.com/docs/changelog).
 
+#### July 20–24, 2026
+
+#### Talk through work with ChatGPT Voice
+
+[ChatGPT Voice](https://learn.chatgpt.com/docs/features/voice), powered by GPT-Live, lets you talk
+through work and coordinate tasks in Chat, Work, and Codex in the ChatGPT desktop
+app. Start a new chat or task in voice mode, then ask ChatGPT to start, check, or
+steer work in other threads.
+
+On macOS, say, “Take a look at this” to share an [appshot](https://learn.chatgpt.com/docs/appshots) of
+your frontmost window when **Screen context** is on.
+
+Voice is available with Plus, Pro, Business, Edu, and Enterprise plans in the
+desktop app and through [Remote on iOS](https://learn.chatgpt.com/docs/remote-connections#set-up-mobile-access).
+
+#### Work across multiple folders in one local project
+
+Local projects in the ChatGPT desktop app can now include multiple related
+folders. Choose a primary folder for new chats, Git operations, and automatic
+discovery of `AGENTS.md`, skills, and `config.toml`. Secondary folders remain
+available for file search, reading, and editing.
+
+Open **Edit project** to [add folders and choose the primary
+folder](https://learn.chatgpt.com/docs/projects#use-local-projects-for-folders-and-codebases).
+
+[Read the July 23 release notes](https://learn.chatgpt.com/docs/changelog#codex-2026-07-23-app).
+
 #### July 13–17, 2026
 
 #### Keep Work conversations and Projects together on desktop
@@ -16347,8 +16441,8 @@ local Work conversations stay on your computer. ChatGPT Projects are available
 in the desktop app. Codex keeps its dedicated view and separate history for
 developer workflows.
 
-[Compare Work mode and Codex on
-desktop](https://learn.chatgpt.com/docs/use-chatgpt#compare-work-mode-and-codex-on-desktop) to choose the
+[Compare ChatGPT Work and Codex on
+desktop](https://learn.chatgpt.com/docs/use-chatgpt#compare-chatgpt-work-and-codex-on-desktop) to choose the
 view that fits your task.
 
 #### Use GPT-5.6 through Amazon Bedrock
@@ -16370,7 +16464,7 @@ links to newly created tasks. Read the
 
 #### Take on ambitious work in ChatGPT
 
-[Work mode](https://learn.chatgpt.com/docs/get-started-with-work) in ChatGPT can gather context from
+[ChatGPT Work](https://learn.chatgpt.com/docs/get-started-with-work) in ChatGPT can gather context from
 your files and [plugins](https://learn.chatgpt.com/docs/plugins),
 take action across workflows, and create reviewable documents, presentations,
 spreadsheets, Sites, and other finished work. Powered by
@@ -16385,46 +16479,13 @@ changes.
 #### Choose the right GPT-5.6 model
 
 The [GPT-5.6 family](https://learn.chatgpt.com/docs/models#recommended-models) offers three recommended
-models across Work mode in ChatGPT, the ChatGPT desktop app, Codex CLI, and the Codex IDE
+models across ChatGPT Work, the ChatGPT desktop app, Codex CLI, and the Codex IDE
 extension. Sol is the flagship for complex coding, computer use, research, and
 security work. Terra balances capability and cost for everyday work, while Luna
 is the fastest, lowest-cost option. The default **Power** setting uses Sol with
 medium reasoning.
 
 #### June 15–19, 2026
-
-#### Turn demonstrated workflows into reusable skills
-
-[Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay) lets you show Codex a workflow on
-macOS and turn the demonstration into a reusable skill. Use it for repetitive
-tasks that are easier to show than describe, then refine the generated skill
-and replay it with new inputs. Initial availability excludes the EEA, the
-United Kingdom, and Switzerland, and requires Computer Use.
-
-#### Continue a chat on another host
-
-[Chat handoff](https://learn.chatgpt.com/docs/remote-connections#hand-off-a-chat-between-hosts)
-moves a chat and its Git state between your local computer and a connected
-remote host. Codex can create or reuse a worktree on the destination, transfer
-the chat, and continue from the matching project.
-
-The same desktop release adds bulk actions to scheduled run history, so
-you can mark every run as read or archive eligible runs together.
-
-#### Browse and review workspaces from iOS
-
-In the ChatGPT mobile app, **Remote** added a workspace file browser, a
-directory picker for new chats, expand-and-collapse controls for diffs, and
-per-chat or cross-chat MCP approval choices on iOS.
-
-Computer Use, the Chrome extension, Memories, and Chronicle also began
-rolling out to the EEA, the United Kingdom, and Switzerland. Memories remain
-off by default in those regions, and Chronicle is an opt-in research preview
-for ChatGPT Pro subscribers on macOS.
-
-Read the [June 15 iOS](https://learn.chatgpt.com/docs/changelog#codex-2026-06-15-mobile),
-[June 16 availability](https://learn.chatgpt.com/docs/changelog#codex-2026-06-16-app), and
-[June 18 app](https://learn.chatgpt.com/docs/changelog#codex-2026-06-18-app) release notes.
 
 ### Windows sandbox
 
@@ -16530,10 +16591,9 @@ The ChatGPT desktop app previews generated documents, presentations,
 spreadsheets, and PDF files alongside the chat. Use annotations to point at a
 specific part of a preview and request a focused revision.
 
-In ChatGPT web, attach source files or ask ChatGPT in Work mode to create a document,
-presentation, spreadsheet, or PDF. Review the generated file in the
-chat, download it when needed, and give targeted feedback for the next
-version.
+In ChatGPT Work on the web, attach source files or ask ChatGPT to create a
+document, presentation, spreadsheet, or PDF. Review the generated file in the
+chat, download it when needed, and give targeted feedback for the next version.
 
 Codex CLI can create and edit files in the working directory, but it doesn't
 include a visual file preview or annotation interface. Ask Codex to report each

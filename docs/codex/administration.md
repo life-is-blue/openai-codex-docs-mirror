@@ -27,9 +27,9 @@
           icon: "users",
         },
         {
-          title: "Work mode admin FAQ",
+          title: "ChatGPT Work admin FAQ",
           description:
-            "Review access, data, governance, usage, and incident controls for Work mode.",
+            "Review access, data, governance, usage, and incident controls for ChatGPT Work.",
           href: "/codex/enterprise/work-admin-faq",
           icon: "userLock",
         },

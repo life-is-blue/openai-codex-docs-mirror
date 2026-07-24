@@ -1,7 +1,7 @@
 # Build plugins
 
 This page is for plugin authors. If you want to browse, install, and use
-plugins in Work mode in ChatGPT on the web or in Work mode or Codex in the
+plugins with ChatGPT Work on the web or with ChatGPT Work or Codex in the
 ChatGPT desktop app, see [Plugins](https://learn.chatgpt.com/docs/plugins). If you are still iterating on
 one repo or one personal workflow, start with a local skill. Build a plugin when
 you want to share that workflow across teams, bundle connectors or MCP config,
@@ -58,8 +58,8 @@ Then create the app in developer mode:
 4. After ChatGPT creates it, copy the app ID from the browser URL. It starts
    with `plugin_asdk_app`.
 
-Give that `plugin_asdk_app...` ID to `@plugin-creator` in Work mode in ChatGPT
-or `$plugin-creator` in Codex. For example, in Work mode:
+Give that `plugin_asdk_app...` ID to `@plugin-creator` in a ChatGPT Work chat
+or `$plugin-creator` in Codex. For example, with ChatGPT Work:
 
 <div class="not-prose my-6 overflow-hidden rounded-xl border border-subtle bg-surface shadow-sm">
   <div class="border-b border-subtle bg-surface-secondary px-4 py-3">
@@ -100,7 +100,7 @@ A marketplace is a JSON catalog of plugins. `@plugin-creator` can generate one
 for a single plugin, and you can keep adding entries to that same marketplace
 to build your own curated list for a repo, team, or personal workflow.
 
-In Work mode or Codex in the ChatGPT desktop app, each marketplace appears as a
+In ChatGPT Work or Codex in the ChatGPT desktop app, each marketplace appears as a
 selectable source in the Plugins Directory. Use
 `$REPO_ROOT/.agents/plugins/marketplace.json` for a repo-scoped list or
 `~/.agents/plugins/marketplace.json` for a personal list. Add one entry per
@@ -295,7 +295,7 @@ up the new files.
 ### Share a local plugin with your workspace
 
 After you create a plugin, add it from the ChatGPT desktop app. Select ChatGPT
-and switch to Work mode, or select Codex, then open **Plugins**. You can then
+and switch to Work in the switcher, or select Codex, then open **Plugins**. You can then
 share it with other members of your ChatGPT workspace.
 
 1. Open **Plugins** in the ChatGPT desktop app.

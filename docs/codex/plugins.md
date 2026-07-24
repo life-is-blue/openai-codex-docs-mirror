@@ -3,14 +3,14 @@
 ## Overview
 
 Plugins bundle capabilities into reusable workflows in ChatGPT. They can
-include skills, connectors, or both. Plugins are available in Work mode in
-ChatGPT on the web and in Work mode or Codex in the ChatGPT desktop app. Codex
+include skills, connectors, or both. Plugins are available with ChatGPT Work on
+the web and with ChatGPT Work or Codex in the ChatGPT desktop app. Codex
 CLI also has a plugin browser for Codex environments. Plugins aren't available
-in Chat mode, the IDE extension, or mobile.
+in Chat, the IDE extension, or mobile.
 
 
 
-In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select
+In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select
 Codex. Then open **Plugins** to browse, install, and use plugins. Installed
 plugins can add skills, connectors, and MCP tools to new chats.
 
@@ -68,8 +68,8 @@ If the app needs custom ChatGPT UI, use the
 
 To browse and install curated plugins:
 
-- On the web, switch to Work mode and open **Plugins**.
-- In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select
+- On the web, turn on Work in the switcher and open **Plugins**.
+- In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select
   Codex. Then open **Plugins**.
 
 

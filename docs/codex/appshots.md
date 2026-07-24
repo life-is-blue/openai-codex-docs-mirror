@@ -73,7 +73,7 @@ history, but the CLI can't create a new appshot.
 
 For some apps and websites, including Google Docs, Gmail, Google Sheets, and
 Google Slides, ChatGPT may receive only the visible screenshot and may not receive
-the full document or off-screen text. In Work mode or Codex, ChatGPT can use a
+the full document or off-screen text. In ChatGPT Work or Codex, ChatGPT can use a
 matching installed plugin to access the relevant app content and help with your
 request.
 

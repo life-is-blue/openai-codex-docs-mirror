@@ -1,7 +1,7 @@
 # Visualizations
 
 Visualizations turn questions, ideas, and information into charts, maps,
-diagrams, calculators, simulations, and interactive explainers you can explore
+diagrams, calculators, simulations, and interactive explanations you can explore
 in a ChatGPT chat. Use one when adjusting inputs or seeing a
 relationship would make an answer easier to understand, compare, practice, or
 act on.
@@ -31,7 +31,7 @@ preview reaches your account.
 
 | Surface                     | Current availability                                                          |
 | --------------------------- | ----------------------------------------------------------------------------- |
-| ChatGPT on the web          | Available to supported accounts in Chat mode and Work mode                    |
+| ChatGPT on the web          | Available to supported accounts in Chat and ChatGPT Work                      |
 | ChatGPT desktop app         | Rolling out in preview                                                        |
 | ChatGPT mobile apps         | Rolling out to eligible accounts; composer controls can differ by app version |
 | Codex CLI and IDE extension | Visualization rendering isn't supported                                       |
@@ -125,7 +125,7 @@ or missing, wait for the response to finish, reload the chat once, and
 then retry. If it still fails:
 
 - Ask for a smaller or simpler visualization.
-- Aggregate, bin, downsample, or reduce precision in a large dataset.
+- Aggregate or bin data, sample fewer points, or reduce precision in a large dataset.
 - Remove a generated control or library that isn't working.
 - Verify important values, geographic boundaries, and source assumptions.
 - Ask for a chart, diagram, table, or Site instead.

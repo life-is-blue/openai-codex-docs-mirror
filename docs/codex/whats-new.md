@@ -4,6 +4,33 @@ This weekly digest highlights ChatGPT and Codex features that can change how you
 work, with examples and links to learn more. For every versioned update, bug fix,
 and minor improvement, see the [Codex changelog](https://learn.chatgpt.com/docs/changelog).
 
+## July 20–24, 2026
+
+### Talk through work with ChatGPT Voice
+
+[ChatGPT Voice](https://learn.chatgpt.com/docs/features/voice), powered by GPT-Live, lets you talk
+through work and coordinate tasks in Chat, Work, and Codex in the ChatGPT desktop
+app. Start a new chat or task in voice mode, then ask ChatGPT to start, check, or
+steer work in other threads.
+
+On macOS, say, “Take a look at this” to share an [appshot](https://learn.chatgpt.com/docs/appshots) of
+your frontmost window when **Screen context** is on.
+
+Voice is available with Plus, Pro, Business, Edu, and Enterprise plans in the
+desktop app and through [Remote on iOS](https://learn.chatgpt.com/docs/remote-connections#set-up-mobile-access).
+
+### Work across multiple folders in one local project
+
+Local projects in the ChatGPT desktop app can now include multiple related
+folders. Choose a primary folder for new chats, Git operations, and automatic
+discovery of `AGENTS.md`, skills, and `config.toml`. Secondary folders remain
+available for file search, reading, and editing.
+
+Open **Edit project** to [add folders and choose the primary
+folder](https://learn.chatgpt.com/docs/projects#use-local-projects-for-folders-and-codebases).
+
+[Read the July 23 release notes](https://learn.chatgpt.com/docs/changelog#codex-2026-07-23-app).
+
 ## July 13–17, 2026
 
 ### Keep Work conversations and Projects together on desktop
@@ -14,8 +41,8 @@ local Work conversations stay on your computer. ChatGPT Projects are available
 in the desktop app. Codex keeps its dedicated view and separate history for
 developer workflows.
 
-[Compare Work mode and Codex on
-desktop](https://learn.chatgpt.com/docs/use-chatgpt#compare-work-mode-and-codex-on-desktop) to choose the
+[Compare ChatGPT Work and Codex on
+desktop](https://learn.chatgpt.com/docs/use-chatgpt#compare-chatgpt-work-and-codex-on-desktop) to choose the
 view that fits your task.
 
 <PromptComponent
@@ -52,7 +79,7 @@ links to newly created tasks. Read the
 
 ### Take on ambitious work in ChatGPT
 
-[Work mode](https://learn.chatgpt.com/docs/get-started-with-work) in ChatGPT can gather context from
+[ChatGPT Work](https://learn.chatgpt.com/docs/get-started-with-work) in ChatGPT can gather context from
 your files and [plugins](https://learn.chatgpt.com/docs/plugins),
 take action across workflows, and create reviewable documents, presentations,
 spreadsheets, Sites, and other finished work. Powered by
@@ -71,7 +98,7 @@ changes.
 ### Choose the right GPT-5.6 model
 
 The [GPT-5.6 family](https://learn.chatgpt.com/docs/models#recommended-models) offers three recommended
-models across Work mode in ChatGPT, the ChatGPT desktop app, Codex CLI, and the Codex IDE
+models across ChatGPT Work, the ChatGPT desktop app, Codex CLI, and the Codex IDE
 extension. Sol is the flagship for complex coding, computer use, research, and
 security work. Terra balances capability and cost for everyday work, while Luna
 is the fastest, lowest-cost option. The default **Power** setting uses Sol with
@@ -81,7 +108,7 @@ medium reasoning.
 
 On July 9, the Codex app merged into the
 [ChatGPT desktop app](https://learn.chatgpt.com/docs/app) for macOS and Windows. Codex keeps its
-dedicated coding experience alongside ChatGPT's Chat and Work modes. The Codex
+dedicated coding experience alongside ChatGPT's Chat and Work. The Codex
 experience includes inline editing in diffs, pull request review in the side panel, faster
 [Computer Use](https://learn.chatgpt.com/docs/computer-use) powered by GPT-5.6, and multi-repository
 projects.

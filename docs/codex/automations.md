@@ -104,12 +104,12 @@ directory. You can have the same scheduled task run on more than one project.
 
 
 
-Scheduled tasks in Work mode on the web, or in Work mode or Codex in the ChatGPT
-desktop app, can use plugins. Scheduled tasks can also use skills. To keep scheduled
-tasks maintainable and shareable across teams, use [skills](https://learn.chatgpt.com/docs/build-skills) to
-define the action and provide tools and context. Select or invoke a specific
-skill in the task prompt when the workflow shouldn't rely on automatic tool
-selection.
+Scheduled tasks created with ChatGPT Work on the web, or with ChatGPT Work or
+Codex in the desktop app, can use plugins. Scheduled tasks can also use
+skills. To keep scheduled tasks maintainable and shareable across teams, use
+[skills](https://learn.chatgpt.com/docs/build-skills) to define the action and provide tools and context.
+Select or invoke a specific skill in the task prompt when the workflow shouldn't
+rely on automatic tool selection.
 
 ## Ask ChatGPT to create or update scheduled tasks
 

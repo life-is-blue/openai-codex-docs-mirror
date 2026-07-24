@@ -1,8 +1,8 @@
 # Speed
 
-<strong>Work mode and Codex share usage.</strong> Work mode usage inside
-  ChatGPT uses the same pricing, credits, and usage limits as Codex. See [Codex
-  pricing](https://learn.chatgpt.com/docs/pricing) for details.
+<strong>ChatGPT Work and Codex share usage.</strong> Both use the same
+  pricing, credits, and usage limits. See [Codex pricing](https://learn.chatgpt.com/docs/pricing) for
+  details.
 
 ## Fast mode
 

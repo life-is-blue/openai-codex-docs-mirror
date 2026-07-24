@@ -167,9 +167,9 @@ Before including a plugin or skill in the rollout:
 3. Test it with non-sensitive data and the least access it needs.
 4. Record who owns re-review and retirement.
 
-Plugins are available in Work mode in ChatGPT on the web, in Work mode and Codex
+Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
 in the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
-available in Chat mode, the IDE extension, or mobile.
+available in Chat, the IDE extension, or mobile.
 
 See [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors) and
 [Skill controls](https://learn.chatgpt.com/docs/enterprise/skills) for the complete model.

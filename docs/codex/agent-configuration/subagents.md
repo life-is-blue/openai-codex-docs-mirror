@@ -1,6 +1,6 @@
 # Subagents
 
-Work mode and Codex can run subagent workflows by spawning specialized
+ChatGPT Work and Codex can run subagent workflows by spawning specialized
 agents in parallel and then collecting their results in one response. This can
 be particularly helpful for complex tasks that are highly parallel, such as
 codebase exploration or implementing a multi-step feature plan.

@@ -15,10 +15,14 @@ Runtime behavior to keep in mind:
 - Multiple matching command hooks for the same event are launched concurrently,
   so one hook can't prevent another matching hook from starting.
 - Non-managed command hooks must be reviewed and trusted before they run.
-- `PreToolUse`, `PermissionRequest`, `PostToolUse`, `PreCompact`,
-  `PostCompact`, `UserPromptSubmit`, `SubagentStop`, and `Stop` run at turn
-  scope. `SessionStart` and `SubagentStart` run at thread or subagent-start
-  scope.
+
+Hooks run at different points in a conversation:
+
+| When                              | Hooks                                                                                                                     |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| During a turn                     | `PreToolUse`, `PermissionRequest`, `PostToolUse`, `PreCompact`, `PostCompact`, `UserPromptSubmit`, `SubagentStop`, `Stop` |
+| When a session or subagent starts | `SessionStart`, `SubagentStart`                                                                                           |
+| When the main thread ends         | `SessionEnd` (doesn't run for subagents)                                                                                  |
 
 ## Where Codex looks for hooks
 
@@ -95,6 +99,17 @@ Hooks are organized in three levels:
         ]
       }
     ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.codex/hooks/session_end.py",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -161,12 +176,13 @@ Notes:
 - `description` is optional top-level metadata for a `hooks.json` file. It
   doesn't change which hooks run.
 - `timeout` is in seconds.
-- If `timeout` is omitted, Codex uses `600` seconds.
+- If `timeout` is omitted, Codex uses `600` seconds for most hooks.
+  - `SessionEnd` uses `1` second by default and supports up to `3` seconds.
 - `statusMessage` is optional.
 - `commandWindows` is an optional Windows-only command override. In TOML, use
   `command_windows` or `commandWindows`.
 - The `async` option is parsed, but asynchronous command hooks aren't supported
-  yet. Codex skips those handlers.
+  yet.
 - Only `type: "command"` handlers run today. `prompt` and `agent` handlers are
   parsed but skipped.
 - Commands run with the session `cwd` as their working directory.
@@ -302,6 +318,7 @@ Only some current Codex events honor `matcher`:
 | `PostCompact`       | compaction trigger     | Values are `manual` or `auto`                                |
 | `PreCompact`        | compaction trigger     | Values are `manual` or `auto`                                |
 | `PreToolUse`        | tool name              | See [Tool coverage](#tool-coverage)                          |
+| `SessionEnd`        | end reason             | Currently only `other`                                       |
 | `SessionStart`      | start source           | Values are `startup`, `resume`, `clear`, and `compact`       |
 | `SubagentStart`     | subagent type          | Values depend on the subagent that starts                    |
 | `SubagentStop`      | subagent type          | Values depend on the subagent that stops                     |
@@ -447,6 +464,43 @@ hook-specific shape:
 ```
 
 That `additionalContext` text is added as extra developer context.
+
+### SessionEnd
+
+`SessionEnd` lets you run a command when a session ends, such as saving final
+notes or cleaning up files. It runs for the main thread when you archive or
+delete a conversation that's still open, when Codex closes normally, or after a
+conversation has been idle and isn't open in any connected client for 30
+minutes. It won't run for subagents.
+
+Switching away from a conversation or calling `thread/unsubscribe` doesn't end
+the session right away, so it won't immediately run `SessionEnd`. Your hook can
+still read the session transcript while it runs.
+
+`matcher` filters `reason` for this event. For now, `reason` is always `other`.
+You can omit `matcher` or use `other` to run on every `SessionEnd` event.
+
+Fields in addition to [Common input fields](#common-input-fields):
+
+| Field    | Type     | Meaning                        |
+| -------- | -------- | ------------------------------ |
+| `reason` | `string` | Why the session ended: `other` |
+
+For example, a `SessionEnd` command receives:
+
+```json
+{
+  "session_id": "thr_123",
+  "transcript_path": "/workspace/.codex/rollout.jsonl",
+  "cwd": "/workspace",
+  "hook_event_name": "SessionEnd",
+  "reason": "other"
+}
+```
+
+`SessionEnd` hooks are advisory. Their output won't steer Codex or keep the
+thread open. If a command times out or exits with an error, Codex reports it as
+a hook failure.
 
 ### SubagentStart
 

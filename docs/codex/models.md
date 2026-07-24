@@ -251,7 +251,7 @@ start with Sol.
 Use the lowest reasoning effort that produces the result you need. Increase it
 for tasks that need more planning, analysis, or checking.
 
-- **Light** in the ChatGPT desktop app, Work mode on the web, and IDE extension, or **Low** in the
+- **Light** in the ChatGPT desktop app, ChatGPT Work on the web, and IDE extension, or **Low** in the
   CLI, suits quick, well-scoped tasks.
 - **Medium** balances speed and depth for tasks that need more planning.
 - **High** and **Extra High** suit difficult work with multiple steps, sources,

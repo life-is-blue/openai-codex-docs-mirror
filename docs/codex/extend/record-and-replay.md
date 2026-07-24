@@ -22,7 +22,7 @@ best when the steps are stable and the success criteria are clear.
 
 <WorkflowSteps>
 
-1. In the ChatGPT desktop app, select ChatGPT and switch to Work mode, or select Codex. Then open **Plugins**.
+1. In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select Codex. Then open **Plugins**.
 2. Open the **+** menu.
 3. Select **Record a skill**.
 4. Review the suggested prompt, give Codex any helpful context, and submit it.
