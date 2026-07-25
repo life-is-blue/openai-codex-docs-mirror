@@ -23,15 +23,17 @@ surface-specific plugin installation are separate paths. Moving a skill doesn't
 transfer ChatGPT workspace ownership, sharing, role assignments, plugin
 installation state, or connector authorization.
 
-Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
-in the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
-available in Chat, the IDE extension, or mobile.
+Plugins are available with ChatGPT Work on the web, with ChatGPT Work and Codex
+in the ChatGPT desktop app, and through the Codex CLI plugin browser. They
+aren't available in Chat, the IDE extension, or mobile.
+Those supported surfaces draw public plugins from one universal directory
+shared by ChatGPT and Codex.
 
 ## Owning controls
 
 See [Build skills](https://learn.chatgpt.com/docs/build-skills) for filesystem locations and authoring,
 [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
-for current workspace procedures, and [Build plugins](https://learn.chatgpt.com/docs/build-plugins) for
+for current workspace procedures, and [Build plugins](https://developers.openai.com/plugins/build/plugins) for
 plugin packaging.
 
 ChatGPT workspace controls don't install local filesystem skills or plugins.
@@ -45,6 +47,6 @@ owns it.
 - [Skills and plugins](https://learn.chatgpt.com/docs/skills-and-plugins)
 - [Plugins](https://learn.chatgpt.com/docs/plugins)
 - [Build skills](https://learn.chatgpt.com/docs/build-skills)
-- [Build plugins](https://learn.chatgpt.com/docs/build-plugins)
+- [Build plugins](https://developers.openai.com/plugins/build/plugins)
 - [Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup)
 - [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors)

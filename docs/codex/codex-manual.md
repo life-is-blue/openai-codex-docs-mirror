@@ -743,14 +743,15 @@ your plan and workspace settings.
 
 #### Use plugins
 
-Plugins give ChatGPT reusable instructions and connections to tools such as
-Google Drive, Gmail, Slack, and GitHub. Ask for the result you need and let
-ChatGPT choose from the tools available to it. To choose a specific plugin, type
-`@` in the composer.
+Plugins give ChatGPT and Codex reusable instructions and connections to tools
+such as Google Drive, Gmail, Slack, and GitHub. Both products draw public
+plugins from the same universal directory. Ask for the result you need and let
+the active surface choose from the tools available to it. In ChatGPT, type `@`
+in the composer to choose a specific plugin.
 
 [
 
-    Find, install, and use plugins in ChatGPT.
+    Find, install, and use plugins in ChatGPT and Codex.
 
 ](https://learn.chatgpt.com/docs/plugins)
 
@@ -3605,6 +3606,11 @@ rely on ChatGPT workspace access or cloud services are limited or unavailable.
 Compare support by plan in
 [Feature availability](https://learn.chatgpt.com/docs/pricing#feature-availability).
 
+In Codex CLI and Codex in the ChatGPT desktop app, API key authentication
+includes access to supported OpenAI-curated plugins. Some plugins aren't
+available because their connection flows require unsupported OAuth
+capabilities. See [Use plugins](https://learn.chatgpt.com/docs/plugins#api-key-availability).
+
 When you sign in with an API key, Codex uses standard API pricing instead of
 included ChatGPT plan credits.
 
@@ -5968,7 +5974,7 @@ Use these links when you need to open **Scheduled**.
 
 #### Plugins
 
-Plugin links use different forms depending on whether you are installing from a marketplace, opening a plugin, or working from a local `marketplace.json`. For plugin basics, see [Plugins](https://learn.chatgpt.com/docs/plugins). For local or repo marketplace setup, see [Build plugins](https://learn.chatgpt.com/docs/build-plugins#build-your-own-curated-plugin-list).
+Plugin links use different forms depending on whether you are installing from a marketplace, opening a plugin, or working from a local `marketplace.json`. For plugin basics, see [Plugins](https://learn.chatgpt.com/docs/plugins). For local or repo marketplace setup, see [Build plugins](https://developers.openai.com/plugins/build/plugins#build-your-own-curated-plugin-list).
 
 #### Plugin install
 
@@ -6003,7 +6009,7 @@ Example: [Open the OpenAI Developers plugin](codex://plugins/openai-developers@o
 
 #### Local plugin
 
-For local or repo marketplace setup, see [Build plugins](https://learn.chatgpt.com/docs/build-plugins#build-your-own-curated-plugin-list).
+For local or repo marketplace setup, see [Build plugins](https://developers.openai.com/plugins/build/plugins#build-your-own-curated-plugin-list).
 
 | Deep link                           | Opens                                                |
 | ----------------------------------- | ---------------------------------------------------- |
@@ -7860,615 +7866,180 @@ If appshots don't work:
 
 How to shape Codex behavior with instructions, skills, prompts, MCP, and external integrations.
 
-### Build an app
-
-Source: [Build an app](https://learn.chatgpt.com/docs/build-app.md)
-
-Apps are one part of the plugin model. A plugin is the package users discover,
-install, submit, and publish. An app is the MCP-backed capability inside that
-package.
-
-The [Apps SDK](https://developers.openai.com/apps-sdk) is the ChatGPT app development framework for
-MCP-backed apps. It builds on MCP: your server exposes tools and returns
-structured data, and, when you need UI, Apps SDK conventions let you register
-MCP UI resources and connect them to those tools inside ChatGPT.
-
-Build an app when your plugin needs to connect to a service, expose tools,
-authenticate users, or take action through an MCP server.
-
-#### App building model
-
-An app can include:
-
-- **An MCP server:** the server defines tools, handles authentication, returns
-  structured data, and enforces the integration's real behavior. See
-  [Build your MCP server](https://developers.openai.com/apps-sdk/build/mcp-server).
-- **Tool metadata and annotations:** required for reliable model behavior,
-  discovery, and review. Tool names, descriptions, schemas, `readOnlyHint`,
-  `openWorldHint`, and `destructiveHint` should match what the tool actually
-  does. See the [Apps SDK reference](https://developers.openai.com/apps-sdk/reference#tool-descriptor-parameters)
-  for the descriptor fields and annotation details.
-- **Optional MCP UI:** useful when users need to inspect, compare, edit,
-  confirm, or navigate structured information inside ChatGPT. If your app can
-  complete its job through tool calls and model responses, you do not need
-  custom UI. Build this with [Apps SDK](https://developers.openai.com/apps-sdk) UI resources when tool calls
-  and model responses are not enough.
-
-#### Build MCP-first
-
-Define the app's capabilities before designing UI:
-
-1. Identify the user workflows the app should support.
-2. [Define the MCP tools](https://developers.openai.com/apps-sdk/plan/tools) needed for those workflows.
-3. Write clear tool names, descriptions, input schemas, and output schemas.
-   Use the [metadata optimization guide](https://developers.openai.com/apps-sdk/guides/optimize-metadata)
-   to improve discovery and model selection.
-4. Mark every tool with accurate safety annotations, then review the
-   [security and privacy guidance](https://developers.openai.com/apps-sdk/guides/security-privacy) for write
-   actions, data handling, and network access.
-5. Add [authentication](https://developers.openai.com/apps-sdk/build/auth) only for data or actions that
-   require it.
-6. Test the app from ChatGPT developer mode before packaging it into a plugin.
-
-#### Add UI if it materially improves the app experience
-
-The [Apps SDK quickstart](https://developers.openai.com/apps-sdk/quickstart) shows how to build a simple
-MCP-backed app with an optional UI component. The [Apps SDK](https://developers.openai.com/apps-sdk) helps
-you build [MCP UI](https://developers.openai.com/apps-sdk/mcp-apps-in-chatgpt) for an MCP-backed app. It is
-optional: use it when the app needs an embedded component, modal, fullscreen
-view, or other custom interaction in ChatGPT. See
-[Build your MCP UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui) for UI-specific patterns.
-
-Do not add UI just to show a banner ad or brand placement. The UI should
-materially improve the user's workflow by making the app easier to inspect,
-edit, compare, confirm, or navigate.
-
-Even when you add UI, keep the tools decoupled from the rendering layer. Tools
-should still return useful structured data and model-readable results, while UI
-components focus on presentation and interaction. See
-[Separate data processing from UI rendering](https://developers.openai.com/apps-sdk/build/chatgpt-ui#separate-data-processing-from-ui-rendering).
-
-#### Package the app as a plugin
-
-After the app works in developer mode, package it into a plugin so users can
-install it.
-
-1. Create or scaffold the plugin folder. See
-   [Build plugins](https://learn.chatgpt.com/docs/build-plugins#create-and-test-a-plugin-locally-that-points-to-an-mcp-server-backed-dev-mode-app).
-2. Add the app reference to the plugin manifest.
-3. Add bundled skills if ChatGPT should follow repeatable workflows alongside
-   the app.
-4. Test the plugin locally.
-5. Review the Apps SDK
-   [app guidelines](https://developers.openai.com/apps-sdk/app-guidelines), then
-   submit it for review as part of a plugin when it is ready for public
-   distribution. See [Submit plugins](https://learn.chatgpt.com/docs/submit-plugins).
-
 ### Build plugins
 
 Source: [Build plugins](https://learn.chatgpt.com/docs/build-plugins.md)
 
-This page is for plugin authors. If you want to browse, install, and use
-plugins with ChatGPT Work on the web or with ChatGPT Work or Codex in the
-ChatGPT desktop app, see [Plugins](https://learn.chatgpt.com/docs/plugins). If you are still iterating on
-one repo or one personal workflow, start with a local skill. Build a plugin when
-you want to share that workflow across teams, bundle connectors or MCP config,
-package lifecycle hooks, or publish a stable package.
+To build or submit a plugin, use the complete
+[builder documentation on developers.openai.com](https://developers.openai.com/plugins).
 
-A plugin can include skills, an MCP-backed app, or both. If your plugin needs
-to connect to a service or expose tools through an MCP server, see
-[Build an app](https://learn.chatgpt.com/docs/build-app).
+Build and submit a plugin
 
-For complete public examples, inspect
-[Figma](https://github.com/openai/plugins/tree/main/plugins/figma),
-[Notion](https://github.com/openai/plugins/tree/main/plugins/notion), and
-[Build web apps](https://github.com/openai/plugins/tree/main/plugins/build-web-apps).
+This page provides a brief introduction. A plugin is an installable package
+that can include skills, an MCP server, or both. An MCP server can also return
+optional UI.
+
+ChatGPT and Codex share one universal plugin directory. Publish a public plugin
+once to make the same listing discoverable from supported surfaces in both
+products. During development, use a local marketplace to test the package
+before submitting it to the universal directory.
+
+Start with a skill when you are still iterating on one personal workflow.
+Build a plugin when you want to share that workflow, package related skills,
+connect to an external service, or distribute a stable capability to a team.
 
 #### Create a plugin with `@plugin-creator`
 
-For the fastest setup, use the built-in `@plugin-creator` skill.
+For the fastest setup, use the built-in `@plugin-creator` skill in ChatGPT Work
+mode or `$plugin-creator` in Codex.
 
-It scaffolds the required `.codex-plugin/plugin.json` manifest and can also
-generate a local marketplace entry for testing. If you already have a plugin
-folder, you can still use `@plugin-creator` to wire it into a local
-marketplace.
+Describe the outcome, the skills or MCP server to include, and whether you want
+a local marketplace entry for testing. For example:
 
-#### Create and test a plugin locally that points to an MCP-server-backed dev-mode app
-
-You can also use the plugin-creator skill if you want to test a plugin locally
-that includes an MCP-server backed app. The plugin still needs a local plugin
-folder and manifest, but the app itself starts in ChatGPT developer mode.
-
-First, enable developer mode in ChatGPT:
-
-1. Open [ChatGPT](https://chatgpt.com).
-2. Open **Settings**.
-3. Select **Security and login**.
-4. Turn on **Developer mode**.
-
-Then create the app in developer mode:
-
-1. Open **Settings → Plugins** or [the Plugins page](https://chatgpt.com/plugins).
-2. Select the plus button.
-3. Complete the modal to create a developer-mode app for your MCP server.
-4. After ChatGPT creates it, copy the app ID from the browser URL. It starts
-   with `plugin_asdk_app`.
-
-Give that `plugin_asdk_app...` ID to `@plugin-creator` in a ChatGPT Work chat
-or `$plugin-creator` in Codex. For example, with ChatGPT Work:
-
-      Plugin Creator prompt
-
-    {`@plugin-creator create a Codex plugin for my ChatGPT app.
-
-Use plugin_asdk_app_6a4c0062f3b88191855c0a80eac5d53d and name it Acme Support.
-Include a personal marketplace entry so I can test it locally.`}
-
-The plugin-creator skill will create the plugin folder, create the required
-`.codex-plugin/plugin.json`, and add app wiring for the ChatGPT app. If you ask
-it to create a personal marketplace entry, the plugin appears under your local
-source in the Plugins Directory for testing.
-
-After the plugin-creator skill creates the plugin:
-
-1. Review `.app.json` and confirm it points at the correct
-   `plugin_asdk_app...` ID.
-2. Review `.codex-plugin/plugin.json` and make sure its `apps` field points to
-   `./.app.json`.
-3. Add any bundled skills under `skills/` if the plugin should include
-   repeatable workflows alongside the app.
-4. If the skill created a personal marketplace entry, refresh ChatGPT
-   and install the plugin from your local source in the Plugins Directory. Then
-   test it in a new chat.
-
-For the manifest shape and file layout, see [Plugin structure](#plugin-structure)
-and [Path rules](#path-rules).
-
-#### Build your own curated plugin list
-
-A marketplace is a JSON catalog of plugins. `@plugin-creator` can generate one
-for a single plugin, and you can keep adding entries to that same marketplace
-to build your own curated list for a repo, team, or personal workflow.
-
-In ChatGPT Work or Codex in the ChatGPT desktop app, each marketplace appears as a
-selectable source in the Plugins Directory. Use
-`$REPO_ROOT/.agents/plugins/marketplace.json` for a repo-scoped list or
-`~/.agents/plugins/marketplace.json` for a personal list. Add one entry per
-plugin under `plugins[]`, point each `source.path` at the plugin folder with a
-`./`-prefixed path relative to the marketplace root, and set
-`interface.displayName` to the label you want the app to show in the marketplace
-picker. Then restart the ChatGPT desktop app. After that, open the Plugins
-Directory, choose your marketplace, and browse or install the plugins in that
-curated list.
-
-You don't need a separate marketplace per plugin. One marketplace can expose a
-single plugin while you are testing, then grow into a larger curated catalog as
-you add more plugins.
-
-#### Add a marketplace from the CLI
-
-Use `codex plugin marketplace add` to add and track a marketplace source instead
-of editing `config.toml` by hand. These commands support plugin authoring and
-catalog setup. Use the ChatGPT desktop app to install and test a local plugin.
-
-```bash
-codex plugin marketplace add owner/repo
-codex plugin marketplace add owner/repo --ref main
-codex plugin marketplace add https://github.com/example/plugins.git --sparse .agents/plugins
-codex plugin marketplace add ./local-marketplace-root
+```text
+@plugin-creator Create a plugin named meeting-follow-up.
+Include a skill that turns meeting notes into decisions, owners, and next steps.
+Add it to a personal marketplace so I can test it locally.
 ```
 
-Marketplace sources can be GitHub shorthand (`owner/repo` or
-`owner/repo@ref`), HTTP or HTTPS Git URLs, SSH Git URLs, or local marketplace root
-directories. Use `--ref` to pin a Git ref, and repeat `--sparse PATH` to use a
-sparse checkout for Git-backed marketplace repos. `--sparse` is valid only for
-Git marketplace sources.
+The skill creates the required `.codex-plugin/plugin.json` manifest, organizes
+the plugin folder, and can add the plugin to a local marketplace.
 
-To inspect, refresh, or remove configured marketplaces:
+After it finishes:
 
-```bash
-codex plugin marketplace list
-codex plugin marketplace upgrade
-codex plugin marketplace upgrade marketplace-name
-codex plugin marketplace remove marketplace-name
+1. Review `.codex-plugin/plugin.json`.
+2. Check each bundled skill under `skills/`.
+3. Refresh ChatGPT or Codex and install the plugin from its local marketplace
+   source.
+4. Test the plugin in a new conversation with representative requests.
+
+If the plugin includes an MCP server, first build and test that server, then
+give `@plugin-creator` the registered connection details. Follow the complete
+[MCP server workflow](https://developers.openai.com/plugins/build/mcp-server)
+for tools, authentication, deployment, and testing.
+
+#### Create a skills-only plugin manually
+
+A minimal plugin contains a manifest and at least one skill:
+
+```text
+meeting-follow-up/
+├── .codex-plugin/
+│   └── plugin.json
+└── skills/
+    └── meeting-follow-up/
+        └── SKILL.md
 ```
 
-`codex plugin marketplace list` prints each marketplace Codex is considering
-and the root path it resolves from, including local default marketplaces and
-configured marketplace snapshots.
-
-#### Create a plugin manually
-
-Start with a minimal plugin that packages one skill.
-
-1. Create a plugin folder with a manifest at `.codex-plugin/plugin.json`.
-
-```bash
-mkdir -p my-first-plugin/.codex-plugin
-```
-
-`my-first-plugin/.codex-plugin/plugin.json`
+Create `.codex-plugin/plugin.json`:
 
 ```json
 {
-  "name": "my-first-plugin",
+  "name": "meeting-follow-up",
   "version": "1.0.0",
-  "description": "Reusable greeting workflow",
+  "description": "Turn meeting notes into decisions and next steps",
   "skills": "./skills/"
 }
 ```
 
-Use a stable plugin `name` in kebab-case. Codex uses it as the plugin
-identifier and component namespace.
-
-2. Add a skill under `skills//SKILL.md`.
-
-```bash
-mkdir -p my-first-plugin/skills/hello
-```
-
-`my-first-plugin/skills/hello/SKILL.md`
+Then add `skills/meeting-follow-up/SKILL.md`:
 
 ```md
 ---
-name: hello
-description: Greet the user with a friendly message.
+name: meeting-follow-up
+description: Extract decisions, owners, and next steps from meeting notes.
 ---
 
-Greet the user warmly and ask how you can help.
+Review the meeting notes. Return:
+
+1. Decisions
+2. Action items with owners
+3. Open questions
 ```
 
-3. Add the plugin to a marketplace. Use `@plugin-creator` to generate one, or
-   follow [Build your own curated plugin list](#build-your-own-curated-plugin-list)
-   to wire the plugin into Codex manually.
+Use a stable plugin name in kebab case. Keep the skill description specific
+enough for ChatGPT and Codex to recognize when the workflow applies.
 
-From there, you can add MCP config, connectors, or marketplace metadata
-as needed.
+Use `@plugin-creator` to add the folder to a local marketplace, then install and
+test it before sharing it.
 
-#### Install a local plugin manually
+#### Continue with the builder documentation
 
-Use a repo marketplace or a personal marketplace, depending on who should be
-able to access the plugin or curated list.
+For complete builder documentation, use the
+[Plugins documentation](https://developers.openai.com/plugins/). It covers:
 
-    Add a marketplace file at `$REPO_ROOT/.agents/plugins/marketplace.json`
-    and store your plugins under `$REPO_ROOT/plugins/`.
+- [Plugin architecture](https://developers.openai.com/plugins/concepts/plugins)
+- [Building skills](https://developers.openai.com/plugins/build/skills)
+- [Building an MCP server](https://developers.openai.com/plugins/build/mcp-server)
+- [Adding optional UI](https://developers.openai.com/plugins/build/chatgpt-ui)
+- [Packaging a plugin](https://developers.openai.com/plugins/build/plugins)
+- [Testing a plugin](https://developers.openai.com/plugins/deploy/connect-chatgpt)
+- [Submitting and publishing](https://developers.openai.com/plugins/deploy/submission)
 
-    **Repo marketplace example**
-
-    Step 1: Copy the plugin folder into `$REPO_ROOT/plugins/my-plugin`.
-
-```bash
-mkdir -p ./plugins
-cp -R /absolute/path/to/my-plugin ./plugins/my-plugin
-```
-
-    Step 2: Add or update `$REPO_ROOT/.agents/plugins/marketplace.json` so
-    that `source.path` points to that plugin directory with a `./`-prefixed
-    relative path:
-
-```json
-{
-  "name": "local-repo",
-  "plugins": [
-    {
-      "name": "my-plugin",
-      "source": {
-        "source": "local",
-        "path": "./plugins/my-plugin"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    }
-  ]
-}
-```
-
-    Step 3: Restart the ChatGPT desktop app and verify that the plugin appears.
-
-    Add a marketplace file at `~/.agents/plugins/marketplace.json` and store
-    your plugins under `~/.codex/plugins/`.
-
-    **Personal marketplace example**
-
-    Step 1: Copy the plugin folder into `~/.codex/plugins/my-plugin`.
-
-```bash
-mkdir -p ~/.codex/plugins
-cp -R /absolute/path/to/my-plugin ~/.codex/plugins/my-plugin
-```
-
-    Step 2: Add or update `~/.agents/plugins/marketplace.json` so that the
-    plugin entry's `source.path` points to that directory.
-
-    Step 3: Restart the ChatGPT desktop app and verify that the plugin appears.
-
-The marketplace file points to the plugin location, so those directories are
-examples rather than fixed requirements. Codex resolves `source.path` relative
-to the marketplace root, not relative to the `.agents/plugins/` folder. See
-[Marketplace metadata](#marketplace-metadata) for the file format.
-
-After you change the plugin, update the plugin directory that your marketplace
-entry points to and restart the ChatGPT desktop app so the local install picks
-up the new files.
-
-#### Share a local plugin with your workspace
-
-After you create a plugin, add it from the ChatGPT desktop app. Select ChatGPT
-and switch to Work in the switcher, or select Codex, then open **Plugins**. You can then
-share it with other members of your ChatGPT workspace.
-
-1. Open **Plugins** in the ChatGPT desktop app.
-2. Go to **Created by you** and open the plugin details page.
-3. Select **Share**.
-4. Add workspace members or workspace groups, or copy a share link.
-5. Choose who has access, then send the invitation or link.
-
-People you share with can find the plugin under **Shared with you** in the
-Plugins Directory. Sharing a local plugin with your workspace doesn't publish
-it to the public Plugins Directory. Shared plugins stay within your workspace
-and organization boundary; accounts that aren't signed in to that workspace
-can't access them. Use groups when a team or role should share the same plugin
-access. Use a marketplace when you want repo or CLI distribution, and use
-workspace sharing when you want selected teammates to install a plugin from the
-ChatGPT desktop app.
-
-Workspace admins can disable plugin sharing from cloud-managed requirements by
-adding `features.plugin_sharing = false` to `requirements.toml`:
-
-```toml
-features.plugin_sharing = false
-```
-
-#### Marketplace metadata
-
-If you maintain a repo marketplace, define it in
-`$REPO_ROOT/.agents/plugins/marketplace.json`. For a personal marketplace, use
-`~/.agents/plugins/marketplace.json`. A marketplace file controls plugin
-ordering and install policies in the ChatGPT desktop app. It can represent one
-plugin while you are testing or a curated list of plugins that you want the app
-to show together under one marketplace name. Before you add a plugin to a
-marketplace, make sure its `version`, publisher metadata, and install-surface
-copy are ready for other developers to see.
-
-```json
-{
-  "name": "local-example-plugins",
-  "interface": {
-    "displayName": "Local Example Plugins"
-  },
-  "plugins": [
-    {
-      "name": "my-plugin",
-      "source": {
-        "source": "local",
-        "path": "./plugins/my-plugin"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "research-helper",
-      "source": {
-        "source": "local",
-        "path": "./plugins/research-helper"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    }
-  ]
-}
-```
-
-- Use top-level `name` to identify the marketplace.
-- Use `interface.displayName` for the marketplace title shown in the ChatGPT
-  desktop app.
-- Add one object per plugin under `plugins` to build a curated list that the app
-  shows under that marketplace title.
-- Point each plugin entry's `source.path` at the plugin directory you want
-  Codex to load. For repo installs, that often lives under `./plugins/`. For
-  personal installs, a common pattern is `./.codex/plugins/`.
-- Keep `source.path` relative to the marketplace root, start it with `./`, and
-  keep it inside that root.
-- For local entries, `source` can also be a plain string path such as
-  `"./plugins/my-plugin"`.
-- Always include `policy.installation`, `policy.authentication`, and
-  `category` on each plugin entry.
-- Use `policy.installation` values such as `AVAILABLE`,
-  `INSTALLED_BY_DEFAULT`, or `NOT_AVAILABLE`.
-- Use `policy.authentication` to decide whether auth happens on install or
-  first use.
-
-The marketplace controls where Codex loads the plugin from. A local
-`source.path` can point somewhere else if your plugin lives outside those
-example directories. A marketplace file can live in the repo where you are
-developing the plugin or in a separate marketplace repo, and one marketplace
-file can point to one plugin or many.
-
-Marketplace entries can also point at Git-backed plugin sources. Use
-`"source": "url"` when the plugin lives at the repository root, or
-`"source": "git-subdir"` when the plugin lives in a subdirectory:
-
-```json
-{
-  "name": "remote-helper",
-  "source": {
-    "source": "git-subdir",
-    "url": "https://github.com/example/codex-plugins.git",
-    "path": "./plugins/remote-helper",
-    "ref": "main"
-  },
-  "policy": {
-    "installation": "AVAILABLE",
-    "authentication": "ON_INSTALL"
-  },
-  "category": "Productivity"
-}
-```
-
-Git-backed entries may use `ref` or `sha` selectors. If Codex can't resolve a
-marketplace entry's source, it skips that plugin entry instead of failing the
-whole marketplace.
-
-Marketplace entries can also install a plugin from a JavaScript package registry:
-
-```json
-{
-  "name": "npm-helper",
-  "source": {
-    "source": "npm",
-    "package": "@example/codex-plugin",
-    "version": "^1.2.0",
-    "registry": "https://registry.npmjs.org"
-  },
-  "policy": {
-    "installation": "AVAILABLE",
-    "authentication": "ON_INSTALL"
-  },
-  "category": "Productivity"
-}
-```
-
-`package` is required and can include a registry scope. `version` is optional
-and accepts package versions, distribution tags, and version ranges, but not
-path or URL selectors.
-`registry` is optional and must be an HTTPS URL without embedded credentials,
-a query, or a fragment. Codex downloads the package without running lifecycle
-scripts. The `npm` CLI must be installed, and registry authentication comes
-from its configuration.
-
-#### How the ChatGPT desktop app uses marketplaces
-
-A plugin marketplace is a JSON catalog of plugins that the ChatGPT desktop app
-can read and install.
-
-The app can read marketplace files from:
-
-- the curated marketplace that powers the official Plugins Directory
-- a repo marketplace at `$REPO_ROOT/.agents/plugins/marketplace.json`
-- a legacy-compatible marketplace at `$REPO_ROOT/.claude-plugin/marketplace.json`
-- a personal marketplace at `~/.agents/plugins/marketplace.json`
-
-You can install any plugin exposed through a marketplace. The app installs
-plugins into
-`~/.codex/plugins/cache/$MARKETPLACE_NAME/$PLUGIN_NAME/$VERSION/`. For local
-plugins, `$VERSION` is `local`, and the app loads the installed copy from that
-cache path rather than directly from the marketplace entry.
-
-You can enable or disable each plugin individually. The app stores each plugin's
-on or off state in `~/.codex/config.toml`.
-
-#### Package and distribute plugins
-
-#### Plugin structure
-
-Every plugin has a manifest at `.codex-plugin/plugin.json`. It can also include
-a `skills/` directory, a `hooks/` directory for lifecycle hooks, an `.app.json`
-file that points at one or more connectors, an `.mcp.json` file that
-configures MCP servers, and assets used to present the plugin across supported
-surfaces.
-
-Only `plugin.json` belongs in `.codex-plugin/`. Keep `skills/`, `hooks/`,
-`assets/`, `.mcp.json`, and `.app.json` at the plugin root.
-
-Published plugins typically use a richer manifest than the minimal example that
-appears in quick-start scaffolds. The manifest has three jobs:
-
-- Identify the plugin.
-- Point to bundled components such as skills, connectors, MCP servers, or hooks.
-- Provide install-surface metadata such as descriptions, icons, and legal
-  links.
-
-Here's a complete manifest example:
-
-```json
-{
-  "name": "my-plugin",
-  "version": "0.1.0",
-  "description": "Bundle reusable skills and connectors.",
-  "author": {
-    "name": "Your team",
-    "email": "team@example.com",
-    "url": "https://example.com"
-  },
-  "homepage": "https://example.com/plugins/my-plugin",
-  "repository": "https://github.com/example/my-plugin",
-  "license": "MIT",
-  "keywords": ["research", "crm"],
-  "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
-  "apps": "./.app.json",
-  "hooks": "./hooks/hooks.json",
-  "interface": {
-    "displayName": "My Plugin",
-    "shortDescription": "Reusable skills and connectors",
-    "longDescription": "Distribute skills and connectors together.",
-    "developerName": "Your team",
-    "category": "Productivity",
-    "capabilities": ["Read", "Write"],
-    "websiteURL": "https://example.com",
-    "privacyPolicyURL": "https://example.com/privacy",
-    "termsOfServiceURL": "https://example.com/terms",
-    "defaultPrompt": [
-      "Use My Plugin to summarize new CRM notes.",
-      "Use My Plugin to triage new customer follow-ups."
-    ],
-    "brandColor": "#10A37F",
-    "composerIcon": "./assets/icon.png",
-    "logo": "./assets/logo.png",
-    "screenshots": ["./assets/screenshot-1.png"]
-  }
-}
-```
-
-`.codex-plugin/plugin.json` is the required entry point. The other manifest
-fields are optional, but published plugins commonly use them.
+To browse, install, enable, or remove plugins, see [Use
+plugins](https://learn.chatgpt.com/docs/plugins).
 
 ### Build skills
 
 Source: [Build skills](https://learn.chatgpt.com/docs/build-skills.md)
 
-Use agent skills to extend Codex with task-specific capabilities. A skill packages instructions, resources, and optional scripts so Codex can follow a workflow reliably. Skills build on the [open agent skills standard](https://agentskills.io).
+Use agent skills to extend ChatGPT and Codex with task-specific capabilities. A
+skill packages instructions, resources, and optional scripts so either product
+can follow a workflow reliably. Skills build on the
+[open agent skills standard](https://agentskills.io).
 
-Skills are the authoring format for reusable workflows. Plugins distribute reusable skills and connectors to ChatGPT Work on the web and to ChatGPT Work and Codex in the desktop app. Codex CLI can also install plugins. Use skills to design the workflow itself, then package it as a [plugin](https://learn.chatgpt.com/docs/build-plugins) when you want other people in your workspace to install it.
+Skills are the authoring format for reusable workflows. Plugins distribute
+reusable skills and connectors through the universal plugin directory shared
+by ChatGPT and Codex. Plugins are available with ChatGPT Work on the web, with
+ChatGPT Work and Codex in the ChatGPT desktop app, and through Codex CLI. Use
+skills to design the workflow itself, then package it as a
+[plugin](https://developers.openai.com/plugins/build/plugins) when you want
+other people to install it.
 
-Skills are available in the ChatGPT desktop app, Codex CLI, and IDE extension.
+Standalone skills are available in the ChatGPT desktop app, Codex CLI, and IDE
+extension. Skills bundled in plugins are also available through supported
+plugin surfaces, including ChatGPT Work on the web.
 
 In the ChatGPT desktop app, open **Skills** in the sidebar to view and explore skills
 created across your projects.
 
-Skills use **progressive disclosure** to manage context efficiently: Codex starts with each skill's name, description, and file path. Codex loads the full `SKILL.md` instructions only when it decides to use a skill.
+Skills use **progressive disclosure** to manage context efficiently. ChatGPT and
+Codex start with each skill's name and description, then load the full
+`SKILL.md` instructions when they decide to use that skill.
 
-Codex includes an initial list of available skills in context so it can choose the right skill for a task. To avoid crowding out the rest of the prompt, this list uses at most 2% of the model’s context window, or 8,000 characters when the context window is unknown. If many skills are installed, Codex shortens skill descriptions first. For large skill sets, Codex may omit some skills from the initial list and show a warning.
+In Codex, the initial list also includes each skill's file path. To avoid
+crowding out the rest of the prompt, this list uses at most 2% of the model's
+context window, or 8,000 characters when the context window is unknown. If many
+skills are installed, Codex shortens skill descriptions first. For large skill
+sets, Codex may omit some skills from the initial list and show a warning.
 
 This budget applies only to the initial skills list. When Codex selects a skill, it still reads the full SKILL.md instructions for that skill.
 
 A skill is a directory with a `SKILL.md` file plus optional scripts and references. The `SKILL.md` file must include `name` and `description`.
 
-#### How Codex uses skills
+#### How ChatGPT and Codex use skills
 
-Codex can activate skills in two ways:
+ChatGPT and Codex can activate skills in two ways:
 
-1. **Explicit invocation:** Include the skill directly in your prompt. In CLI/IDE, run `/skills` or type `$` to mention a skill.
-2. **Implicit invocation:** Codex can choose a skill when your task matches the skill `description`.
+1. **Explicit invocation:** Include the skill directly in your prompt. In
+   ChatGPT, type `@` to select a skill. In Codex CLI or the IDE extension, run
+   `/skills` or type `$` to mention a skill.
+2. **Implicit invocation:** ChatGPT or Codex can choose a skill when your task
+   matches the skill `description`.
 
-Because implicit matching depends on `description`, write concise descriptions with clear scope and boundaries. Front-load the key use case and trigger words so Codex can still match the skill if descriptions are shortened.
+Because implicit matching depends on `description`, write concise descriptions
+with clear scope and boundaries. Front-load the key use case and trigger words
+so a host can still match the skill if descriptions are shortened.
 
 #### Create a skill
 
 If you already know the workflow and it's easier to show than describe, use
-[Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay). Codex records the workflow,
-inspects the steps, and drafts a reusable skill from the demonstration.
+[Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay). The recorder captures the
+workflow, inspects the steps, and drafts a reusable skill from the
+demonstration.
 
-If you want to describe the skill instead, use the built-in creator:
+If you want to describe the skill instead, use the built-in creator. In ChatGPT
+Work, invoke it as `@skill-creator`. In Codex, invoke it as:
 
 ```text
 $skill-creator
@@ -8484,12 +8055,12 @@ name: skill-name
 description: Explain exactly when this skill should and should not trigger.
 ---
 
-Skill instructions for Codex to follow.
+Skill instructions for ChatGPT or Codex to follow.
 ```
 
 Codex detects skill changes automatically. If an update doesn't appear, restart Codex.
 
-#### Where to save skills
+#### Where Codex loads local skills
 
 Codex reads skills from repository, user, admin, and system locations. For repositories, Codex scans `.agents/skills` in every directory from your current working directory up to the repository root. If two skills share the same `name`, Codex doesn't merge them; both can appear in skill selectors.
 
@@ -8511,18 +8082,18 @@ Codex supports symlinked skill folders and follows the symlink target when scann
 
 These locations are for authoring and local discovery. When you want to
 distribute reusable skills beyond a single repo, or optionally bundle them with
-connectors, use [plugins](https://learn.chatgpt.com/docs/build-plugins).
+connectors, use [plugins](https://developers.openai.com/plugins/build/plugins).
 
 #### Distribute skills with plugins
 
 Direct skill folders are best for local authoring and repo-scoped workflows. If
 you want to distribute a reusable skill, bundle two or more skills together, or
 ship a skill alongside a connector, package them as a
-[plugin](https://learn.chatgpt.com/docs/build-plugins).
+[plugin](https://developers.openai.com/plugins/build/plugins).
 
-Plugins can include one or more skills. They can also optionally bundle app
-mappings, MCP server configuration, and presentation assets in a single
-package.
+Plugins can include one or more skills. They can also optionally bundle
+registered MCP server connections, bundled MCP server configuration, and
+presentation assets in a single package.
 
 #### Install curated skills for local use
 
@@ -8539,7 +8110,7 @@ restart Codex.
 Use this for local setup and experimentation. For reusable distribution of your
 own skills, prefer plugins.
 
-#### Enable or disable skills
+#### Enable or disable local Codex skills
 
 Use `[[skills.config]]` entries in `~/.codex/config.toml` to disable a skill without deleting it:
 
@@ -8591,7 +8162,7 @@ For more examples, see
 [Linear](https://github.com/openai/skills/tree/main/skills/.curated/linear),
 [openai/skills](https://github.com/openai/skills), and the
 [agent skills specification](https://agentskills.io/specification). For
-installable distribution, prefer [plugins](https://learn.chatgpt.com/docs/build-plugins).
+installable distribution, prefer [plugins](https://developers.openai.com/plugins/build/plugins).
 
 ### Chronicle
 
@@ -9165,7 +8736,7 @@ Use skills for:
 
 Skills can be global (in your user directory, for you as a developer) or repo-specific (checked into `.agents/skills`, for your team). Put repo skills in `.agents/skills` when the workflow applies to that project; use your user directory for skills you want across all repos.
 
-| Layer  | Global               | Repo                                           |
+| Layer  | Global               | repo                                           |
 | :----- | :------------------- | :--------------------------------------------- |
 | AGENTS | `~/.codex/AGENTS.md` | `AGENTS.md` in repo root or nested directories |
 | Skills | `~/.agents/skills`   | `.agents/skills` in repo                       |
@@ -9264,7 +8835,7 @@ Codex discovers hooks next to active config layers in either of these forms:
 
 Installed plugins can also bundle lifecycle config through their plugin
 manifest or a default `hooks/hooks.json` file. See [Build
-plugins](https://learn.chatgpt.com/docs/build-plugins#bundled-mcp-servers-and-lifecycle-hooks) for the
+plugins](https://developers.openai.com/plugins/build/plugins#bundled-mcp-servers-and-lifecycle-hooks) for the
 plugin packaging rules.
 
 In practice, the four most useful locations are:
@@ -9999,8 +9570,9 @@ depends on your preferences, or is easier to show than to describe in a prompt.
 
 For example, you might record how you file an expense, book a parking space,
 create a correctly configured issue, publish a video, or download a recurring
-report. Codex can package the pattern into a skill that you can use again with
-Computer Use, browser actions, connected plugins, or a combination of them.
+report. ChatGPT or Codex can package the pattern into a skill that you can use
+again with Computer Use, browser actions, connected plugins, or a combination
+of them.
 
 #### Before you start
 
@@ -10012,36 +9584,36 @@ best when the steps are stable and the success criteria are clear.
 1. In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select Codex. Then open **Plugins**.
 2. Open the **+** menu.
 3. Select **Record a skill**.
-4. Review the suggested prompt, give Codex any helpful context, and submit it.
-5. When Codex asks for permission to record your actions, approve the request
-   once you are ready to demonstrate the workflow.
+4. Review the suggested prompt, add any helpful context, and submit it.
+5. When the chat asks for permission to record your actions, approve the
+   request once you are ready to demonstrate the workflow.
 6. Perform the workflow on your Mac.
-7. When you are done, stop recording from the menu bar, overlay, or tell Codex
-   that you are done.
+7. When you are done, stop recording from the menu bar or overlay, or tell the
+   chat that you are done.
 
-During recording, Codex observes the actions and window content needed to learn
-the workflow. Recording continues until you stop it. Keep the recording focused
-on the task you want Codex to learn.
+During recording, ChatGPT or Codex observes the actions and window content
+needed to learn the workflow. Recording continues until you stop it. Keep the
+recording focused on the task you want the skill to teach.
 
-After you stop recording, Codex inspects the captured workflow and drafts a
-skill. The skill explains when to use the workflow, what inputs it needs, what
-steps to follow, and how to verify the result. You can also ask Codex to
-refine the skill further.
+After you stop recording, ChatGPT or Codex inspects the captured workflow and
+drafts a skill. The skill explains when to use the workflow, what inputs it
+needs, what steps to follow, and how to verify the result. You can also ask for
+further refinements.
 
 #### Replay the workflow
 
-Start a new chat and ask Codex to use the generated skill. Give it the
-values that are different this time, such as the file to upload, the issue to
-create, or the date range for the report.
+Start a new ChatGPT or Codex chat and ask it to use the generated skill. Give
+it the values that are different this time, such as the file to upload, the
+issue to create, or the date range for the report.
 
-Codex uses the skill as reusable context for the task. It can then complete the
-workflow with the tools available in the current environment, including
-Computer Use, browser actions, and installed plugins.
+The product uses the skill as reusable context for the task. It can then
+complete the workflow with the tools available in the current environment,
+including Computer Use, browser actions, and installed plugins.
 
 #### Tips for better recordings
 
 - Keep the demonstration short and complete.
-- Let Codex know your goal and any specific inputs that might vary between
+- State your goal and any specific inputs that might vary between
   skill uses before you start recording.
 - Use realistic inputs, but avoid secrets and sensitive data.
 - Refine the skill after recording to call out hidden preferences that matter,
@@ -10055,7 +9627,7 @@ Record & Replay is a fast way to create a skill from a demonstrated workflow.
 If you want to distribute a separate stable package across a team, bundle
 multiple skills, include connectors, add MCP servers, or manage install
 metadata, package that workflow as its own plugin. See
-[Build plugins](https://learn.chatgpt.com/docs/build-plugins).
+[Build plugins](https://developers.openai.com/plugins/build/plugins).
 
 #### I don't see Record & Replay
 
@@ -10198,326 +9770,6 @@ The command emits JSON showing the strictest decision and any matching rules, in
 #### Understand the rules language
 
 The `.rules` file format uses `Starlark` (see the [language spec](https://github.com/bazelbuild/starlark/blob/master/spec.md)). Its syntax is like Python, but it's designed to be safe to run: the rules engine can run it without side effects (for example, touching the filesystem).
-
-### Submit plugins
-
-Source: [Submit plugins](https://learn.chatgpt.com/docs/submit-plugins.md)
-
-Use the plugin submission portal to submit a plugin for review when you're
-ready to publish it for public use.
-
-A plugin is an app, skills, or both. You can submit:
-
-- A skills-only plugin that packages reusable workflows.
-- An app-only plugin backed by an MCP server. Custom UI is optional.
-- An app-plus-skills plugin that combines an MCP-backed app with bundled skills.
-
-The submission form collects listing information, MCP server details, bundled
-skills, starter prompts, test cases, country availability, and policy
-attestations. Which fields you complete depends on whether the plugin includes
-skills, an app, or both.
-
-For local development, packaging, and marketplace setup, see
-[Build plugins](https://learn.chatgpt.com/docs/build-plugins).
-
-For the app portion of the plugin, see [Build an app](https://learn.chatgpt.com/docs/build-app).
-
-#### Before you submit
-
-#### Submit the MCP server, not an existing app reference
-
-You will not be able to submit a plugin that references an existing,
-already-published ChatGPT app. If your plugin includes an app that already
-exists in ChatGPT, submit that app's MCP server from scratch through the portal
-as a new MCP-backed plugin submission. The portal scans that MCP server,
-validates the tool metadata, and uses the submitted server details during
-review.
-
-#### Get plugin submission access
-
-You need an organization role with app management write access before you can
-create or submit plugin drafts.
-
-1. Open [OpenAI Platform roles settings](https://platform.openai.com/settings/organization/people/roles).
-2. Select the organization that owns the plugin.
-3. Open the role assigned to the submitter, or create a new role.
-4. In the role permissions, set **Apps Management** to **Write**.
-5. Save the role and assign it to each person who needs to create, edit, or
-   submit plugin drafts.
-6. Reload the [plugin submission portal](https://platform.openai.com/plugins).
-
-Organization owners already have app management permissions. Non-owner
-submitters need write access to create or submit drafts, and read access to view
-drafts and review status.
-
-#### Verify your developer or business identity
-
-Every public submission must use a verified developer or business identity in
-the OpenAI Platform. Reviewers use this identity to confirm the submission
-matches the name, website, support contact, privacy policy, and terms in your
-public listing.
-
-To verify an identity:
-
-1. Sign in to the [OpenAI Platform](https://platform.openai.com).
-2. Select the organization that will publish the plugin.
-3. Open [organization settings](https://platform.openai.com/settings/organization/general).
-4. Complete **individual verification** if you will publish under your own
-   name, or **business verification** if you will publish under a company name.
-5. Return to the plugin submission form and select the verified identity in the
-   **Developer Identity** field.
-
-Reviewers may reject submissions that use an unverified or mismatched publisher
-identity. See the Apps SDK
-[organization verification requirements](https://developers.openai.com/apps-sdk/deploy/submission#organization-verification)
-for the underlying review rule.
-
-If the Platform shows that the developer or business identity is verified but
-the plugin submission form does not recognize it, check that you are submitting
-from the same organization and project where the identity was verified. The
-submitter also needs **Apps Management** write access for that organization.
-Ask an organization owner or admin to update the role assigned to the
-submitter, then reload the plugin submission portal.
-
-#### Prepare required materials
-
-Before opening the form, collect:
-
-| Material           | What to prepare                                                                                                                                                                            |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Listing details    | Plugin name, short description, long description, logo, category, website, support URL, privacy policy URL, and terms URL.                                                                 |
-| Developer identity | Verified individual or business identity in the OpenAI Platform.                                                                                                                           |
-| MCP server         | For plugins that contain apps: public MCP server URL, domain verification access, authentication details, demo credentials if needed, content security policy, and accurate tool metadata. |
-| Tool annotations   | For plugins that contain apps: `readOnlyHint`, `openWorldHint`, and `destructiveHint` values for every MCP tool.                                                                           |
-| Skills             | For skills plugins: skill bundle or ZIP with the final skill file tree.                                                                                                                    |
-| Prompts            | Starter prompts that show useful, realistic workflows.                                                                                                                                     |
-| Test cases         | Five positive test cases and three negative test cases with clear expected behavior.                                                                                                       |
-| Availability       | Countries or regions where the plugin should be available.                                                                                                                                 |
-| Release notes      | A short summary of what you are submitting and what changed since any prior version.                                                                                                       |
-
-#### Create a plugin submission
-
-1. Open the [plugin submission portal](https://platform.openai.com/plugins).
-2. Select **Create plugin**.
-3. Choose the submission type:
-   - **Skills only** for a plugin that only packages skills.
-   - **With MCP** for an app-only plugin backed by an MCP server.
-   - **With MCP** for an app-plus-skills plugin that combines an MCP-backed app
-     with bundled skills.
-
-The portal saves the submission as a draft while you complete the form.
-
-#### Complete the form
-
-#### Info
-
-Complete the public listing and publisher fields:
-
-- **Plugin name:** Use the customer-facing product or workflow name.
-- **Descriptions:** Explain what the plugin helps users do. Keep the short
-  description concise and use the long description for workflow details.
-- **Developer Identity:** Select the verified individual or business identity
-  for the publisher.
-- **Logo and category:** Use production-ready brand assets.
-- **Website, support, privacy, and terms URLs:** Use public URLs that match the
-  publisher and disclose relevant data handling.
-
-Review your MCP responses against your privacy policy before you submit. Remove
-unnecessary personal data, auth secrets, debug payloads, internal identifiers,
-and undisclosed user-related fields from tool responses.
-
-#### MCP
-
-For app or MCP submissions:
-
-1. Enter the production MCP server URL.
-2. Configure authentication and provide reviewer-ready demo credentials if the
-   server requires sign-in.
-3. Define a content security policy that allows the exact domains your app
-   fetches from.
-4. Complete domain verification if the portal shows a **Domain not verified**
-   challenge. Use an HTTPS origin on the MCP host or a parent host, and
-   host the exact token at `/.well-known/openai-apps-challenge`.
-5. Select **Scan Tools**.
-6. Review the discovered tools, domains, validation output, and tool metadata.
-7. Fix server or metadata issues, deploy the fix, then scan again.
-
-Do not enter a ChatGPT app ID or try to point the portal at an existing,
-published ChatGPT app. The submission must provide the MCP server URL and review
-materials directly, even when that server backs an app that is already published
-in ChatGPT.
-
-#### Domain verification
-
-Plugins that contain apps must verify control of the domain that hosts the
-app's MCP server. When the portal shows a domain verification challenge, place
-the exact verification token at the generated well-known URL:
-
-```text
-https:///.well-known/openai-apps-challenge
-```
-
-The challenge endpoint must return only that plugin's verification token. Do not
-return JSON, a list of tokens, or multiple tokens from the same URL.
-
-The **Challenge Base URL** is an optional HTTPS origin that tells the portal
-where to check the token. It must be the MCP host or a parent host.
-Paths are ignored. For example, if the MCP server URL is
-`https://api.example.com/mcp`, the default challenge URL is
-`https://api.example.com/.well-known/openai-apps-challenge`, and
-`https://example.com` can be used as a parent-origin challenge base if you can
-host the token there.
-
-If two plugins that contain apps share the same MCP host but differ only by
-path, they also share the same default challenge URL. You cannot verify them
-separately by putting different tenant paths in the Challenge Base URL, because
-the path is ignored. Use a parent origin that can host the new token, give the
-app's MCP server a distinct host, or work with OpenAI support if neither
-hosting option is possible.
-
-If another plugin that contains an app already uses the same MCP host, do
-not replace its existing challenge token unless that plugin no longer needs it.
-Use an allowed parent-origin Challenge Base URL or a distinct MCP host for
-the new submission.
-
-Every tool should have clear names, descriptions, schemas, and output
-structure. Add output schemas when they help reviewers and models understand
-what the tool returns.
-
-Set tool annotations to match each tool's real behavior:
-
-| Annotation        | Use it when                                                                                                                                                                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `readOnlyHint`    | Set to `true` only when the tool fetches, looks up, lists, retrieves, previews, or computes information and doesn't change anything. Set to `false` if the tool can create, update, delete, send, enqueue, run jobs, start workflows, write logs, or otherwise change state.                                                                           |
-| `openWorldHint`   | For write tools, set to `true` if the tool can change publicly visible internet state, such as posting online, sending external messages, publishing content, pushing code, or submitting forms to third parties. Set to `false` only if the tool operates entirely within closed or private systems and can't change publicly visible internet state. |
-| `destructiveHint` | For write tools, set to `true` if the tool can delete, overwrite, revoke access, send messages or transactions that can't be undone, or cause another irreversible side effect. Otherwise, set it to `false`.                                                                                                                                          |
-
-For implementation details, see
-[tool annotations and elicitation](https://developers.openai.com/apps-sdk/build/mcp-server#tool-annotations-and-elicitation).
-For review expectations, see the Apps SDK
-[tool hint rejection guidance](https://developers.openai.com/apps-sdk/deploy/submission#review-and-approval-faqs).
-
-#### Skills
-
-Upload the final skill bundle for skills-only or app-plus-skills submissions.
-Use the same file tree and instructions you tested locally.
-
-For a **Skills only** submission, upload a ZIP no larger than 100 MB with one
-plugin root. Put the plugin manifest, such as `.codex-plugin/plugin.json`, and
-`skills//SKILL.md` in that root. ZIP uploads only support skills. The
-portal excludes `.mcp.json`, `mcpServers`, `.app.json`, `apps`, and
-`interface.screenshots` and reports a warning when they are present.
-
-Each skill should include:
-
-- A clear `SKILL.md` with trigger conditions and task instructions.
-- Any referenced scripts, templates, or assets.
-- Minimal, scoped instructions that fit the plugin's purpose.
-
-Uploaded skills are scanned for policy compliance and security risks, including
-sensitive information, unnecessary access requests, and instructions that may
-conflict with safe or expected plugin behavior. Skills must follow the same
-standards as the rest of the plugin and may block submission or require
-remediation if they fail automated scanning.
-
-#### Prompts
-
-Add starter prompts that show the plugin's highest-value workflows. Good
-prompts are specific enough to show when to use the plugin, but general enough
-that users can adapt them.
-
-Examples:
-
-- "Investigate checkout errors from the last release and summarize likely root
-  causes."
-- "Create a P1 incident brief from the latest support tickets and related
-  deploys."
-- "Review unsuccessful deployment logs and recommend the next debugging step."
-
-#### Testing
-
-Submit exactly five positive test cases and three negative test cases.
-
-For each positive test case, include:
-
-- User prompt.
-- Expected tool, skill, or workflow behavior.
-- Expected result shape.
-- Test account or fixture data required to reproduce it.
-
-For each negative test case, include:
-
-- User prompt or scenario.
-- Expected refusal, clarification, or safe fallback behavior.
-- Why the plugin shouldn't complete the requested action.
-
-Use test cases that reviewers can run without internal context. If your plugin
-requires authentication, make sure the provided demo credentials can complete
-each test without MFA, SMS, email confirmation, or private-network access.
-
-#### Global
-
-Choose the countries or regions where the plugin should be available. Only
-select locations where the publisher, product, support process, and legal terms
-are ready for users.
-
-#### Submit
-
-Review the full draft before submitting.
-
-Directory plugins are held to a higher standard and require additional
-validation. See [Plugin submission errors](https://learn.chatgpt.com/docs/plugin-submission-errors) for
-the full list of checks and how to fix each error.
-
-In the release notes, summarize:
-
-- What the plugin does.
-- Whether this is an initial submission or an update.
-- What changed since the prior submitted version, if any.
-- Anything reviewers should know about test credentials, expected data, or
-  setup.
-
-Complete the policy attestations only after confirming the listing, server,
-skills, prompts, tests, and availability are accurate. Then select
-**Submit for Review**.
-
-#### Public publishing flow
-
-Submitting a plugin starts review; it doesn't publish the plugin immediately.
-For public availability, the flow is:
-
-1. Submit the plugin through the plugin submission portal.
-2. OpenAI reviews the submission. Review timelines may vary as OpenAI builds
-   and scales the review process.
-3. After OpenAI approves the plugin, the developer chooses when to publish it
-   and publishes it from the portal.
-4. After publication, the plugin appears in the Plugins Directory
-   available in both ChatGPT and Codex.
-
-Plugins that contain apps, skills-only plugins, and app-plus-skills plugins all
-appear in the Plugins Directory.
-
-#### Final checklist
-
-Before submitting, confirm:
-
-- The submitter has **Apps Management** write access.
-- The publisher has a verified developer or business identity.
-- The MCP server uses a public, production URL.
-- Plugins that contain apps define a content security policy for the exact
-  domains the app fetches from.
-- Reviewer credentials work without MFA, email confirmation, SMS confirmation,
-  or private-network access.
-- Tool names, descriptions, schemas, and annotations match actual behavior.
-- Every tool has accurate `readOnlyHint`, `openWorldHint`, and
-  `destructiveHint` values.
-- Tool responses don't include unnecessary personal data, auth secrets, debug
-  payloads, internal identifiers, or undisclosed user-related fields.
-- You tested the skills locally with the final file tree.
-- Starter prompts show realistic user workflows.
-- The submission includes five positive and three negative test cases.
-- Privacy policy, terms, support, and website URLs are public and match the
-  publisher identity.
 
 ### Use Codex in Linear
 
@@ -12097,9 +11349,11 @@ Before including a plugin or skill in the rollout:
 3. Test it with non-sensitive data and the least access it needs.
 4. Record who owns re-review and retirement.
 
-Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
-in the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
-available in Chat, the IDE extension, or mobile.
+Plugins are available with ChatGPT Work on the web, with ChatGPT Work and Codex
+in the ChatGPT desktop app, and through the Codex CLI plugin browser. They
+aren't available in Chat, the IDE extension, or mobile.
+ChatGPT and Codex share one universal public plugin directory; workspace
+controls determine which of those plugins members can access.
 
 See [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors) and
 [Skill controls](https://learn.chatgpt.com/docs/enterprise/skills) for the complete model.
@@ -13245,8 +12499,10 @@ tools; shell subprocess reads don't use this sandbox rule.
 
 Source: [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors.md)
 
-A plugin extends Codex by packaging skills and optional connectors so teams can
-distribute workflows and knowledge. Learn more about [plugins](https://learn.chatgpt.com/docs/plugins),
+A plugin extends ChatGPT and Codex by packaging skills and optional connectors
+so teams can distribute workflows and knowledge. The products share one
+universal plugin directory, while admins control availability and installation
+for their workspace. Learn more about [plugins](https://learn.chatgpt.com/docs/plugins),
 [skills](https://learn.chatgpt.com/docs/skills-and-plugins), and
 [apps and connectors](https://help.openai.com/en/articles/11487775).
 
@@ -13283,14 +12539,14 @@ policy independently.
 
 Workspace plugin controls determine whether a plugin is available or installed
 for supported workspace roles. The Codex CLI plugin browser controls CLI
-installation through its own path. See [Build plugins](https://learn.chatgpt.com/docs/build-plugins) for
+installation through its own path. See [Build plugins](https://developers.openai.com/plugins/build/plugins) for
 packaging and distribution.
 
 #### Connector-backed capability controls
 
-In ChatGPT, plugins can include connectors that search, retrieve, sync, or act
-on external systems. Workspace admins configure plugin availability separately
-from the access and actions granted to each connector.
+Plugins in ChatGPT and Codex can include connectors that search, retrieve, sync,
+or act on external systems. Workspace admins configure plugin availability
+separately from the access and actions granted to each connector.
 
 Manage connector-backed capabilities from
 [Workspace apps](https://chatgpt.com/admin/ca) and
@@ -13312,7 +12568,7 @@ For current availability and procedures, see
 For a broad initial rollout, consider plugin categories teams use every day:
 email, calendar, and file or document systems such as Google Drive or Notion.
 Use the [Plugins Directory](https://chatgpt.com/apps) to confirm current
-availability and capabilities.
+availability and capabilities across supported ChatGPT and Codex surfaces.
 
 Start with read actions. Enable write actions only after reviewing the plugin's
 owner, each connector's requested scopes, data access, external effects, and
@@ -13322,7 +12578,7 @@ recovery path.
 
 When ChatGPT uses a connector-backed plugin, the connector sends a request to
 the connected service and returns data or action results allowed by the
-authenticated user's provider permissions. Custom Apps SDK apps expose these
+authenticated user's provider permissions. Custom MCP servers expose these
 operations as tools through Model Context Protocol (MCP).
 
 For non-synced connector use, ChatGPT processes data from Chat and deep
@@ -13352,7 +12608,7 @@ ChatGPT desktop app, Codex CLI, or IDE extension, see
 - [Manage workspace settings](https://help.openai.com/en/articles/8411955)
 - [Plugins](https://learn.chatgpt.com/docs/plugins)
 - [Skills and plugins](https://learn.chatgpt.com/docs/skills-and-plugins)
-- [Build plugins](https://learn.chatgpt.com/docs/build-plugins)
+- [Build plugins](https://developers.openai.com/plugins/build/plugins)
 - [Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup)
 
 ### Roles and workspace permissions
@@ -13455,15 +12711,17 @@ surface-specific plugin installation are separate paths. Moving a skill doesn't
 transfer ChatGPT workspace ownership, sharing, role assignments, plugin
 installation state, or connector authorization.
 
-Plugins are available with ChatGPT Work on the web, and with ChatGPT Work and Codex
-in the ChatGPT desktop app, and through the Codex CLI plugin browser. They aren't
-available in Chat, the IDE extension, or mobile.
+Plugins are available with ChatGPT Work on the web, with ChatGPT Work and Codex
+in the ChatGPT desktop app, and through the Codex CLI plugin browser. They
+aren't available in Chat, the IDE extension, or mobile.
+Those supported surfaces draw public plugins from one universal directory
+shared by ChatGPT and Codex.
 
 #### Owning controls
 
 See [Build skills](https://learn.chatgpt.com/docs/build-skills) for filesystem locations and authoring,
 [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
-for current workspace procedures, and [Build plugins](https://learn.chatgpt.com/docs/build-plugins) for
+for current workspace procedures, and [Build plugins](https://developers.openai.com/plugins/build/plugins) for
 plugin packaging.
 
 ChatGPT workspace controls don't install local filesystem skills or plugins.
@@ -13477,7 +12735,7 @@ owns it.
 - [Skills and plugins](https://learn.chatgpt.com/docs/skills-and-plugins)
 - [Plugins](https://learn.chatgpt.com/docs/plugins)
 - [Build skills](https://learn.chatgpt.com/docs/build-skills)
-- [Build plugins](https://learn.chatgpt.com/docs/build-plugins)
+- [Build plugins](https://developers.openai.com/plugins/build/plugins)
 - [Admin rollout guide](https://learn.chatgpt.com/docs/enterprise/admin-setup)
 - [Plugin controls](https://learn.chatgpt.com/docs/enterprise/apps-and-connectors)
 
@@ -14457,7 +13715,7 @@ If you maintain a widely used open-source project or want to nominate maintainer
 | Codex CLI                   | [openai/codex](https://github.com/openai/codex)                                                   | The primary home for Codex open-source development |
 | Codex SDK                   | [openai/codex/codex-sdk](https://github.com/openai/codex/tree/main/sdk)                           | SDK sources live in the Codex repo                 |
 | Codex App Server            | [openai/codex/codex-rs/app-server](https://github.com/openai/codex/tree/main/codex-rs/app-server) | App-server sources live in the Codex repo          |
-| Skills                      | [openai/skills](https://github.com/openai/skills)                                                 | Reusable skills that extend Codex                  |
+| Skills                      | [openai/skills](https://github.com/openai/skills)                                                 | Reusable skills that extend ChatGPT and Codex      |
 | IDE extension               | -                                                                                                 | Not open source                                    |
 | Codex cloud                 | -                                                                                                 | Not open source                                    |
 | Universal cloud environment | [openai/codex-universal](https://github.com/openai/codex-universal)                               | Base environment used by Codex cloud               |
@@ -14872,101 +14130,19 @@ Use the ChatGPT desktop app or Codex CLI when you want to use your own pet.
 - [Long-running work](https://learn.chatgpt.com/docs/long-running-work)
 - [ChatGPT desktop app settings](https://learn.chatgpt.com/docs/reference/settings#pets)
 
-### Plugin submission errors
-
-Source: [Plugin submission errors](https://learn.chatgpt.com/docs/plugin-submission-errors.md)
-
-Plugins submitted to the public directory are held to a higher standard than
-plugins installed in a workspace. Directory submissions must pass the shared
-package checks and the additional checks for listing fields, review materials,
-MCP tools, skills, assets, and images. This reference also covers shared
-package checks, such as app references, that can appear outside the submission
-portal.
-
-Use the error code returned during submission to find the matching requirement.
-Errors block submission. Warnings don't block submission, but you should review
-them before continuing.
-
-Non-empty values can't contain only whitespace. Supported text excludes control
-characters, Unicode line or paragraph separators, and unsupported invisible
-formatting characters. HTTPS URLs must include a host and contain no embedded
-credentials or unsupported characters.
-
-#### Final directory submission
-
-A package can pass upload validation and still fail final directory submission.
-Final submission uses stricter listing limits and checks MCP configuration,
-skill scans, test cases, and policy attestations.
-
-| Field             | Final submission rule                                                                                                                                                       |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Package name      | Required; at most 64 characters. Start with an ASCII letter or digit and use only ASCII letters, digits, `_`, and `-`.                                                      |
-| Version           | Required; use a semantic version of at most 64 characters.                                                                                                                  |
-| Display name      | Required; one line; at most 30 characters.                                                                                                                                  |
-| Short description | Required; one line; at most 30 characters.                                                                                                                                  |
-| Long description  | Required; at most 4,000 characters. Line breaks are allowed.                                                                                                                |
-| Developer name    | Required; one line; at most 80 characters.                                                                                                                                  |
-| Category          | Required; choose a supported category listed in the [Listing and interface errors](#listing-and-interface-errors) section.                                                  |
-| Capabilities      | At most 20. Each capability must be non-empty, one line, and at most 120 characters.                                                                                        |
-| Starter prompts   | At most 3. Each prompt must be non-empty, unique after Unicode and whitespace normalization, one line, at most 128 characters, and contain no app `@mention`.               |
-| URLs              | Required for MCP-backed submissions; optional for skills-only submissions. Website, support, privacy policy, and terms URLs must use HTTPS and be at most 1,024 characters. |
-| Brand colors      | Optional six-digit hex colors. The light color must have at least 2:1 contrast against white, and the dark color must have at least 2:1 contrast against `#212121`.         |
-
-Every plugin submission also requires:
-
-- Passing safety and security scans for every bundled skill. Scans can take up
-  to 2 hours.
-- A verified developer or business identity and all required policy
-  attestations.
-
-For an MCP-backed plugin, final submission also requires:
-
-- Website, support, privacy policy, and terms URLs that meet the rules above.
-- A demo-recording URL that shows the main use cases and tools across supported
-  platforms.
-- Exactly five positive test cases, three negative test cases, and release
-  notes.
-- A production HTTPS MCP server URL, a completed domain-verification challenge,
-  and a successful, current tool scan.
-- Explicit `readOnlyHint`, `openWorldHint`, and `destructiveHint` values and a
-  justification for each value on every MCP tool.
-- Reviewer-ready demo credentials when the server uses OAuth.
-- Screenshots only when the MCP server provides custom UI. If you add
-  screenshots, provide one PNG or JPEG image for every starter prompt. Each
-  screenshot must be exactly 706 pixels wide and 400–860 pixels tall.
-
-#### Final metadata errors
-
-In these error names, `subtitle` means short description and `description`
-means long description.
-
-| Name                                              | Requirement                                                                                             |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `submission_display_name_required`                | Display name is required, non-empty, and single-line.                                                   |
-| `submission_display_name_too_long`                | Display name must be 30 characters or fewer.                                                            |
-| `submission_display_name_character_unsupported`   | Display name must use supported text and fit on one line.                                               |
-| `submission_subtitle_required`                    | Short description is required, non-empty, and single-line.                                              |
-| `submission_subtitle_too_long`                    | Short description must be 30 characters or fewer.                                                       |
-| `submission_subtitle_character_unsupported`       | Short description must use supported text and fit on one line.                                          |
-| `submission_description_required`                 | Long description is required and must be non-empty. Line breaks are allowed.                            |
-| `submission_description_too_long`                 | Long description must be 4,000 characters or fewer.                                                     |
-| `submission_description_character_unsupported`    | Long description must use supported text. Line breaks are allowed.                                      |
-| `submission_developer_name_required`              | Developer name is required, non-empty, and single-line.                                                 |
-| `submission_developer_name_too_long`              | Developer name must be 80 characters or fewer.                                                          |
-| `submission_developer_name_character_unsupported` | Developer name must use supported text and fit on one line.                                             |
-| `plugin_capability_invalid`                       | Each capability must be non-empty, use supported text, fit on one line, and be 120 characters or fewer. |
-| `plugin_default_prompt_mention`                   | Starter prompts must not contain app `@mentions`.                                                       |
-| `plugin_default_prompt_duplicate`                 | Starter prompts must be unique after Unicode and whitespace normalization.                              |
-
 ### Plugins
 
 Source: [Plugins](https://learn.chatgpt.com/docs/plugins.md)
 
 #### Overview
 
-Plugins bundle capabilities into reusable workflows in ChatGPT. They can
-include skills, connectors, or both. Plugins are available with ChatGPT Work on
-the web and with ChatGPT Work or Codex in the ChatGPT desktop app. Codex
+Plugins bundle capabilities into reusable workflows in ChatGPT and Codex. They
+can include skills, connectors, or both. Both products use one universal plugin
+directory, so the same public plugins are discoverable from their supported
+surfaces.
+
+Plugins are available with ChatGPT Work on the web and with ChatGPT Work or
+Codex in the ChatGPT desktop app. Codex
 CLI also has a plugin browser for Codex environments. Plugins aren't available
 in Chat, the IDE extension, or mobile.
 
@@ -14987,27 +14163,27 @@ skills or tools.
 Plugins aren't available in the IDE extension. To browse and install plugins
 for Codex, use the ChatGPT desktop app or Codex CLI.
 
-Extend what ChatGPT can do, for example:
+Extend what ChatGPT and Codex can do, for example:
 
 - Install the Codex Security plugin to scan authorized code and confirm
   plausible vulnerability findings.
-- Install the Gmail plugin to let ChatGPT read and manage Gmail.
+- Install the Gmail plugin to work with Gmail.
 - Install the Google Drive plugin to work across Drive, Docs, Sheets, and
   Slides.
 - Install the Slack plugin to summarize channels or draft replies.
 
 A plugin can contain one or more of these parts:
 
-- **Skills:** reusable instructions for specific kinds of work. ChatGPT can load
-  them when needed so it follows the right steps and uses the right references
-  or helper scripts for a task.
+- **Skills:** reusable instructions for specific kinds of work. ChatGPT and
+  Codex can load them when needed so they follow the right steps and use the
+  right references or helper scripts for a task.
 - **Connectors:** connections to tools like GitHub, Slack, or Google Drive, so
-  ChatGPT can read information from those tools and take actions in them.
-  Connectors expose tools and can optionally include custom ChatGPT UI.
-- **MCP servers:** services that give ChatGPT access to more tools or shared
-  information, often from systems outside your local project. They're also the
-  services behind connectors. They define tools, enforce auth, return structured
-  data, and perform actions against external systems.
+  ChatGPT and Codex can read information from those tools and take actions in
+  them. Connectors expose tools and can optionally include custom UI.
+- **MCP servers:** services that give ChatGPT and Codex access to more tools or
+  shared information, often from systems outside your local project. They're
+  also the services behind connectors. They define tools, enforce auth, return
+  structured data, and perform actions against external systems.
 - **Browser extensions:** browser capabilities that a plugin needs for its
   workflow.
 - **Hooks:** commands that run at configured lifecycle points. Review and trust
@@ -15016,18 +14192,20 @@ A plugin can contain one or more of these parts:
   where scheduled tasks are available.
 
 You can share plugins by publishing them through a marketplace source, such as a
-repo marketplace for a project or team. See [Build plugins](https://learn.chatgpt.com/docs/build-plugins)
+repo marketplace for a project or team. See [Build plugins](https://developers.openai.com/plugins/build/plugins)
 for marketplace setup, packaging, and distribution guidance.
 
-If you are building an integration, start with [Build an app](https://learn.chatgpt.com/docs/build-app).
-If the app needs custom ChatGPT UI, use the
-[Apps SDK](https://developers.openai.com/apps-sdk) for that optional UI layer.
+If you are building an integration, start with
+[Build an MCP server](https://developers.openai.com/plugins/build/mcp-server).
+If the plugin needs custom UI, use the
+[optional UI guide](https://developers.openai.com/plugins/build/chatgpt-ui).
 
 #### Use and install plugins
 
-#### Plugins in ChatGPT
+#### Universal plugin directory
 
-To browse and install curated plugins:
+ChatGPT and Codex use the same public plugin catalog. To browse and install
+plugins from a supported graphical surface:
 
 - On the web, turn on Work in the switcher and open **Plugins**.
 - In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select
@@ -15042,7 +14220,7 @@ The Plugins Directory organizes plugins into tabs:
 
 Use the separate **Installed** row to review plugins you already installed.
 
-#### Install and use a plugin in ChatGPT
+#### Install and use a plugin
 
 Once you open the Plugins Directory:
 
@@ -15051,7 +14229,8 @@ Once you open the Plugins Directory:
 3. If the plugin needs a connector, connect it when prompted. Some plugins
    ask you to authenticate during install. Others wait until the first time you
    use them.
-4. After installation, start a new chat and ask ChatGPT to use the plugin.
+4. After installation, start a new chat and ask ChatGPT or Codex to use the
+   plugin.
 
 After you install a plugin, you can use it directly in the prompt window:
 
@@ -15085,6 +14264,15 @@ to switch sources, open a plugin to inspect details, install or uninstall
 marketplace entries, and press Space on an installed plugin to turn it
 on or off.
 
+#### API key availability
+
+If you [sign in to Codex with an OpenAI API
+key](https://learn.chatgpt.com/docs/auth#sign-in-with-an-api-key), you can browse, install, and manage
+supported OpenAI-curated plugins in Codex CLI and Codex in the ChatGPT desktop
+app. Some plugins aren't available with API key authentication because their
+connection flows require unsupported OAuth capabilities. Review plugin usage
+on the [Platform Usage page](https://platform.openai.com/usage).
+
 #### How permissions and data sharing work
 
 On ChatGPT web, ChatGPT Work chats use the workspace permissions and
@@ -15098,8 +14286,8 @@ access controls.
 
 - Bundled skills become available when you start a new chat or CLI session
   after installation.
-- If a plugin includes connectors, ChatGPT may prompt you to install or sign in to
-  those connectors in ChatGPT during setup or the first time you use them.
+- If a plugin includes connectors, the active product may prompt you to install
+  or sign in to those connectors during setup or the first time you use them.
 - If a plugin includes MCP servers, they may require extra setup or
   authentication before you can use them.
 - When ChatGPT sends data through a bundled connector, that service's terms and privacy
@@ -15119,16 +14307,17 @@ ChatGPT.
 #### Build your own plugin
 
 If you want to create, test, or distribute your own plugin, see
-[Build plugins](https://learn.chatgpt.com/docs/build-plugins). That page covers local scaffolding,
+[Build plugins](https://developers.openai.com/plugins/build/plugins). That page covers local scaffolding,
 manual marketplace setup, workspace sharing, plugin manifests, and packaging
 guidance.
 
-If your plugin includes an app, see [Build an app](https://learn.chatgpt.com/docs/build-app). Apps are
-MCP-backed integrations. They can work with tools alone, or add custom ChatGPT UI
-through the [Apps SDK](https://developers.openai.com/apps-sdk) when a visual surface helps the workflow.
+If your plugin includes server-backed capabilities, see
+[Build an MCP server](https://developers.openai.com/plugins/build/mcp-server).
+MCP tools can work without custom UI or return UI when a visual surface helps
+the workflow.
 
 When your plugin is ready for review, see
-[Submit plugins](https://learn.chatgpt.com/docs/submit-plugins) for the OpenAI Platform submission
+[Submit plugins](https://developers.openai.com/plugins/deploy/submission) for the OpenAI Platform submission
 flow, required permissions, review materials, MCP checks, and test case
 requirements.
 
@@ -15349,8 +14538,8 @@ dedicate the host desktop to the task.
 Use a dedicated always-on Mac or Windows PC when you want ChatGPT to stay
 reachable for longer-running work.
 
-Install the projects, credentials, MCP servers, skills, and tools ChatGPT should
-use on that machine.
+Install the projects, credentials, MCP servers, skills, and tools ChatGPT or
+Codex should use on that machine.
 
 #### A remote development environment
 
@@ -15677,9 +14866,9 @@ expect the hosted site to remember.
 
 Source: [Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins.md)
 
-Skills and plugins help ChatGPT complete repeatable work with the right
-instructions, resources, and tools. They reduce the need to paste the same
-prompt, template, requirements, or process into every chat.
+Skills and plugins help ChatGPT and Codex complete repeatable work with the
+right instructions, resources, and tools. They reduce the need to paste the
+same prompt, template, requirements, or process into every chat.
 
 - A **skill** packages instructions and supporting resources for a specific
   task or workflow.
@@ -15689,13 +14878,14 @@ prompt, template, requirements, or process into every chat.
 
 #### Use skills for repeatable work
 
-A skill is a reusable workflow that gives ChatGPT task-specific guidance. It
-can capture the way you already perform recurring work so ChatGPT follows the
-same process whenever that task comes up.
+A skill is a reusable workflow that gives ChatGPT or Codex task-specific
+guidance. It can capture the way you already perform recurring work so either
+product follows the same process whenever that task comes up.
 
 A skill can combine:
 
-- A name and description that help ChatGPT recognize when the skill applies.
+- A name and description that help ChatGPT and Codex recognize when the skill
+  applies.
 - Workflow instructions that define the process and expected result.
 - Supporting resources such as templates, examples, brand guidance, schemas,
   or connected tools.
@@ -15709,36 +14899,37 @@ Use skills to improve consistency, make team best practices available in the
 workflow, and share a standard process instead of relying on undocumented
 knowledge.
 
-ChatGPT can choose a skill when your request matches its purpose. You can also
-select one explicitly from the composer. ChatGPT supports `@` mentions, while
-Codex supports `$` mentions for skills.
+ChatGPT and Codex can choose a skill when your request matches its purpose. You
+can also select one explicitly. ChatGPT supports `@` mentions, while Codex
+supports `$` mentions for skills.
 
 #### Build skills
 
-You can start by turning a task you already repeat into a simple playbook for
-ChatGPT. Good first skills include a weekly update, a campaign brief, a meeting
-follow-up, or any task where the steps and format should stay consistent.
+You can start by turning a task you already repeat into a focused playbook for
+ChatGPT and Codex. Good first skills include a weekly update, a campaign brief,
+a meeting follow-up, or any task where the steps and format should stay
+consistent.
 
 To build a useful skill:
 
 1. **Choose one focused task.** Note what you normally start with, such as
    files, links, or notes, and what a finished result should look like.
-2. **Describe the workflow to ChatGPT.** Start a new chat with “Build me a
-   skill…” and explain the goal, the steps to follow, the expected format, and
-   anything it should always include or avoid. Add a template or a good example
-   when you have one.
+2. **Describe the workflow.** In ChatGPT, start with `@skill-creator`; in Codex,
+   use `$skill-creator`. Explain the goal, the steps to follow, the expected
+   format, and anything the skill should always include or avoid. Add a template
+   or a good example when you have one.
 3. **Review and try the draft.** Check the instructions, test the skill with a
    realistic request, and refine it if the result misses a step or drifts from
    the format you want.
-4. **Install and reuse it.** Once the skill is enabled, ChatGPT can use it for
-   relevant requests, or you can select it explicitly. You can also share it
-   with teammates when your workspace settings allow it.
+4. **Install and reuse it.** Once the skill is enabled, ChatGPT or Codex can use
+   it for relevant requests, or you can select it explicitly. You can also
+   share it with teammates when your workspace settings allow it.
 
 For more details on building skills, see our dedicated guide below.
 
 [
 
-    Create, test, and share reusable skills with Codex.
+    Create, test, and share reusable skills with ChatGPT and Codex.
 
 ](https://learn.chatgpt.com/docs/build-skills)
 
@@ -15748,9 +14939,10 @@ Plugins make reusable capabilities easier to install and share. A plugin can
 combine skills with connectors for services such as GitHub, Google Drive, or
 Slack, and can include MCP servers for additional tools and context.
 
-Browse the Plugins Directory when you want to add an existing workflow instead
-of building one yourself. After installing a plugin, describe the task directly
-or type `@` to choose a specific plugin or bundled skill.
+ChatGPT and Codex share one universal plugin directory. Browse it when you want
+to add an existing workflow instead of building one yourself. After installing
+a plugin, describe the task directly or explicitly choose a plugin or bundled
+skill using the invocation syntax for your surface.
 
 [Learn how to install and use plugins](https://learn.chatgpt.com/docs/plugins).
 
@@ -15763,11 +14955,11 @@ connected services or other tools.
 You can also demonstrate a workflow with
 [Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay), which turns the recording into a
 reusable skill. To package and distribute your own bundle, see
-[Build plugins](https://learn.chatgpt.com/docs/build-plugins).
+[Build plugins](https://developers.openai.com/plugins/build/plugins).
 
 If your plugin needs to connect to a service or expose MCP tools, see
-[Build an app](https://learn.chatgpt.com/docs/build-app). When your plugin is ready for public review,
-see [Submit plugins](https://learn.chatgpt.com/docs/submit-plugins).
+[Build an MCP server](https://developers.openai.com/plugins/build/mcp-server). When your plugin is ready for public review,
+see [Submit plugins](https://developers.openai.com/plugins/deploy/submission).
 
 For more examples of reusable workflows, see [Using skills in OpenAI
 Academy](https://openai.com/academy/skills/).
@@ -16491,53 +15683,6 @@ medium reasoning.
 
 Source: [Windows sandbox](https://learn.chatgpt.com/docs/windows/windows-sandbox.md)
 
-#### Configure the Windows sandbox
-
-When you run Codex natively on Windows, agent mode uses a Windows sandbox to
-block filesystem writes outside the working folder and prevent network access
-without your explicit approval.
-
-Native Windows sandbox support includes two modes that you can configure in
-`config.toml`:
-
-```toml
-[windows]
-sandbox = "elevated" # or "unelevated"
-```
-
-`elevated` is the preferred native Windows sandbox. It uses dedicated
-lower-privilege sandbox users, filesystem permission boundaries, firewall
-rules, and local policy changes needed for commands that run in the sandbox.
-
-`unelevated` is the fallback native Windows sandbox. It runs commands with a
-restricted Windows token derived from your current user, applies ACL-based
-filesystem boundaries, and uses environment-level offline controls instead of
-the dedicated offline-user firewall rule. It's weaker than `elevated`, but it
-is still useful when administrator-approved setup is blocked by local or
-enterprise policy.
-
-If both modes are available, use `elevated`. If the default native sandbox
-doesn't work in your environment, use `unelevated` as a fallback while you
-troubleshoot the setup.
-
-Enterprise administrators can constrain which native sandbox implementations
-Codex can use through [`requirements.toml`](https://learn.chatgpt.com/docs/enterprise/managed-configuration#admin-enforced-requirements-requirementstoml):
-
-```toml
-[windows]
-allowed_sandbox_implementations = ["elevated"]
-```
-
-This example requires the `elevated` sandbox and prevents users from falling
-back to `unelevated`. To permit either implementation, include both values;
-Codex prefers `elevated` when no mode is selected. See the
-[`requirements.toml` reference](https://learn.chatgpt.com/docs/config-file/config-reference#requirementstoml) for
-the supported values.
-
-By default, both sandbox modes also use a private desktop for stronger UI
-isolation. Set `windows.sandbox_private_desktop = false` only if you need the
-older `Winsta0\\Default` behavior for compatibility.
-
 #### Sandbox permissions
 
 Running Codex in full access mode means Codex is not limited to your project
@@ -16578,6 +15723,143 @@ The path must be an existing absolute directory. After the command succeeds, lat
 Use the native Windows sandbox by default. Choose [WSL](https://learn.chatgpt.com/docs/windows/wsl)
 when you need Linux-native tooling, your workflow already lives in WSL2, or
 neither native Windows sandbox mode meets your needs.
+
+#### Troubleshooting and FAQ
+
+If you are troubleshooting a managed Windows machine, start with the native
+sandbox mode, Windows version, and any policy error shown by Codex. Most native
+Windows support issues come from sandbox setup, logon rights, or filesystem
+permissions rather than from the editor itself.
+
+My native sandbox setup failed
+
+If Codex cannot complete the `elevated` sandbox setup, the most common causes
+are:
+
+- the Windows UAC or administrator prompt was declined,
+- the machine does not allow local user or group creation,
+- the machine does not allow firewall rule changes,
+- the machine blocks the logon rights needed by the sandbox users,
+- or another enterprise policy blocks part of the setup flow.
+
+What to try:
+
+1. Try the `elevated` sandbox setup again and approve the administrator prompt
+   if your environment allows it.
+2. If your company laptop blocks this, ask your IT team whether the machine
+   allows administrator-approved setup for local user/group creation, firewall
+   configuration, and the required sandbox-user logon rights.
+3. If the default setup still fails, use the `unelevated` sandbox so you can
+   continue working while the issue is investigated.
+
+Codex switched me to the unelevated sandbox
+
+This means Codex could not finish the stronger `elevated` sandbox setup on your
+machine.
+
+- Codex can still run in a sandboxed mode.
+- It still applies ACL-based filesystem boundaries, but it does not use the
+  separate sandbox-user boundary from `elevated` and has weaker network
+  isolation.
+- This is a useful fallback, but not the preferred long-term enterprise
+  configuration.
+
+If you are on a managed enterprise laptop, the best long-term fix is usually to
+get the `elevated` sandbox working with help from your IT team.
+
+I see Windows error 1385
+
+If sandboxed commands fail with error `1385`, Windows is denying the logon type
+the sandbox user needs in order to start the command.
+
+In practice, this usually means Codex created the sandbox users successfully,
+but Windows policy is still preventing those users from launching sandboxed
+commands.
+
+What to do:
+
+1. Ask your IT team whether the device policy grants the required logon rights
+   to the Codex-created sandbox users.
+2. Compare group policy or OU differences if the issue affects only some
+   machines or teams.
+3. If you need to keep working immediately, use the `unelevated` sandbox while
+   the policy issue is investigated.
+4. Send `CODEX_HOME/.sandbox/sandbox.log` along with your Windows version and a
+   short description of the failure.
+
+Codex warns that some folders are writable by Everyone
+
+Codex may warn that some folders are writable by `Everyone`.
+
+If you see this warning, Windows permissions on those folders are too broad for
+the sandbox to fully protect them.
+
+What to do:
+
+1. Review the folders Codex lists in the warning.
+2. Remove `Everyone` write access from those folders if that is appropriate in
+   your environment.
+3. Restart Codex or re-run the sandbox setup after those permissions are
+   corrected.
+
+If you are not sure how to change those permissions, ask your IT team for help.
+
+Sandboxed commands cannot reach the network
+
+Some Codex chats are intentionally run without outbound network access,
+depending on the permissions mode in use.
+
+If a task fails because it cannot reach the network:
+
+1. Check whether the task was supposed to run with network disabled.
+2. If you expected network access, restart Codex and try again.
+3. If the issue keeps happening, collect the sandbox log so the team can check
+   whether the machine is in a partial or broken sandbox state.
+
+Sandboxing worked before and then stopped
+
+This can happen after:
+
+- moving a repo or workspace,
+- changing machine permissions,
+- changing Windows policies,
+- or other system configuration changes.
+
+What to try:
+
+1. Restart Codex.
+2. Try the `elevated` sandbox setup again.
+3. If that does not fix it, use the `unelevated` sandbox as a temporary
+   fallback.
+4. Collect the sandbox log for review.
+
+I need to send diagnostics to OpenAI
+
+If you still have problems, send:
+
+- `CODEX_HOME/.sandbox/sandbox.log`
+
+It is also helpful to include:
+
+- a short description of what you were trying to do,
+- whether the `elevated` sandbox failed or the `unelevated` sandbox was used,
+- any error message shown in the app,
+- whether you saw `1385` or another Windows or PowerShell error,
+- and whether you are on Windows 11 or Windows 10.
+
+Do not send:
+
+- the contents of `CODEX_HOME/.sandbox-secrets/`
+
+The IDE extension is installed but unresponsive
+
+Your system may be missing C++ development tools, which some native dependencies require:
+
+- Visual Studio Build Tools (C++ workload)
+- Microsoft Visual C++ Redistributable (x64)
+- With `winget`, run `winget install --id Microsoft.VisualStudio.2022.BuildTools -e`
+
+Then fully restart VS Code after installation.
 
 ### Work with files
 

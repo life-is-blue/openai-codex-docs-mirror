@@ -118,7 +118,7 @@
         {
           title: "Record & Replay",
           description:
-            "Show ChatGPT a workflow and turn it into a reusable skill.",
+            "Show ChatGPT or Codex a workflow and turn it into a reusable skill.",
           href: "/codex/extend/record-and-replay",
           icon: "tools",
         },

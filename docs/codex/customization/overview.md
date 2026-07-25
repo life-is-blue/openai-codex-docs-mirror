@@ -118,7 +118,7 @@ Use skills for:
 
 Skills can be global (in your user directory, for you as a developer) or repo-specific (checked into `.agents/skills`, for your team). Put repo skills in `.agents/skills` when the workflow applies to that project; use your user directory for skills you want across all repos.
 
-| Layer  | Global               | Repo                                           |
+| Layer  | Global               | repo                                           |
 | :----- | :------------------- | :--------------------------------------------- |
 | AGENTS | `~/.codex/AGENTS.md` | `AGENTS.md` in repo root or nested directories |
 | Skills | `~/.agents/skills`   | `.agents/skills` in repo                       |

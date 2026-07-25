@@ -133,8 +133,8 @@ dedicate the host desktop to the task.
 Use a dedicated always-on Mac or Windows PC when you want ChatGPT to stay
 reachable for longer-running work.
 
-Install the projects, credentials, MCP servers, skills, and tools ChatGPT should
-use on that machine.
+Install the projects, credentials, MCP servers, skills, and tools ChatGPT or
+Codex should use on that machine.
 
 ### <span class="not-prose inline-flex items-center gap-3 align-middle"><span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-secondary text-secondary"><Terminal width={17} height={17} /></span><span>A remote development environment</span></span>
 

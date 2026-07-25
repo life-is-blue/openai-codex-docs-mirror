@@ -10,8 +10,9 @@ depends on your preferences, or is easier to show than to describe in a prompt.
 
 For example, you might record how you file an expense, book a parking space,
 create a correctly configured issue, publish a video, or download a recurring
-report. Codex can package the pattern into a skill that you can use again with
-Computer Use, browser actions, connected plugins, or a combination of them.
+report. ChatGPT or Codex can package the pattern into a skill that you can use
+again with Computer Use, browser actions, connected plugins, or a combination
+of them.
 
 ## Before you start
 
@@ -25,38 +26,38 @@ best when the steps are stable and the success criteria are clear.
 1. In the ChatGPT desktop app, select ChatGPT and turn on Work in the switcher, or select Codex. Then open **Plugins**.
 2. Open the **+** menu.
 3. Select **Record a skill**.
-4. Review the suggested prompt, give Codex any helpful context, and submit it.
-5. When Codex asks for permission to record your actions, approve the request
-   once you are ready to demonstrate the workflow.
+4. Review the suggested prompt, add any helpful context, and submit it.
+5. When the chat asks for permission to record your actions, approve the
+   request once you are ready to demonstrate the workflow.
 6. Perform the workflow on your Mac.
-7. When you are done, stop recording from the menu bar, overlay, or tell Codex
-   that you are done.
+7. When you are done, stop recording from the menu bar or overlay, or tell the
+   chat that you are done.
 
 </WorkflowSteps>
 
-During recording, Codex observes the actions and window content needed to learn
-the workflow. Recording continues until you stop it. Keep the recording focused
-on the task you want Codex to learn.
+During recording, ChatGPT or Codex observes the actions and window content
+needed to learn the workflow. Recording continues until you stop it. Keep the
+recording focused on the task you want the skill to teach.
 
-After you stop recording, Codex inspects the captured workflow and drafts a
-skill. The skill explains when to use the workflow, what inputs it needs, what
-steps to follow, and how to verify the result. You can also ask Codex to
-refine the skill further.
+After you stop recording, ChatGPT or Codex inspects the captured workflow and
+drafts a skill. The skill explains when to use the workflow, what inputs it
+needs, what steps to follow, and how to verify the result. You can also ask for
+further refinements.
 
 ## Replay the workflow
 
-Start a new chat and ask Codex to use the generated skill. Give it the
-values that are different this time, such as the file to upload, the issue to
-create, or the date range for the report.
+Start a new ChatGPT or Codex chat and ask it to use the generated skill. Give
+it the values that are different this time, such as the file to upload, the
+issue to create, or the date range for the report.
 
-Codex uses the skill as reusable context for the task. It can then complete the
-workflow with the tools available in the current environment, including
-Computer Use, browser actions, and installed plugins.
+The product uses the skill as reusable context for the task. It can then
+complete the workflow with the tools available in the current environment,
+including Computer Use, browser actions, and installed plugins.
 
 ## Tips for better recordings
 
 - Keep the demonstration short and complete.
-- Let Codex know your goal and any specific inputs that might vary between
+- State your goal and any specific inputs that might vary between
   skill uses before you start recording.
 - Use realistic inputs, but avoid secrets and sensitive data.
 - Refine the skill after recording to call out hidden preferences that matter,
@@ -70,7 +71,7 @@ Record & Replay is a fast way to create a skill from a demonstrated workflow.
 If you want to distribute a separate stable package across a team, bundle
 multiple skills, include connectors, add MCP servers, or manage install
 metadata, package that workflow as its own plugin. See
-[Build plugins](https://learn.chatgpt.com/docs/build-plugins).
+[Build plugins](https://developers.openai.com/plugins/build/plugins).
 
 ## Troubleshooting
 

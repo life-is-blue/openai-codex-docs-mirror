@@ -84,6 +84,11 @@ rely on ChatGPT workspace access or cloud services are limited or unavailable.
 Compare support by plan in
 [Feature availability](https://learn.chatgpt.com/docs/pricing#feature-availability).
 
+In Codex CLI and Codex in the ChatGPT desktop app, API key authentication
+includes access to supported OpenAI-curated plugins. Some plugins aren't
+available because their connection flows require unsupported OAuth
+capabilities. See [Use plugins](https://learn.chatgpt.com/docs/plugins#api-key-availability).
+
 When you sign in with an API key, Codex uses standard API pricing instead of
 included ChatGPT plan credits.
 

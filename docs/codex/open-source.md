@@ -11,7 +11,7 @@ If you maintain a widely used open-source project or want to nominate maintainer
 | Codex CLI                   | [openai/codex](https://github.com/openai/codex)                                                   | The primary home for Codex open-source development |
 | Codex SDK                   | [openai/codex/codex-sdk](https://github.com/openai/codex/tree/main/sdk)                           | SDK sources live in the Codex repo                 |
 | Codex App Server            | [openai/codex/codex-rs/app-server](https://github.com/openai/codex/tree/main/codex-rs/app-server) | App-server sources live in the Codex repo          |
-| Skills                      | [openai/skills](https://github.com/openai/skills)                                                 | Reusable skills that extend Codex                  |
+| Skills                      | [openai/skills](https://github.com/openai/skills)                                                 | Reusable skills that extend ChatGPT and Codex      |
 | IDE extension               | -                                                                                                 | Not open source                                    |
 | Codex cloud                 | -                                                                                                 | Not open source                                    |
 | Universal cloud environment | [openai/codex-universal](https://github.com/openai/codex-universal)                               | Base environment used by Codex cloud               |

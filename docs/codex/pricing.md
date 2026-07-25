@@ -1318,7 +1318,7 @@ efficiently](https://learn.chatgpt.com/docs/prompting#use-work-efficiently).
           },
           {
             name: "Plugin sharing",
-            href: "/codex/build-plugins#share-a-local-plugin-with-your-workspace",
+            href: "https://developers.openai.com/plugins/build/plugins#share-a-local-plugin-with-your-workspace",
             availability: {
               plus: "available",
               pro: "available",

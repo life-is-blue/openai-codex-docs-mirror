@@ -122,11 +122,11 @@ ChatGPT plan, including Free.
 
 ### Turn demonstrated workflows into reusable skills
 
-[Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay) lets you show Codex a workflow on
-macOS and turn the demonstration into a reusable skill. Use it for repetitive
-tasks that are easier to show than describe, then refine the generated skill
-and replay it with new inputs. Initial availability excludes the EEA, the
-United Kingdom, and Switzerland, and requires Computer Use.
+[Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay) lets you show ChatGPT or
+Codex a workflow on macOS and turn the demonstration into a reusable skill. Use
+it for repetitive tasks that are easier to show than describe, then refine the
+generated skill and replay it with new inputs. Initial availability excludes
+the EEA, the United Kingdom, and Switzerland, and requires Computer Use.
 
 <a id="continue-a-task-on-another-host"></a>
 
@@ -269,7 +269,7 @@ available in the Codex app, IDE extension, and CLI for objectives that can take
 hours or days. [Locked use](https://learn.chatgpt.com/docs/computer-use#locked-use) lets Codex
 continue approved computer-use work after a Mac locks, including through
 **Remote** in the ChatGPT mobile app. ChatGPT Business workspaces can also
-[share reusable plugin bundles with workspace members](https://learn.chatgpt.com/docs/build-plugins#share-a-local-plugin-with-your-workspace).
+[share reusable plugin bundles with workspace members](https://developers.openai.com/plugins/build/plugins#share-a-local-plugin-with-your-workspace).
 
 [Read the May 21 launch notes](https://learn.chatgpt.com/docs/changelog#codex-2026-05-21).
 

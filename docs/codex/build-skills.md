@@ -1,10 +1,21 @@
 # Build skills
 
-Use agent skills to extend Codex with task-specific capabilities. A skill packages instructions, resources, and optional scripts so Codex can follow a workflow reliably. Skills build on the [open agent skills standard](https://agentskills.io).
+Use agent skills to extend ChatGPT and Codex with task-specific capabilities. A
+skill packages instructions, resources, and optional scripts so either product
+can follow a workflow reliably. Skills build on the
+[open agent skills standard](https://agentskills.io).
 
-Skills are the authoring format for reusable workflows. Plugins distribute reusable skills and connectors to ChatGPT Work on the web and to ChatGPT Work and Codex in the desktop app. Codex CLI can also install plugins. Use skills to design the workflow itself, then package it as a [plugin](https://learn.chatgpt.com/docs/build-plugins) when you want other people in your workspace to install it.
+Skills are the authoring format for reusable workflows. Plugins distribute
+reusable skills and connectors through the universal plugin directory shared
+by ChatGPT and Codex. Plugins are available with ChatGPT Work on the web, with
+ChatGPT Work and Codex in the ChatGPT desktop app, and through Codex CLI. Use
+skills to design the workflow itself, then package it as a
+[plugin](https://developers.openai.com/plugins/build/plugins) when you want
+other people to install it.
 
-Skills are available in the ChatGPT desktop app, Codex CLI, and IDE extension.
+Standalone skills are available in the ChatGPT desktop app, Codex CLI, and IDE
+extension. Skills bundled in plugins are also available through supported
+plugin surfaces, including ChatGPT Work on the web.
 
 In the ChatGPT desktop app, open **Skills** in the sidebar to view and explore skills
 created across your projects.
@@ -17,9 +28,15 @@ created across your projects.
   class="my-8"
 />
 
-Skills use **progressive disclosure** to manage context efficiently: Codex starts with each skill's name, description, and file path. Codex loads the full `SKILL.md` instructions only when it decides to use a skill.
+Skills use **progressive disclosure** to manage context efficiently. ChatGPT and
+Codex start with each skill's name and description, then load the full
+`SKILL.md` instructions when they decide to use that skill.
 
-Codex includes an initial list of available skills in context so it can choose the right skill for a task. To avoid crowding out the rest of the prompt, this list uses at most 2% of the model’s context window, or 8,000 characters when the context window is unknown. If many skills are installed, Codex shortens skill descriptions first. For large skill sets, Codex may omit some skills from the initial list and show a warning.
+In Codex, the initial list also includes each skill's file path. To avoid
+crowding out the rest of the prompt, this list uses at most 2% of the model's
+context window, or 8,000 characters when the context window is unknown. If many
+skills are installed, Codex shortens skill descriptions first. For large skill
+sets, Codex may omit some skills from the initial list and show a warning.
 
 This budget applies only to the initial skills list. When Codex selects a skill, it still reads the full SKILL.md instructions for that skill.
 
@@ -64,22 +81,31 @@ A skill is a directory with a `SKILL.md` file plus optional scripts and referenc
 ]}
 />
 
-## How Codex uses skills
+<a id="how-codex-uses-skills"></a>
 
-Codex can activate skills in two ways:
+## How ChatGPT and Codex use skills
 
-1. **Explicit invocation:** Include the skill directly in your prompt. In CLI/IDE, run `/skills` or type `$` to mention a skill.
-2. **Implicit invocation:** Codex can choose a skill when your task matches the skill `description`.
+ChatGPT and Codex can activate skills in two ways:
 
-Because implicit matching depends on `description`, write concise descriptions with clear scope and boundaries. Front-load the key use case and trigger words so Codex can still match the skill if descriptions are shortened.
+1. **Explicit invocation:** Include the skill directly in your prompt. In
+   ChatGPT, type `@` to select a skill. In Codex CLI or the IDE extension, run
+   `/skills` or type `$` to mention a skill.
+2. **Implicit invocation:** ChatGPT or Codex can choose a skill when your task
+   matches the skill `description`.
+
+Because implicit matching depends on `description`, write concise descriptions
+with clear scope and boundaries. Front-load the key use case and trigger words
+so a host can still match the skill if descriptions are shortened.
 
 ## Create a skill
 
 If you already know the workflow and it's easier to show than describe, use
-[Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay). Codex records the workflow,
-inspects the steps, and drafts a reusable skill from the demonstration.
+[Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay). The recorder captures the
+workflow, inspects the steps, and drafts a reusable skill from the
+demonstration.
 
-If you want to describe the skill instead, use the built-in creator:
+If you want to describe the skill instead, use the built-in creator. In ChatGPT
+Work, invoke it as `@skill-creator`. In Codex, invoke it as:
 
 ```text
 $skill-creator
@@ -95,12 +121,14 @@ name: skill-name
 description: Explain exactly when this skill should and should not trigger.
 ---
 
-Skill instructions for Codex to follow.
+Skill instructions for ChatGPT or Codex to follow.
 ```
 
 Codex detects skill changes automatically. If an update doesn't appear, restart Codex.
 
-## Where to save skills
+<a id="where-to-save-skills"></a>
+
+## Where Codex loads local skills
 
 Codex reads skills from repository, user, admin, and system locations. For repositories, Codex scans `.agents/skills` in every directory from your current working directory up to the repository root. If two skills share the same `name`, Codex doesn't merge them; both can appear in skill selectors.
 
@@ -117,18 +145,18 @@ Codex supports symlinked skill folders and follows the symlink target when scann
 
 These locations are for authoring and local discovery. When you want to
 distribute reusable skills beyond a single repo, or optionally bundle them with
-connectors, use [plugins](https://learn.chatgpt.com/docs/build-plugins).
+connectors, use [plugins](https://developers.openai.com/plugins/build/plugins).
 
 ## Distribute skills with plugins
 
 Direct skill folders are best for local authoring and repo-scoped workflows. If
 you want to distribute a reusable skill, bundle two or more skills together, or
 ship a skill alongside a connector, package them as a
-[plugin](https://learn.chatgpt.com/docs/build-plugins).
+[plugin](https://developers.openai.com/plugins/build/plugins).
 
-Plugins can include one or more skills. They can also optionally bundle app
-mappings, MCP server configuration, and presentation assets in a single
-package.
+Plugins can include one or more skills. They can also optionally bundle
+registered MCP server connections, bundled MCP server configuration, and
+presentation assets in a single package.
 
 ## Install curated skills for local use
 
@@ -145,7 +173,7 @@ restart Codex.
 Use this for local setup and experimentation. For reusable distribution of your
 own skills, prefer plugins.
 
-## Enable or disable skills
+## Enable or disable local Codex skills
 
 Use `[[skills.config]]` entries in `~/.codex/config.toml` to disable a skill without deleting it:
 
@@ -197,4 +225,4 @@ For more examples, see
 [Linear](https://github.com/openai/skills/tree/main/skills/.curated/linear),
 [openai/skills](https://github.com/openai/skills), and the
 [agent skills specification](https://agentskills.io/specification). For
-installable distribution, prefer [plugins](https://learn.chatgpt.com/docs/build-plugins).
+installable distribution, prefer [plugins](https://developers.openai.com/plugins/build/plugins).

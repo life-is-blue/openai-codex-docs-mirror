@@ -41,27 +41,15 @@
         {
           title: "Build skills",
           description:
-            "Package instructions and resources for repeatable tasks.",
+            "Package instructions and resources for repeatable tasks in ChatGPT and Codex.",
           href: "/codex/build-skills",
           icon: "tools",
         },
         {
           title: "Build plugins",
-          description: "Create and distribute plugins for ChatGPT and Codex.",
+          description: "Package skills and MCP servers for ChatGPT and Codex.",
           href: "/codex/build-plugins",
-          icon: "plugin",
-        },
-        {
-          title: "Build an app",
-          description: "Build the MCP-backed app portion of a plugin.",
-          href: "/codex/build-app",
           icon: "connect",
-        },
-        {
-          title: "Submit plugins",
-          description: "Submit plugins for review and public publishing.",
-          href: "/codex/submit-plugins",
-          icon: "plugin",
         },
         {
           title: "Hooks",
@@ -191,12 +179,6 @@
             "Configure the desktop app, Codex CLI, and IDE extension for development.",
           href: "/codex/developer-settings?surface=app",
           icon: "settings",
-        },
-        {
-          title: "Plugin submission errors",
-          description: "Find and fix plugin package and submission errors.",
-          href: "/codex/plugin-submission-errors",
-          icon: "plugin",
         },
       ],
     },

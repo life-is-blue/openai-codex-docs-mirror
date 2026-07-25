@@ -1,8 +1,8 @@
 # Skills & Plugins
 
-Skills and plugins help ChatGPT complete repeatable work with the right
-instructions, resources, and tools. They reduce the need to paste the same
-prompt, template, requirements, or process into every chat.
+Skills and plugins help ChatGPT and Codex complete repeatable work with the
+right instructions, resources, and tools. They reduce the need to paste the
+same prompt, template, requirements, or process into every chat.
 
 - A **skill** packages instructions and supporting resources for a specific
   task or workflow.
@@ -12,13 +12,14 @@ prompt, template, requirements, or process into every chat.
 
 ## Use skills for repeatable work
 
-A skill is a reusable workflow that gives ChatGPT task-specific guidance. It
-can capture the way you already perform recurring work so ChatGPT follows the
-same process whenever that task comes up.
+A skill is a reusable workflow that gives ChatGPT or Codex task-specific
+guidance. It can capture the way you already perform recurring work so either
+product follows the same process whenever that task comes up.
 
 A skill can combine:
 
-- A name and description that help ChatGPT recognize when the skill applies.
+- A name and description that help ChatGPT and Codex recognize when the skill
+  applies.
 - Workflow instructions that define the process and expected result.
 - Supporting resources such as templates, examples, brand guidance, schemas,
   or connected tools.
@@ -32,30 +33,31 @@ Use skills to improve consistency, make team best practices available in the
 workflow, and share a standard process instead of relying on undocumented
 knowledge.
 
-ChatGPT can choose a skill when your request matches its purpose. You can also
-select one explicitly from the composer. ChatGPT supports `@` mentions, while
-Codex supports `$` mentions for skills.
+ChatGPT and Codex can choose a skill when your request matches its purpose. You
+can also select one explicitly. ChatGPT supports `@` mentions, while Codex
+supports `$` mentions for skills.
 
 ## Build skills
 
-You can start by turning a task you already repeat into a simple playbook for
-ChatGPT. Good first skills include a weekly update, a campaign brief, a meeting
-follow-up, or any task where the steps and format should stay consistent.
+You can start by turning a task you already repeat into a focused playbook for
+ChatGPT and Codex. Good first skills include a weekly update, a campaign brief,
+a meeting follow-up, or any task where the steps and format should stay
+consistent.
 
 To build a useful skill:
 
 1. **Choose one focused task.** Note what you normally start with, such as
    files, links, or notes, and what a finished result should look like.
-2. **Describe the workflow to ChatGPT.** Start a new chat with “Build me a
-   skill…” and explain the goal, the steps to follow, the expected format, and
-   anything it should always include or avoid. Add a template or a good example
-   when you have one.
+2. **Describe the workflow.** In ChatGPT, start with `@skill-creator`; in Codex,
+   use `$skill-creator`. Explain the goal, the steps to follow, the expected
+   format, and anything the skill should always include or avoid. Add a template
+   or a good example when you have one.
 3. **Review and try the draft.** Check the instructions, test the skill with a
    realistic request, and refine it if the result misses a step or drifts from
    the format you want.
-4. **Install and reuse it.** Once the skill is enabled, ChatGPT can use it for
-   relevant requests, or you can select it explicitly. You can also share it
-   with teammates when your workspace settings allow it.
+4. **Install and reuse it.** Once the skill is enabled, ChatGPT or Codex can use
+   it for relevant requests, or you can select it explicitly. You can also
+   share it with teammates when your workspace settings allow it.
 
 For more details on building skills, see our dedicated guide below.
 
@@ -63,7 +65,7 @@ For more details on building skills, see our dedicated guide below.
     <span slot="icon">
       <Tools />
     </span>
-    Create, test, and share reusable skills with Codex.
+    Create, test, and share reusable skills with ChatGPT and Codex.
   </IconItem>](https://learn.chatgpt.com/docs/build-skills)
 
 ## Use plugins for tools and shared workflows
@@ -72,9 +74,10 @@ Plugins make reusable capabilities easier to install and share. A plugin can
 combine skills with connectors for services such as GitHub, Google Drive, or
 Slack, and can include MCP servers for additional tools and context.
 
-Browse the Plugins Directory when you want to add an existing workflow instead
-of building one yourself. After installing a plugin, describe the task directly
-or type `@` to choose a specific plugin or bundled skill.
+ChatGPT and Codex share one universal plugin directory. Browse it when you want
+to add an existing workflow instead of building one yourself. After installing
+a plugin, describe the task directly or explicitly choose a plugin or bundled
+skill using the invocation syntax for your surface.
 
 [Learn how to install and use plugins](https://learn.chatgpt.com/docs/plugins).
 
@@ -87,11 +90,11 @@ connected services or other tools.
 You can also demonstrate a workflow with
 [Record & Replay](https://learn.chatgpt.com/docs/extend/record-and-replay), which turns the recording into a
 reusable skill. To package and distribute your own bundle, see
-[Build plugins](https://learn.chatgpt.com/docs/build-plugins).
+[Build plugins](https://developers.openai.com/plugins/build/plugins).
 
 If your plugin needs to connect to a service or expose MCP tools, see
-[Build an app](https://learn.chatgpt.com/docs/build-app). When your plugin is ready for public review,
-see [Submit plugins](https://learn.chatgpt.com/docs/submit-plugins).
+[Build an MCP server](https://developers.openai.com/plugins/build/mcp-server). When your plugin is ready for public review,
+see [Submit plugins](https://developers.openai.com/plugins/deploy/submission).
 
 For more examples of reusable workflows, see [Using skills in OpenAI
 Academy](https://openai.com/academy/skills/).
