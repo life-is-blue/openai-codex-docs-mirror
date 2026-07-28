@@ -1,5 +1,7 @@
 # Windows sandbox
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use Codex on Windows with the native [ChatGPT desktop app](https://learn.chatgpt.com/docs/windows/windows-app), the
 [CLI](https://learn.chatgpt.com/docs/codex/cli), or the [IDE extension](https://learn.chatgpt.com/docs/codex/ide).
 
@@ -19,21 +21,25 @@ workflows while enforcing bounded filesystem and network permissions.
   class="my-8"
 />
 
-<div class="mb-8">
+
+
   <CodexCallout
     href="/codex/windows/windows-app"
     title="Use the ChatGPT desktop app on Windows"
     description="Work across projects, run parallel chats, and review results in one place with the native Windows app."
     iconSrc="/images/codex/codex-banner-icon.webp"
   />
-</div>
+
+
 
 The native Windows sandbox has two modes:
 
 - natively on Windows with the stronger `elevated` sandbox,
 - natively on Windows with the fallback `unelevated` sandbox.
 
-<span id="windows-sandbox"></span>
+
+
+
 
 ## Configure the Windows sandbox
 
@@ -119,7 +125,9 @@ When a command fails because the Windows sandbox can't read a directory, use:
 
 The path must be an existing absolute directory. After the command succeeds, later commands that run in the sandbox can read that directory during the current session.
 
-<span id="windows-subsystem-for-linux"></span>
+
+
+
 
 Use the native Windows sandbox by default. Choose [WSL](https://learn.chatgpt.com/docs/windows/wsl)
 when you need Linux-native tooling, your workflow already lives in WSL2, or

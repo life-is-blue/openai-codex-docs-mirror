@@ -1,5 +1,7 @@
 # Personalize ChatGPT
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Personalize ChatGPT so its responses and working style better match your
 preferences. You control which personalization features are enabled and can
 change them at any time in the ChatGPT desktop app settings.

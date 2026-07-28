@@ -1,7 +1,6 @@
 # Models
 
-<div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_14rem] lg:items-start">
-  <div class="min-w-0">
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
 ## Choose a model
 
@@ -12,14 +11,16 @@ Higher reasoning effort can improve results for complex tasks, but it takes
 longer and uses more tokens. Start with the default effort and increase it when
 the task needs deeper planning or analysis.
 
-<strong className="text-[#8756e8] dark:text-[#bda4ff]">Ultra</strong> mode goes
+**Ultra** mode goes
 beyond a single-agent run. It uses
 [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) to accelerate complex work,
 making it useful for larger tasks that can be split across subagents.
 
-  </div>
+  
+
   <CodexModelSwitcher client:visible className="lg:mt-7" />
-</div>
+
+
 
 
 
@@ -39,7 +40,8 @@ making it useful for larger tasks that can be split across subagents.
 
 ## Recommended models
 
-<div class="not-prose grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+
+
   <ModelDetails
     client:load
     name="gpt-5.6-sol"
@@ -220,7 +222,8 @@ making it useful for larger tasks that can be split across subagents.
   />
 
 
-</div>
+
+
 
 Start with the default Power setting, which uses `gpt-5.6-sol` with medium
   reasoning. Move toward **Smarter** for deeper reasoning or **Faster** for
@@ -282,7 +285,8 @@ If Ultra doesn't appear in the desktop app's model slider, go to
 When you sign in with ChatGPT, Codex works best with the recommended models listed above.
 
 <ToggleSection title="View other models">
-  <div class="not-prose grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+  
+
     <ModelDetails
       client:load
       name="gpt-5.4"
@@ -352,7 +356,8 @@ When you sign in with ChatGPT, Codex works best with the recommended models list
       }}
     />
 
-  </div>
+  
+
 </ToggleSection>
 
 You can also point Codex at any model and provider that supports either the [Chat Completions](https://platform.openai.com/docs/api-reference/chat) or [Responses APIs](https://platform.openai.com/docs/api-reference/responses) to fit your specific use case.

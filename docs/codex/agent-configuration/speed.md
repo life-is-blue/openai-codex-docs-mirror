@@ -1,6 +1,8 @@
 # Speed
 
-<strong>ChatGPT Work and Codex share usage.</strong> Both use the same
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
+**ChatGPT Work and Codex share usage.** Both use the same
   pricing, credits, and usage limits. See [Codex pricing](https://learn.chatgpt.com/docs/pricing) for
   details.
 

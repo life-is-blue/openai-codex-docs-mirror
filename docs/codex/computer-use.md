@@ -1,5 +1,7 @@
 # Computer Use
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 In supported regions, Computer Use in the ChatGPT desktop app is available on
   macOS and Windows with ChatGPT Work and Codex. Install the Computer Use
   plugin. On macOS, grant Screen Recording and Accessibility permissions when

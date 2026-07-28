@@ -1,5 +1,7 @@
 # Roles and workspace permissions
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Administration spans six control boundaries. Granting access at one boundary
 doesn't grant access at another. Use this page as the canonical map,
 then follow the linked source for current settings and procedures.

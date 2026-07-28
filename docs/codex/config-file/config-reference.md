@@ -1,5 +1,7 @@
 # Configuration Reference
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use this page as a searchable reference for Codex configuration files. For conceptual guidance and examples, start with [Config basics](https://learn.chatgpt.com/docs/config-file/config-basic) and [Advanced Config](https://learn.chatgpt.com/docs/config-file/config-advanced).
 
 ## `config.toml`
@@ -432,6 +434,12 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
       type: "array<table>",
       description:
         "Hook handlers for a matcher group. Command hooks are currently supported; prompt and agent hook handlers are parsed but skipped.",
+    },
+    {
+      key: "hooks.<Event>[].hooks[].additionalContextLimit",
+      type: "integer",
+      description:
+        "Approximate per-handler token threshold for saving oversized `additionalContext` to disk and showing the model a shorter preview. Defaults to `2500`; `0` passes the full context directly to the model. See [Large hook output](https://learn.chatgpt.com/docs/hooks#large-hook-output).",
     },
     {
       key: "hooks.<Event>[].hooks[].commandWindows",
@@ -1983,6 +1991,12 @@ model fields; `service_tier` is independent.
       type: "array<table>",
       description:
         "Hook handlers for a matcher group. Command hooks are currently supported; prompt and agent hook handlers are parsed but skipped.",
+    },
+    {
+      key: "hooks.<Event>[].hooks[].additionalContextLimit",
+      type: "integer",
+      description:
+        "Approximate per-handler token threshold for saving oversized `additionalContext` to disk and showing the model a shorter preview. Defaults to `2500`; `0` passes the full context directly to the model. See [Large hook output](https://learn.chatgpt.com/docs/hooks#large-hook-output).",
     },
     {
       key: "hooks.<Event>[].hooks[].commandWindows",

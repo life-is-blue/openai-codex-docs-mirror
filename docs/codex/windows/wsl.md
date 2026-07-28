@@ -1,5 +1,7 @@
 # WSL
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 When you use WSL2, Codex runs inside the Linux environment instead of using the
 native [Windows sandbox](https://learn.chatgpt.com/docs/windows/windows-sandbox). Choose WSL2 when you need Linux-native
 tooling, your repositories and developer workflow already live in WSL2, or
@@ -33,9 +35,9 @@ This opens a WSL remote window, installs the VS Code Server if needed, and ensur
 - Integrated terminals should display Linux paths (such as `/home/...`) instead of `C:\`.
 - You can verify with:
 
-  ```bash
+```bash
   echo $WSL_DISTRO_NAME
-  ```
+```
 
   This prints your distribution name.
 
@@ -44,7 +46,7 @@ If you don't see "WSL: ..." in the status bar, press `Ctrl+Shift+P`, pick
   `C:\`) for best performance.
 
 If the Windows app or project picker does not show your WSL repository, type
-  <code>\\wsl$</code> into the file picker or Explorer, then navigate to your
+  `\\wsl$` into the file picker or Explorer, then navigate to your
   distro's home directory.
 
 ## Use Codex CLI with WSL
@@ -69,24 +71,24 @@ codex
 
 ## Work on code inside WSL
 
-- Working in Windows-mounted paths like <code>/mnt/c/...</code> can be slower than working in Windows-native paths. Keep your repositories under your Linux home directory (like <code>~/code/my-app</code>) for faster I/O and fewer symlink and permission issues:
-  ```bash
+- Working in Windows-mounted paths like `/mnt/c/...` can be slower than working in Windows-native paths. Keep your repositories under your Linux home directory (like `~/code/my-app`) for faster I/O and fewer symlink and permission issues:
+```bash
   mkdir -p ~/code && cd ~/code
   git clone https://github.com/your/repo.git
   cd repo
-  ```
-- If you need Windows access to files, they're under <code>\\wsl$\Ubuntu\home\&lt;user&gt;</code> in Explorer.
+```
+- If you need Windows access to files, they're under `\\wsl$\Ubuntu\home\&lt;user&gt;` in Explorer.
 
 ## Troubleshooting and FAQ
 
 Large repositories feel slow in WSL
 
-- Make sure you're not working under <code>/mnt/c</code>. Move the repository to WSL (for example, <code>~/code/...</code>).
+- Make sure you're not working under `/mnt/c`. Move the repository to WSL (for example, `~/code/...`).
 - Increase memory and CPU for WSL if needed; update WSL to the latest version:
-  ```powershell
+```powershell
   wsl --update
   wsl --shutdown
-  ```
+```
 
 VS Code in WSL cannot find codex
 

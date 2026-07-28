@@ -1,5 +1,7 @@
 # Developers
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 <CodexDocsOverviewLanding
   title="Developers"
   description="Use Codex with codebases, development environments, automation, and your team's tools."

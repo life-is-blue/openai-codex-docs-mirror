@@ -1,5 +1,7 @@
 # Sandbox
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The sandbox is the boundary that lets the agent act autonomously without giving it
 unrestricted access to your machine. When a local chat runs commands in the
 **ChatGPT desktop app**, **Codex CLI**, or **IDE extension**, those commands run inside a
@@ -59,21 +61,25 @@ On **Linux and WSL2**, install `bubblewrap` with your package manager first:
     { id: "fedora", label: "Fedora" },
   ]}
 >
-  <div slot="ubuntu-debian">
+  
+
 
 ```bash
 sudo apt install bubblewrap
 ```
 
-  </div>
+  
 
-  <div slot="fedora">
+
+  
+
 
 ```bash
 sudo dnf install bubblewrap
 ```
 
-  </div>
+  
+
 </Tabs>
 
 Codex uses the first `bwrap` executable it finds on `PATH`. If no `bwrap`

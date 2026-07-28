@@ -1,5 +1,7 @@
 # ChatGPT desktop app for Windows
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The [ChatGPT desktop app for Windows](https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi) gives you one interface for
 working across projects, running parallel chats, and reviewing results.
 The Windows app supports core workflows such as worktrees, scheduled tasks, Git
@@ -48,7 +50,8 @@ Running Codex in full access mode means Codex is not limited to your project
 
 <section class="feature-grid">
 
-<div>
+
+
 
 ### Preferred editor
 
@@ -57,7 +60,8 @@ editor. You can override that choice per project. If you already picked a
 different app from the **Open** menu for a project, that project-specific
 choice takes precedence.
 
-</div>
+
+
 
 <CodexScreenshot
   alt="ChatGPT desktop app settings showing the default Open In app on Windows"
@@ -71,7 +75,8 @@ choice takes precedence.
 
 <section class="feature-grid inverse">
 
-<div>
+
+
 
 ### Integrated terminal
 
@@ -87,7 +92,8 @@ This change applies only to new terminal sessions. If you already have an
 integrated terminal open, restart the app or start a new chat before
 expecting the new default terminal to appear.
 
-</div>
+
+
 
 <CodexScreenshot
   alt="ChatGPT desktop app settings showing the integrated terminal selection on Windows"

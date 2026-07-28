@@ -1,5 +1,7 @@
 # Model Context Protocol
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Model Context Protocol (MCP) connects models to tools and context. Use it to
 give ChatGPT or Codex access to third-party documentation, or to let it
 interact with developer tools like your browser or Figma.

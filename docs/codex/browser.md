@@ -1,5 +1,7 @@
 # Browser
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Browser lets ChatGPT open websites, gather current information, and take action
 while you stay in control. Use it to compare options, complete a multi-step task
 on a website, or review a page you're building.
@@ -110,7 +112,8 @@ it stays inside the chart bounds.
 
 <section class="feature-grid">
 
-<div>
+
+
 
 ### Styling feedback
 
@@ -119,7 +122,8 @@ the text input to give ChatGPT more granular style feedback. You can change
 values such as font, text, spacing, and color, preview the result on the page,
 and then send the annotation with a clearer target.
 
-</div>
+
+
 
 <CodexScreenshot
   alt="ChatGPT desktop app showing built-in browser annotation style controls"
@@ -146,7 +150,8 @@ inspect the changes and leave comments.
 
 <section class="feature-grid">
 
-<div>
+
+
 
 ## Developer mode
 
@@ -177,7 +182,8 @@ This app is slow. Use @Browser to capture a performance trace and inspect
 network traffic, then identify the bottleneck.
 ```
 
-</div>
+
+
 
 <CodexScreenshot
   alt="ChatGPT desktop app Browser settings showing Developer mode with full CDP access enabled"

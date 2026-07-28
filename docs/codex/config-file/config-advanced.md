@@ -1,5 +1,7 @@
 # Advanced Configuration
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use these options when you need more control over providers, policies, and integrations. For a quick start, see [Config basics](https://learn.chatgpt.com/docs/config-file/config-basic).
 
 For background on project guidance, reusable capabilities, custom slash commands, subagent workflows, and integrations, see [Customization](https://learn.chatgpt.com/docs/customization/overview). For configuration keys, see [Configuration Reference](https://learn.chatgpt.com/docs/config-file/config-reference).
@@ -335,7 +337,7 @@ In workspace-write mode, some environments keep `.git/` and `.codex/`
   commands like `git commit` may still require approval to run outside the
   sandbox. If you want Codex to skip specific commands (for example, block `git
   commit` outside the sandbox), use
-  <a href="/codex/agent-configuration/rules">rules</a>.
+  [rules](https://learn.chatgpt.com/docs/agent-configuration/rules).
 
 Disable sandboxing entirely (use only if your environment already isolates processes):
 

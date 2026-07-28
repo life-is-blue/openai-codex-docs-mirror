@@ -1,5 +1,7 @@
 # Developer settings
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The Codex IDE extension has two settings layers:
 
 - **Codex settings** control agent behavior shared with Codex CLI, including the

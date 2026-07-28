@@ -1,5 +1,7 @@
 # Build skills
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use agent skills to extend ChatGPT and Codex with task-specific capabilities. A
 skill packages instructions, resources, and optional scripts so either product
 can follow a workflow reliably. Skills build on the

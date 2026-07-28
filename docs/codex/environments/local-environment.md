@@ -1,5 +1,7 @@
 # Local environments
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Local environments let you configure setup steps for worktrees as well as common actions for a project.
 
 Local environments are available only in Codex in the ChatGPT desktop app.
@@ -30,12 +32,14 @@ If your setup is platform-specific, define setup scripts for macOS, Windows, or 
 
 <section class="feature-grid">
 
-<div>
+
+
 Use actions to define common tasks like starting your app's development server or running your test suite. These actions appear in the ChatGPT desktop app top bar for quick access. The actions run within the app's [integrated terminal](https://learn.chatgpt.com/docs/integrated-terminal).
 
 Actions are helpful to keep you from typing common actions like triggering a build for your project or starting a development server. For one-off quick debugging you can use the integrated terminal directly.
 
-</div>
+
+
 
 <CodexScreenshot
   alt="Project actions list shown in ChatGPT desktop app settings"
@@ -59,9 +63,11 @@ To identify your actions, choose an icon associated with each action.
 
 ## Use built-in Git tools
 
-<div class="my-8 grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(16rem,42%)] md:items-center">
 
-<div>
+
+
+
+
 
 In Codex, the ChatGPT desktop app provides common Git controls alongside each
 local project and worktree. The diff pane shows changes in the current checkout
@@ -73,10 +79,9 @@ Use the [integrated terminal](https://learn.chatgpt.com/docs/integrated-terminal
 operations that aren't exposed in the app. To isolate concurrent changes from
 your local checkout, start the task in a [worktree](https://learn.chatgpt.com/docs/environments/git-worktrees).
 
-</div>
+
+
 
 <Illustration description="Codex environment summary panel">
   <EnvironmentPanelIllustration ariaLabel="Codex environment summary panel" />
 </Illustration>
-
-</div>

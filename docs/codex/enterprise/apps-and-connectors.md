@@ -1,5 +1,7 @@
 # Plugin controls
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 A plugin extends ChatGPT and Codex by packaging skills and optional connectors
 so teams can distribute workflows and knowledge. The products share one
 universal plugin directory, while admins control availability and installation

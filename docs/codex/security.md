@@ -1,5 +1,7 @@
 # Codex Security
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 <CtaPillLink
   href="https://chatgpt.com/plugins/share/676aca3811d54fa7bcdef5255236b3c4"
   label="Install plugin in ChatGPT"

@@ -1,6 +1,8 @@
 # Pricing
 
-<strong>ChatGPT Work and Codex share usage.</strong> ChatGPT Work usage inside
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
+**ChatGPT Work and Codex share usage.** ChatGPT Work usage inside
   ChatGPT uses the same pricing, credits, and usage limits as Codex.
 
 <h2 class="sr-only">Pricing options</h2>
@@ -19,8 +21,10 @@
     },
   ]}
 >
-  <div data-content-switcher-pane data-value="individual">
-    <div class="codex-pricing-grid">
+  
+
+    
+
       <PricingCard
         name="Free"
         subtitle="Explore Codex capabilities on quick coding tasks."
@@ -90,12 +94,16 @@
         - Pay only for the tokens Codex uses, based on [API
           pricing](https://platform.openai.com/docs/pricing)
       </PricingCard>
-    </div>
+    
 
-  </div>
 
-  <div data-content-switcher-pane data-value="business-enterprise" hidden>
-    <div class="codex-pricing-grid">
+  
+
+
+  
+
+    
+
       <PricingCard
         name="Business"
         subtitle="Bring Codex into your startup or growing business."
@@ -133,9 +141,11 @@
         - Other [ChatGPT features](https://chatgpt.com/pricing) as part of the
           Enterprise plan
       </PricingCard>
-    </div>
+    
 
-    <div class="mt-8 mb-10 codex-pricing-grid">
+
+    
+
       <PricingCard
         class="codex-pricing-card--span-two"
         name="API Key"
@@ -152,9 +162,11 @@
         - Pay only for the tokens Codex uses, based on [API
           pricing](https://platform.openai.com/docs/pricing)
       </PricingCard>
-    </div>
+    
 
-  </div>
+
+  
+
 </ContentSwitcher>
 
 ## Invite friends and coworkers
@@ -205,7 +217,8 @@ Choose the GPT-5.6 model that best fits your work:
 - **Luna** is optimized for speed and affordability, making it a good fit for
   lighter-weight or high-volume workloads.
 
-<div id="usage-limits">
+
+
   <ContentSwitcher
     id="codex-usage-limits"
     initialValue="plus"
@@ -233,8 +246,11 @@ Choose the GPT-5.6 model that best fits your work:
       },
     ]}
   >
-    <div data-content-switcher-pane data-value="plus">
-      <div class="hidden">Plus</div>
+    
+
+      
+Plus
+
 
       <table>
         <thead>
@@ -313,9 +329,13 @@ Choose the GPT-5.6 model that best fits your work:
           </tr>
         </tfoot>
       </table>
-    </div>
-    <div data-content-switcher-pane data-value="pro" hidden>
-      <div class="hidden">Pro 5x</div>
+    
+
+    
+
+      
+Pro 5x
+
 
       <table>
         <thead>
@@ -394,9 +414,13 @@ Choose the GPT-5.6 model that best fits your work:
           </tr>
         </tfoot>
       </table>
-    </div>
-    <div data-content-switcher-pane data-value="pro-20x" hidden>
-      <div class="hidden">Pro 20x</div>
+    
+
+    
+
+      
+Pro 20x
+
 
       <table>
         <thead>
@@ -475,9 +499,13 @@ Choose the GPT-5.6 model that best fits your work:
           </tr>
         </tfoot>
       </table>
-    </div>
-    <div data-content-switcher-pane data-value="business" hidden>
-      <div class="hidden">Business</div>
+    
+
+    
+
+      
+Business
+
 
       <table>
         <thead>
@@ -556,9 +584,13 @@ Choose the GPT-5.6 model that best fits your work:
           </tr>
         </tfoot>
       </table>
-    </div>
-    <div data-content-switcher-pane data-value="api-key" hidden>
-      <div class="hidden">API Key</div>
+    
+
+    
+
+      
+API Key
+
 
       <table>
         <thead>
@@ -649,10 +681,12 @@ Choose the GPT-5.6 model that best fits your work:
           </tr>
         </tfoot>
       </table>
-    </div>
+    
+
 
   </ContentSwitcher>
-</div>
+
+
 
 Usage limits are shared with other agentic features once pricing for those
 features is effective. This currently includes [ChatGPT for
@@ -755,7 +789,8 @@ card until we migrate you to the new token-based pricing. For more information,
 [contact OpenAI
 sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_codex).
 
-<div id="credits-overview">
+
+
   <table>
     <thead>
       <tr>
@@ -836,12 +871,13 @@ sales](https://chatgpt.com/contact-sales?utm_internal_source=openai_developers_c
       <tr>
         <td colspan="4" style="text-align:center">
           Fast mode consumes credits at a higher rate for supported models. See
-          <a href="/codex/agent-configuration/speed">Speed</a> for rates.
+          [Speed](https://learn.chatgpt.com/docs/agent-configuration/speed) for rates.
         </td>
       </tr>
     </tfoot>
   </table>
-</div>
+
+
 
 Speed configurations will increase credit consumption for all models that apply.
 Fast mode consumes credits at a higher rate for supported models. See
@@ -1630,10 +1666,10 @@ efficiently](https://learn.chatgpt.com/docs/prompting#use-work-efficiently).
 >
   <sup>*</sup> Feature is currently limited to only specific regions. Check the
   individual feature documentation to learn more about geo restrictions.
-</div>
+
+
 <div
   id="codex-plan-plugin-limits"
   className="not-prose mt-1 text-sm text-secondary"
 >
   <sup>†</sup> Some first party plugins are not available.
-</div>

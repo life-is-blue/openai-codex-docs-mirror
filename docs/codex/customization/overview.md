@@ -1,5 +1,7 @@
 # Customization
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Customization is how you make Codex work the way your team works.
 
 In Codex, customization comes from a few layers that work together:

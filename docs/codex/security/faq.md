@@ -1,5 +1,7 @@
 # Codex Security cloud FAQ
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 This FAQ covers Codex Security cloud. For local scans and workflows that run in
 a Codex task, see the [Codex Security plugin quickstart](https://learn.chatgpt.com/docs/security/plugin).
 

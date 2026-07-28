@@ -1,5 +1,7 @@
 # Compliance API and audit events
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use the Compliance API for security, legal, governance, and investigation
 workflows that require auditable records. Use analytics, not compliance records,
 to measure adoption and trends.

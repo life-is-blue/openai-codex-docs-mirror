@@ -1,5 +1,7 @@
 # Groups and provisioning
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Groups organize ChatGPT workspace access for a set of members and can carry
 custom roles. Group membership is separate from local runtime policy and
 permissions in connected systems.

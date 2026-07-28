@@ -1,5 +1,7 @@
 # Admin rollout guide
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use this guide to plan a ChatGPT Enterprise rollout across these administration
 boundaries:
 

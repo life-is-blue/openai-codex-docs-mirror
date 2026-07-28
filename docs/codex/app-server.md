@@ -1,9 +1,11 @@
 # Codex App Server
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Codex app-server is the interface Codex uses to power rich clients (for example, the Codex VS Code extension). Use it when you want a deep integration inside your own product: authentication, conversation history, approvals, and streamed agent events. The app-server implementation is open source in the Codex GitHub repository ([openai/codex/codex-rs/app-server](https://github.com/openai/codex/tree/main/codex-rs/app-server)). See the [Open Source](https://learn.chatgpt.com/docs/open-source) page for the full list of open-source Codex components.
 
 If you are automating jobs or running Codex in CI, use the
-  <a href="/codex/codex-sdk">Codex SDK</a> instead.
+  [Codex SDK](https://learn.chatgpt.com/docs/codex-sdk) instead.
 
 ## Connect the CLI terminal UI
 
@@ -1843,41 +1845,41 @@ Field notes:
 
 1. Send:
 
-   ```json
+```json
    {
      "method": "account/login/start",
      "id": 2,
      "params": { "type": "apiKey", "apiKey": "sk-..." }
    }
-   ```
+```
 
 2. Expect:
 
-   ```json
+```json
    { "id": 2, "result": { "type": "apiKey" } }
-   ```
+```
 
 3. Notifications:
 
-   ```json
+```json
    {
      "method": "account/login/completed",
      "params": { "loginId": null, "success": true, "error": null }
    }
-   ```
+```
 
-   ```json
+```json
    {
      "method": "account/updated",
      "params": { "authMode": "apikey", "planType": null }
    }
-   ```
+```
 
 ### 3) Log in with ChatGPT (browser flow)
 
 1. Start:
 
-   ```json
+```json
    {
      "method": "account/login/start",
      "id": 3,
@@ -1887,7 +1889,7 @@ Field notes:
        "appBrand": "chatgpt"
      }
    }
-   ```
+```
 
    By default, a successful browser callback redirects to a local success page.
    Set `useHostedLoginSuccessPage: true` to use the hosted success page when
@@ -1895,7 +1897,7 @@ Field notes:
    can be `"codex"` or `"chatgpt"`; omitted or `null` values default to
    `"codex"`.
 
-   ```json
+```json
    {
      "id": 3,
      "result": {
@@ -1904,24 +1906,24 @@ Field notes:
        "authUrl": "https://chatgpt.com/...&redirect_uri=http%3A%2F%2Flocalhost%3A<port>%2Fauth%2Fcallback"
      }
    }
-   ```
+```
 
 2. Open `authUrl` in a browser; the app-server hosts the local callback.
 3. Wait for notifications:
 
-   ```json
+```json
    {
      "method": "account/login/completed",
      "params": { "loginId": "<uuid>", "success": true, "error": null }
    }
-   ```
+```
 
-   ```json
+```json
    {
      "method": "account/updated",
      "params": { "authMode": "chatgpt", "planType": "plus" }
    }
-   ```
+```
 
 ### 3b) Log in with ChatGPT (device-code flow)
 
@@ -1929,15 +1931,15 @@ Use this flow when your client owns the sign-in ceremony or when a browser callb
 
 1. Start:
 
-   ```json
+```json
    {
      "method": "account/login/start",
      "id": 4,
      "params": { "type": "chatgptDeviceCode" }
    }
-   ```
+```
 
-   ```json
+```json
    {
      "id": 4,
      "result": {
@@ -1947,24 +1949,24 @@ Use this flow when your client owns the sign-in ceremony or when a browser callb
        "userCode": "ABCD-1234"
      }
    }
-   ```
+```
 
 2. Show `verificationUrl` and `userCode` to the user; the frontend owns the UX.
 3. Wait for notifications:
 
-   ```json
+```json
    {
      "method": "account/login/completed",
      "params": { "loginId": "<uuid>", "success": true, "error": null }
    }
-   ```
+```
 
-   ```json
+```json
    {
      "method": "account/updated",
      "params": { "authMode": "chatgpt", "planType": "plus" }
    }
-   ```
+```
 
 ### 3c) Log in with externally managed ChatGPT tokens (`chatgptAuthTokens`)
 
@@ -1972,7 +1974,7 @@ Use this experimental mode only when a host application owns the user's ChatGPT 
 
 1. Send:
 
-   ```json
+```json
    {
      "method": "account/login/start",
      "id": 7,
@@ -1983,29 +1985,29 @@ Use this experimental mode only when a host application owns the user's ChatGPT 
        "chatgptPlanType": "business"
      }
    }
-   ```
+```
 
 2. Expect:
 
-   ```json
+```json
    { "id": 7, "result": { "type": "chatgptAuthTokens" } }
-   ```
+```
 
 3. Notifications:
 
-   ```json
+```json
    {
      "method": "account/login/completed",
      "params": { "loginId": null, "success": true, "error": null }
    }
-   ```
+```
 
-   ```json
+```json
    {
      "method": "account/updated",
      "params": { "authMode": "chatgptAuthTokens", "planType": "business" }
    }
-   ```
+```
 
 When the server receives a `401 Unauthorized`, it may request refreshed tokens from the host app:
 

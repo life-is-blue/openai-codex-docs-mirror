@@ -1,5 +1,7 @@
 # Skill controls
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Skills are reusable workflows made from instructions and supporting resources.
 ChatGPT workspace Skills, filesystem skills used by covered local capabilities
 in the ChatGPT desktop app, Codex CLI, or IDE extension, and plugins that

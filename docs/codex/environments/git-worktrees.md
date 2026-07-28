@@ -1,5 +1,7 @@
 # Worktrees
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 In the ChatGPT desktop app, worktrees let Codex run multiple independent chats in the same project without interfering with each other. For Git repositories, [scheduled tasks](https://learn.chatgpt.com/docs/automations) can run on dedicated background worktrees so they don't conflict with your ongoing work. In non-version-controlled projects, scheduled tasks run directly in the project directory. You can also start chats in a worktree manually and use Handoff to move a chat between Local and Worktree.
 
 Worktrees are available only in Codex in the ChatGPT desktop app. Select
@@ -59,9 +61,11 @@ In practice, there are two common paths:
 
 ### Option 1: Working on the worktree
 
-<div class="feature-grid">
 
-<div>
+
+
+
+
 
 If you want to stay exclusively on the worktree with your changes, turn your worktree into a branch using the **Create branch here** button in the chat header.
 
@@ -69,7 +73,8 @@ From here you can commit your changes, push your branch to your remote repositor
 
 You can open your IDE to the worktree using the "Open" button in the header, use the integrated terminal, or anything else that you need to do from the worktree directory.
 
-</div>
+
+
 
 <CodexScreenshot
   alt="Worktree chat view with branch controls and worktree details"
@@ -79,7 +84,8 @@ You can open your IDE to the worktree using the "Open" button in the header, use
   class="mb-4 lg:mb-0"
 />
 
-</div>
+
+
 
 Remember, if you create a branch on a worktree, you can't check it out in any other worktree, including your local checkout.
 
@@ -89,9 +95,11 @@ Remember, if you create a branch on a worktree, you can't check it out in any ot
 
 ### Option 2: Handing a chat off to Local
 
-<div class="feature-grid">
 
-<div>
+
+
+
+
 
 If you want to bring a chat into the foreground, select **Hand off** in the chat header and move it to **Local**.
 
@@ -101,7 +109,8 @@ Codex handles the Git steps required to move the chat safely between the worktre
 
 Each chat keeps the same associated worktree over time. If you hand the chat back to a worktree later, Codex returns it to that same background environment so you can pick up where you left off.
 
-</div>
+
+
 
 <CodexScreenshot
   alt="Handoff dialog moving a chat from a worktree to Local"
@@ -111,7 +120,8 @@ Each chat keeps the same associated worktree over time. If you hand the chat bac
   class="mb-4 lg:mb-0"
 />
 
-</div>
+
+
 
 You can also go the other direction. If you're already working in Local and want to free up the foreground, use **Hand off** to move the chat to a worktree. This is useful when you want Codex to keep working in the background while you switch your attention back to something else locally.
 

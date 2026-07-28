@@ -1,5 +1,7 @@
 # Skills & Plugins
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Skills and plugins help ChatGPT and Codex complete repeatable work with the
 right instructions, resources, and tools. They reduce the need to paste the
 same prompt, template, requirements, or process into every chat.
@@ -61,12 +63,14 @@ To build a useful skill:
 
 For more details on building skills, see our dedicated guide below.
 
-[<IconItem title="Build skills" className="mt-4">
-    <span slot="icon">
+[Build skills
+
+
+
       <Tools />
-    </span>
-    Create, test, and share reusable skills with ChatGPT and Codex.
-  </IconItem>](https://learn.chatgpt.com/docs/build-skills)
+    
+
+    Create, test, and share reusable skills with ChatGPT and Codex.](https://learn.chatgpt.com/docs/build-skills)
 
 ## Use plugins for tools and shared workflows
 

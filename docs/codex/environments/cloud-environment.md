@@ -1,5 +1,7 @@
 # Cloud environments
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use environments to control what Codex installs and runs during cloud chats. For example, you can add dependencies, install tools like linters and formatters, and set environment variables.
 
 Configure environments in [Codex settings](https://chatgpt.com/codex/settings/environments).

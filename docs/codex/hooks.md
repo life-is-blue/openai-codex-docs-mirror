@@ -1,5 +1,7 @@
 # Hooks
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Hooks are an extensibility framework for Codex. They allow
 you to inject your own scripts into the agentic loop, enabling features such as:
 
@@ -94,7 +96,8 @@ Hooks are organized in three levels:
           {
             "type": "command",
             "command": "python3 ~/.codex/hooks/session_start.py",
-            "statusMessage": "Loading session notes"
+            "statusMessage": "Loading session notes",
+            "additionalContextLimit": 5000
           }
         ]
       }
@@ -179,6 +182,9 @@ Notes:
 - If `timeout` is omitted, Codex uses `600` seconds for most hooks.
   - `SessionEnd` uses `1` second by default and supports up to `3` seconds.
 - `statusMessage` is optional.
+- `additionalContextLimit` sets how much `additionalContext` a command hook can
+  send to the model before Codex saves the full text to disk and sends a shorter
+  preview instead. See [Large hook output](#large-hook-output).
 - `commandWindows` is an optional Windows-only command override. In TOML, use
   `command_windows` or `commandWindows`.
 - The `async` option is parsed, but asynchronous command hooks aren't supported
@@ -193,6 +199,14 @@ Notes:
 Equivalent inline TOML in `config.toml`:
 
 ```toml
+[[hooks.SessionStart]]
+matcher = "^compact$"
+
+[[hooks.SessionStart.hooks]]
+type = "command"
+command = '/usr/bin/python3 "$(git rev-parse --show-toplevel)/.codex/hooks/session_start.py"'
+additionalContextLimit = 5000
+
 [[hooks.PreToolUse]]
 matcher = "^Bash$"
 
@@ -421,18 +435,41 @@ that hook run as failed, reports the error, and continues the tool call.
 
 ### Large hook output
 
-Codex limits each model-visible hook-output message to roughly 2,500 tokens.
-If a hook returns more, Codex saves the full text under
+By default, Codex limits each model-visible hook-output message to roughly
+2,500 tokens. If a hook returns more, Codex saves the full text under
 `<temp_dir>/hook_outputs/<session_id>/<uuid>.txt` and gives the model a
-head-and-tail preview with the saved-file path. If the file can't be written,
-the model still receives a truncated preview.
+head-and-tail preview with the saved-file path. This behavior is called
+**spilling**: Codex stores oversized output on disk and replaces it with a
+shorter, model-visible preview. If the file can't be written, the model still
+receives a truncated preview.
 
-This applies to additional context from `SessionStart`, `SubagentStart`,
-`PreToolUse`, `PostToolUse`, and `UserPromptSubmit`, feedback from
-`PostToolUse`, and continuation prompts from `Stop` and `SubagentStop`. The
-limit applies to each additional-context entry or continuation prompt. For
-`PostToolUse` feedback, Codex combines feedback from all matching hooks and
-applies the limit to the combined message.
+Keep hook and plugin context concise. Context from multiple hooks and plugins
+  adds up and can degrade model performance. Raising `additionalContextLimit`
+  increases that risk. Avoid setting the limit to `0` unless the hook enforces a
+  strict output cap; otherwise, a single hook can consume the entire context
+  window.
+
+For any command hook that returns `additionalContext`, set
+`additionalContextLimit` on the handler to customize the approximate token
+threshold:
+
+```json
+{
+  "type": "command",
+  "command": "python3 ~/.codex/hooks/session_start.py",
+  "additionalContextLimit": 5000
+}
+```
+
+Omit `additionalContextLimit` to use the default `2500`-token threshold. Use a
+positive integer to select a different threshold, or `0` to pass the handler's
+complete additional context directly to the model. Codex evaluates each
+matching handler independently. For events that can't produce additional
+context, Codex ignores `additionalContextLimit` and reports a configuration
+warning.
+
+The setting applies only to `additionalContext`. Tool feedback and continuation
+prompts keep the default limit.
 
 Because oversized output can be written to disk, avoid returning secrets or
 other sensitive data in hook output.
@@ -464,6 +501,13 @@ hook-specific shape:
 ```
 
 That `additionalContext` text is added as extra developer context.
+
+After Codex compacts a root session, `SessionStart` hooks that match
+`source: "compact"` run before the next model request. This also applies when
+automatic compaction happens in the middle of a turn: Codex delivers the hook's
+additional context to the immediate continuation instead of waiting for a
+later user turn. If the hook returns `continue: false`, Codex ends the turn
+without sending another model request.
 
 ### SessionEnd
 
@@ -890,3 +934,7 @@ The linked `main` branch schemas may include hook fields that are not in the
 
 If you need the exact current wire format, see the generated schemas in the
 [Codex GitHub repository](https://github.com/openai/codex/tree/main/codex-rs/hooks/schema/generated).
+
+### Plain-text aliases
+
+- string | null

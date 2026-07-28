@@ -1,13 +1,18 @@
 # Pets
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Pets are optional animated companions for following work. Where a pet appears
 and what it shows depend on the interface you use. Choosing a pet changes its
 appearance, not how ChatGPT completes tasks.
 
-<div class="flow-root">
-  <div class="w-full md:float-right md:ml-6 md:w-64 xl:w-72">
+
+
+  
+
     <CodexPetsDemo client:load mobileAlignment="left" />
-  </div>
+  
+
 
 
 
@@ -76,7 +81,8 @@ motion is enabled, the pet uses a still frame instead of sprite animation.
 
 
 
-</div>
+
+
 
 ## Related docs
 

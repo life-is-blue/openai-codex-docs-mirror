@@ -1,10 +1,13 @@
 # Run a deep security scan
 
-A deep scan is slower but more thorough than a standard scan. Use it when you
-want to reduce variability and search more comprehensively.
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-Start with a [standard scan](https://learn.chatgpt.com/docs/security/plugin/scans). Once you're
-satisfied with the results, run a deep scan for a more thorough assessment.
+Run a deep scan when you need a more thorough review and can allow for a longer
+runtime. Deep scans search a repository more extensively and can reduce
+variability between runs.
+
+Start with a [standard scan](https://learn.chatgpt.com/docs/security/plugin/scans) to check your scope
+and results. Then use a deep scan when you need a more thorough assessment.
 
 ## Choose between standard and deep scans
 
@@ -30,8 +33,8 @@ For one component in a monorepo, identify the folder explicitly:
 Use $codex-security:deep-security-scan to run a deep security scan of /absolute/path/to/repository/services/payments.
 ```
 
-In the ChatGPT desktop app, a scoped deep scan resolves the selected folder as the
-**Codebase** and shows its scan area as the entire selected target.
+For a scoped deep scan in the ChatGPT desktop app, the selected folder becomes
+the **Codebase**. The scan area covers the entire selected folder.
 
 ## Confirm setup and preflight
 
@@ -53,6 +56,13 @@ Deep scans require delegated workers and at least six usable worker slots. If
 the current runtime doesn't meet those requirements, use a standard scan or
 move the task to a runtime that passes the capability preflight.
 
+On supported desktop-app versions, discovery workers inherit your selected
+model and reasoning settings. Keep the scan active until Codex reports that it
+is complete. Reopening or rerunning a saved scan doesn't pin the plugin version
+or guarantee that work interrupted by an update will resume. Check the [plugin
+changelog](https://learn.chatgpt.com/docs/security/plugin/changelog) before you update the plugin or
+start another deep scan.
+
 <VideoPlayer
   src="/videos/codex/security/deep-scan-progress.mp4"
   poster="/videos/codex/security/deep-scan-progress-poster.webp"
@@ -66,8 +76,8 @@ each reportable finding and a structural hardening portfolio when findings
 remain. Keep the linked `findings/` and `hardening/` directories with the
 report when sharing or archiving the result.
 
-Review the coverage summary before the findings. A deep scan searches the code
-more extensively, but any deferred surface or proof gap still limits the
+Review the coverage summary before the findings. Even a deep scan has limits,
+so check deferred surfaces and remaining proof gaps before drawing a
 conclusion. For a finding you accept, continue with [Fix and verify a
 finding](https://learn.chatgpt.com/docs/security/plugin/fix-findings).
 

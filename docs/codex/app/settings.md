@@ -1,5 +1,7 @@
 # Settings
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use the settings panel to personalize the app and manage everyday preferences.
 Open [**Settings**](codex://settings) from the app menu or press
 
@@ -54,8 +56,10 @@ code fonts. You can also share your custom theme with friends.
 
 ## Pets
 
-<div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(15rem,50%)] md:items-start xl:grid-cols-[minmax(0,1fr)_minmax(16rem,30%)]">
-  <div>
+
+
+  
+
     Pets are optional animated companions for the app. In **Settings > Pets**,
     choose a built-in or custom pet, then use `/pet`, **Wake Pet**, or
     **Tuck Away Pet** to control the floating overlay.
@@ -63,10 +67,12 @@ code fonts. You can also share your custom theme with friends.
     See [Pets](https://learn.chatgpt.com/docs/pets?surface=app) to understand pet status, follow
     activity across chats, or create your own pet.
 
-  </div>
+  
+
 
   <CodexPetsDemo client:load />
-</div>
+
+
 
 <a id="browser-use"></a>
 

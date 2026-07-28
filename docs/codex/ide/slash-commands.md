@@ -1,5 +1,7 @@
 # Developer commands
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use these commands to control Codex from the VS Code Command Palette. You can also bind them to keyboard shortcuts.
 
 ## Assign a key binding
@@ -17,7 +19,7 @@ To assign or change a key binding for a Codex command:
 | ------------------------- | ------------------------------------------ | ------------------------------------------------------- |
 | `chatgpt.addToThread`     | -                                          | Add selected text range as context for the current chat |
 | `chatgpt.addFileToThread` | -                                          | Add the entire file as context for the current chat     |
-| `chatgpt.newChat`         | macOS: `Cmd+N`<br/>Windows/Linux: `Ctrl+N` | Create a new chat                                       |
+| `chatgpt.newChat`         | macOS: `Cmd+N`<br />Windows/Linux: `Ctrl+N` | Create a new chat                                       |
 | `chatgpt.newCodexPanel`   | -                                          | Create a new Codex panel                                |
 | `chatgpt.openCommandMenu` | -                                          | Open the Codex command menu                             |
 | `chatgpt.openSidebar`     | -                                          | Open the Codex sidebar panel                            |

@@ -1,11 +1,13 @@
 # Developer commands
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## How to read this reference
 
 This page catalogs every documented Codex CLI command and flag. Use the interactive tables to search by key or description. Each section indicates whether the option is stable or experimental and calls out risky combinations.
 
-The CLI inherits most defaults from <code>~/.codex/config.toml</code>. Any
-  <code>-c key=value</code> overrides you pass at the command line take
+The CLI inherits most defaults from `~/.codex/config.toml`. Any
+  `-c key=value` overrides you pass at the command line take
   precedence for that invocation. See [Config
   basics](https://learn.chatgpt.com/docs/config-file/config-basic#configuration-precedence) for more
   information.

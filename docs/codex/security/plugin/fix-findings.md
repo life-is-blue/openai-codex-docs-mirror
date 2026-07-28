@@ -1,16 +1,20 @@
 # Fix and verify security findings
 
-Codex Security helps you turn a backlog of accepted findings into tested code
-changes. You can fix findings in the findings workspace UI or invoke the
-remediation workflow from a prompt, the command line, or CI/CD. In each case,
-Codex validates the issue, proposes a focused patch, adds regression coverage,
-and verifies that legitimate behavior still works.
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-Start by fixing one accepted finding so you can evaluate the patch and
-verification quality. Once the workflow meets your standards, scale it across
-more accepted findings by processing each finding in a separate task or CI/CD
-job. Keeping each fix scoped makes the code changes and evidence easier to
-review.
+Use Codex Security to turn an accepted security finding into a focused,
+verified patch. You can work in the findings workspace or run the remediation
+workflow from a prompt, the command line, or CI/CD. Codex validates the issue
+and, when testing is safe and practical, adds a focused regression test that
+fails before the fix and passes after it. It also checks that legitimate
+behavior still works. If a regression test is unsafe or infeasible, Codex
+records the proof gap and provides the strongest repeatable validation
+artifact instead.
+
+Start with one accepted finding and review the proposed patch and verification
+evidence. If the workflow meets your standards, process other accepted
+findings one at a time in separate Codex tasks or CI/CD jobs. Keeping each task
+scoped makes its code changes and evidence easier to review.
 
 ## Fix a finding in the UI
 
@@ -27,9 +31,10 @@ and verify its patch.
 
 2. Review the proposed diff
 
-   Read every changed source and regression-test file. Use **Open diff in
-   editor** when you want the full patch in the editor. Reject broad refactors,
-   unrelated cleanup, or changes that weaken another security control.
+   Read every changed source, regression test, and validation artifact. Select
+   **Open diff in editor** to review the full patch in your editor. Reject
+   broad refactors, unrelated cleanup, or changes that weaken another security
+   control.
 
 3. Apply the patch locally
 
@@ -39,9 +44,12 @@ and verify its patch.
 
 4. Verify the fix
 
-   Select **Verify fix**. Codex reruns the original reproducer or strongest
-   available exploit check, focused regression coverage, legitimate-behavior
-   checks, nearby bypass checks, and relevant repository tests.
+   Select **Verify fix**. Codex reruns the original reproducer or the strongest
+   available exploit check. If a regression test is safe and practical, Codex
+   checks that it fails before the fix and passes after it. If the test is
+   unsafe or infeasible, Codex records the proof gap and provides the
+   strongest repeatable validation artifact instead. It also checks
+   legitimate behavior, nearby bypasses, and relevant repository tests.
 
 5. Close the finding deliberately
 
@@ -52,13 +60,15 @@ and verify its patch.
 </WorkflowSteps>
 
 <figure className="not-prose my-8">
-  <div className="overflow-hidden rounded-xl border border-subtle bg-surface">
+  
+
     <img
       src={fixFindingPatch.src}
       alt="Codex Security proposed patch for an accepted finding"
       className="block h-auto w-full"
     />
-  </div>
+  
+
   <figcaption className="mt-3 text-sm text-secondary">
     Review the proposed source and test changes before applying the patch
     locally.
@@ -67,56 +77,72 @@ and verify its patch.
 
 ## Fix a finding from the CLI
 
-Use the Codex CLI when you already have a finding from a scan, ticket, advisory,
-disclosure, security assessment, or internal review:
+Use the Codex CLI for an accepted finding from a scan, ticket, advisory,
+disclosure, security assessment, or internal review.
 
-The commands below assume Codex Security is already installed in the
-`CODEX_HOME` used by `codex exec`. A fresh CI runner doesn't have marketplace
-plugins installed by default.
+Install Codex Security in the `CODEX_HOME` that `codex exec` uses before you
+run these commands. A fresh CI runner doesn't include marketplace plugins by
+default.
 
 ```text
-Use $codex-security:fix-finding to fix finding <finding-id> from <report-path>. Validate the issue, make the smallest safe change, add focused regression coverage, and verify that the issue no longer reproduces.
+Use $codex-security:fix-finding to fix finding <finding-id> from <report-path>. Validate the issue, make the smallest safe change, and add a focused regression test that fails before the fix and passes after it. If that test is unsafe or infeasible, record the proof gap and provide the strongest repeatable validation artifact instead. Verify that the issue no longer reproduces.
 ```
 
 Include the known source, sink, attacker input, impact, expected invariant,
 reproducer, affected files, and validation command. Codex can inspect the
-repository for missing technical details, but it should ask before guessing a
+repository for missing technical details. It should ask before assuming a
 product policy or intended security invariant.
 
-For an automated run, pass the prompt to `codex exec` after checking out the
-code, making the finding report available, and provisioning the plugin in that
-`CODEX_HOME`:
+For an automated run, check out the code, make the finding report available,
+and install the plugin in the runner's `CODEX_HOME`. Then enable workspace
+writes and pass the prompt to `codex exec`:
 
 ```bash
-codex exec 'Use $codex-security:fix-finding to fix finding <finding-id> from <report-path>. Validate the issue, make the smallest safe change, add focused regression coverage, and verify that the issue no longer reproduces.'
+codex exec --sandbox workspace-write 'Use $codex-security:fix-finding to fix finding <finding-id> from <report-path>. Validate the issue, make the smallest safe change, and add a focused regression test that fails before the fix and passes after it. If that test is unsafe or infeasible, record the proof gap and provide the strongest repeatable validation artifact instead. Verify that the issue no longer reproduces.'
 ```
 
 ## Scan and fix findings in CI/CD
 
-Provision Codex Security in the runner's `CODEX_HOME` before invoking these
-skills. The command below uses the installed plugin; it doesn't install the
-plugin itself.
+Install Codex Security in the runner's `CODEX_HOME` before you invoke either
+skill. The commands below use the installed plugin; they don't install it.
 
-In CI/CD, use one Codex run to scan the diff and generate fixes for every
-finding it discovers. The job doesn't need finding IDs or report paths as
-inputs. Codex carries the findings from the scan into remediation within the
-same run.
+In CI/CD, separate the change scan from remediation and require the scan to
+leave the checkout unchanged. Preserve the completed scan directory as a job
+artifact, review the findings, and start a separate Codex task or job for each
+finding accepted for remediation.
 
-The all-in-one run should:
+By default, `codex exec` uses a read-only sandbox. Run both the change scan and
+remediation with `--sandbox workspace-write`. The scan needs that permission
+to save temporary artifacts, but its prompt must still require `Do not modify
+the checkout`. Remediation needs the same permission to write the focused
+patch and verification evidence. See [Permissions and
+safety](https://learn.chatgpt.com/docs/non-interactive-mode#permissions-and-safety).
+
+For each scan and accepted finding:
 
 1. Resolve the base and head revisions for the change.
-2. Run `$codex-security:security-diff-scan` against that diff.
-3. Invoke `$codex-security:fix-finding` for every finding returned by the scan.
-4. Generate focused patches and regression coverage, then verify each fix.
-5. Return the scan results, patches, tests, verification commands, and any
-   finding it couldn't fix.
+2. Run `$codex-security:security-diff-scan` against that diff without modifying
+   the checkout.
+3. Preserve the complete scan directory and select the findings to fix.
+4. Invoke `$codex-security:fix-finding` once for each accepted finding, passing
+   its finding ID and completed scan directory.
+5. Generate one focused patch and add a regression test that fails before the
+   fix and passes after it. If that test is unsafe or infeasible, record the
+   proof gap and use the strongest repeatable validation artifact instead.
+6. Verify the original issue and legitimate behavior. Return each patch, test
+   or fallback validation artifact, verification command, and any proof gap
+   independently.
 
 For example:
 
 ```bash
-codex exec 'Use $codex-security:security-diff-scan to review changes from <base-revision> to HEAD. For every finding returned by the scan, use $codex-security:fix-finding to generate and verify a minimal fix. Continue until every finding has either a verified fix or an explicit explanation of why it could not be fixed. Return the scan results, patches, tests, verification commands, and remaining failures.'
+codex exec --sandbox workspace-write 'Use $codex-security:security-diff-scan to review changes from <base-revision> to <head-revision> for security regressions. Do not modify the checkout.'
+
+codex exec --sandbox workspace-write 'Use $codex-security:fix-finding to fix finding <finding-id> from <completed-scan-directory>. Validate the finding, generate one minimal patch, and add a focused regression test that fails before the fix and passes after it. If that test is unsafe or infeasible, record the proof gap and provide the strongest repeatable validation artifact instead. Verify that the issue no longer reproduces.'
 ```
 
-After verification, merge the patch through your normal code-review and release
-process. To hand findings to another team before remediation, see [Export or
-track findings](https://learn.chatgpt.com/docs/security/plugin/export-findings).
+Repeat the second command in an independent task or job for each remaining
+accepted finding. After verification, merge each patch through your normal
+code-review and release process. To hand findings to another team before
+remediation, see [Export or track
+findings](https://learn.chatgpt.com/docs/security/plugin/export-findings).

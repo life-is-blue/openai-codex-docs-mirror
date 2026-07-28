@@ -1,5 +1,7 @@
 # Codex SDK
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 If you use Codex through Codex CLI, the IDE extension, or Codex cloud, you can also control it programmatically.
 
 Use the SDK when you need to:

@@ -1,22 +1,25 @@
 # Codex Micro
 
-<div class="grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-10">
-  <div class="min-w-0 [&_p]:!mt-0">
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
 Codex Micro is a limited-run collaboration between Codex and Work Louder. It
 works with the ChatGPT desktop app, giving you a quick way to check on chats,
 jump between them, use push-to-talk, and trigger common actions or skills
 without leaving the keyboard.
 
-  </div>
-  <div class="min-w-0">
+  
+
+  
+
     <Illustration description="Interactive Codex Micro keyboard with illuminated Agent Keys, customizable Command Keys, a dial, and an analog stick">
       <CodexMicroKeyboardIllustration
         ariaLabel="Interactive Codex Micro keyboard with illuminated Agent Keys, customizable Command Keys, a dial, and an analog stick"
       />
     </Illustration>
-  </div>
-</div>
+  
+
+
+
 
 ## Set up Codex Micro
 
@@ -76,8 +79,10 @@ follow, but you can't turn them into extra Command Keys.
 
 Codex Micro comes with six actions in its default layout:
 
-<div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(16rem,42%)] md:items-start">
-  <div class="min-w-0 [&_table]:!mt-0 [&_td:first-child]:!px-2 [&_th:first-child]:!px-2 md:order-2">
+
+
+  
+
 
 |                            Key                            | Default action                           |
 | :-------------------------------------------------------: | ---------------------------------------- |
@@ -88,8 +93,10 @@ Codex Micro comes with six actions in its default layout:
 |   <CodexMicroTableKeycap keycapId="MIC" label="Mic" />    | Start push-to-talk.                      |
 | <CodexMicroTableKeycap keycapId="CODEX" label="Codex" />  | Send the message in the composer.        |
 
-  </div>
-  <div class="min-w-0 md:order-1">
+  
+
+  
+
 
 The Mic key uses your computer's microphone. Codex Micro doesn't have a
 microphone of its own. Hold the key while you speak, then release it to stop.
@@ -108,13 +115,17 @@ somewhere else, ChatGPT swaps the two instead of using one keycap twice.
 
 After you remap a key, swap the physical keycap to match its new action.
 
-  </div>
-</div>
+  
+
+
+
 
 ## Use the analog stick and dial
 
-<div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(16rem,42%)] md:items-start">
-  <div class="min-w-0">
+
+
+  
+
 
 The analog stick moves freely in any direction. When you push it far enough
 from the center, ChatGPT turns the movement into one of four directional
@@ -123,8 +134,10 @@ actions. Codex Micro starts with the mappings shown here.
 Choose any available ChatGPT desktop command or enabled skill for each
 direction in **Settings > Codex Micro**.
 
-  </div>
-  <div class="min-w-0 [&_table]:!mt-0">
+  
+
+  
+
 
 | Direction | Default action             |
 | --------- | -------------------------- |
@@ -133,8 +146,10 @@ direction in **Settings > Codex Micro**.
 | Down      | Show or hide the sidebar.  |
 | Left      | Go back in app history.    |
 
-  </div>
-</div>
+  
+
+
+
 
 The dial moves through the composer controls and options, with **Reasoning**
 selected by default. Turn the dial to change the selection, then press it to

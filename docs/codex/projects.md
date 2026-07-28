@@ -1,5 +1,7 @@
 # Projects and chats
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use a project to organize related chats and give ChatGPT the context it needs.
 The **Projects** view in the ChatGPT desktop app includes ChatGPT projects and
 local projects that connect to folders on your computer.

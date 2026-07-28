@@ -1,5 +1,7 @@
 # Auto-review
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Auto-review replaces manual approval at the sandbox boundary with a separate
 reviewer agent. The main Codex agent still runs inside the same sandbox, with
 the same approval policy and the same network and filesystem limits. The

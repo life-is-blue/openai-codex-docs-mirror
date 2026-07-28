@@ -1,5 +1,7 @@
 # Governance
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Governance for Codex activity spans interactive analytics, programmatic
 reporting, related ChatGPT usage controls, and audit records. Choose the
 surface that matches the question; analytics and compliance data serve

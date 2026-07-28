@@ -1,5 +1,7 @@
 # Deploy the Windows app
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Users can install the ChatGPT desktop app themselves, or your IT team can
 deploy it with an enterprise management tool. The app is Store-signed, but
 users don't need to open the Microsoft Store to install or update it.

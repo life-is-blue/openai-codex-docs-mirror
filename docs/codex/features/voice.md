@@ -1,5 +1,7 @@
 # ChatGPT Voice
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Powered by GPT-Live, ChatGPT Voice lets you talk through ideas and coordinate
 tasks in Chat, Work, and Codex in the ChatGPT desktop app. Start work, check
 progress, or change direction without switching back to typing.

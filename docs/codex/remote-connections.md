@@ -1,5 +1,7 @@
 # Remote connections
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Remote connections let you access work running on another device or machine.
 In the ChatGPT mobile app, open **Remote** to work with ChatGPT or Codex chats on
 a connected Mac or Windows device. You can also continue work from another
@@ -22,7 +24,8 @@ The next sections cover opening **Remote** in the ChatGPT mobile app to access a
 desktop host. To connect Codex to a project on an SSH host, see
 [connect to an SSH host](#connect-to-an-ssh-host).
 
-<div class="not-prose my-6 max-w-4xl rounded-xl bg-[url('/images/codex/codex-wallpaper-1.webp')] bg-cover bg-center p-4 md:p-8">
+
+
   <CodexScreenshot
     alt="Remote setup screen in the ChatGPT mobile app"
     lightSrc="/images/codex/app/mobile-setup-light.webp"
@@ -31,7 +34,8 @@ desktop host. To connect Codex to a project on an SSH host, see
     maxHeight="none"
     maxWidth="420px"
   />
-</div>
+
+
 
 <a id="before-you-set-up-mobile-access"></a>
 
@@ -108,7 +112,13 @@ Existing connections used since June 8, 2026, remain paired. If you haven't
 Start with the laptop or desktop where you already use ChatGPT. Add an always-on
 computer or SSH host when you need continuous access or a different environment.
 
-### <span class="not-prose inline-flex items-center gap-3 align-middle"><span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-secondary text-secondary"><Desktop width={17} height={17} /></span><span>Your laptop or desktop</span></span>
+### 
+
+<Desktop width={17} height={17} />
+
+Your laptop or desktop
+
+
 
 Connect the Mac or Windows PC where the desktop app is already installed. This
 gives remote access to the same projects, chats, credentials, plugins, and local
@@ -128,7 +138,13 @@ On a Windows host, keep the session unlocked and available for tasks that use
 foreground, so remote control is best for starting or checking work while you
 dedicate the host desktop to the task.
 
-### <span class="not-prose inline-flex items-center gap-3 align-middle"><span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-secondary text-secondary"><Storage width={17} height={17} /></span><span>A dedicated always-on computer</span></span>
+### 
+
+<Storage width={17} height={17} />
+
+A dedicated always-on computer
+
+
 
 Use a dedicated always-on Mac or Windows PC when you want ChatGPT to stay
 reachable for longer-running work.
@@ -136,7 +152,13 @@ reachable for longer-running work.
 Install the projects, credentials, MCP servers, skills, and tools ChatGPT or
 Codex should use on that machine.
 
-### <span class="not-prose inline-flex items-center gap-3 align-middle"><span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-surface-secondary text-secondary"><Terminal width={17} height={17} /></span><span>A remote development environment</span></span>
+### 
+
+<Terminal width={17} height={17} />
+
+A remote development environment
+
+
 
 Use an SSH host or managed remote development environment when the project
 already lives in a remote environment. Connect the desktop app host to that
@@ -200,21 +222,21 @@ unauthenticated public listeners.
 
 1. Add the host to your SSH config so Codex can auto-discover it.
 
-   ```text
+```text
    Host devbox
      HostName devbox.example.com
      User you
      IdentityFile ~/.ssh/id_ed25519
-   ```
+```
 
    Codex reads concrete host aliases from `~/.ssh/config`, resolves them with
    OpenSSH, and ignores pattern-only hosts.
 
 2. Confirm you can SSH to the host from the machine running the app.
 
-   ```bash
+```bash
    ssh devbox
-   ```
+```
 
 3. Install and authenticate Codex on the remote host.
 

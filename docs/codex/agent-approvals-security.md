@@ -1,5 +1,7 @@
 # Agent approvals & security
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Codex helps protect your code and data and reduces the risk of misuse.
 
 This page covers how to operate Codex safely, including sandboxing, approvals,

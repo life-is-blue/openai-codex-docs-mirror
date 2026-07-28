@@ -1,5 +1,7 @@
 # Open Source
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 OpenAI develops key parts of Codex in the open. That work lives on GitHub so you can follow progress, report issues, and contribute improvements.
 
 If you maintain a widely used open-source project or want to nominate maintainers stewarding important projects, you can also [apply to the Codex for OSS program](https://developers.openai.com/community/codex-for-oss) for API credits, ChatGPT Pro with Codex, and selective access to Codex Security.

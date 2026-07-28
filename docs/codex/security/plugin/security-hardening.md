@@ -1,5 +1,7 @@
 # Propose security hardening
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use `$codex-security:propose-security-hardening` to turn a collection of
 security evidence into structural or architectural hardening options. The
 workflow can analyze a completed Codex Security scan or start from supplied

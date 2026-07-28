@@ -1,5 +1,7 @@
 # CLI customization
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The Codex CLI provides terminal-specific options for how interactive sessions
 look and how you enter commands and prompts.
 

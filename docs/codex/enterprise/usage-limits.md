@@ -1,5 +1,7 @@
 # ChatGPT usage limits and spend controls
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ChatGPT workspace usage limits and spend controls apply to eligible activity
 under the plan for the workspace. Depending on the plan, this can include some
 Codex activity. These controls aren't a universal Codex limit system and don't

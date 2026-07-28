@@ -1,5 +1,7 @@
 # Improving the threat model
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Learn what a threat model is and how editing it improves Codex Security's suggestions.
 
 ## What a threat model is

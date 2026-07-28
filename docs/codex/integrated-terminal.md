@@ -1,5 +1,7 @@
 # Integrated terminal
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Each chat in the ChatGPT desktop app includes a terminal scoped to its current project or
 worktree. Open it from the terminal icon in the top-right corner of the app, or
 press <kbd>Ctrl</kbd>+<kbd>`</kbd>.

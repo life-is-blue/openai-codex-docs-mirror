@@ -1,5 +1,7 @@
 # Scheduled tasks
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Schedule recurring tasks to run in the background. Review active, paused, and
 completed tasks and recent runs in **Scheduled**. You can combine scheduled
 tasks with [skills](https://learn.chatgpt.com/docs/build-skills) for more complex work.

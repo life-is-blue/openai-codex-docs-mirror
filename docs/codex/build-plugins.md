@@ -1,13 +1,17 @@
 # Build plugins
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 To build or submit a plugin, use the complete
 [builder documentation on developers.openai.com](https://developers.openai.com/plugins).
 
-<div className="not-prose my-6">
+
+
   <ButtonLink href="/plugins" color="primary" variant="solid" size="lg">
     Build and submit a plugin
   </ButtonLink>
-</div>
+
+
 
 This page provides a brief introduction. A plugin is an installable package
 that can include skills, an MCP server, or both. An MCP server can also return

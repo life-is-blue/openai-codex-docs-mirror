@@ -1,5 +1,7 @@
 # Use ChatGPT
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 {/* vale alex.Condescending = NO */}
 
 ## Go from idea to useful result
@@ -184,25 +186,31 @@ Legal, financial, medical, security, and other high-stakes decisions require
 
 ## Next steps
 
-<div class="not-prose flex flex-col gap-4 pt-4 [&_.icon-item-right]:min-w-0 [&>a]:min-w-0 [&>a]:no-underline">
-  [<IconItem title="Open the quickstart">
-      <span slot="icon">
+
+a]:min-w-0 [&>a]:no-underline">
+  [Open the quickstart
+
+
+
         <OpenBook />
-      </span>
-      Start using ChatGPT with a guided first task.
-    </IconItem>](https://learn.chatgpt.com/docs/quickstart)
+      
 
-[<IconItem title="Learn about prompting">
-    <span slot="icon">
+      Start using ChatGPT with a guided first task.](https://learn.chatgpt.com/docs/quickstart)
+
+[Learn about prompting
+
+
+
       <Chat />
-    </span>
-    Write useful prompts for questions, finished work, and coding tasks.
-  </IconItem>](https://learn.chatgpt.com/docs/prompting)
+    
 
-  [<IconItem title="Personalize ChatGPT">
-      <span slot="icon">
+    Write useful prompts for questions, finished work, and coding tasks.](https://learn.chatgpt.com/docs/prompting)
+
+  [Personalize ChatGPT
+
+
+
         <Settings />
-      </span>
-      Set preferences and carry useful context across chats.
-    </IconItem>](https://learn.chatgpt.com/docs/personalize)
-</div>
+      
+
+      Set preferences and carry useful context across chats.](https://learn.chatgpt.com/docs/personalize)

@@ -1,5 +1,7 @@
 # Record & Replay
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Record & Replay is available on macOS. Initial availability excludes the
   European Economic Area, the United Kingdom, and Switzerland. Computer Use must
   also be available and enabled.

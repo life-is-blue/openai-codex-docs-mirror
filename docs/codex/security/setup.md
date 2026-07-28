@@ -1,5 +1,7 @@
 # Codex Security cloud setup
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 This page walks you from initial access to reviewed findings and remediation
 pull requests in Codex Security cloud.
 
@@ -23,13 +25,15 @@ Go to [Codex environments](https://chatgpt.com/codex/settings/environments) and 
   class="my-8"
 />
 
-<div class="not-prose my-8 max-w-6xl overflow-hidden rounded-xl border border-subtle bg-surface">
+
+
   <img
     src={createEnvironment.src}
     alt="Codex environments"
     class="block h-auto w-full"
   />
-</div>
+
+
 
 ## 2. New security scan
 
@@ -53,13 +57,15 @@ To configure a repository:
 5. Choose a **history window**. Longer windows provide more context, but backfill takes longer.
 6. Click **Create**.
 
-<div class="not-prose my-8 max-w-6xl overflow-hidden rounded-xl border border-subtle bg-surface">
+
+
   <img
     src={createScan.src}
     alt="Create a security scan"
     class="block h-auto w-full"
   />
-</div>
+
+
 
 ## 3. Initial scans can take a while
 
@@ -79,13 +85,15 @@ Initial scan setup is automatic and thorough. This can take a few hours. Don’t
   class="my-8"
 />
 
-<div class="not-prose my-8 max-w-6xl overflow-hidden rounded-xl border border-subtle bg-surface">
+
+
   <img
     src={reviewThreatModel.src}
     alt="Threat model editor in Codex Security"
     class="block h-auto w-full"
   />
-</div>
+
+
 
 When the initial scan finishes, open the scan and review the threat model that was generated.
 After initial findings appear, update the threat model so it matches your architecture, trust boundaries, and business context.

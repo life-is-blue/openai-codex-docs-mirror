@@ -1,5 +1,7 @@
 # Workspace analytics
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use ChatGPT workspace analytics for broad workspace adoption. Use Codex
 analytics for Codex-focused reporting. Use the Analytics API for programmatic
 aggregates and the Compliance API for auditable records.

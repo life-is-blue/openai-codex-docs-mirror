@@ -1,5 +1,7 @@
 # Import from another agent
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use the import flow to bring your instructions, settings, skills, plugins,
 projects, and recent work from other agents into the ChatGPT desktop app. The
 app imports supported items directly and lets you finish setup for any imported

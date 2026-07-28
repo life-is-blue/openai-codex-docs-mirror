@@ -1,5 +1,7 @@
 # Use Codex in Linear
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use Codex in Linear to delegate work from issues. Assign an issue to Codex or mention `@Codex` in a comment, and Codex creates a cloud chat and replies with progress and results.
 
 Codex in Linear is available on paid plans (see [Pricing](https://learn.chatgpt.com/docs/pricing)).
@@ -20,7 +22,8 @@ You can delegate in two ways:
 
 After you install the integration, you can assign issues to Codex the same way you assign them to teammates. Codex starts work and posts updates back to the issue.
 
-<div class="not-prose max-w-3xl mr-auto my-4">
+
+
   <img src="https://developers.openai.com/images/codex/integrations/linear-assign-codex-light.webp"
     alt="Assigning Codex to a Linear issue (light mode)"
     class="block h-auto w-full rounded-lg border border-default my-0 dark:hidden"
@@ -29,13 +32,15 @@ After you install the integration, you can assign issues to Codex the same way y
     alt="Assigning Codex to a Linear issue (dark mode)"
     class="hidden h-auto w-full rounded-lg border border-default my-0 dark:block"
   />
-</div>
+
+
 
 ### Mention `@Codex` in comments
 
 You can also mention `@Codex` in comment threads to delegate work or ask questions. After Codex replies, follow up in the thread to continue the same chat.
 
-<div class="not-prose max-w-3xl mr-auto my-4">
+
+
   <img src="https://developers.openai.com/images/codex/integrations/linear-comment-light.webp"
     alt="Mentioning Codex in a Linear issue comment (light mode)"
     class="block h-auto w-full rounded-lg border border-default my-0 dark:hidden"
@@ -44,7 +49,8 @@ You can also mention `@Codex` in comment threads to delegate work or ask questio
     alt="Mentioning Codex in a Linear issue comment (dark mode)"
     class="hidden h-auto w-full rounded-lg border border-default my-0 dark:block"
   />
-</div>
+
+
 
 After Codex starts working on an issue, it [chooses an environment and repo](#how-codex-chooses-an-environment-and-repo) to work in.
 To pin a specific repo, include it in your comment, for example: `@Codex fix this in openai/codex`.
@@ -74,7 +80,8 @@ You can assign issues to Codex automatically using triage rules:
 Linear assigns new issues that enter triage to Codex automatically.
 When you use triage rules, Codex runs chats using the account of the issue creator.
 
-<div class="not-prose max-w-3xl mr-auto my-4">
+
+
   <img src="https://developers.openai.com/images/codex/integrations/linear-triage-rule-light.webp"
     alt='Screenshot of an example triage rule assigning everything to Codex and labeling it in the "Triage" status (light mode)'
     class="block h-auto w-full rounded-lg border border-default my-0 dark:hidden"
@@ -83,7 +90,8 @@ When you use triage rules, Codex runs chats using the account of the issue creat
     alt='Screenshot of an example triage rule assigning everything to Codex and labeling it in the "Triage" status (dark mode)'
     class="hidden h-auto w-full rounded-lg border border-default my-0 dark:block"
   />
-</div>
+
+
 
 ## Data usage, privacy, and security
 

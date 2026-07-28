@@ -1,5 +1,7 @@
 # Image generation
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Ask ChatGPT to generate or edit images. Use image generation for UI assets,
 banners, backgrounds, illustrations, sprite sheets, and placeholders you want
 to create alongside code or in a ChatGPT chat.
@@ -140,9 +142,11 @@ the asset in a design tool when needed.
 - [Work with files](https://learn.chatgpt.com/docs/artifacts-viewer)
 - [Creating images with ChatGPT](https://openai.com/academy/image-generation/)
 
-[<IconItem title="Image generation gallery" className="mt-4">
-    <span slot="icon">
+[Image generation gallery
+
+
+
       <Images />
-    </span>
-    Explore more image generation prompts and results.
-  </IconItem>](https://developers.openai.com/api/docs/guides/image-generation?gallery=open)
+    
+
+    Explore more image generation prompts and results.](https://developers.openai.com/api/docs/guides/image-generation?gallery=open)

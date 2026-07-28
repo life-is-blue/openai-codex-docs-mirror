@@ -1,5 +1,7 @@
 # Long-running work
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 For work that may take many steps, give ChatGPT a clear outcome, constraints,
 and definition of done. Keep related work in the same chat so
 ChatGPT can use the same context to choose the next step and decide when the

@@ -1,5 +1,7 @@
 # Plugins
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Overview
 
 Plugins bundle capabilities into reusable workflows in ChatGPT and Codex. They
@@ -133,31 +135,49 @@ After you install a plugin, you can use it directly in the prompt window:
 
 
 
-<div class="not-prose mt-4 grid gap-4 md:grid-cols-2">
-  <div class="rounded-xl border border-subtle bg-surface px-5 py-4">
-    <p class="text-sm font-semibold text-default">Describe the task directly</p>
-    <p class="mt-2 text-sm text-secondary">
+
+
+  
+
+    
+Describe the task directly
+
+    
+
       Ask for the outcome you want, such as "Summarize unread Gmail threads
       from today" or "Pull the latest launch notes from Google Drive."
-    </p>
-    <p class="mt-3 text-sm text-secondary">
+    
+
+    
+
       Use this when you want ChatGPT to choose the right installed tools for the
       task.
-    </p>
-  </div>
+    
 
-  <div class="rounded-xl border border-subtle bg-surface px-5 py-4">
-    <p class="text-sm font-semibold text-default">Choose a specific plugin</p>
-    <p class="mt-2 text-sm text-secondary">
-      Type <code>@</code> to invoke the plugin or one of its bundled skills
+  
+
+
+  
+
+    
+Choose a specific plugin
+
+    
+
+      Type `@` to invoke the plugin or one of its bundled skills
       explicitly.
-    </p>
-    <p class="mt-3 text-sm text-secondary">
+    
+
+    
+
       Use this when you want to be specific about which plugin or skill ChatGPT
-      should use. See <a href="/codex/skills-and-plugins">Skills & Plugins</a>.
-    </p>
-  </div>
-</div>
+      should use. See [Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins).
+    
+
+  
+
+
+
 
 
 

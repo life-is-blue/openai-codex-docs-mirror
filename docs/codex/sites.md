@@ -1,5 +1,7 @@
 # Sites
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Sites is in public beta. Availability can depend on your plan, region, and
   workspace settings. Plan-specific usage limits apply across all Sites during
   the beta. ChatGPT shows the current limits and notifies you as you approach

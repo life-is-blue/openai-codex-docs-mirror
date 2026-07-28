@@ -1,5 +1,7 @@
 # Notifications
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Notifications let you know when work needs attention. Their controls and
 delivery channels vary by surface.
 

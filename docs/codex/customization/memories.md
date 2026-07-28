@@ -1,5 +1,7 @@
 # Memories
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Memories let ChatGPT and Codex carry useful context from earlier work into
 future work.
 ChatGPT web uses ChatGPT memory, while local Codex clients use a separate local

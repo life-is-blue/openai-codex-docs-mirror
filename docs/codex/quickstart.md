@@ -1,5 +1,7 @@
 # Quickstart
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Where to use ChatGPT
 
 Use ChatGPT across different surfaces, including the
@@ -26,7 +28,8 @@ If you're a developer and want to use Codex in your terminal or code editor,
     { id: "web", label: "Web" },
   ]}
 >
-  <div slot="app">
+  
+
 The ChatGPT desktop app is available for Windows and macOS. Use it for projects,
 local files, longer tasks, and quick chats.
 
@@ -50,9 +53,11 @@ local files, longer tasks, and quick chats.
 
 4.  <h3 id="setup-app-start-task">Start a chat</h3>
 
-            <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] md:items-start">
+            
 
-          <div>
+
+          
+
 
                 - For research, analysis, or deliverables such as documents, presentations,
                   spreadsheets, and Sites, select **ChatGPT**, then switch to **Work** at the
@@ -65,11 +70,13 @@ local files, longer tasks, and quick chats.
 
                 Learn more about [using ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt).
 
-              </div>
+              
+
 
           <ChatGPTModeDropdown client:load />
 
-    </div>
+    
+
 
 5.  <h3 id="setup-app-send-message">Send your first message</h3>
 
@@ -102,9 +109,11 @@ local files, longer tasks, and quick chats.
 
 </WorkflowSteps>
 
-  </div>
+  
 
-  <div slot="web">
+
+  
+
 ChatGPT is available on the web and includes Chat and ChatGPT Work.
 
 <WorkflowSteps variant="headings">
@@ -114,9 +123,11 @@ Go to [chatgpt.com](https://chatgpt.com) and sign in with your ChatGPT account.
 
 2.  <h3 id="setup-web-start-task">Start a chat</h3>
 
-            <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] md:items-stretch">
+            
 
-          <div>
+
+          
+
 
                 - Select **Chat** to ask questions, explore ideas, and work through a topic
                   conversationally.
@@ -125,11 +136,13 @@ Go to [chatgpt.com](https://chatgpt.com) and sign in with your ChatGPT account.
 
                 Learn more about [using ChatGPT](https://learn.chatgpt.com/docs/use-chatgpt).
 
-              </div>
+              
+
 
           <ChatWorkSegmentPicker client:load />
 
-    </div>
+    
+
 
 3.  <h3 id="setup-web-select-workspace">Select where ChatGPT should work</h3>
 
@@ -166,20 +179,27 @@ Go to [chatgpt.com](https://chatgpt.com) and sign in with your ChatGPT account.
 
 </WorkflowSteps>
 
-  </div>
+  
+
 
 </Tabs>
-<div class="h-6" aria-hidden="true"></div>
+
+
+
 ## Next steps
-[<IconItem title="Learn more about the ChatGPT desktop app" className="mt-2">
-    <span slot="icon">
+[Learn more about the ChatGPT desktop app
+
+
+
       <OpenBook />
-    </span>
-    Use the ChatGPT desktop app to work with your local projects.
-  </IconItem>](https://learn.chatgpt.com/docs/app)
-[<IconItem title="Import your setup" className="mt-2">
-    <span slot="icon">
+    
+
+    Use the ChatGPT desktop app to work with your local projects.](https://learn.chatgpt.com/docs/app)
+[Import your setup
+
+
+
       <CompareArrows />
-    </span>
-    Bring supported setup, projects, and recent work into ChatGPT.
-  </IconItem>](https://learn.chatgpt.com/docs/import)
+    
+
+    Bring supported setup, projects, and recent work into ChatGPT.](https://learn.chatgpt.com/docs/import)

@@ -1,5 +1,7 @@
 # Work with files
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 When a task produces a file, give ChatGPT the source data, expected file type,
 structure, and review criteria that matter for the task. The preview and review
 tools depend on the surface you use.
@@ -38,7 +40,9 @@ slide sections, and checks you expect. Ask ChatGPT to explain where it saved the
 output and how it checked the result.
 
 <a id="refine-files-with-annotations"></a>
-<span id="follow-artifact-work"></span>
+
+
+
 <a id="review-and-refine-files"></a>
 
 

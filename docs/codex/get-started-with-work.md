@@ -1,5 +1,7 @@
 # Get started with ChatGPT Work
 
+> For the complete documentation index, see [llms.txt](https://learn.chatgpt.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 <VideoPlayer src="https://cdn.openai.com/devhub/superapp-video-v1.mp4" />
 
 <a id="introducing-work-mode"></a>
